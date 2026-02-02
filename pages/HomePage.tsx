@@ -1,8 +1,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { Review } from '../types';
-
+import { Review } from '../types.ts';
 
 function useIsVisible(ref: React.RefObject<HTMLElement>) {
   const [isIntersecting, setIntersecting] = useState(false);
@@ -42,20 +41,8 @@ const HomePage: React.FC<{ reviews: Review[] }> = ({ reviews }) => {
 
   return (
     <div className="bg-white overflow-x-hidden">
-        <title>
-          Online O Level & A Level Tutors | Trusted Online Tuition for Kids – XPM Tutors
-        </title>
-
-        <meta
-          name="description"
-          content="XPM Tutors provides expert online O Level and A Level tuition for kids. Hire trusted tutors for Physics, Maths, Chemistry & more. Serving UK, UAE & Pakistan."
-        />
-
-        <link rel="canonical" href="https://www.xpmtutors.com/" />
-      
-
       {/* Hero Section - SEO Optimized H1 */}
-      <section className="relative py-20 lg:py-32 overflow-hidden bg-slate-50">
+      <section className="relative py-16 lg:py-32 overflow-hidden bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="text-center lg:text-left">
@@ -67,31 +54,31 @@ const HomePage: React.FC<{ reviews: Review[] }> = ({ reviews }) => {
                 <span className="text-[10px] font-black uppercase tracking-widest text-xpm-blue">Enrollments Open for 2025 Sessions</span>
               </div>
               
-              {/* SEO Primary Keyword in H1 */}
-              <h1 className="text-5xl lg:text-7xl font-black tracking-tighter text-slate-900 mb-8 leading-none">
-                Online <span className="text-xpm-blue">O Level & A Level</span> Tutors for Physics & Maths| Trusted Gobal Tutions
+              <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black tracking-tighter text-slate-900 mb-6 lg:mb-8 leading-none">
+                Online <span className="text-xpm-blue">O Level & A Level</span> Tutors for Physics & Maths
               </h1>
               
-              <h2 className="text-xl text-slate-600 mb-12 max-w-xl mx-auto lg:mx-0 leading-relaxed font-medium">
-                Master Science & Logic with XPM Tutors. Elite tutoring for <span className="text-slate-900 font-bold">IGCSE, SAT, NET, and PMA</span> aspirants across 20+ countries including UK, UAE, and Pakistan.
+              <h2 className="text-lg sm:text-xl text-slate-600 mb-10 lg:mb-12 max-w-xl mx-auto lg:mx-0 leading-relaxed font-medium">
+                Master Science & Logic with XPM Tutors. Elite tutoring for <span className="text-slate-900 font-bold">IGCSE, SAT, NET, and PMA</span> aspirants across 20+ countries.
               </h2>
 
-              <div className="flex flex-col sm:flex-row justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
+              <div className="flex flex-col sm:flex-row justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4 mb-12 lg:mb-0">
                 <Link 
                   to="/hire-teacher" 
-                  className="px-10 py-5 bg-xpm-orange text-white font-black rounded-2xl shadow-xl shadow-xpm-orange/20 hover:bg-orange-600 transition transform hover:-translate-y-1 text-center text-lg"
+                  className="px-10 py-4 lg:py-5 bg-xpm-orange text-white font-black rounded-2xl shadow-xl shadow-xpm-orange/20 hover:bg-orange-600 transition transform hover:-translate-y-1 text-center text-lg"
                 >
                   Book Expert Tutor
                 </Link>
                 <Link 
                   to="/signup" 
-                  className="px-10 py-5 bg-white text-xpm-blue border-2 border-xpm-blue/10 font-black rounded-2xl hover:bg-slate-50 transition text-center shadow-sm text-lg"
+                  className="px-10 py-4 lg:py-5 bg-white text-xpm-blue border-2 border-xpm-blue/10 font-black rounded-2xl hover:bg-slate-50 transition text-center shadow-sm text-lg"
                 >
                   Join Student Portal
                 </Link>
               </div>
             </div>
 
+            {/* Desktop Vertical Review Column */}
             <div className="hidden lg:block relative h-[600px] overflow-hidden group">
               <div className="absolute top-0 inset-x-0 h-32 bg-gradient-to-b from-slate-50 to-transparent z-20"></div>
               <div className="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-t from-slate-50 to-transparent z-20"></div>
@@ -117,41 +104,43 @@ const HomePage: React.FC<{ reviews: Review[] }> = ({ reviews }) => {
                 ))}
               </div>
             </div>
+
+            {/* Mobile Horizontal Review Slider */}
+            <div className="lg:hidden mt-8">
+              <div className="flex overflow-x-auto pb-8 snap-x snap-mandatory hide-scrollbar gap-4">
+                {displayReviews.map((t, i) => (
+                  <div key={i} className="min-w-[280px] snap-center bg-white p-6 rounded-3xl border border-slate-100 shadow-sm">
+                    <div className="flex items-center justify-between mb-3">
+                      <div className="flex items-center space-x-3">
+                        <div className="w-8 h-8 bg-xpm-blue text-white rounded-lg flex items-center justify-center font-black text-[10px]">
+                          {t.userName[0]}
+                        </div>
+                        <span className="font-black text-slate-900 text-xs tracking-tight">{t.userName}</span>
+                      </div>
+                      <div className="flex text-xpm-orange">
+                        {Array.from({ length: 5 }).map((_, i) => (
+                          <svg key={i} className="w-3 h-3 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+                        ))}
+                      </div>
+                    </div>
+                    <p className="text-slate-500 text-xs italic leading-relaxed line-clamp-3">"{t.comment}"</p>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
-{/* SEO Landing Text for Google */}
-<section className="max-w-5xl mx-auto px-4 py-10">
-  <p className="text-lg mb-4">
-    XPM Tutors offers professional online tuition for O Levels and A Levels,
-    helping students build strong academic foundations through expert-led
-    one-to-one teaching. Our online tutors specialise in Physics, Mathematics,
-    Chemistry, and Computer Science following Cambridge and Edexcel syllabuses.
-  </p>
 
-  <p className="text-lg mb-4">
-    Parents searching for reliable online O Level tutors or A Level tutors
-    choose XPM Tutors for personalised lesson plans, exam-focused preparation,
-    and measurable academic improvement. Our flexible online tuition model
-    allows students to learn effectively from the comfort of home.
-  </p>
-
-  <p className="text-lg">
-    With experienced tutors and structured academic support, XPM Tutors
-    delivers trusted online O Level and A Level tuition to students across
-    the UK, UAE, Pakistan, and other international locations.
-  </p>
-</section>
-
-      {/* SEO Content Section - The "Google Need Text" part */}
+      {/* SEO Content Section */}
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 text-center lg:text-left">
           <h2 className="text-3xl font-black text-slate-900 mb-6 uppercase tracking-tighter">Why Choose XPM for Online O/A Level Tutoring?</h2>
           <p className="text-lg text-slate-600 leading-relaxed font-medium mb-6">
-            XPM Tutors provides expert online tutoring for <span className="font-bold text-xpm-blue">O Levels, A Levels, IGCSE, SAT, NET, and PMA</span> aspirants. Our qualified faculty specializes in Physics, Mathematics, Chemistry, and Computer Science, helping students achieve top grades through structured syllabi, topical past paper practice, and interactive one-to-one online sessions.
+            XPM Tutors provides expert online tutoring for <span className="font-bold text-xpm-blue">O Levels, A Levels, IGCSE, SAT, NET, and PMA</span> aspirants. Our qualified faculty specializes in Physics, Mathematics, Chemistry, and Computer Science.
           </p>
           <p className="text-lg text-slate-600 leading-relaxed font-medium">
-            Whether you are preparing for Cambridge (CAIE), Edexcel, or the Federal Board, our mentors offer personalized guidance tailored to international standards. From mastering complex mechanics in A Level Physics to achieving perfect scores in SAT Math, XPM Tutors is your ultimate partner for academic excellence in 2025 and beyond.
+            Whether you are preparing for Cambridge (CAIE), Edexcel, or the Federal Board, our mentors offer personalized guidance tailored to international standards. From mastering complex mechanics in A Level Physics to achieving perfect scores in SAT Math, XPM Tutors is your ultimate partner.
           </p>
         </div>
       </section>
@@ -161,25 +150,25 @@ const HomePage: React.FC<{ reviews: Review[] }> = ({ reviews }) => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
             <div className="transition-transform hover:scale-105">
-              <div className="text-5xl lg:text-7xl font-black text-xpm-green mb-3 tracking-tighter">
+              <div className="text-4xl lg:text-7xl font-black text-xpm-green mb-3 tracking-tighter">
                 <AnimatedCounter end={500} suffix="+" />
               </div>
               <div className="text-white/50 font-black uppercase tracking-widest text-xs">Solved Papers</div>
             </div>
             <div className="transition-transform hover:scale-105">
-              <div className="text-5xl lg:text-7xl font-black text-xpm-green mb-3 tracking-tighter">
+              <div className="text-4xl lg:text-7xl font-black text-xpm-green mb-3 tracking-tighter">
                 <AnimatedCounter end={20} suffix="+" />
               </div>
               <div className="text-white/50 font-black uppercase tracking-widest text-xs">Countries Served</div>
             </div>
             <div className="transition-transform hover:scale-105">
-              <div className="text-5xl lg:text-7xl font-black text-xpm-orange mb-3 tracking-tighter">
+              <div className="text-4xl lg:text-7xl font-black text-xpm-orange mb-3 tracking-tighter">
                 <AnimatedCounter end={1500} suffix="+" />
               </div>
               <div className="text-white/50 font-black uppercase tracking-widest text-xs">Successful Alumni</div>
             </div>
             <div className="transition-transform hover:scale-105">
-              <div className="text-5xl lg:text-7xl font-black text-xpm-orange mb-3 tracking-tighter">
+              <div className="text-4xl lg:text-7xl font-black text-xpm-orange mb-3 tracking-tighter">
                 <AnimatedCounter end={2024} />
               </div>
               <div className="text-white/50 font-black uppercase tracking-widest text-xs">ESTABLISHED</div>
@@ -192,11 +181,11 @@ const HomePage: React.FC<{ reviews: Review[] }> = ({ reviews }) => {
       {/* Services/Exam Boards Grid */}
       <section className="py-24 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-20">
-            <h2 className="text-4xl font-black text-slate-900 mb-6 tracking-tight">Expert Online Tutors for Every Goal</h2>
+          <div className="text-center mb-16 lg:mb-20">
+            <h2 className="text-3xl lg:text-4xl font-black text-slate-900 mb-6 tracking-tight">Expert Online Tutors for Every Goal</h2>
             <p className="text-slate-500 max-w-2xl mx-auto text-lg font-medium">Targeted preparation for international exam boards and competitive entry tests.</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {[
               { title: 'O Level Tutors', desc: 'Expert guidance for Physics, Maths, and Chemistry (0580, 5054).', link: '/o-level-tutors' },
               { title: 'A Level Tutors', desc: 'Master advanced mechanics and calculus with A* strategies.', link: '/a-level-tutors' },
@@ -205,32 +194,32 @@ const HomePage: React.FC<{ reviews: Review[] }> = ({ reviews }) => {
               { title: 'IGCSE Support', desc: 'Curated resources for Cambridge and Edexcel IGCSE boards.', link: '/igcse-tutors' },
               { title: 'PMA Long Course', desc: 'Comprehensive coaching for PMA written test success.', link: '/pma-tutors' }
             ].map((service, idx) => (
-              <Link key={idx} to={service.link} className="p-10 bg-white rounded-[2.5rem] shadow-sm hover:shadow-2xl transition-all border border-slate-100 hover:border-xpm-blue group">
-                <h3 className="text-2xl font-black text-slate-900 mb-4 group-hover:text-xpm-blue transition">{service.title}</h3>
-                <p className="text-slate-500 leading-relaxed font-medium mb-6">{service.desc}</p>
-                <span className="text-xs font-black text-xpm-blue uppercase tracking-widest group-hover:underline">Explore Program →</span>
+              <Link key={idx} to={service.link} className="p-8 lg:p-10 bg-white rounded-[2.5rem] shadow-sm hover:shadow-2xl transition-all border border-slate-100 hover:border-xpm-blue group">
+                <h3 className="text-xl lg:text-2xl font-black text-slate-900 mb-4 group-hover:text-xpm-blue transition">{service.title}</h3>
+                <p className="text-slate-500 leading-relaxed font-medium mb-6 text-sm lg:text-base">{service.desc}</p>
+                <span className="text-[10px] font-black text-xpm-blue uppercase tracking-widest group-hover:underline">Explore Program →</span>
               </Link>
             ))}
           </div>
         </div>
       </section>
 
-      {/* SEO FAQ Section - Important for Schema Ranking */}
+      {/* SEO FAQ Section */}
       <section className="py-24 bg-white">
         <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-3xl font-black text-slate-900 mb-12 text-center uppercase">Frequently Asked Questions</h2>
+          <h2 className="text-3xl font-black text-slate-900 mb-12 text-center uppercase tracking-tighter">Frequently Asked Questions</h2>
           <div className="space-y-8">
             <div className="border-b border-slate-100 pb-8">
               <h4 className="text-lg font-black text-slate-900 mb-2">How do I hire an online O Level tutor?</h4>
-              <p className="text-slate-600 font-medium">You can browse our expert faculty directory, select your subject (like Physics or Maths), and book a trial session directly through our portal or WhatsApp.</p>
+              <p className="text-slate-600 font-medium">You can browse our expert faculty directory, select your subject, and book a trial session directly through our portal or WhatsApp.</p>
             </div>
             <div className="border-b border-slate-100 pb-8">
               <h4 className="text-lg font-black text-slate-900 mb-2">Do you provide tutoring for SAT and NET Entry Tests?</h4>
-              <p className="text-slate-600 font-medium">Yes, XPM Tutors has specialized programs for SAT (Digital SAT) and university entry tests like NUST NET, focusing on rapid problem-solving techniques.</p>
+              <p className="text-slate-600 font-medium">Yes, XPM Tutors has specialized programs for SAT (Digital SAT) and university entry tests like NUST NET.</p>
             </div>
             <div className="border-b border-slate-100 pb-8">
               <h4 className="text-lg font-black text-slate-900 mb-2">Are XPM tutors verified for Cambridge and Edexcel?</h4>
-              <p className="text-slate-600 font-medium">Absolutely. Every tutor on our platform undergoes a rigorous document verification process ensuring they have mastered the CAIE or Edexcel curriculum before teaching.</p>
+              <p className="text-slate-600 font-medium">Absolutely. Every tutor on our platform undergoes a rigorous document verification process before teaching.</p>
             </div>
           </div>
         </div>
@@ -240,6 +229,8 @@ const HomePage: React.FC<{ reviews: Review[] }> = ({ reviews }) => {
         @keyframes scrollVertical { 0% { transform: translateY(0); } 100% { transform: translateY(-50%); } }
         .animate-scroll-vertical { animation: scrollVertical 60s linear infinite; }
         .group-hover\\:pause-animation:hover { animation-play-state: paused; }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
       `}} />
     </div>
   );
