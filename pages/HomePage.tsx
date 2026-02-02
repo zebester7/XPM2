@@ -107,6 +107,28 @@ const HomePage: React.FC<{ reviews: Review[] }> = ({ reviews }) => {
           </div>
         </div>
       </section>
+{/* SEO Landing Text for Google */}
+<section className="max-w-5xl mx-auto px-4 py-10">
+  <p className="text-lg mb-4">
+    XPM Tutors offers professional online tuition for O Levels and A Levels,
+    helping students build strong academic foundations through expert-led
+    one-to-one teaching. Our online tutors specialise in Physics, Mathematics,
+    Chemistry, and Computer Science following Cambridge and Edexcel syllabuses.
+  </p>
+
+  <p className="text-lg mb-4">
+    Parents searching for reliable online O Level tutors or A Level tutors
+    choose XPM Tutors for personalised lesson plans, exam-focused preparation,
+    and measurable academic improvement. Our flexible online tuition model
+    allows students to learn effectively from the comfort of home.
+  </p>
+
+  <p className="text-lg">
+    With experienced tutors and structured academic support, XPM Tutors
+    delivers trusted online O Level and A Level tuition to students across
+    the UK, UAE, Pakistan, and other international locations.
+  </p>
+</section>
 
       {/* SEO Content Section - The "Google Need Text" part */}
       <section className="py-20 bg-white">
