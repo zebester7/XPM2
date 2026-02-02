@@ -2,6 +2,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Review } from '../types';
+import { Helmet } from 'react-helmet-async';
+
 
 function useIsVisible(ref: React.RefObject<HTMLElement>) {
   const [isIntersecting, setIntersecting] = useState(false);
@@ -41,6 +43,19 @@ const HomePage: React.FC<{ reviews: Review[] }> = ({ reviews }) => {
 
   return (
     <div className="bg-white overflow-x-hidden">
+            <Helmet>
+        <title>
+          Online O Level & A Level Tutors | Trusted Online Tuition for Kids – XPM Tutors
+        </title>
+
+        <meta
+          name="description"
+          content="XPM Tutors provides expert online O Level and A Level tuition for kids. Hire trusted tutors for Physics, Maths, Chemistry & more. Serving UK, UAE & Pakistan."
+        />
+
+        <link rel="canonical" href="https://www.xpmtutors.com/" />
+      </Helmet>
+
       {/* Hero Section - SEO Optimized H1 */}
       <section className="relative py-20 lg:py-32 overflow-hidden bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -56,7 +71,7 @@ const HomePage: React.FC<{ reviews: Review[] }> = ({ reviews }) => {
               
               {/* SEO Primary Keyword in H1 */}
               <h1 className="text-5xl lg:text-7xl font-black tracking-tighter text-slate-900 mb-8 leading-none">
-                Online <span className="text-xpm-blue">O Level & A Level Tutors</span> Tutors for Physics & Maths| Trusted Gobal tutions
+                Online <span className="text-xpm-blue">O Level & A Level</span> Tutors for Physics & Maths| Trusted Gobal Tutions
               </h1>
               
               <h2 className="text-xl text-slate-600 mb-12 max-w-xl mx-auto lg:mx-0 leading-relaxed font-medium">
