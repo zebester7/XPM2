@@ -124,7 +124,6 @@ const App: React.FC = () => {
   }, []);
 
   return (
-
         <div className="flex flex-col min-h-screen overflow-x-hidden">
           <Navbar user={user} onLogout={handleLogout} />
           <main className="flex-grow relative">
@@ -191,7 +190,6 @@ const App: React.FC = () => {
           </main>
           <Footer />
         </div>
-
   );
 };
 
