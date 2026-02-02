@@ -2,7 +2,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Review } from '../types';
-import { Helmet } from 'react-helmet-async';
 
 
 function useIsVisible(ref: React.RefObject<HTMLElement>) {
@@ -43,7 +42,6 @@ const HomePage: React.FC<{ reviews: Review[] }> = ({ reviews }) => {
 
   return (
     <div className="bg-white overflow-x-hidden">
-            <Helmet>
         <title>
           Online O Level & A Level Tutors | Trusted Online Tuition for Kids – XPM Tutors
         </title>
@@ -54,7 +52,7 @@ const HomePage: React.FC<{ reviews: Review[] }> = ({ reviews }) => {
         />
 
         <link rel="canonical" href="https://www.xpmtutors.com/" />
-      </Helmet>
+      
 
       {/* Hero Section - SEO Optimized H1 */}
       <section className="relative py-20 lg:py-32 overflow-hidden bg-slate-50">
