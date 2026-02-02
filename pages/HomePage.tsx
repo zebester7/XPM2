@@ -56,7 +56,7 @@ const HomePage: React.FC<{ reviews: Review[] }> = ({ reviews }) => {
               
               {/* SEO Primary Keyword in H1 */}
               <h1 className="text-5xl lg:text-7xl font-black tracking-tighter text-slate-900 mb-8 leading-none">
-                Online <span className="text-xpm-blue">O Level & A Level</span> Tutors for Physics & Maths
+                Online <span className="text-xpm-blue">Onlne O Level & A Level Tutors</span> Tutors for Physics & Maths| Trusted Gobal tutions
               </h1>
               
               <h2 className="text-xl text-slate-600 mb-12 max-w-xl mx-auto lg:mx-0 leading-relaxed font-medium">
