@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect, Suspense, lazy, useCallback, useMemo } from 'react';
-import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { User, Review, Question } from './types.ts';
 import { db } from './db.ts';
 import { SettingsProvider } from './SettingsContext.tsx';
@@ -124,6 +124,9 @@ const App: React.FC = () => {
   }, []);
 
   return (
+    <SettingsProvider>
+      <Router>
+        <ScrollToTop />
         <div className="flex flex-col min-h-screen overflow-x-hidden">
           <Navbar user={user} onLogout={handleLogout} />
           <main className="flex-grow relative">
@@ -190,6 +193,8 @@ const App: React.FC = () => {
           </main>
           <Footer />
         </div>
+      </Router>
+    </SettingsProvider>
   );
 };
 
