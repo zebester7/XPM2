@@ -1,6 +1,11 @@
 
 {% extends "base.html" %}
 
+{% block title %}{{ subject.name }} — Academia LMS{% endblock %}
+{% block meta_description %}{{ subject.desc }}{% endblock %}
+{% block og_title %}{{ subject.name }} — Academia LMS{% endblock %}
+{% block og_description %}{{ subject.desc }}{% endblock %}
+
 {% block content %}
 <div class="bg-white">
     <!-- Header -->

@@ -1,6 +1,6 @@
 
-import { User, Question, Review, Subject, Teacher, StudyGroup, GroupMessage, AppSettings, PastPaper, BlogPost, LearningMaterial } from './types';
-import { MOCK_REVIEWS, SUBJECTS_DATA, MOCK_PAST_PAPERS } from './constants';
+import { User, Question, Review, Subject, Teacher, StudyGroup, GroupMessage, AppSettings, PastPaper, BlogPost, LearningMaterial } from './types.ts';
+import { MOCK_REVIEWS, SUBJECTS_DATA, MOCK_PAST_PAPERS } from './constants.ts';
 
 const STORAGE_KEYS = {
   USERS: 'academia_users',
@@ -17,7 +17,6 @@ const STORAGE_KEYS = {
   MATERIALS: 'academia_materials'
 };
 
-// In-memory cache to avoid repeated JSON.parse overhead
 const cache: Record<string, any> = {};
 
 const safeGet = <T>(key: string, defaultValue: T): T => {
@@ -78,6 +77,42 @@ const initializeDB = () => {
         date: Date.now() - 86400000,
         category: "Study Guides",
         author: "Sir Zubair"
+      },
+      {
+        id: "b2",
+        title: "IGCSE vs O Level: Which Board is Right for You?",
+        excerpt: "Choosing between Cambridge IGCSE and O Level? We break down the differences in grading, content, and global recognition.",
+        content: "# The Great Debate: IGCSE vs O Level\n\nMany students in Pakistan and the UAE face the dilemma of choosing between these two similar yet distinct qualifications.\n\n## Content Depth\nWhile the core syllabus is nearly identical for subjects like Maths and Physics, IGCSE often includes more modern practical assessments. O Levels are traditionally more theoretical and linear.\n\n## Grading Systems\n- **IGCSE**: Uses both A*-G and the newer 9-1 grading scale.\n- **O Level**: Uses the classic A* to E scale.\n\n## Global Recognition\nBoth are highly respected by universities worldwide, including ivy leagues and top UK institutions. However, IGCSE is sometimes preferred for its international flavor in humanities.\n\nConsult our advisors if you're still unsure which path matches your strengths.",
+        date: Date.now() - 172800000,
+        category: "Academic Guidance",
+        author: "XPM Counseling Team"
+      },
+      {
+        id: "b3",
+        title: "Mastering the Digital SAT: 5 Hacks for a 1500+ Score",
+        excerpt: "The Digital SAT is an adaptive beast. Learn how to outsmart the algorithm and manage your time in the Math and English modules.",
+        content: "# 2025 Digital SAT Survival Guide\n\nThe move to digital has changed everything. Here is how you win:\n\n## 1. Master the Desmos Calculator\nIn the Math module, Desmos is your best friend. Learn to graph functions instantly to find intercepts and solutions without manual algebra.\n\n## 2. Pacing is Key\nIn the adaptive format, the second module is harder if you do well in the first. Save your energy for the 'Hard' module by finishing the first one quickly but accurately.\n\n## 3. Vocabulary in Context\nStop memorizing random lists. Focus on how words change meaning based on the sentences around them. The Digital SAT prizes logic over rote memorization.\n\nJoin our weekend SAT intensive bootcamps to practice on realistic mock software.",
+        date: Date.now() - 259200000,
+        category: "Entry Tests",
+        author: "SAT Specialist"
+      },
+      {
+        id: "b4",
+        title: "5 Common Pitfalls in A Level Mathematics (9709) P1",
+        excerpt: "Pure Mathematics 1 is the foundation of your A Level grade. Don't let these silly mistakes cost you the A*.",
+        content: "# Avoid These P1 Disasters\n\n## 1. Radians vs Degrees\nAlways check your calculator mode. Integration and Differentiation in calculus are almost always performed in radians.\n\n## 2. Negative Discarding in Quadratics\nWhen solving for 'k' in discriminant problems, don't forget to consider both positive and negative roots.\n\n## 3. Integration Constant (+C)\nYou lose a mark every single time you forget the '+C' in indefinite integrals. It sounds simple, but under exam pressure, it's the most common error.\n\n## 4. Trigonometric Ranges\nAlways look at the given interval (e.g., 0 < x < 360). Ensure you've found all possible solutions within that range.\n\nBook a session with our Math HOD to drill these specific tricky areas.",
+        date: Date.now() - 345600000,
+        category: "Subject Tips",
+        author: "Math Department"
+      },
+      {
+        id: "b5",
+        title: "The Topical-to-Yearly Method: The Only Way to Revise",
+        excerpt: "Studying hard isn't enough; you must study smart. Discover why starting yearly past papers too early is a mistake.",
+        content: "# Effective Past Paper Methodology\n\nMost students jump into yearly papers 2 months before exams. Here is a better way:\n\n- **Phase 1: Topical Drills**: Immediately after finishing a chapter (e.g., Kinematics), solve 10 years of Kinematics questions. This solidifies the specific logic of that topic.\n- **Phase 2: Timed Yearly Papers**: Start these only after finishing 80% of the syllabus. Use them to practice 'mental switching' between different topics.\n- **Phase 3: The 'Black List'**: Keep a notebook of every question you got wrong. Redo these every Sunday until they are effortless.\n\nAt XPM, our Syllabus Precision tool helps you track this exact workflow.",
+        date: Date.now() - 432000000,
+        category: "Study Hacks",
+        author: "XPM Academic Team"
       }
     ]);
   }
