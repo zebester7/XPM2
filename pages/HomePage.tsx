@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Review } from '../types.ts';
@@ -55,7 +54,7 @@ const HomePage: React.FC<{ reviews: Review[] }> = ({ reviews }) => {
               </div>
               
               <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black tracking-tighter text-slate-900 mb-6 lg:mb-8 leading-none">
-                Online <span className="text-xpm-blue">O & A Level</span> Expert Subject Tutoring
+                Online <span className="text-xpm-blue">O & A Level</span> Expert Subject Tutoring for All Subjects
               </h1>
               
               <h2 className="text-lg sm:text-xl text-slate-600 mb-10 lg:mb-12 max-w-xl mx-auto lg:mx-0 leading-relaxed font-medium">
