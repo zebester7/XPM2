@@ -190,30 +190,11 @@ export const db = {
     const idx = ts.findIndex(t => t.id === teacher.id);
     if (idx > -1) { ts[idx] = teacher; } else { ts.push(teacher); }
     safeSet(STORAGE_KEYS.TEACHERS, ts);
-    // Fire-and-forget: attempt to persist to backend API (keeps localStorage as fallback)
-    try {
-      (async () => {
-        const url = `/api/teachers${idx > -1 ? `/${teacher.id}` : ''}`;
-        const method = idx > -1 ? 'PUT' : 'POST';
-        await fetch(url, { method, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(teacher) });
-      })();
-    } catch (e) {
-      // ignore network errors
-    }
-    try {
-      window.dispatchEvent(new CustomEvent('teachersUpdated'));
-    } catch (e) {}
     return ts;
   },
   deleteTeacher: (id: string) => {
     const ts = db.getTeachers().filter(t => t.id !== id);
     safeSet(STORAGE_KEYS.TEACHERS, ts);
-    try {
-      (async () => { await fetch(`/api/teachers/${id}`, { method: 'DELETE' }); })();
-    } catch (e) {}
-    try {
-      window.dispatchEvent(new CustomEvent('teachersUpdated'));
-    } catch (e) {}
     return ts;
   },
   getGroups: (): StudyGroup[] => safeGet<StudyGroup[]>(STORAGE_KEYS.GROUPS, []),
