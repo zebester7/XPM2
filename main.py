@@ -37,6 +37,9 @@ def load_db():
                 "enrolled_subjects": [], 
                 "completed_topics": []
             }],
+            "teachers": [
+                {"id": "t1", "name": "Sir Zubair", "subjects": ["Physics", "Mathematics"], "whatsapp": "923009508592", "registrationStatus": "active", "isVerified": True}
+            ],
             "questions": [],
             "reviews": [{"id": "r1", "userName": "Zayan Ahmed", "rating": 5, "comment": "Best resource for O Levels!", "timestamp": time.time()}]
         }
@@ -104,3 +107,41 @@ async def admin_dashboard(request: Request):
     })
 
 # Other routes (subjects, enroll, etc) remain similar...
+
+
+# --- Teacher API (simple CRUD for frontend sync) ---
+@app.get('/api/teachers')
+async def api_get_teachers():
+    db_data = load_db()
+    return db_data.get('teachers', [])
+
+
+@app.post('/api/teachers')
+async def api_create_teacher(teacher: dict):
+    db_data = load_db()
+    teachers = db_data.setdefault('teachers', [])
+    teachers.append(teacher)
+    save_db(db_data)
+    return teacher
+
+
+@app.put('/api/teachers/{tid}')
+async def api_update_teacher(tid: str, teacher: dict):
+    db_data = load_db()
+    teachers = db_data.setdefault('teachers', [])
+    for i, t in enumerate(teachers):
+        if t.get('id') == tid:
+            teachers[i] = teacher
+            save_db(db_data)
+            return teacher
+    raise HTTPException(status_code=404, detail='Teacher not found')
+
+
+@app.delete('/api/teachers/{tid}')
+async def api_delete_teacher(tid: str):
+    db_data = load_db()
+    teachers = db_data.get('teachers', [])
+    new = [t for t in teachers if t.get('id') != tid]
+    db_data['teachers'] = new
+    save_db(db_data)
+    return {'status': 'ok'}

@@ -190,11 +190,23 @@ export const db = {
     const idx = ts.findIndex(t => t.id === teacher.id);
     if (idx > -1) { ts[idx] = teacher; } else { ts.push(teacher); }
     safeSet(STORAGE_KEYS.TEACHERS, ts);
+    // notify in-page listeners that teachers changed
+    try { window.dispatchEvent(new CustomEvent('teachersUpdated')); } catch (e) {}
+    // best-effort backend sync (non-blocking)
+    try {
+      if (idx > -1) {
+        fetch(`/api/teachers/${teacher.id}`, { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(teacher) }).catch(() => {});
+      } else {
+        fetch('/api/teachers', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(teacher) }).catch(() => {});
+      }
+    } catch (e) {}
     return ts;
   },
   deleteTeacher: (id: string) => {
     const ts = db.getTeachers().filter(t => t.id !== id);
     safeSet(STORAGE_KEYS.TEACHERS, ts);
+    try { window.dispatchEvent(new CustomEvent('teachersUpdated')); } catch (e) {}
+    try { fetch(`/api/teachers/${id}`, { method: 'DELETE' }).catch(() => {}); } catch (e) {}
     return ts;
   },
   getGroups: (): StudyGroup[] => safeGet<StudyGroup[]>(STORAGE_KEYS.GROUPS, []),
