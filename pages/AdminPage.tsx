@@ -106,6 +106,22 @@ const AdminPage: React.FC<AdminPageProps> = ({ adminUser, questions, reviews, on
     alert(`Teacher ${teacher.name} activated.`);
   };
 
+  const [openDocsFor, setOpenDocsFor] = useState<string | null>(null);
+
+  const handleRejectTeacher = (teacher: Teacher) => {
+    if (!confirm(`Reject application for ${teacher.name}? This will mark their registration as rejected.`)) return;
+    const reason = prompt('Optional rejection reason (will be included in notification):', '') || '';
+    const updated = { ...teacher, registrationStatus: 'rejected' as const, isVerified: false };
+    setTeachers(db.saveTeacher(updated));
+    // Notify admin via WhatsApp and email (opens new windows but won't block UI)
+    const adminWhatsApp = '923009508592';
+    const adminEmail = 'zubairahmadisb7p2@gmail.com';
+    const waText = `*XPM TEACHER REJECTED*\n\nName: ${teacher.name}\nEmail: ${teacher.email || 'N/A'}\nSubjects: ${(teacher.subjects || []).join(', ')}\nMode: ${teacher.mode}\nReason: ${reason || 'N/A'}`;
+    try { window.open(`https://wa.me/${adminWhatsApp}?text=${encodeURIComponent(waText)}`, '_blank'); } catch (e) {}
+    try { window.open(`mailto:${adminEmail}?subject=${encodeURIComponent('Teacher application rejected: ' + teacher.name)}&body=${encodeURIComponent(waText)}`, '_blank'); } catch (e) {}
+    alert(`Teacher ${teacher.name} rejected.`);
+  };
+
   const handleAddPaper = (e: React.FormEvent) => {
     e.preventDefault();
     const finalUrl = uploadedFiles.qp.data || newPaper.url;
@@ -378,10 +394,33 @@ const AdminPage: React.FC<AdminPageProps> = ({ adminUser, questions, reviews, on
                    <div className="space-y-6">
                       <div className="flex items-center gap-4"><div className="w-16 h-16 bg-xpm-blue text-white rounded-2xl flex items-center justify-center font-black text-2xl shadow-xl">{t.name[0]}</div><div><h4 className="font-black text-slate-900 text-xl">{t.name}</h4><p className="text-xs text-slate-400 font-bold uppercase">{t.mode} Faculty</p></div></div>
                       <div className="flex flex-wrap gap-2">{t.subjects.map(s => <span key={s} className="px-3 py-1 bg-white border border-slate-100 text-[10px] font-black uppercase text-slate-500 rounded-lg">{s}</span>)}</div>
+                      <div className="text-sm text-slate-500">Applied: {formatDate((t as any).appliedAt)}</div>
                    </div>
-                   <div className="lg:col-span-2 flex gap-4 pt-6 border-t lg:border-t-0 border-slate-200">
-                      <button onClick={() => handleApproveTeacher(t)} className="flex-[2] py-4 bg-xpm-blue text-white font-black rounded-2xl shadow-xl uppercase text-xs">Verify Faculty</button>
-                      <button className="flex-1 py-4 bg-white border border-red-100 text-red-500 font-black rounded-2xl uppercase text-xs">Reject</button>
+                   <div className="lg:col-span-2 flex flex-col gap-4 pt-6 border-t lg:border-t-0 border-slate-200">
+                      <div className="flex gap-4">
+                        <button onClick={() => handleApproveTeacher(t)} className="flex-[2] py-4 bg-xpm-blue text-white font-black rounded-2xl shadow-xl uppercase text-xs">Verify Faculty</button>
+                        <button onClick={() => handleRejectTeacher(t)} className="flex-1 py-4 bg-white border border-red-100 text-red-500 font-black rounded-2xl uppercase text-xs">Reject</button>
+                        <button onClick={() => setOpenDocsFor(openDocsFor === t.id ? null : t.id)} className="flex-1 py-4 bg-slate-100 border border-slate-200 text-slate-600 font-black rounded-2xl uppercase text-xs">{openDocsFor === t.id ? 'Hide Documents' : 'View Documents'}</button>
+                      </div>
+                      {openDocsFor === t.id && (
+                        <div className="bg-white p-6 rounded-xl border border-slate-100 shadow-inner grid grid-cols-1 md:grid-cols-3 gap-4">
+                          <div>
+                            <div className="text-[10px] font-black text-slate-400 uppercase mb-2">Utility Bill</div>
+                            {t.utilityBill ? <img src={t.utilityBill} className="w-full h-48 object-contain rounded-lg border" /> : <div className="text-xs text-slate-400">Not provided</div>}
+                          </div>
+                          <div>
+                            <div className="text-[10px] font-black text-slate-400 uppercase mb-2">CNIC / ID</div>
+                            {t.cnic ? <img src={t.cnic} className="w-full h-48 object-contain rounded-lg border" /> : <div className="text-xs text-slate-400">Not provided</div>}
+                          </div>
+                          <div>
+                            <div className="text-[10px] font-black text-slate-400 uppercase mb-2">Degree</div>
+                            {t.degree ? <img src={t.degree} className="w-full h-48 object-contain rounded-lg border" /> : <div className="text-xs text-slate-400">Not provided</div>}
+                            <div className="mt-4 text-[10px] font-black text-slate-400 uppercase mb-2">Payment Screenshot</div>
+                            {t.paymentScreenshot ? <img src={t.paymentScreenshot} className="w-full h-48 object-contain rounded-lg border" /> : <div className="text-xs text-slate-400">Not provided</div>}
+                            {t.transactionId && <div className="mt-2 text-xs font-bold">Txn ID: {t.transactionId}</div>}
+                          </div>
+                        </div>
+                      )}
                    </div>
                 </div>
               ))}

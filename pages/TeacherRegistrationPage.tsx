@@ -127,16 +127,20 @@ const TeacherRegistrationPage: React.FC<TeacherRegistrationPageProps> = ({ user,
     const adminWhatsApp = "923009508592"; // Your notification number
     const waText = `*XPM NEW TEACHER ALERT* 🎓\n\n*Name:* ${user.name}\n*Email:* ${user.email}\n*Subjects:* ${formData.subjects.join(', ')}\n*Mode:* ${formData.mode}\n*Reg Type:* ${promoApplied ? 'FREE (Promo)' : 'PAID'}\n*Trx ID:* ${formData.transactionId || 'N/A'}\n\nPlease review documents in Admin Panel.`;
 
-    setTimeout(() => {
-      db.saveTeacher(newTeacher);
-      onUpdateUser(updatedUser);
-      setIsSubmitting(false);
-      
-      // Trigger WhatsApp notification
-      window.open(`https://wa.me/${adminWhatsApp}?text=${encodeURIComponent(waText)}`, '_blank');
-      
-      navigate('/dashboard');
-    }, 2000);
+    (async () => {
+      try {
+        db.saveTeacher(newTeacher);
+        if (onUpdateUser) onUpdateUser(updatedUser);
+        // Try to open WhatsApp notification but don't let it block the flow
+        try { window.open(`https://wa.me/${adminWhatsApp}?text=${encodeURIComponent(waText)}`, '_blank'); } catch (e) {}
+        navigate('/dashboard');
+      } catch (err) {
+        console.error('Teacher registration error:', err);
+        alert('There was an error processing your application. Please try again or contact support.');
+      } finally {
+        setIsSubmitting(false);
+      }
+    })();
   };
 
   return (
