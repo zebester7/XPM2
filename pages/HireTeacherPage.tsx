@@ -158,6 +158,38 @@ const HireTeacherPage: React.FC<HireTeacherPageProps> = ({ user }) => {
                   <h4 className="text-xl font-black text-slate-900">A* Exam Techniques</h4>
                   <p className="text-slate-500 font-medium leading-relaxed text-sm">We don't just teach subjects; we teach you how to beat the mark scheme and win the examiner's trust.</p>
                 </div>
+                <div className="space-y-4">
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 bg-xpm-blue/10 text-xpm-blue rounded-2xl flex items-center justify-center font-black">03</div>
+                    <svg className="w-6 h-6 text-xpm-blue" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2l2 5 5 .5-3.8 3.2L17 18l-5-2.5L7 18l1.8-7.3L5 8.5 10 8z" /></svg>
+                  </div>
+                  <h4 className="text-xl font-black text-slate-900">Experienced & Verified Tutors</h4>
+                  <p className="text-slate-500 font-medium leading-relaxed text-sm">Verified, experienced tutors with proven track records.</p>
+                </div>
+                <div className="space-y-4">
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 bg-xpm-orange/10 text-xpm-orange rounded-2xl flex items-center justify-center font-black">04</div>
+                    <svg className="w-6 h-6 text-xpm-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M3 3v18h18" /><path d="M3 9h18" /></svg>
+                  </div>
+                  <h4 className="text-xl font-black text-slate-900">Progress Tracking & Reports</h4>
+                  <p className="text-slate-500 font-medium leading-relaxed text-sm">Regular assessments and clear progress reports to track improvement.</p>
+                </div>
+                <div className="space-y-4">
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 bg-xpm-blue/10 text-xpm-blue rounded-2xl flex items-center justify-center font-black">05</div>
+                    <svg className="w-6 h-6 text-xpm-blue" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20" /><path d="M4 4.5A2.5 2.5 0 016.5 2H20v15" /></svg>
+                  </div>
+                  <h4 className="text-xl font-black text-slate-900">Exam-Focused Resources</h4>
+                  <p className="text-slate-500 font-medium leading-relaxed text-sm">Curated notes and past-paper solutions for targeted exam practice.</p>
+                </div>
+                <div className="space-y-4">
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 bg-xpm-orange/10 text-xpm-orange rounded-2xl flex items-center justify-center font-black">06</div>
+                    <svg className="w-6 h-6 text-xpm-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 3" /></svg>
+                  </div>
+                  <h4 className="text-xl font-black text-slate-900">Flexible Scheduling</h4>
+                  <p className="text-slate-500 font-medium leading-relaxed text-sm">Book lessons at convenient times, including evenings and weekends.</p>
+                </div>
               </div>
             </div>
           </div>
