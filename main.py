@@ -38,7 +38,10 @@ def load_db():
                 "completed_topics": []
             }],
             "questions": [],
-            "reviews": [{"id": "r1", "userName": "Zayan Ahmed", "rating": 5, "comment": "Best resource for O Levels!", "timestamp": time.time()}]
+            "reviews": [{"id": "r1", "userName": "Zayan Ahmed", "rating": 5, "comment": "Best resource for O Levels!", "timestamp": time.time()}],
+            "teachers": [
+                {"id": "t1", "name": "Sir Zubair", "subjects": ["Physics", "Mathematics"], "whatsapp": "923009508592", "registrationStatus": "active", "isVerified": True, "attendance": [], "activeTenures": []}
+            ]
         }
         with open(DB_FILE, "w") as f:
             json.dump(initial_data, f)
@@ -104,3 +107,56 @@ async def admin_dashboard(request: Request):
     })
 
 # Other routes (subjects, enroll, etc) remain similar...
+
+# --- Teacher API (admin-protected) ---
+@app.get("/api/teachers")
+async def api_get_teachers():
+    db_data = load_db()
+    return db_data.get("teachers", [])
+
+@app.post("/api/teachers")
+async def api_add_teacher(request: Request):
+    user = get_current_user(request)
+    if not user or user.get("role") != "admin":
+        raise HTTPException(status_code=401, detail="Unauthorized")
+    payload = await request.json()
+    db_data = load_db()
+    teachers = db_data.get("teachers", [])
+    teachers.append(payload)
+    db_data["teachers"] = teachers
+    save_db(db_data)
+    return {"success": True, "teachers": teachers}
+
+@app.put("/api/teachers/{teacher_id}")
+async def api_update_teacher(teacher_id: str, request: Request):
+    user = get_current_user(request)
+    if not user or user.get("role") != "admin":
+        raise HTTPException(status_code=401, detail="Unauthorized")
+    payload = await request.json()
+    db_data = load_db()
+    teachers = db_data.get("teachers", [])
+    updated = False
+    for i, t in enumerate(teachers):
+        if t.get("id") == teacher_id:
+            teachers[i] = {**t, **payload}
+            updated = True
+            break
+    if not updated:
+        raise HTTPException(status_code=404, detail="Teacher not found")
+    db_data["teachers"] = teachers
+    save_db(db_data)
+    return {"success": True, "teacher": [t for t in teachers if t.get("id") == teacher_id][0]}
+
+@app.delete("/api/teachers/{teacher_id}")
+async def api_delete_teacher(teacher_id: str, request: Request):
+    user = get_current_user(request)
+    if not user or user.get("role") != "admin":
+        raise HTTPException(status_code=401, detail="Unauthorized")
+    db_data = load_db()
+    teachers = db_data.get("teachers", [])
+    new_teachers = [t for t in teachers if t.get("id") != teacher_id]
+    if len(new_teachers) == len(teachers):
+        raise HTTPException(status_code=404, detail="Teacher not found")
+    db_data["teachers"] = new_teachers
+    save_db(db_data)
+    return {"success": True, "teachers": new_teachers}

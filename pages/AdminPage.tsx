@@ -106,6 +106,39 @@ const AdminPage: React.FC<AdminPageProps> = ({ adminUser, questions, reviews, on
     alert(`Teacher ${teacher.name} activated.`);
   };
 
+  const handleEditTeacher = (teacher: Teacher) => {
+    setEditingTeacher(teacher);
+    setTeacherForm({ ...teacher });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleSaveTeacher = (e: React.FormEvent) => {
+    e.preventDefault();
+    const t: Teacher = {
+      id: editingTeacher?.id || 'teacher-' + Date.now(),
+      name: (teacherForm.name || '').trim(),
+      email: teacherForm.email || '',
+      phone: teacherForm.phone || '',
+      subjects: teacherForm.subjects || [],
+      bio: teacherForm.bio || '',
+      photo: teacherForm.photo,
+      whatsapp: teacherForm.whatsapp || teacherForm.phone || '',
+      mode: (teacherForm.mode as any) || 'Online',
+      isVerified: !!teacherForm.isVerified,
+      registrationStatus: (teacherForm.registrationStatus as any) || 'active',
+      attendance: editingTeacher?.attendance || [],
+      activeTenures: editingTeacher?.activeTenures || []
+    };
+    setTeachers(db.saveTeacher(t));
+    setEditingTeacher(null);
+    setTeacherForm({ name: '', phone: '', whatsapp: '', subjects: [], mode: 'Online', bio: '', isVerified: true });
+    alert('Teacher saved');
+  };
+
+  const handleDeleteTeacher = (id: string) => {
+    if (confirm('Delete this teacher?')) setTeachers(db.deleteTeacher(id));
+  };
+
   const handleAddPaper = (e: React.FormEvent) => {
     e.preventDefault();
     const finalUrl = uploadedFiles.qp.data || newPaper.url;
@@ -383,6 +416,74 @@ const AdminPage: React.FC<AdminPageProps> = ({ adminUser, questions, reviews, on
                       <button onClick={() => handleApproveTeacher(t)} className="flex-[2] py-4 bg-xpm-blue text-white font-black rounded-2xl shadow-xl uppercase text-xs">Verify Faculty</button>
                       <button className="flex-1 py-4 bg-white border border-red-100 text-red-500 font-black rounded-2xl uppercase text-xs">Reject</button>
                    </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {activeTab === 'teachers' && (
+          <div className="p-10">
+            <h3 className="text-2xl font-black text-slate-900 mb-8 uppercase tracking-tighter">Teacher Directory Manager</h3>
+
+            <form onSubmit={handleSaveTeacher} className="bg-slate-50 p-8 rounded-[2.5rem] border border-slate-100 mb-8 space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div>
+                  <label className="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Name</label>
+                  <input type="text" value={teacherForm.name as string} onChange={e => setTeacherForm({...teacherForm, name: e.target.value})} className="w-full px-5 py-3 rounded-xl border border-slate-200 font-bold" />
+                </div>
+                <div>
+                  <label className="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Email</label>
+                  <input type="text" value={teacherForm.email as string} onChange={e => setTeacherForm({...teacherForm, email: e.target.value})} className="w-full px-5 py-3 rounded-xl border border-slate-200 font-bold" />
+                </div>
+                <div>
+                  <label className="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Phone / WhatsApp</label>
+                  <input type="text" value={teacherForm.whatsapp as string} onChange={e => setTeacherForm({...teacherForm, whatsapp: e.target.value, phone: e.target.value})} className="w-full px-5 py-3 rounded-xl border border-slate-200 font-bold" />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div>
+                  <label className="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Subjects (comma separated)</label>
+                  <input type="text" value={(teacherForm.subjects || []).join(', ')} onChange={e => setTeacherForm({...teacherForm, subjects: e.target.value.split(',').map(s => s.trim()).filter(Boolean)})} className="w-full px-5 py-3 rounded-xl border border-slate-200 font-bold" />
+                </div>
+                <div>
+                  <label className="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Mode</label>
+                  <select value={teacherForm.mode} onChange={e => setTeacherForm({...teacherForm, mode: e.target.value as any})} className="w-full px-5 py-3 rounded-xl border border-slate-200 font-bold">
+                    <option>Online</option>
+                    <option>Physical</option>
+                    <option>Both</option>
+                  </select>
+                </div>
+                <div className="flex items-end">
+                  <label className="w-full text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Verified</label>
+                  <div className="w-full">
+                    <label className="inline-flex items-center gap-3">
+                      <input type="checkbox" checked={!!teacherForm.isVerified} onChange={e => setTeacherForm({...teacherForm, isVerified: e.target.checked})} />
+                      <span className="text-sm font-black uppercase text-slate-400">Mark as verified</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex gap-4">
+                <button type="submit" className="flex-grow py-4 bg-xpm-blue text-white font-black rounded-xl hover:bg-xpm-dark transition text-xs uppercase tracking-widest shadow-xl">{editingTeacher ? 'Update Teacher' : 'Add Teacher'}</button>
+                {editingTeacher && <button type="button" onClick={() => { setEditingTeacher(null); setTeacherForm({ name: '', phone: '', whatsapp: '', subjects: [], mode: 'Online', bio: '', isVerified: true }); }} className="px-8 py-4 bg-slate-200 text-slate-500 font-black rounded-xl hover:bg-slate-300 transition text-xs uppercase tracking-widest">Cancel</button>}
+              </div>
+            </form>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {teachers.map(t => (
+                <div key={t.id} className="p-6 border border-slate-100 rounded-[2rem] flex items-center justify-between bg-white group hover:shadow-lg transition">
+                  <div>
+                    <h4 className="font-black text-slate-900 text-sm">{t.name}</h4>
+                    <p className="text-[9px] text-slate-400 font-bold uppercase">{t.subjects.join(', ')}</p>
+                    <p className="text-xs text-slate-500 mt-2">{t.bio || ''}</p>
+                  </div>
+                  <div className="flex gap-3">
+                    <button onClick={() => handleEditTeacher(t)} className="text-xpm-blue font-black text-[10px] uppercase hover:underline">Edit</button>
+                    <button onClick={() => handleDeleteTeacher(t.id)} className="text-red-500 font-black text-[10px] uppercase hover:underline">Remove</button>
+                  </div>
                 </div>
               ))}
             </div>
