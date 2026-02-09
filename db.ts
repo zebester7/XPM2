@@ -200,6 +200,9 @@ export const db = {
     } catch (e) {
       // ignore network errors
     }
+    try {
+      window.dispatchEvent(new CustomEvent('teachersUpdated'));
+    } catch (e) {}
     return ts;
   },
   deleteTeacher: (id: string) => {
@@ -207,6 +210,9 @@ export const db = {
     safeSet(STORAGE_KEYS.TEACHERS, ts);
     try {
       (async () => { await fetch(`/api/teachers/${id}`, { method: 'DELETE' }); })();
+    } catch (e) {}
+    try {
+      window.dispatchEvent(new CustomEvent('teachersUpdated'));
     } catch (e) {}
     return ts;
   },

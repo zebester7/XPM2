@@ -60,6 +60,12 @@ const AdminPage: React.FC<AdminPageProps> = ({ adminUser, questions, reviews, on
   const pendingPayments = allUsers.filter(u => u.subscriptionStatus === 'pending');
   const pendingVerifications = teachers.filter(t => t.registrationStatus === 'pending');
 
+  useEffect(() => {
+    const handler = () => setTeachers(db.getTeachers());
+    window.addEventListener('teachersUpdated', handler as EventListener);
+    return () => window.removeEventListener('teachersUpdated', handler as EventListener);
+  }, []);
+
   const handleFileUpload = (type: 'qp' | 'ms' | 'mat') => (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {

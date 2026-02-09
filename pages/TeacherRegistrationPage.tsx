@@ -15,19 +15,17 @@ const TeacherRegistrationPage: React.FC<TeacherRegistrationPageProps> = ({ user,
   const [formData, setFormData] = useState({
     bio: '',
     mode: 'Online' as 'Online' | 'Physical' | 'Both',
-    promoCode: '',
     subjects: [] as string[],
     transactionId: ''
   });
+  
 
   const [docs, setDocs] = useState({
     utilityBill: '',
     cnic: '',
-    degree: '',
-    paymentScreenshot: ''
+    degree: ''
   });
 
-  const [promoApplied, setPromoApplied] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [step, setStep] = useState(1);
 
@@ -63,15 +61,6 @@ const TeacherRegistrationPage: React.FC<TeacherRegistrationPageProps> = ({ user,
         : [...prev.subjects, sub]
     }));
   };
-
-  const handleApplyPromo = () => {
-    if (formData.promoCode.toUpperCase() === 'XPMYES') {
-      setPromoApplied(true);
-    } else {
-      alert('Invalid Promo Code');
-    }
-  };
-
   const handleProceedToStep3 = () => {
     if (!docs.utilityBill || !docs.cnic || !docs.degree) {
       alert('Please upload all three required documents (Bill, CNIC, and Degree) to proceed.');
@@ -85,12 +74,6 @@ const TeacherRegistrationPage: React.FC<TeacherRegistrationPageProps> = ({ user,
     if (formData.subjects.length === 0) return alert('Please select at least one subject');
     if (!docs.utilityBill || !docs.cnic || !docs.degree) return alert('Please upload all required identity documents');
     
-    // Payment check only if promo not applied and mode is Online/Both
-    if (!promoApplied && (formData.mode === 'Online' || formData.mode === 'Both')) {
-        if (!docs.paymentScreenshot || !formData.transactionId) {
-            return alert('Please upload payment screenshot and transaction ID');
-        }
-    }
 
     setIsSubmitting(true);
     
@@ -106,14 +89,13 @@ const TeacherRegistrationPage: React.FC<TeacherRegistrationPageProps> = ({ user,
       utilityBill: docs.utilityBill,
       cnic: docs.cnic,
       degree: docs.degree,
-      paymentScreenshot: docs.paymentScreenshot,
       transactionId: formData.transactionId,
       mode: formData.mode,
       isVerified: false,
       registrationStatus: 'pending',
       attendance: [],
       activeTenures: [],
-      registrationType: promoApplied ? 'Promo (Free)' : 'Paid',
+      registrationType: 'Applied',
       appliedAt: Date.now()
     };
 
@@ -125,7 +107,7 @@ const TeacherRegistrationPage: React.FC<TeacherRegistrationPageProps> = ({ user,
 
     // Prepare WhatsApp Notification
     const adminWhatsApp = "923009508592"; // Your notification number
-    const waText = `*XPM NEW TEACHER ALERT* 🎓\n\n*Name:* ${user.name}\n*Email:* ${user.email}\n*Subjects:* ${formData.subjects.join(', ')}\n*Mode:* ${formData.mode}\n*Reg Type:* ${promoApplied ? 'FREE (Promo)' : 'PAID'}\n*Trx ID:* ${formData.transactionId || 'N/A'}\n\nPlease review documents in Admin Panel.`;
+    const waText = `*XPM NEW TEACHER ALERT* 🎓\n\n*Name:* ${user.name}\n*Email:* ${user.email}\n*Subjects:* ${formData.subjects.join(', ')}\n*Mode:* ${formData.mode}\n\nPlease review documents in Admin Panel.`;
 
     setTimeout(() => {
       db.saveTeacher(newTeacher);
@@ -251,7 +233,7 @@ const TeacherRegistrationPage: React.FC<TeacherRegistrationPageProps> = ({ user,
                     onClick={handleProceedToStep3} 
                     className={`flex-[2] py-5 font-black rounded-2xl transition shadow-xl uppercase tracking-widest text-sm ${(!docs.utilityBill || !docs.cnic || !docs.degree) ? 'bg-slate-200 text-slate-400 cursor-not-allowed' : 'bg-xpm-blue text-white hover:bg-xpm-dark'}`}
                   >
-                    Proceed to Payment
+                    Proceed
                   </button>
                 </div>
               </div>
@@ -260,83 +242,11 @@ const TeacherRegistrationPage: React.FC<TeacherRegistrationPageProps> = ({ user,
             {step === 3 && (
               <div className="space-y-8 animate-fade-in-up">
                 <h3 className="text-2xl font-black text-slate-900">3. Finalize Registration</h3>
-                
                 <div className="space-y-8">
-                  {/* Promo Section */}
-                  <div className="p-8 bg-slate-50 rounded-[2rem] border-2 border-dashed border-slate-200">
-                    <label className="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-4">Faculty Promo Code</label>
-                    <div className="flex gap-3">
-                      <input 
-                        type="text" 
-                        placeholder="e.g., XPMYES" 
-                        value={formData.promoCode}
-                        onChange={e => setFormData({...formData, promoCode: e.target.value})}
-                        className="flex-grow px-6 py-4 bg-white border border-slate-200 rounded-2xl focus:border-xpm-blue outline-none font-bold text-sm shadow-inner uppercase"
-                      />
-                      <button 
-                        type="button" 
-                        onClick={handleApplyPromo}
-                        className="px-8 bg-slate-900 text-white font-black rounded-2xl hover:bg-black transition text-xs uppercase tracking-widest"
-                      >
-                        {promoApplied ? 'Applied' : 'Apply'}
-                      </button>
-                    </div>
-                    {promoApplied && <p className="mt-3 text-xs font-black text-xpm-green uppercase tracking-widest">✓ Free Registration Unlocked</p>}
-                  </div>
-
-                  {/* Payment Section - Only if not promo */}
-                  {!promoApplied && (formData.mode === 'Online' || formData.mode === 'Both') && (
-                    <div className="space-y-6">
-                      <div className="p-8 bg-xpm-blue/5 rounded-[2.5rem] border border-xpm-blue/10">
-                         <div className="flex justify-between items-center mb-8 border-b border-xpm-blue/10 pb-4">
-                            <span className="text-sm font-black text-slate-900 uppercase tracking-widest">Portal Maintenance Fee</span>
-                            <span className="text-2xl font-black text-xpm-blue">PKR 3,000</span>
-                         </div>
-                         
-                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                            <div className="space-y-4">
-                               <div className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Easypaisa Recipient</div>
-                               <div className="p-4 bg-white rounded-2xl border border-slate-100">
-                                  <div className="text-xs font-bold text-slate-400">Account Number</div>
-                                  <div className="text-lg font-black text-xpm-blue">03365036866</div>
-                                  <div className="text-[10px] font-black text-slate-900 uppercase mt-1">Zubair Ahmad</div>
-                               </div>
-                            </div>
-                            
-                            <div className="space-y-4">
-                               <div className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Upload Screenshot</div>
-                               <div 
-                                onClick={() => document.getElementById('payment-upload')?.click()}
-                                className={`h-full min-h-[120px] rounded-2xl border-2 border-dashed flex flex-col items-center justify-center cursor-pointer transition ${docs.paymentScreenshot ? 'bg-xpm-green/5 border-xpm-green' : 'bg-white border-slate-200 hover:border-xpm-blue'}`}
-                               >
-                                  <input type="file" id="payment-upload" hidden onChange={handleFileUpload('paymentScreenshot')} accept="image/*" />
-                                  {docs.paymentScreenshot ? (
-                                    <span className="text-[10px] font-black text-xpm-green uppercase">Screenshot Attached ✓</span>
-                                  ) : (
-                                    <svg className="w-6 h-6 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" /></svg>
-                                  )}
-                               </div>
-                            </div>
-                         </div>
-
-                         <div className="mt-8">
-                            <label className="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Easypaisa Transaction ID</label>
-                            <input 
-                              type="text" 
-                              placeholder="e.g. 21004567890" 
-                              value={formData.transactionId}
-                              onChange={e => setFormData({...formData, transactionId: e.target.value})}
-                              className="w-full px-6 py-4 bg-white border border-slate-200 rounded-2xl focus:border-xpm-blue outline-none font-bold text-sm shadow-inner"
-                            />
-                         </div>
-                      </div>
-                    </div>
-                  )}
-
                   {formData.mode === 'Physical' && (
                     <div className="p-8 bg-amber-50 rounded-[2.5rem] border border-amber-100 flex items-center gap-6">
-                       <div className="w-12 h-12 bg-amber-100 text-amber-600 rounded-2xl flex items-center justify-center shrink-0">!</div>
-                       <p className="text-sm font-medium text-amber-700">Physical-only registration is currently free. Your profile will be listed in the directory after document verification.</p>
+                      <div className="w-12 h-12 bg-amber-100 text-amber-600 rounded-2xl flex items-center justify-center shrink-0">!</div>
+                      <p className="text-sm font-medium text-amber-700">Physical-only registration is currently free. Your profile will be listed in the directory after document verification.</p>
                     </div>
                   )}
                 </div>
