@@ -131,7 +131,9 @@ const TeacherRegistrationPage: React.FC<TeacherRegistrationPageProps> = ({ user,
       try {
         db.saveTeacher(newTeacher);
         if (onUpdateUser) onUpdateUser(updatedUser);
-        // Try to open WhatsApp notification but don't let it block the flow
+        // Inform the applicant their application is submitted
+        alert('Your application has been submitted. You will soon be notified about acceptance. In case of rejection, your amount will be refunded.');
+        // Try to open WhatsApp notification to admin but don't let it block the flow
         try { window.open(`https://wa.me/${adminWhatsApp}?text=${encodeURIComponent(waText)}`, '_blank'); } catch (e) {}
         navigate('/dashboard');
       } catch (err) {

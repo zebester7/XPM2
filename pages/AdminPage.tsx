@@ -101,8 +101,27 @@ const AdminPage: React.FC<AdminPageProps> = ({ adminUser, questions, reviews, on
   };
 
   const handleApproveTeacher = (teacher: Teacher) => {
+    if (!confirm(`Approve application for ${teacher.name}?`)) return;
     const updated = { ...teacher, registrationStatus: 'active' as const, isVerified: true };
     setTeachers(db.saveTeacher(updated));
+
+    // Promote matching user to teacher role if exists
+    try {
+      const users = db.getUsers();
+      const matched = users.find(u => (u.teacherProfileId && u.teacherProfileId === teacher.id) || u.email === teacher.email);
+      if (matched) {
+        const updatedUser = { ...matched, role: 'teacher' as const, teacherProfileId: teacher.id };
+        db.saveUser(updatedUser);
+        if (onUserApproved) onUserApproved(updatedUser);
+      }
+    } catch (e) { /* ignore */ }
+
+    // Notify teacher via WhatsApp and email
+    const waNumber = teacher.whatsapp || teacher.phone || '';
+    const waText = `*XPM APPLICATION APPROVED*\n\nCongratulations ${teacher.name}! Your faculty application has been approved. You can now log in and manage your profile.`;
+    try { if (waNumber) window.open(`https://wa.me/${waNumber}?text=${encodeURIComponent(waText)}`, '_blank'); } catch (e) {}
+    try { if (teacher.email) window.open(`mailto:${teacher.email}?subject=${encodeURIComponent('Your XPM application approved')}&body=${encodeURIComponent('Congratulations ' + teacher.name + '! Your application has been approved.')}`, '_blank'); } catch (e) {}
+
     alert(`Teacher ${teacher.name} activated.`);
   };
 
