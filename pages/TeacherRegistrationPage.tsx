@@ -268,7 +268,43 @@ const TeacherRegistrationPage: React.FC<TeacherRegistrationPageProps> = ({ user,
                 <h3 className="text-2xl font-black text-slate-900">3. Finalize Registration</h3>
                 
                 <div className="space-y-8">
-                  {/* Promo code hidden per admin request */}
+                  {/* Promo Code Section */}
+                  {!promoApplied && (
+                    <div className="p-8 bg-purple-50 rounded-[2.5rem] border border-purple-200">
+                      <div className="flex items-center gap-3 mb-6">
+                        <svg className="w-6 h-6 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
+                          <path d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" />
+                        </svg>
+                        <h4 className="text-lg font-black text-purple-900">Have a Promo Code?</h4>
+                      </div>
+                      <p className="text-sm text-purple-700 mb-6">Use promo code <span className="font-black text-purple-900">XPMYES</span> to get FREE registration!</p>
+                      <div className="flex gap-3">
+                        <input 
+                          type="text" 
+                          placeholder="Enter promo code..." 
+                          value={formData.promoCode}
+                          onChange={e => setFormData({...formData, promoCode: e.target.value})}
+                          className="flex-grow px-6 py-4 bg-white border border-purple-200 rounded-2xl focus:border-purple-500 outline-none font-bold text-sm shadow-inner uppercase"
+                        />
+                        <button 
+                          onClick={handleApplyPromo}
+                          className="px-8 py-4 bg-purple-600 text-white font-black rounded-2xl hover:bg-purple-700 transition uppercase tracking-widest text-sm shadow-lg"
+                        >
+                          Apply
+                        </button>
+                      </div>
+                    </div>
+                  )}
+
+                  {promoApplied && (
+                    <div className="p-8 bg-xpm-green/10 rounded-[2.5rem] border border-xpm-green/30 flex items-center gap-6">
+                      <div className="w-12 h-12 bg-xpm-green text-white rounded-2xl flex items-center justify-center shrink-0 text-xl">✓</div>
+                      <div>
+                        <p className="font-black text-xpm-green text-lg uppercase">Promo Code Applied!</p>
+                        <p className="text-sm text-slate-600 mt-1">You've unlocked FREE registration. Your profile will be listed after document verification.</p>
+                      </div>
+                    </div>
+                  )}
 
                   {/* Payment Section - Only if not promo */}
                   {!promoApplied && (formData.mode === 'Online' || formData.mode === 'Both') && (
