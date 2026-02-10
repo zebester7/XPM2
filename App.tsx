@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect, Suspense, lazy, useCallback, useMemo } from 'react';
-import { HashRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { User, Review, Question } from './types.ts';
 import { db } from './db.ts';
 import { SettingsProvider } from './SettingsContext.tsx';

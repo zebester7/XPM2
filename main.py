@@ -4,13 +4,19 @@ import json
 import uuid
 import time
 from fastapi import FastAPI, Request, Form, Depends, HTTPException, status, Response
-from fastapi.responses import HTMLResponse, RedirectResponse
+from fastapi.responses import HTMLResponse, RedirectResponse, FileResponse
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
+from pathlib import Path
 from typing import List, Optional
 
 app = FastAPI()
 templates = Jinja2Templates(directory="templates")
+
+# Mount static files for the SPA (dist folder for built React app)
+if os.path.exists("dist"):
+    app.mount("/assets", StaticFiles(directory="dist/assets", html=False), name="assets")
+    app.mount("/public", StaticFiles(directory="public", html=False), name="public")
 
 # --- Full Subject Catalog ---
 SUBJECTS = [
@@ -178,3 +184,26 @@ async def api_update_user(uid: str, user: dict):
             save_db(db_data)
             return user
     raise HTTPException(status_code=404, detail='User not found')
+
+# --- SPA Catch-all Route (for BrowserRouter) ---
+# Serve index.html for all non-API, non-static routes
+@app.get("/{full_path:path}")
+async def serve_spa(full_path: str):
+    # Skip API routes and known file types
+    if full_path.startswith("api/"):
+        raise HTTPException(status_code=404, detail="API endpoint not found")
+    
+    # Check if it's a static file request
+    if any(full_path.endswith(ext) for ext in ['.js', '.css', '.json', '.webmanifest', '.xml', '.png', '.jpg', '.jpeg', '.gif', '.svg', '.webp', '.ico']):
+        static_path = Path(f"dist/{full_path}")
+        if static_path.exists():
+            return FileResponse(static_path)
+        raise HTTPException(status_code=404, detail="File not found")
+    
+    # Serve index.html for all other routes (SPA routing)
+    index_path = Path("dist/index.html")
+    if index_path.exists():
+        return FileResponse(index_path, media_type="text/html")
+    
+    # Fallback if dist is not available
+    raise HTTPException(status_code=404, detail="Frontend app not built. Run: npm run build")
