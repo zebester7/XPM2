@@ -144,6 +144,15 @@ export const db = {
     if (index > -1) { users[index] = { ...users[index], ...user }; }
     else { users.push(user); }
     safeSet(STORAGE_KEYS.USERS, users);
+    // best-effort backend sync (non-blocking)
+    try {
+      if (index > -1) {
+        fetch(`/api/users/${user.id}`, { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(user) }).catch(() => {});
+      } else {
+        fetch('/api/users', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(user) }).catch(() => {});
+      }
+    } catch (e) {}
+    return users;
   },
   getSettings: (): AppSettings => safeGet<AppSettings>(STORAGE_KEYS.SETTINGS, { subscriptionFee: 1500, originalPrice: 3999 }),
   saveSettings: (settings: AppSettings) => safeSet(STORAGE_KEYS.SETTINGS, settings),

@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { Question, Review, User, Subject, Teacher, AppSettings, PastPaper, Board, Level, BlogPost, LearningMaterial } from '../types';
 import { db } from '../db';
@@ -54,7 +54,36 @@ const AdminPage: React.FC<AdminPageProps> = ({ adminUser, questions, reviews, on
   const msInputRef = useRef<HTMLInputElement>(null);
   const matInputRef = useRef<HTMLInputElement>(null);
 
-  const allUsers = db.getUsers();
+  const [usersVersion, setUsersVersion] = useState(0);
+  const allUsers = useMemo(() => db.getUsers(), [usersVersion]);
+
+  // If localStorage has only the admin account, try to fetch users from backend and sync
+  useEffect(() => {
+    try {
+      const local = db.getUsers();
+      if (!local || local.length <= 1) {
+        fetch('/api/users')
+          .then(r => r.json())
+          .then((remote: any[]) => {
+            if (Array.isArray(remote) && remote.length > 0) {
+              remote.forEach(u => db.saveUser(u));
+              setUsersVersion(v => v + 1);
+            }
+          })
+          .catch(() => {
+            // fallback: try loading static db.json (useful when backend not running but repo contains db.json)
+            try {
+              fetch('/db.json').then(r => r.json()).then((obj: any) => {
+                if (obj && Array.isArray(obj.users)) {
+                  obj.users.forEach((u: any) => db.saveUser(u));
+                  setUsersVersion(v => v + 1);
+                }
+              }).catch(() => {});
+            } catch (e) {}
+          });
+      }
+    } catch (e) {}
+  }, []);
   const allSubjects = db.getSubjects();
   const students = allUsers.filter(u => u.role === 'student').sort((a, b) => (b.registeredAt || 0) - (a.registeredAt || 0));
   const pendingPayments = allUsers.filter(u => u.subscriptionStatus === 'pending');

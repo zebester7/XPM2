@@ -145,3 +145,36 @@ async def api_delete_teacher(tid: str):
     db_data['teachers'] = new
     save_db(db_data)
     return {'status': 'ok'}
+
+
+# --- Simple Users API (for SPA sync) ---
+@app.get('/api/users')
+async def api_get_users():
+    db_data = load_db()
+    return db_data.get('users', [])
+
+
+@app.post('/api/users')
+async def api_create_or_update_user(user: dict):
+    db_data = load_db()
+    users = db_data.setdefault('users', [])
+    # find existing by id or email
+    idx = next((i for i,u in enumerate(users) if (u.get('id') and user.get('id') and u.get('id') == user.get('id')) or (u.get('email') and user.get('email') and u.get('email') == user.get('email'))), None)
+    if idx is None:
+        users.append(user)
+    else:
+        users[idx] = user
+    save_db(db_data)
+    return user
+
+
+@app.put('/api/users/{uid}')
+async def api_update_user(uid: str, user: dict):
+    db_data = load_db()
+    users = db_data.setdefault('users', [])
+    for i, u in enumerate(users):
+        if u.get('id') == uid or (user.get('email') and u.get('email') == user.get('email')):
+            users[i] = user
+            save_db(db_data)
+            return user
+    raise HTTPException(status_code=404, detail='User not found')

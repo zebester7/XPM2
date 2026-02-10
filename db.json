@@ -1,0 +1,40 @@
+{
+  "users": [
+    {
+      "id": "super-admin-1",
+      "name": "Zubair Ahmad",
+      "email": "zubairahmadisb7p2@gmail.com",
+      "password": "12345678",
+      "role": "admin",
+      "enrolled_subjects": [],
+      "completed_topics": []
+    },
+    {
+      "id": "student-1001",
+      "name": "Ali Khan",
+      "email": "ali.khan@example.com",
+      "password": "studentpass",
+      "role": "student",
+      "phoneNumber": "923001234567",
+      "registeredAt": 1700000000000,
+      "subscriptionStatus": "active",
+      "enrolled_subjects": [],
+      "completed_topics": []
+    },
+    {
+      "id": "student-1002",
+      "name": "Sara Ahmed",
+      "email": "sara.ahmed@example.com",
+      "password": "studentpass",
+      "role": "student",
+      "phoneNumber": "923009876543",
+      "registeredAt": 1700005000000,
+      "subscriptionStatus": "pending",
+      "enrolled_subjects": [],
+      "completed_topics": []
+    }
+  ],
+  "teachers": [],
+  "questions": [],
+  "reviews": []
+}
