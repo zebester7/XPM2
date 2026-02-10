@@ -362,6 +362,48 @@ const AdminPage: React.FC<AdminPageProps> = ({ adminUser, questions, reviews, on
           </div>
         )}
 
+        {activeTab === 'questions' && (
+          <div className="p-10">
+            <h3 className="text-2xl font-black text-slate-900 mb-8 uppercase tracking-tighter">Q&A Management</h3>
+            <div className="space-y-6">
+              {questions && questions.length > 0 ? (
+                questions.map(q => (
+                  <div key={q.id} className="bg-slate-50 p-8 rounded-[2.5rem] border border-slate-100 space-y-6">
+                    <div>
+                      <h4 className="font-black text-slate-900 text-lg mb-2">{q.question}</h4>
+                      <p className="text-sm text-slate-600 mb-4">{q.description}</p>
+                      <div className="flex gap-4 text-xs font-bold text-slate-400 uppercase">
+                        <span>By: {q.studentName}</span>
+                        <span>•</span>
+                        <span>Subject: {q.subject}</span>
+                        <span>•</span>
+                        <span>{formatDate(q.askedAt)}</span>
+                      </div>
+                    </div>
+                    {q.reply && (
+                      <div className="bg-white p-6 rounded-2xl border border-xpm-blue/20">
+                        <p className="text-[10px] font-black text-xpm-blue uppercase tracking-widest mb-2">Admin Reply</p>
+                        <p className="text-slate-700 text-sm">{q.reply}</p>
+                      </div>
+                    )}
+                    {!q.reply && (
+                      <form onSubmit={(e) => { e.preventDefault(); const reply = replyTexts[q.id]; if (reply) { onReplyQuestion(q.id, reply); setReplyTexts({...replyTexts, [q.id]: ''}); alert('Reply sent!'); } }} className="bg-white p-6 rounded-2xl border border-slate-100 space-y-4">
+                        <label className="block text-[10px] font-black text-slate-400 uppercase tracking-widest">Your Reply</label>
+                        <textarea value={replyTexts[q.id] || ''} onChange={e => setReplyTexts({...replyTexts, [q.id]: e.target.value})} placeholder="Type your reply here..." className="w-full px-5 py-4 border border-slate-200 rounded-xl font-medium text-sm resize-none h-32 shadow-inner" />
+                        <button type="submit" className="w-full py-3 bg-xpm-blue text-white font-black rounded-xl uppercase text-xs shadow-lg hover:bg-xpm-dark transition">Send Reply</button>
+                      </form>
+                    )}
+                  </div>
+                ))
+              ) : (
+                <div className="text-center py-16 text-slate-400">
+                  <p className="font-bold uppercase text-sm">No questions yet</p>
+                </div>
+              )}
+            </div>
+          </div>
+        )}
+
         {activeTab === 'pastpapers' && (
           <div className="p-10 bg-white">
             <h3 className="text-2xl font-black text-slate-900 mb-8 uppercase tracking-tighter">Past Paper Repository</h3>
