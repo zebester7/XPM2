@@ -50,7 +50,7 @@ const HomePage: React.FC<{ reviews: Review[] }> = ({ reviews }) => {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-xpm-green opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-xpm-green"></span>
                 </span>
-                <span className="text-[10px] font-black uppercase tracking-widest text-xpm-blue">Enrollments Open for 2025 Sessions</span>
+                <span className="text-[10px] font-black uppercase tracking-widest text-xpm-blue">Largest tutoring network across the globe</span>
               </div>
               
               <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black tracking-tighter text-slate-900 mb-6 lg:mb-8 leading-none">
