@@ -7,10 +7,20 @@ from fastapi import FastAPI, Request, Form, Depends, HTTPException, status, Resp
 from fastapi.responses import HTMLResponse, RedirectResponse, FileResponse
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
+from fastapi.middleware.cors import CORSMiddleware
 from pathlib import Path
 from typing import List, Optional
 
 app = FastAPI()
+
+# Add CORS middleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 templates = Jinja2Templates(directory="templates")
 
 # Mount static files for the SPA (dist folder for built React app)
@@ -117,13 +127,19 @@ async def admin_dashboard(request: Request):
 
 # --- Teacher API (simple CRUD for frontend sync) ---
 @app.get('/api/teachers')
-async def api_get_teachers():
+async def api_get_teachers(response: Response):
+    response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
+    response.headers["Pragma"] = "no-cache"
+    response.headers["Expires"] = "0"
     db_data = load_db()
     return db_data.get('teachers', [])
 
 
 @app.post('/api/teachers')
-async def api_create_teacher(teacher: dict):
+async def api_create_teacher(teacher: dict, response: Response):
+    response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
+    response.headers["Pragma"] = "no-cache"
+    response.headers["Expires"] = "0"
     db_data = load_db()
     teachers = db_data.setdefault('teachers', [])
     teachers.append(teacher)
@@ -132,7 +148,10 @@ async def api_create_teacher(teacher: dict):
 
 
 @app.put('/api/teachers/{tid}')
-async def api_update_teacher(tid: str, teacher: dict):
+async def api_update_teacher(tid: str, teacher: dict, response: Response):
+    response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
+    response.headers["Pragma"] = "no-cache"
+    response.headers["Expires"] = "0"
     db_data = load_db()
     teachers = db_data.setdefault('teachers', [])
     for i, t in enumerate(teachers):
@@ -144,7 +163,10 @@ async def api_update_teacher(tid: str, teacher: dict):
 
 
 @app.delete('/api/teachers/{tid}')
-async def api_delete_teacher(tid: str):
+async def api_delete_teacher(tid: str, response: Response):
+    response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
+    response.headers["Pragma"] = "no-cache"
+    response.headers["Expires"] = "0"
     db_data = load_db()
     teachers = db_data.get('teachers', [])
     new = [t for t in teachers if t.get('id') != tid]
@@ -155,13 +177,19 @@ async def api_delete_teacher(tid: str):
 
 # --- Simple Users API (for SPA sync) ---
 @app.get('/api/users')
-async def api_get_users():
+async def api_get_users(response: Response):
+    response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
+    response.headers["Pragma"] = "no-cache"
+    response.headers["Expires"] = "0"
     db_data = load_db()
     return db_data.get('users', [])
 
 
 @app.post('/api/users')
-async def api_create_or_update_user(user: dict):
+async def api_create_or_update_user(user: dict, response: Response):
+    response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
+    response.headers["Pragma"] = "no-cache"
+    response.headers["Expires"] = "0"
     db_data = load_db()
     users = db_data.setdefault('users', [])
     # find existing by id or email
@@ -175,7 +203,10 @@ async def api_create_or_update_user(user: dict):
 
 
 @app.put('/api/users/{uid}')
-async def api_update_user(uid: str, user: dict):
+async def api_update_user(uid: str, user: dict, response: Response):
+    response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
+    response.headers["Pragma"] = "no-cache"
+    response.headers["Expires"] = "0"
     db_data = load_db()
     users = db_data.setdefault('users', [])
     for i, u in enumerate(users):

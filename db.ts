@@ -14,10 +14,12 @@ const STORAGE_KEYS = {
   CURRENT_USER: 'academia_user',
   SETTINGS: 'academia_settings',
   BLOGS: 'academia_blogs',
-  MATERIALS: 'academia_materials'
+  MATERIALS: 'academia_materials',
+  DATA_VERSION: 'academia_version' // Track cache version
 };
 
 const cache: Record<string, any> = {};
+let syncIntervalId: NodeJS.Timeout | null = null;
 
 const safeGet = <T>(key: string, defaultValue: T): T => {
   if (cache[key]) return cache[key];
@@ -37,12 +39,92 @@ const safeSet = (key: string, value: any) => {
   cache[key] = value;
   try {
     localStorage.setItem(key, JSON.stringify(value));
+    // Update cache version when data changes
+    const version = (parseInt(localStorage.getItem(STORAGE_KEYS.DATA_VERSION) || '0') + 1);
+    localStorage.setItem(STORAGE_KEYS.DATA_VERSION, version.toString());
   } catch (e) {
     console.warn("XPM Storage Quota Hit: Clearing volatile caches.");
     localStorage.removeItem(STORAGE_KEYS.GROUP_MESSAGES);
     localStorage.setItem(key, JSON.stringify(value));
   }
 };
+
+// Sync data from backend (automatically refresh stale cache from other devices)
+const syncFromBackend = async () => {
+  try {
+    // Fetch fresh teacher and user data from backend with no-cache headers
+    const [teachersRes, usersRes] = await Promise.all([
+      fetch('/api/teachers', { 
+        cache: 'no-store',
+        headers: { 'Cache-Control': 'no-cache, no-store, must-revalidate' }
+      }),
+      fetch('/api/users', {
+        cache: 'no-store', 
+        headers: { 'Cache-Control': 'no-cache, no-store, must-revalidate' }
+      })
+    ]).catch((e) => {
+      console.debug("Backend sync - backend unreachable (normal if offline):", e.message);
+      return [null, null];
+    });
+
+    if (teachersRes?.ok) {
+      const teachers = await teachersRes.json();
+      if (Array.isArray(teachers)) {
+        // Only update if different from cache
+        const cached = db.getTeachers();
+        if (JSON.stringify(cached) !== JSON.stringify(teachers)) {
+          safeSet(STORAGE_KEYS.TEACHERS, teachers);
+          try { window.dispatchEvent(new CustomEvent('dataRefreshed', { detail: { type: 'teachers' } })); } catch (e) {}
+        }
+      }
+    }
+
+    if (usersRes?.ok) {
+      const users = await usersRes.json();
+      if (Array.isArray(users)) {
+        const cached = db.getUsers();
+        if (JSON.stringify(cached) !== JSON.stringify(users)) {
+          safeSet(STORAGE_KEYS.USERS, users);
+          try { window.dispatchEvent(new CustomEvent('dataRefreshed', { detail: { type: 'users' } })); } catch (e) {}
+        }
+      }
+    }
+  } catch (e) {
+    console.debug("Backend sync failed:", e);
+  }
+};
+
+// Start periodic sync from backend (every 10 seconds when page is active)
+const startBackendSync = () => {
+  if (syncIntervalId) return;
+  
+  syncFromBackend(); // Sync immediately
+  
+  // Sync every 10 seconds
+  syncIntervalId = setInterval(() => {
+    // Only sync if page is visible (reduce server load)
+    if (document.visibilityState === 'visible') {
+      syncFromBackend();
+    }
+  }, 10000) as unknown as NodeJS.Timeout;
+
+  // Stop syncing when page goes hidden
+  if (typeof document !== 'undefined') {
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'hidden' && syncIntervalId) {
+        clearInterval(syncIntervalId);
+        syncIntervalId = null;
+      } else if (document.visibilityState === 'visible') {
+        startBackendSync();
+      }
+    });
+  }
+};
+
+// Auto-start sync when db module loads
+if (typeof window !== 'undefined') {
+  startBackendSync();
+}
 
 const initializeDB = () => {
   if (!localStorage.getItem(STORAGE_KEYS.REVIEWS)) safeSet(STORAGE_KEYS.REVIEWS, MOCK_REVIEWS);
