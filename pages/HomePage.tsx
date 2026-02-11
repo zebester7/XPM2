@@ -58,7 +58,7 @@ const HomePage: React.FC<{ reviews: Review[] }> = ({ reviews }) => {
               </h1>
               
               <h2 className="text-lg sm:text-xl text-slate-600 mb-10 lg:mb-12 max-w-xl mx-auto lg:mx-0 leading-relaxed font-medium">
-                Master Science & Logic with XPM Tutors. Elite tutoring for <span className="text-slate-900 font-bold">IGCSE, SAT, NET, and PMA</span> aspirants across 20+ countries.
+                XPM Tutors is a trusted global provider of expert O Level and A Level tutors, delivering premium online tutoring for Cambridge, IGCSE, SAT, NET, and PMA students across 20+ countries. Our qualified tutors help students improve grades, master difficult concepts, and achieve top exam results through personalized, results-driven learning.
               </h2>
 
               <div className="flex flex-col sm:flex-row justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4 mb-12 lg:mb-0">
