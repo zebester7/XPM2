@@ -57,12 +57,27 @@ const AdminPage: React.FC<AdminPageProps> = ({ adminUser, questions, reviews, on
   const [usersVersion, setUsersVersion] = useState(0);
   const allUsers = useMemo(() => db.getUsers(), [usersVersion]);
 
+  // Listen for real-time updates from backend sync
+  useEffect(() => {
+    const handleDataRefresh = (event: Event) => {
+      const detail = (event as CustomEvent).detail;
+      if (detail?.type === 'teachers') {
+        setTeachers(db.getTeachers());
+      } else if (detail?.type === 'users') {
+        setUsersVersion(v => v + 1);
+      }
+    };
+
+    window.addEventListener('dataRefreshed', handleDataRefresh);
+    return () => window.removeEventListener('dataRefreshed', handleDataRefresh);
+  }, []);
+
   // If localStorage has only the admin account, try to fetch users from backend and sync
   useEffect(() => {
     try {
       const local = db.getUsers();
       if (!local || local.length <= 1) {
-        fetch('/api/users')
+        fetch('/api/users', { cache: 'no-store', headers: { 'Cache-Control': 'no-cache, no-store, must-revalidate' } })
           .then(r => r.json())
           .then((remote: any[]) => {
             if (Array.isArray(remote) && remote.length > 0) {
@@ -538,6 +553,23 @@ const AdminPage: React.FC<AdminPageProps> = ({ adminUser, questions, reviews, on
                 activeTenures: []
               };
               setTeachers(db.saveTeacher(newTeacher));
+              
+              // Force immediate sync from backend to ensure all devices see the update
+              setTimeout(() => {
+                fetch('/api/teachers', { 
+                  cache: 'no-store',
+                  headers: { 'Cache-Control': 'no-cache, no-store, must-revalidate' }
+                })
+                  .then(r => r.json())
+                  .then(teachers => {
+                    if (Array.isArray(teachers)) {
+                      setTeachers(teachers);
+                      teachers.forEach(t => db.saveTeacher(t));
+                    }
+                  })
+                  .catch(() => {});
+              }, 500);
+              
               setTeacherForm({ name: '', phone: '', whatsapp: '', subjects: [], mode: 'Online', bio: '', isVerified: true });
               setEditingTeacher(null);
               alert(editingTeacher ? 'Teacher updated!' : 'Teacher added!');

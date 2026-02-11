@@ -94,19 +94,19 @@ const syncFromBackend = async () => {
   }
 };
 
-// Start periodic sync from backend (every 10 seconds when page is active)
+// Start periodic sync from backend (every 3-5 seconds when page is active)
 const startBackendSync = () => {
   if (syncIntervalId) return;
   
   syncFromBackend(); // Sync immediately
   
-  // Sync every 10 seconds
+  // Sync every 3 seconds for faster updates
   syncIntervalId = setInterval(() => {
     // Only sync if page is visible (reduce server load)
     if (document.visibilityState === 'visible') {
       syncFromBackend();
     }
-  }, 10000) as unknown as NodeJS.Timeout;
+  }, 3000) as unknown as NodeJS.Timeout;
 
   // Stop syncing when page goes hidden
   if (typeof document !== 'undefined') {
