@@ -1,24 +1,92 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
+  <!-- Primary Pages -->
   <url>
     <loc>https://www.xpmtutors.com/</loc>
     <priority>1.0</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+
+  <!-- Main Features -->
+  <url>
+    <loc>https://www.xpmtutors.com/subjects</loc>
+    <priority>0.9</priority>
+    <changefreq>weekly</changefreq>
   </url>
 
   <url>
-    <loc>https://www.xpmtutors.com/o-level</loc>
+    <loc>https://www.xpmtutors.com/past-papers</loc>
+    <priority>0.9</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://www.xpmtutors.com/questions</loc>
     <priority>0.8</priority>
+    <changefreq>daily</changefreq>
   </url>
 
   <url>
-    <loc>https://www.xpmtutors.com/a-level</loc>
+    <loc>https://www.xpmtutors.com/teacher-directory</loc>
+    <priority>0.85</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+
+  <!-- Learning Resources -->
+  <url>
+    <loc>https://www.xpmtutors.com/syllabus</loc>
     <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
   </url>
 
   <url>
-    <loc>https://www.xpmtutors.com/contact</loc>
-    <priority>0.6</priority>
+    <loc>https://www.xpmtutors.com/study-groups</loc>
+    <priority>0.75</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://www.xpmtutors.com/exam-landing</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://www.xpmtutors.com/blog</loc>
+    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+
+  <!-- Reviews and Social Proof -->
+  <url>
+    <loc>https://www.xpmtutors.com/reviews</loc>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+
+  <!-- Teacher Resources -->
+  <url>
+    <loc>https://www.xpmtutors.com/hire-teacher</loc>
+    <priority>0.75</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://www.xpmtutors.com/teacher-registration</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- Authentication Pages (with lower priority) -->
+  <url>
+    <loc>https://www.xpmtutors.com/login</loc>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://www.xpmtutors.com/signup</loc>
+    <priority>0.5</priority>
   </url>
 
 </urlset>

@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+# Disallow admin and protected pages from being indexed
+Disallow: /admin
+Disallow: /dashboard
+Disallow: /payment
+
+# Sitemap location
+Sitemap: https://www.xpmtutors.com/sitemap.xml
+
+# Crawl delay
+Crawl-delay: 1

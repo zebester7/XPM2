@@ -216,6 +216,23 @@ async def api_update_user(uid: str, user: dict, response: Response):
             return user
     raise HTTPException(status_code=404, detail='User not found')
 
+# --- Sitemap Route for SEO ---
+@app.get("/sitemap.xml", response_class=FileResponse)
+async def get_sitemap():
+    """Serve sitemap.xml from public folder for Google indexing"""
+    sitemap_path = Path("sitemap.xml")
+    if sitemap_path.exists():
+        return FileResponse(sitemap_path, media_type="application/xml")
+    raise HTTPException(status_code=404, detail="Sitemap not found")
+
+@app.get("/robots.txt", response_class=FileResponse)
+async def get_robots():
+    """Serve robots.txt for search engine crawlers"""
+    robots_path = Path("public/robots.txt")
+    if robots_path.exists():
+        return FileResponse(robots_path, media_type="text/plain")
+    raise HTTPException(status_code=404, detail="Robots file not found")
+
 # --- SPA Catch-all Route (for BrowserRouter) ---
 # Serve index.html for all non-API, non-static routes
 @app.get("/{full_path:path}")
