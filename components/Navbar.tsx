@@ -17,11 +17,15 @@ const Navbar: React.FC<NavbarProps> = ({ user, onLogout }) => {
   const closeMenu = useCallback(() => setIsOpen(false), []);
 
   const navLinks = [
-    { name: 'Dashboard', path: '/dashboard', private: true },
     { name: 'O Level', path: '/o-level-tutors', private: false },
     { name: 'A Level', path: '/a-level-tutors', private: false },
-    { name: 'Blog', path: '/blog', private: false },
+    { name: 'Resources', path: '/subjects', private: true },
     { name: 'Teachers', path: '/teacher-directory', private: false },
+    { name: 'Blog', path: '/blog', private: false },
+  ];
+
+  const examLink = [
+    { name: 'Dashboard', path: '/dashboard', private: true },
   ];
 
   return (
@@ -36,6 +40,22 @@ const Navbar: React.FC<NavbarProps> = ({ user, onLogout }) => {
 
           <div className="hidden md:flex items-center space-x-1">
             {navLinks.map((link) => (
+              (!link.private || user) && (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  className={`px-4 py-2 rounded-lg text-sm font-bold transition-all ${
+                    location.pathname === link.path 
+                    ? 'bg-white/10 text-xpm-green' 
+                    : 'text-white/80 hover:text-white hover:bg-white/5'
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              )
+            ))}
+            
+            {examLink.map((link) => (
               (!link.private || user) && (
                 <Link
                   key={link.path}
@@ -113,6 +133,18 @@ const Navbar: React.FC<NavbarProps> = ({ user, onLogout }) => {
       {isOpen && (
         <div className="md:hidden bg-xpm-dark border-t border-white/5 px-2 pt-2 pb-3 space-y-1 shadow-2xl animate-fade-in-up">
           {navLinks.map((link) => (
+            (!link.private || user) && (
+              <Link
+                key={link.path}
+                to={link.path}
+                onClick={closeMenu}
+                className="block px-4 py-3 rounded-lg text-base font-bold hover:bg-white/5"
+              >
+                {link.name}
+              </Link>
+            )
+          ))}
+          {examLink.map((link) => (
             (!link.private || user) && (
               <Link
                 key={link.path}

@@ -5,9 +5,25 @@ Allow: /
 Disallow: /admin
 Disallow: /dashboard
 Disallow: /payment
+Disallow: /login
+Disallow: /signup
+
+# Allow specific admin pages if needed
+Allow: /teacher-registration
 
 # Sitemap location
 Sitemap: https://www.xpmtutors.com/sitemap.xml
 
-# Crawl delay
+# Crawl delay for balanced server load
+Crawl-delay: 1
+Request-rate: 1/1s
+
+# Google-specific rules
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# Bing-specific rules
+User-agent: Bingbot
+Allow: /
 Crawl-delay: 1

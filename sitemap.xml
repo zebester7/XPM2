@@ -1,92 +1,162 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <!-- Primary Pages -->
+  <!-- Home Page -->
   <url>
     <loc>https://www.xpmtutors.com/</loc>
     <priority>1.0</priority>
     <changefreq>weekly</changefreq>
+    <lastmod>2026-02-12</lastmod>
   </url>
 
-  <!-- Main Features -->
+  <!-- Exam Landing Pages - High Priority -->
   <url>
-    <loc>https://www.xpmtutors.com/subjects</loc>
+    <loc>https://www.xpmtutors.com/o-level-tutors</loc>
+    <priority>0.95</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2026-02-12</lastmod>
+  </url>
+
+  <url>
+    <loc>https://www.xpmtutors.com/a-level-tutors</loc>
+    <priority>0.95</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2026-02-12</lastmod>
+  </url>
+
+  <url>
+    <loc>https://www.xpmtutors.com/igcse-tutors</loc>
     <priority>0.9</priority>
     <changefreq>weekly</changefreq>
+    <lastmod>2026-02-12</lastmod>
+  </url>
+
+  <url>
+    <loc>https://www.xpmtutors.com/sat-tutors</loc>
+    <priority>0.9</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2026-02-12</lastmod>
+  </url>
+
+  <url>
+    <loc>https://www.xpmtutors.com/net-entry-test-tutors</loc>
+    <priority>0.85</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-02-12</lastmod>
+  </url>
+
+  <url>
+    <loc>https://www.xpmtutors.com/pma-tutors</loc>
+    <priority>0.85</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-02-12</lastmod>
+  </url>
+
+  <!-- Core Learning Resources -->
+  <url>
+    <loc>https://www.xpmtutors.com/subjects</loc>
+    <priority>0.95</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2026-02-12</lastmod>
   </url>
 
   <url>
     <loc>https://www.xpmtutors.com/past-papers</loc>
     <priority>0.9</priority>
     <changefreq>weekly</changefreq>
+    <lastmod>2026-02-12</lastmod>
   </url>
 
   <url>
     <loc>https://www.xpmtutors.com/questions</loc>
-    <priority>0.8</priority>
+    <priority>0.85</priority>
     <changefreq>daily</changefreq>
+    <lastmod>2026-02-12</lastmod>
   </url>
 
+  <!-- Teacher & Community Pages -->
   <url>
     <loc>https://www.xpmtutors.com/teacher-directory</loc>
-    <priority>0.85</priority>
+    <priority>0.9</priority>
     <changefreq>weekly</changefreq>
+    <lastmod>2026-02-12</lastmod>
   </url>
 
-  <!-- Learning Resources -->
-  <url>
-    <loc>https://www.xpmtutors.com/syllabus</loc>
-    <priority>0.8</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://www.xpmtutors.com/study-groups</loc>
-    <priority>0.75</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://www.xpmtutors.com/exam-landing</loc>
-    <priority>0.8</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://www.xpmtutors.com/blog</loc>
-    <priority>0.8</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-
-  <!-- Reviews and Social Proof -->
-  <url>
-    <loc>https://www.xpmtutors.com/reviews</loc>
-    <priority>0.7</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-
-  <!-- Teacher Resources -->
   <url>
     <loc>https://www.xpmtutors.com/hire-teacher</loc>
-    <priority>0.75</priority>
+    <priority>0.85</priority>
     <changefreq>monthly</changefreq>
+    <lastmod>2026-02-12</lastmod>
   </url>
 
   <url>
     <loc>https://www.xpmtutors.com/teacher-registration</loc>
-    <priority>0.7</priority>
+    <priority>0.85</priority>
     <changefreq>monthly</changefreq>
+    <lastmod>2026-02-12</lastmod>
   </url>
 
-  <!-- Authentication Pages (with lower priority) -->
+  <!-- Learning & Study Tools -->
+  <url>
+    <loc>https://www.xpmtutors.com/syllabus-precision</loc>
+    <priority>0.85</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-02-12</lastmod>
+  </url>
+
+  <url>
+    <loc>https://www.xpmtutors.com/study-groups</loc>
+    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2026-02-12</lastmod>
+  </url>
+
+  <!-- Content & Social Proof -->
+  <url>
+    <loc>https://www.xpmtutors.com/blog</loc>
+    <priority>0.85</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2026-02-12</lastmod>
+  </url>
+
+  <url>
+    <loc>https://www.xpmtutors.com/sitemap</loc>
+    <priority>0.85</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2026-02-12</lastmod>
+  </url>
+
+  <url>
+    <loc>https://www.xpmtutors.com/reviews</loc>
+    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2026-02-12</lastmod>
+  </url>
+
+  <!-- User Account Pages (Lower Priority) -->
+  <url>
+    <loc>https://www.xpmtutors.com/dashboard</loc>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2026-02-12</lastmod>
+  </url>
+
   <url>
     <loc>https://www.xpmtutors.com/login</loc>
-    <priority>0.5</priority>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
   </url>
 
   <url>
     <loc>https://www.xpmtutors.com/signup</loc>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://www.xpmtutors.com/payment</loc>
     <priority>0.5</priority>
+    <changefreq>monthly</changefreq>
   </url>
 
 </urlset>

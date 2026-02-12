@@ -29,6 +29,7 @@ const PaymentPage = lazy(() => import('./pages/PaymentPage.tsx'));
 const TeacherRegistrationPage = lazy(() => import('./pages/TeacherRegistrationPage.tsx'));
 const ExamLandingPage = lazy(() => import('./pages/ExamLandingPage.tsx'));
 const BlogPage = lazy(() => import('./pages/BlogPage.tsx'));
+const SitemapPage = lazy(() => import('./pages/SitemapPage.tsx'));
 
 const LoadingScreen = React.memo(() => (
   <div className="min-h-[60vh] flex items-center justify-center bg-slate-50">
@@ -145,6 +146,8 @@ const App: React.FC = () => {
                 <Route path="/net-entry-test-tutors" element={<PageWrapper><ExamLandingPage exam="NET Entry Test" /></PageWrapper>} />
                 <Route path="/pma-tutors" element={<PageWrapper><ExamLandingPage exam="PMA Long Course" /></PageWrapper>} />
                 <Route path="/blog" element={<PageWrapper><BlogPage /></PageWrapper>} />
+
+                <Route path="/sitemap" element={<PageWrapper><SitemapPage /></PageWrapper>} />
 
                 <Route 
                   path="/dashboard" 
