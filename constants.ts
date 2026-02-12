@@ -1230,26 +1230,491 @@ export const SUBJECTS_DATA: Subject[] = [
     ]
   },
 
-  // --- CAMBRIDGE A LEVEL (SAMPLES) ---
+  // --- CAMBRIDGE AS LEVEL (FULL SYLLABUS INDEX) ---
   {
-    id: 'phys-9702',
-    name: 'Physics',
+    id: 'as-math-9709',
+    name: 'Mathematics',
     level: 'AS Level',
-    description: 'Cambridge International AS & A Level Physics (9702).',
+    description: 'Cambridge International AS Level Mathematics (9709) - Pure Mathematics, Probability & Statistics.',
     topics: [
-      { id: 'p9702-1', title: 'Physical quantities and units', resources: [] },
-      { id: 'p9702-2', title: 'Kinematics', resources: [] },
-      { id: 'p9702-3', title: 'Dynamics', resources: [] }
+      { id: 'as-m9709-1', title: 'Quadratic equations and functions', resources: [] },
+      { id: 'as-m9709-2', title: 'Indices and surds', resources: [] },
+      { id: 'as-m9709-3', title: 'Coordinate geometry and circle equations', resources: [] },
+      { id: 'as-m9709-4', title: 'Sequences and series', resources: [] },
+      { id: 'as-m9709-5', title: 'Trigonometry and trigonometric equations', resources: [] },
+      { id: 'as-m9709-6', title: 'Exponential and logarithmic functions', resources: [] },
+      { id: 'as-m9709-7', title: 'Differentiation and applications', resources: [] },
+      { id: 'as-m9709-8', title: 'Integration and applications', resources: [] },
+      { id: 'as-m9709-9', title: 'Probability and distributions', resources: [] },
+      { id: 'as-m9709-10', title: 'Sampling and hypothesis testing', resources: [] }
     ]
   },
   {
-    id: 'math-9709',
-    name: 'Mathematics',
+    id: 'as-phys-9702',
+    name: 'Physics',
     level: 'AS Level',
-    description: 'Cambridge International AS & A Level Mathematics (9709).',
+    description: 'Cambridge International AS Level Physics (9702) - Mechanics, thermodynamics and waves.',
     topics: [
-      { id: 'm9709-1', title: 'Pure Mathematics 1', resources: [] },
-      { id: 'm9709-2', title: 'Probability & Statistics 1', resources: [] }
+      { id: 'as-p9702-1', title: 'Physical quantities and units', resources: [] },
+      { id: 'as-p9702-2', title: 'Kinematics', resources: [] },
+      { id: 'as-p9702-3', title: 'Dynamics and Newton\'s laws', resources: [] },
+      { id: 'as-p9702-4', title: 'Energy, work and power', resources: [] },
+      { id: 'as-p9702-5', title: 'Momentum and collisions', resources: [] },
+      { id: 'as-p9702-6', title: 'Density and pressure', resources: [] },
+      { id: 'as-p9702-7', title: 'Thermal physics and temperature', resources: [] },
+      { id: 'as-p9702-8', title: 'Oscillations and simple harmonic motion', resources: [] },
+      { id: 'as-p9702-9', title: 'Waves and wave motion', resources: [] },
+      { id: 'as-p9702-10', title: 'Superposition and interference', resources: [] }
+    ]
+  },
+  {
+    id: 'as-chem-9701',
+    name: 'Chemistry',
+    level: 'AS Level',
+    description: 'Cambridge International AS Level Chemistry (9701) - Atomic chemistry and bonding.',
+    topics: [
+      { id: 'as-c9701-1', title: 'Atomic structure and periodicity', resources: [] },
+      { id: 'as-c9701-2', title: 'Bonding and structure', resources: [] },
+      { id: 'as-c9701-3', title: 'States of matter and kinetic theory', resources: [] },
+      { id: 'as-c9701-4', title: 'Chemical equations and stoichiometry', resources: [] },
+      { id: 'as-c9701-5', title: 'Mole concept and calculations', resources: [] },
+      { id: 'as-c9701-6', title: 'Oxidation and reduction', resources: [] },
+      { id: 'as-c9701-7', title: 'Thermodynamics and energetics', resources: [] },
+      { id: 'as-c9701-8', title: 'Rates of reaction', resources: [] },
+      { id: 'as-c9701-9', title: 'Chemical equilibrium', resources: [] },
+      { id: 'as-c9701-10', title: 'Acid-base chemistry and buffers', resources: [] }
+    ]
+  },
+  {
+    id: 'as-bio-9700',
+    name: 'Biology',
+    level: 'AS Level',
+    description: 'Cambridge International AS Level Biology (9700) - Cell biology and physiology.',
+    topics: [
+      { id: 'as-b9700-1', title: 'Cell structure and organisation', resources: [] },
+      { id: 'as-b9700-2', title: 'Cell division and growth', resources: [] },
+      { id: 'as-b9700-3', title: 'Membranes and transport', resources: [] },
+      { id: 'as-b9700-4', title: 'Enzyme action and control', resources: [] },
+      { id: 'as-b9700-5', title: 'Nutrition and photosynthesis', resources: [] },
+      { id: 'as-b9700-6', title: 'Respiration and energy transfer', resources: [] },
+      { id: 'as-b9700-7', title: 'Gaseous exchange and ventilation', resources: [] },
+      { id: 'as-b9700-8', title: 'Transport in plants and animals', resources: [] },
+      { id: 'as-b9700-9', title: 'Homeostasis and excretion', resources: [] },
+      { id: 'as-b9700-10', title: 'Coordination and response', resources: [] }
+    ]
+  },
+  {
+    id: 'as-cs-9618',
+    name: 'Computer Science',
+    level: 'AS Level',
+    description: 'Cambridge International AS Level Computer Science (9618) - Theory and programming.',
+    topics: [
+      { id: 'as-cs9618-1', title: 'Information representation', resources: [] },
+      { id: 'as-cs9618-2', title: 'Hardware systems and architecture', resources: [] },
+      { id: 'as-cs9618-3', title: 'Software and system organisation', resources: [] },
+      { id: 'as-cs9618-4', title: 'Networks and connectivity', resources: [] },
+      { id: 'as-cs9618-5', title: 'Cybersecurity and ethics', resources: [] },
+      { id: 'as-cs9618-6', title: 'Problem solving and algorithms', resources: [] },
+      { id: 'as-cs9618-7', title: 'Programming fundamentals', resources: [] },
+      { id: 'as-cs9618-8', title: 'Data structures and types', resources: [] },
+      { id: 'as-cs9618-9', title: 'Software development techniques', resources: [] },
+      { id: 'as-cs9618-10', title: 'Database design', resources: [] }
+    ]
+  },
+  {
+    id: 'as-eng-9093',
+    name: 'English Language',
+    level: 'AS Level',
+    description: 'Cambridge International AS Level English Language (9093) - Linguistic analysis.',
+    topics: [
+      { id: 'as-e9093-1', title: 'Textual analysis and reading skills', resources: [] },
+      { id: 'as-e9093-2', title: 'Grammar and syntax analysis', resources: [] },
+      { id: 'as-e9093-3', title: 'Lexis and semantics', resources: [] },
+      { id: 'as-e9093-4', title: 'Discourse and pragmatics', resources: [] },
+      { id: 'as-e9093-5', title: 'Language variation and change', resources: [] },
+      { id: 'as-e9093-6', title: 'Written expression and style', resources: [] },
+      { id: 'as-e9093-7', title: 'Persuasive and rhetorical writing', resources: [] },
+      { id: 'as-e9093-8', title: 'Speech and conversation analysis', resources: [] },
+      { id: 'as-e9093-9', title: 'Text types and genres', resources: [] },
+      { id: 'as-e9093-10', title: 'Research and investigation', resources: [] }
+    ]
+  },
+  {
+    id: 'as-englit-9695',
+    name: 'English Literature',
+    level: 'AS Level',
+    description: 'Cambridge International AS Level English Literature (9695) - Poetry, drama and prose.',
+    topics: [
+      { id: 'as-el9695-1', title: 'Poetry and poetic forms', resources: [] },
+      { id: 'as-el9695-2', title: 'Drama and theatrical interpretation', resources: [] },
+      { id: 'as-el9695-3', title: 'Prose and narrative structure', resources: [] },
+      { id: 'as-el9695-4', title: 'Character and voice', resources: [] },
+      { id: 'as-el9695-5', title: 'Theme and symbolism', resources: [] },
+      { id: 'as-el9695-6', title: 'Language and literary techniques', resources: [] },
+      { id: 'as-el9695-7', title: 'Context and historical period', resources: [] },
+      { id: 'as-el9695-8', title: 'Critical response and interpretation', resources: [] },
+      { id: 'as-el9695-9', title: 'Comparative analysis', resources: [] },
+      { id: 'as-el9695-10', title: 'Essay writing and analysis', resources: [] }
+    ]
+  },
+  {
+    id: 'as-hist-9389',
+    name: 'History',
+    level: 'AS Level',
+    description: 'Cambridge International AS Level History (9389) - Modern world history.',
+    topics: [
+      { id: 'as-h9389-1', title: 'The First World War', resources: [] },
+      { id: 'as-h9389-2', title: 'International relations 1919-1939', resources: [] },
+      { id: 'as-h9389-3', title: 'The Second World War', resources: [] },
+      { id: 'as-h9389-4', title: 'The Cold War', resources: [] },
+      { id: 'as-h9389-5', title: 'Decolonisation and independence', resources: [] },
+      { id: 'as-h9389-6', title: 'The Middle East conflict', resources: [] },
+      { id: 'as-h9389-7', title: 'American history and politics', resources: [] },
+      { id: 'as-h9389-8', title: 'Asian history and development', resources: [] },
+      { id: 'as-h9389-9', title: 'European social and cultural change', resources: [] },
+      { id: 'as-h9389-10', title: 'Historical sources and interpretation', resources: [] }
+    ]
+  },
+  {
+    id: 'as-geo-9395',
+    name: 'Geography',
+    level: 'AS Level',
+    description: 'Cambridge International AS Level Geography (9395) - Human and physical systems.',
+    topics: [
+      { id: 'as-g9395-1', title: 'Plate tectonics and landforms', resources: [] },
+      { id: 'as-g9395-2', title: 'Weathering and soil formation', resources: [] },
+      { id: 'as-g9395-3', title: 'Weather and climate systems', resources: [] },
+      { id: 'as-g9395-4', title: 'Population dynamics and migration', resources: [] },
+      { id: 'as-g9395-5', title: 'Settlement and urbanisation', resources: [] },
+      { id: 'as-g9395-6', title: 'Economic systems and development', resources: [] },
+      { id: 'as-g9395-7', title: 'Globalisation and trade', resources: [] },
+      { id: 'as-g9395-8', title: 'Environmental challenges and management', resources: [] },
+      { id: 'as-g9395-9', title: 'Water and river systems', resources: [] },
+      { id: 'as-g9395-10', title: 'Ecosystems and biodiversity', resources: [] }
+    ]
+  },
+  {
+    id: 'as-eco-9708',
+    name: 'Economics',
+    level: 'AS Level',
+    description: 'Cambridge International AS Level Economics (9708) - Microeconomic principles.',
+    topics: [
+      { id: 'as-eco9708-1', title: 'Economic problem and choice', resources: [] },
+      { id: 'as-eco9708-2', title: 'Specialisation and exchange', resources: [] },
+      { id: 'as-eco9708-3', title: 'Demand and supply', resources: [] },
+      { id: 'as-eco9708-4', title: 'Price elasticity of demand', resources: [] },
+      { id: 'as-eco9708-5', title: 'Price elasticity of supply', resources: [] },
+      { id: 'as-eco9708-6', title: 'Market equilibrium and disequilibrium', resources: [] },
+      { id: 'as-eco9708-7', title: 'Costs and revenue', resources: [] },
+      { id: 'as-eco9708-8', title: 'Perfect competition', resources: [] },
+      { id: 'as-eco9708-9', title: 'Imperfect competition', resources: [] },
+      { id: 'as-eco9708-10', title: 'Government intervention', resources: [] }
+    ]
+  },
+  {
+    id: 'as-bus-9609',
+    name: 'Business',
+    level: 'AS Level',
+    description: 'Cambridge International AS Level Business (9609) - Business fundamentals.',
+    topics: [
+      { id: 'as-b9609-1', title: 'Business objectives and structure', resources: [] },
+      { id: 'as-b9609-2', title: 'Introduction to management accountancy', resources: [] },
+      { id: 'as-b9609-3', title: 'Human resource management', resources: [] },
+      { id: 'as-b9609-4', title: 'Marketing strategy and planning', resources: [] },
+      { id: 'as-b9609-5', title: 'Operational management', resources: [] },
+      { id: 'as-b9609-6', title: 'Finance and capital structure', resources: [] },
+      { id: 'as-b9609-7', title: 'Strategic management', resources: [] },
+      { id: 'as-b9609-8', title: 'Corporate governance and ethics', resources: [] },
+      { id: 'as-b9609-9', title: 'International business', resources: [] },
+      { id: 'as-b9609-10', title: 'Business analysis and case studies', resources: [] }
+    ]
+  },
+  {
+    id: 'as-acc-9706',
+    name: 'Accounting',
+    level: 'AS Level',
+    description: 'Cambridge International AS Level Accounting (9706) - Financial accounting.',
+    topics: [
+      { id: 'as-a9706-1', title: 'The accounting equation and double entry', resources: [] },
+      { id: 'as-a9706-2', title: 'Ledger accounts and the trial balance', resources: [] },
+      { id: 'as-a9706-3', title: 'Books of original entry', resources: [] },
+      { id: 'as-a9706-4', title: 'Final accounts and adjustments', resources: [] },
+      { id: 'as-a9706-5', title: 'Accounting for depreciation', resources: [] },
+      { id: 'as-a9706-6', title: 'Accounting for receivables', resources: [] },
+      { id: 'as-a9706-7', title: 'Accounting standards and concepts', resources: [] },
+      { id: 'as-a9706-8', title: 'Interpretation of financial statements', resources: [] },
+      { id: 'as-a9706-9', title: 'Management accounting basics', resources: [] },
+      { id: 'as-a9706-10', title: 'Partnership accounting', resources: [] }
+    ]
+  },
+  {
+    id: 'as-urdu-9676',
+    name: 'Urdu Language',
+    level: 'AS Level',
+    description: 'Cambridge International AS Level Urdu Language (9676) - Communication and expression.',
+    topics: [
+      { id: 'as-u9676-1', title: 'Listening comprehension', resources: [] },
+      { id: 'as-u9676-2', title: 'Speaking and oral interaction', resources: [] },
+      { id: 'as-u9676-3', title: 'Reading and comprehension', resources: [] },
+      { id: 'as-u9676-4', title: 'Writing and expression', resources: [] },
+      { id: 'as-u9676-5', title: 'Grammar and sentence structure', resources: [] },
+      { id: 'as-u9676-6', title: 'Vocabulary and idiomatic usage', resources: [] },
+      { id: 'as-u9676-7', title: 'Urdu literature and texts', resources: [] },
+      { id: 'as-u9676-8', title: 'Formal and informal register', resources: [] },
+      { id: 'as-u9676-9', title: 'Pakistani culture and society', resources: [] },
+      { id: 'as-u9676-10', title: 'Contemporary Urdu language issues', resources: [] }
+    ]
+  },
+  {
+    id: 'as-isl-9011',
+    name: 'Islamic Studies',
+    level: 'AS Level',
+    description: 'Cambridge International AS Level Islamic Studies (9011) - Islamic teachings.',
+    topics: [
+      { id: 'as-is9011-1', title: 'Islamic belief and theology', resources: [] },
+      { id: 'as-is9011-2', title: 'The Quran and its teachings', resources: [] },
+      { id: 'as-is9011-3', title: 'The Hadith and Sunna', resources: [] },
+      { id: 'as-is9011-4', title: 'Islamic law and jurisprudence', resources: [] },
+      { id: 'as-is9011-5', title: 'Acts of worship and religious practice', resources: [] },
+      { id: 'as-is9011-6', title: 'Islamic ethics and morality', resources: [] },
+      { id: 'as-is9011-7', title: 'Family law and relationships', resources: [] },
+      { id: 'as-is9011-8', title: 'Islamic history and scholarly tradition', resources: [] },
+      { id: 'as-is9011-9', title: 'Islam in the modern world', resources: [] },
+      { id: 'as-is9011-10', title: 'Inter-faith relations and dialogue', resources: [] }
+    ]
+  },
+  {
+    id: 'as-german-9717',
+    name: 'German Language',
+    level: 'AS Level',
+    description: 'Cambridge International AS Level German Language (9717) - Advanced communication.',
+    topics: [
+      { id: 'as-g9717-1', title: 'Listening and understanding', resources: [] },
+      { id: 'as-g9717-2', title: 'Speaking and interaction', resources: [] },
+      { id: 'as-g9717-3', title: 'Reading comprehension', resources: [] },
+      { id: 'as-g9717-4', title: 'Writing and composition', resources: [] },
+      { id: 'as-g9717-5', title: 'Advanced grammar and syntax', resources: [] },
+      { id: 'as-g9717-6', title: 'Vocabulary and idiomatic expression', resources: [] },
+      { id: 'as-g9717-7', title: 'German culture and society', resources: [] },
+      { id: 'as-g9717-8', title: 'Literature and texts', resources: [] },
+      { id: 'as-g9717-9', title: 'Contemporary German-speaking world', resources: [] },
+      { id: 'as-g9717-10', title: 'German history and tradition', resources: [] }
+    ]
+  },
+  {
+    id: 'as-french-9716',
+    name: 'French Language',
+    level: 'AS Level',
+    description: 'Cambridge International AS Level French Language (9716) - Advanced proficiency.',
+    topics: [
+      { id: 'as-f9716-1', title: 'Listening and comprehension', resources: [] },
+      { id: 'as-f9716-2', title: 'Speaking and oral expression', resources: [] },
+      { id: 'as-f9716-3', title: 'Reading and text analysis', resources: [] },
+      { id: 'as-f9716-4', title: 'Writing and formal composition', resources: [] },
+      { id: 'as-f9716-5', title: 'Complex grammar and structures', resources: [] },
+      { id: 'as-f9716-6', title: 'Advanced vocabulary and expressions', resources: [] },
+      { id: 'as-f9716-7', title: 'Francophone culture and society', resources: [] },
+      { id: 'as-f9716-8', title: 'French literature and authors', resources: [] },
+      { id: 'as-f9716-9', title: 'Contemporary France and issues', resources: [] },
+      { id: 'as-f9716-10', title: 'French media and communication', resources: [] }
+    ]
+  },
+  {
+    id: 'as-spanish-9719',
+    name: 'Spanish Language',
+    level: 'AS Level',
+    description: 'Cambridge International AS Level Spanish Language (9719) - Advanced communication.',
+    topics: [
+      { id: 'as-s9719-1', title: 'Listening and understanding', resources: [] },
+      { id: 'as-s9719-2', title: 'Speaking and interaction', resources: [] },
+      { id: 'as-s9719-3', title: 'Reading comprehension and analysis', resources: [] },
+      { id: 'as-s9719-4', title: 'Writing and composition', resources: [] },
+      { id: 'as-s9719-5', title: 'Advanced Spanish grammar', resources: [] },
+      { id: 'as-s9719-6', title: 'Vocabulary and idioms', resources: [] },
+      { id: 'as-s9719-7', title: 'Hispanic culture and traditions', resources: [] },
+      { id: 'as-s9719-8', title: 'Spanish and Latin American literature', resources: [] },
+      { id: 'as-s9719-9', title: 'Contemporary Hispanic world', resources: [] },
+      { id: 'as-s9719-10', title: 'Regional varieties and dialects', resources: [] }
+    ]
+  },
+  {
+    id: 'as-chinese-9715',
+    name: 'Chinese Language',
+    level: 'AS Level',
+    description: 'Cambridge International AS Level Chinese Language (9715) - Advanced comprehension.',
+    topics: [
+      { id: 'as-c9715-1', title: 'Listening and understanding', resources: [] },
+      { id: 'as-c9715-2', title: 'Speaking and conversation', resources: [] },
+      { id: 'as-c9715-3', title: 'Reading comprehension', resources: [] },
+      { id: 'as-c9715-4', title: 'Writing and composition', resources: [] },
+      { id: 'as-c9715-5', title: 'Chinese characters and writing system', resources: [] },
+      { id: 'as-c9715-6', title: 'Grammar and sentence patterns', resources: [] },
+      { id: 'as-c9715-7', title: 'Chinese culture and traditions', resources: [] },
+      { id: 'as-c9715-8', title: 'Classical and modern Chinese', resources: [] },
+      { id: 'as-c9715-9', title: 'Contemporary Chinese society', resources: [] },
+      { id: 'as-c9715-10', title: 'Chinese media and communication', resources: [] }
+    ]
+  },
+  {
+    id: 'as-arabic-9722',
+    name: 'Arabic Language',
+    level: 'AS Level',
+    description: 'Cambridge International AS Level Arabic Language (9722) - Advanced expression.',
+    topics: [
+      { id: 'as-a9722-1', title: 'Listening and comprehension', resources: [] },
+      { id: 'as-a9722-2', title: 'Speaking and interaction', resources: [] },
+      { id: 'as-a9722-3', title: 'Reading and text analysis', resources: [] },
+      { id: 'as-a9722-4', title: 'Writing and formal expression', resources: [] },
+      { id: 'as-a9722-5', title: 'Arabic grammar and syntax', resources: [] },
+      { id: 'as-a9722-6', title: 'Vocabulary and idioms', resources: [] },
+      { id: 'as-a9722-7', title: 'Arabic literature and texts', resources: [] },
+      { id: 'as-a9722-8', title: 'Arabic culture and history', resources: [] },
+      { id: 'as-a9722-9', title: 'Modern Arab world and issues', resources: [] },
+      { id: 'as-a9722-10', title: 'Regional varieties of Arabic', resources: [] }
+    ]
+  },
+  {
+    id: 'as-law-9084',
+    name: 'Law',
+    level: 'AS Level',
+    description: 'Cambridge International AS Level Law (9084) - Legal systems and concepts.',
+    topics: [
+      { id: 'as-l9084-1', title: 'Introduction to law and jurisprudence', resources: [] },
+      { id: 'as-l9084-2', title: 'Common law system and legislation', resources: [] },
+      { id: 'as-l9084-3', title: 'Criminal law principles', resources: [] },
+      { id: 'as-l9084-4', title: 'Civil law and contract formation', resources: [] },
+      { id: 'as-l9084-5', title: 'Law of tort', resources: [] },
+      { id: 'as-l9084-6', title: 'Constitutional and administrative law', resources: [] },
+      { id: 'as-l9084-7', title: 'Courts and legal procedure', resources: [] },
+      { id: 'as-l9084-8', title: 'Legal professions and ethics', resources: [] },
+      { id: 'as-l9084-9', title: 'International law basics', resources: [] },
+      { id: 'as-l9084-10', title: 'Law in contemporary society', resources: [] }
+    ]
+  },
+  {
+    id: 'as-psych-9990',
+    name: 'Psychology',
+    level: 'AS Level',
+    description: 'Cambridge International AS Level Psychology (9990) - Human behaviour and mind.',
+    topics: [
+      { id: 'as-p9990-1', title: 'Introduction to psychology and research methods', resources: [] },
+      { id: 'as-p9990-2', title: 'Biological psychology and neurotransmitters', resources: [] },
+      { id: 'as-p9990-3', title: 'Sensation and perception', resources: [] },
+      { id: 'as-p9990-4', title: 'Memory and learning', resources: [] },
+      { id: 'as-p9990-5', title: 'States of consciousness and sleep', resources: [] },
+      { id: 'as-p9990-6', title: 'Motivation and emotion', resources: [] },
+      { id: 'as-p9990-7', title: 'Social psychology and relationships', resources: [] },
+      { id: 'as-p9990-8', title: 'Personality and individual differences', resources: [] },
+      { id: 'as-p9990-9', title: 'Psychological disorders', resources: [] },
+      { id: 'as-p9990-10', title: 'Therapy and counselling', resources: [] }
+    ]
+  },
+  {
+    id: 'as-soc-9744',
+    name: 'Sociology',
+    level: 'AS Level',
+    description: 'Cambridge International AS Level Sociology (9744) - Social structures and change.',
+    topics: [
+      { id: 'as-s9744-1', title: 'The nature of sociology', resources: [] },
+      { id: 'as-s9744-2', title: 'Culture and socialisation', resources: [] },
+      { id: 'as-s9744-3', title: 'Social structure and differentiation', resources: [] },
+      { id: 'as-s9744-4', title: 'Stratification and social inequality', resources: [] },
+      { id: 'as-s9744-5', title: 'Education and society', resources: [] },
+      { id: 'as-s9744-6', title: 'Family and kinship', resources: [] },
+      { id: 'as-s9744-7', title: 'Religion and belief systems', resources: [] },
+      { id: 'as-s9744-8', title: 'Media and communication', resources: [] },
+      { id: 'as-s9744-9', title: 'Deviance and social control', resources: [] },
+      { id: 'as-s9744-10', title: 'Social change and globalisation', resources: [] }
+    ]
+  },
+  {
+    id: 'as-art-9704',
+    name: 'Art & Design',
+    level: 'AS Level',
+    description: 'Cambridge International AS Level Art & Design (9704) - Visual arts practice.',
+    topics: [
+      { id: 'as-art9704-1', title: 'Visual elements and design principles', resources: [] },
+      { id: 'as-art9704-2', title: 'Two-dimensional media and techniques', resources: [] },
+      { id: 'as-art9704-3', title: 'Three-dimensional form and sculpture', resources: [] },
+      { id: 'as-art9704-4', title: 'Photography and digital media', resources: [] },
+      { id: 'as-art9704-5', title: 'Graphic design and communication', resources: [] },
+      { id: 'as-art9704-6', title: 'Art history and periods', resources: [] },
+      { id: 'as-art9704-7', title: 'Artist study and analysis', resources: [] },
+      { id: 'as-art9704-8', title: 'Contemporary art and practice', resources: [] },
+      { id: 'as-art9704-9', title: 'Design process and development', resources: [] },
+      { id: 'as-art9704-10', title: 'Portfolio and personal investigation', resources: [] }
+    ]
+  },
+  {
+    id: 'as-music-9703',
+    name: 'Music',
+    level: 'AS Level',
+    description: 'Cambridge International AS Level Music (9703) - Composition and performance.',
+    topics: [
+      { id: 'as-m9703-1', title: 'Music fundamentals and notation', resources: [] },
+      { id: 'as-m9703-2', title: 'Harmonic language and chord theory', resources: [] },
+      { id: 'as-m9703-3', title: 'Melody and composition techniques', resources: [] },
+      { id: 'as-m9703-4', title: 'Orchestration and instrumentation', resources: [] },
+      { id: 'as-m9703-5', title: 'Music performance styles', resources: [] },
+      { id: 'as-m9703-6', title: 'Western classical tradition', resources: [] },
+      { id: 'as-m9703-7', title: 'World music and traditional forms', resources: [] },
+      { id: 'as-m9703-8', title: 'Popular music and contemporary styles', resources: [] },
+      { id: 'as-m9703-9', title: 'Music production and technology', resources: [] },
+      { id: 'as-m9703-10', title: 'Critical listening and analysis', resources: [] }
+    ]
+  },
+  {
+    id: 'as-envs-9649',
+    name: 'Environmental Management',
+    level: 'AS Level',
+    description: 'Cambridge International AS Level Environmental Management (9649) - Ecosystems.',
+    topics: [
+      { id: 'as-e9649-1', title: 'Ecosystems and biotic communities', resources: [] },
+      { id: 'as-e9649-2', title: 'Energy flow and nutrient cycles', resources: [] },
+      { id: 'as-e9649-3', title: 'Population dynamics and distribution', resources: [] },
+      { id: 'as-e9649-4', title: 'Photosynthesis and primary production', resources: [] },
+      { id: 'as-e9649-5', title: 'Succession and climax communities', resources: [] },
+      { id: 'as-e9649-6', title: 'Human impact on ecosystems', resources: [] },
+      { id: 'as-e9649-7', title: 'Conservation and biodiversity', resources: [] },
+      { id: 'as-e9649-8', title: 'Sustainable resource management', resources: [] },
+      { id: 'as-e9649-9', title: 'Pollution and environmental problems', resources: [] },
+      { id: 'as-e9649-10', title: 'Environmental policy and solutions', resources: [] }
+    ]
+  },
+  {
+    id: 'as-think-9694',
+    name: 'Thinking Skills',
+    level: 'AS Level',
+    description: 'Cambridge International AS Level Thinking Skills (9694) - Critical thinking.',
+    topics: [
+      { id: 'as-t9694-1', title: 'Understanding argument and reasoning', resources: [] },
+      { id: 'as-t9694-2', title: 'Recognising logical fallacies', resources: [] },
+      { id: 'as-t9694-3', title: 'Deductive and inductive reasoning', resources: [] },
+      { id: 'as-t9694-4', title: 'Causal analysis and relationships', resources: [] },
+      { id: 'as-t9694-5', title: 'Problem definition and analysis', resources: [] },
+      { id: 'as-t9694-6', title: 'Information evaluation and credibility', resources: [] },
+      { id: 'as-t9694-7', title: 'Creative problem solving', resources: [] },
+      { id: 'as-t9694-8', title: 'Ethical reasoning and judgement', resources: [] },
+      { id: 'as-t9694-9', title: 'Decision making frameworks', resources: [] },
+      { id: 'as-t9694-10', title: 'Research and evidence analysis', resources: [] }
+    ]
+  },
+  {
+    id: 'as-it-9626',
+    name: 'Information Technology',
+    level: 'AS Level',
+    description: 'Cambridge International AS Level Information Technology (9626) - Digital systems.',
+    topics: [
+      { id: 'as-it9626-1', title: 'Information systems and applications', resources: [] },
+      { id: 'as-it9626-2', title: 'Hardware components and peripherals', resources: [] },
+      { id: 'as-it9626-3', title: 'Software and operating systems', resources: [] },
+      { id: 'as-it9626-4', title: 'Networks and the internet', resources: [] },
+      { id: 'as-it9626-5', title: 'Web design and development', resources: [] },
+      { id: 'as-it9626-6', title: 'Databases and information management', resources: [] },
+      { id: 'as-it9626-7', title: 'Spreadsheets and data analysis', resources: [] },
+      { id: 'as-it9626-8', title: 'Website creation and management', resources: [] },
+      { id: 'as-it9626-9', title: 'Cyber security and data protection', resources: [] },
+      { id: 'as-it9626-10', title: 'IT ethics and professional issues', resources: [] }
     ]
   },
 
