@@ -718,6 +718,518 @@ export const SUBJECTS_DATA: Subject[] = [
     ]
   },
 
+  // --- CAMBRIDGE IGCSE (FULL SYLLABUS INDEX) ---
+  {
+    id: 'igcse-math-0580',
+    name: 'Mathematics',
+    level: 'IGCSE',
+    description: 'Cambridge IGCSE Mathematics (0580) - Core curriculum including number, algebra, geometry and statistics.',
+    topics: [
+      { id: 'igcse-m0580-1', title: 'Number and calculation', resources: [] },
+      { id: 'igcse-m0580-2', title: 'Percentages, profit, loss and discount', resources: [] },
+      { id: 'igcse-m0580-3', title: 'Factorization', resources: [] },
+      { id: 'igcse-m0580-4', title: 'Algebraic fractions and formulae', resources: [] },
+      { id: 'igcse-m0580-5', title: 'Exponents and radicals', resources: [] },
+      { id: 'igcse-m0580-6', title: 'Equations and inequalities', resources: [] },
+      { id: 'igcse-m0580-7', title: 'Sequences and series', resources: [] },
+      { id: 'igcse-m0580-8', title: 'Relations and functions', resources: [] },
+      { id: 'igcse-m0580-9', title: 'Trigonometry and bearings', resources: [] },
+      { id: 'igcse-m0580-10', title: 'Geometry and constructions', resources: [] },
+      { id: 'igcse-m0580-11', title: 'Vectors and transformations', resources: [] },
+      { id: 'igcse-m0580-12', title: 'Mensuration - areas and volumes', resources: [] },
+      { id: 'igcse-m0580-13', title: 'Coordinate geometry and graphs', resources: [] },
+      { id: 'igcse-m0580-14', title: 'Probability', resources: [] },
+      { id: 'igcse-m0580-15', title: 'Statistics and data analysis', resources: [] },
+      { id: 'igcse-m0580-16', title: 'Financial mathematics', resources: [] }
+    ]
+  },
+  {
+    id: 'igcse-phys-0625',
+    name: 'Physics',
+    level: 'IGCSE',
+    description: 'Cambridge IGCSE Physics (0625) - Forces, energy, waves and particle physics.',
+    topics: [
+      { id: 'igcse-p0625-1', title: 'General physics and measurement', resources: [] },
+      { id: 'igcse-p0625-2', title: 'Motion, forces and energy', resources: [] },
+      { id: 'igcse-p0625-3', title: 'Kinematics and dynamics', resources: [] },
+      { id: 'igcse-p0625-4', title: 'Work, energy and power', resources: [] },
+      { id: 'igcse-p0625-5', title: 'Pressure', resources: [] },
+      { id: 'igcse-p0625-6', title: 'Thermal effects and properties of matter', resources: [] },
+      { id: 'igcse-p0625-7', title: 'Waves', resources: [] },
+      { id: 'igcse-p0625-8', title: 'Sound', resources: [] },
+      { id: 'igcse-p0625-9', title: 'Light', resources: [] },
+      { id: 'igcse-p0625-10', title: 'Magnetism and electromagnetism', resources: [] },
+      { id: 'igcse-p0625-11', title: 'Electricity and circuits', resources: [] },
+      { id: 'igcse-p0625-12', title: 'Modern physics and nuclear physics', resources: [] },
+      { id: 'igcse-p0625-13', title: 'Atom structure and atomic reactions', resources: [] },
+      { id: 'igcse-p0625-14', title: 'Fundamental particles and forces', resources: [] }
+    ]
+  },
+  {
+    id: 'igcse-chem-0620',
+    name: 'Chemistry',
+    level: 'IGCSE',
+    description: 'Cambridge IGCSE Chemistry (0620) - Atomic structure, bonding, reactions and energetics.',
+    topics: [
+      { id: 'igcse-c0620-1', title: 'Particulate nature of matter', resources: [] },
+      { id: 'igcse-c0620-2', title: 'Atomic structure and the periodic table', resources: [] },
+      { id: 'igcse-c0620-3', title: 'Bonding and structure', resources: [] },
+      { id: 'igcse-c0620-4', title: 'Stoichiometry and the mole concept', resources: [] },
+      { id: 'igcse-c0620-5', title: 'Electricity and chemical change', resources: [] },
+      { id: 'igcse-c0620-6', title: 'Thermodynamics and energy changes', resources: [] },
+      { id: 'igcse-c0620-7', title: 'Rates of reaction and equilibrium', resources: [] },
+      { id: 'igcse-c0620-8', title: 'Group chemistry and periodicity', resources: [] },
+      { id: 'igcse-c0620-9', title: 'Organic chemistry and hydrocarbons', resources: [] },
+      { id: 'igcse-c0620-10', title: 'Functional group chemistry', resources: [] },
+      { id: 'igcse-c0620-11', title: 'Chemical analysis and qualitative testing', resources: [] },
+      { id: 'igcse-c0620-12', title: 'Quantitative analysis and calculations', resources: [] }
+    ]
+  },
+  {
+    id: 'igcse-bio-0610',
+    name: 'Biology',
+    level: 'IGCSE',
+    description: 'Cambridge IGCSE Biology (0610) - Cell biology, genetics, evolution and ecosystems.',
+    topics: [
+      { id: 'igcse-b0610-1', title: 'Cell and cell division', resources: [] },
+      { id: 'igcse-b0610-2', title: 'Biological molecules and enzymes', resources: [] },
+      { id: 'igcse-b0610-3', title: 'Nutrition and transport', resources: [] },
+      { id: 'igcse-b0610-4', title: 'Respiration and energy transfer', resources: [] },
+      { id: 'igcse-b0610-5', title: 'Excretion and osmoregulation', resources: [] },
+      { id: 'igcse-b0610-6', title: 'Nervous and endocrine control', resources: [] },
+      { id: 'igcse-b0610-7', title: 'Reproduction and growth', resources: [] },
+      { id: 'igcse-b0610-8', title: 'Inheritance and variation', resources: [] },
+      { id: 'igcse-b0610-9', title: 'Selection and evolution', resources: [] },
+      { id: 'igcse-b0610-10', title: 'Ecology and ecosystems', resources: [] },
+      { id: 'igcse-b0610-11', title: 'Recycling and interdependence', resources: [] },
+      { id: 'igcse-b0610-12', title: 'Human influence on ecosystems', resources: [] }
+    ]
+  },
+  {
+    id: 'igcse-cs-0984',
+    name: 'Computer Science',
+    level: 'IGCSE',
+    description: 'Cambridge IGCSE Computer Science (0984) - Programming, networks and theory.',
+    topics: [
+      { id: 'igcse-cs0984-1', title: 'Information and data', resources: [] },
+      { id: 'igcse-cs0984-2', title: 'Hardware and software', resources: [] },
+      { id: 'igcse-cs0984-3', title: 'Networks and the internet', resources: [] },
+      { id: 'igcse-cs0984-4', title: 'Cybersecurity', resources: [] },
+      { id: 'igcse-cs0984-5', title: 'Programming fundamentals', resources: [] },
+      { id: 'igcse-cs0984-6', title: 'Data types and structures', resources: [] },
+      { id: 'igcse-cs0984-7', title: 'Algorithms and logic', resources: [] },
+      { id: 'igcse-cs0984-8', title: 'Computational thinking', resources: [] },
+      { id: 'igcse-cs0984-9', title: 'Program design and development', resources: [] },
+      { id: 'igcse-cs0984-10', title: 'Database design and SQL', resources: [] }
+    ]
+  },
+  {
+    id: 'igcse-eng-0500',
+    name: 'English Language',
+    level: 'IGCSE',
+    description: 'Cambridge IGCSE English Language (0500) - Reading, writing, speaking and listening.',
+    topics: [
+      { id: 'igcse-e0500-1', title: 'Reading skills and comprehension', resources: [] },
+      { id: 'igcse-e0500-2', title: 'Vocabulary and terminology', resources: [] },
+      { id: 'igcse-e0500-3', title: 'Grammar and syntax', resources: [] },
+      { id: 'igcse-e0500-4', title: 'Punctuation and spelling', resources: [] },
+      { id: 'igcse-e0500-5', title: 'Writing skills and composition', resources: [] },
+      { id: 'igcse-e0500-6', title: 'Formal and persuasive writing', resources: [] },
+      { id: 'igcse-e0500-7', title: 'Creative and narrative writing', resources: [] },
+      { id: 'igcse-e0500-8', title: 'Analysis of texts and author technique', resources: [] },
+      { id: 'igcse-e0500-9', title: 'Speaking and listening skills', resources: [] },
+      { id: 'igcse-e0500-10', title: 'Communication and public speaking', resources: [] }
+    ]
+  },
+  {
+    id: 'igcse-englit-0486',
+    name: 'English Literature',
+    level: 'IGCSE',
+    description: 'Cambridge IGCSE English Literature (0486) - Poetry, drama, prose and writing.',
+    topics: [
+      { id: 'igcse-el0486-1', title: 'Poetry analysis and interpretation', resources: [] },
+      { id: 'igcse-el0486-2', title: 'Poetic devices and techniques', resources: [] },
+      { id: 'igcse-el0486-3', title: 'Drama and theatrical elements', resources: [] },
+      { id: 'igcse-el0486-4', title: 'Character development and conflict', resources: [] },
+      { id: 'igcse-el0486-5', title: 'Prose and narrative structure', resources: [] },
+      { id: 'igcse-el0486-6', title: 'Theme and symbolism', resources: [] },
+      { id: 'igcse-el0486-7', title: 'Context and historical setting', resources: [] },
+      { id: 'igcse-el0486-8', title: 'Writing and critical response', resources: [] },
+      { id: 'igcse-el0486-9', title: 'Literary comparison and contrast', resources: [] },
+      { id: 'igcse-el0486-10', title: 'Personal study and textual analysis', resources: [] }
+    ]
+  },
+  {
+    id: 'igcse-history-0977',
+    name: 'History',
+    level: 'IGCSE',
+    description: 'Cambridge IGCSE History (0977) - Modern history from 1750s to present day.',
+    topics: [
+      { id: 'igcse-h0977-1', title: 'The Age of Enlightenment and Revolution', resources: [] },
+      { id: 'igcse-h0977-2', title: 'Industrial Revolution and social change', resources: [] },
+      { id: 'igcse-h0977-3', title: 'Peak of European power and imperialism', resources: [] },
+      { id: 'igcse-h0977-4', title: 'World War I causes and consequences', resources: [] },
+      { id: 'igcse-h0977-5', title: 'Search for political stability 1919-1939', resources: [] },
+      { id: 'igcse-h0977-6', title: 'Depression and the rise of totalitarianism', resources: [] },
+      { id: 'igcse-h0977-7', title: 'World War II causes and course', resources: [] },
+      { id: 'igcse-h0977-8', title: 'The Cold War and its impact', resources: [] },
+      { id: 'igcse-h0977-9', title: 'Decolonization and independence movements', resources: [] },
+      { id: 'igcse-h0977-10', title: 'Modern international relations', resources: [] }
+    ]
+  },
+  {
+    id: 'igcse-geo-0460',
+    name: 'Geography',
+    level: 'IGCSE',
+    description: 'Cambridge IGCSE Geography (0460) - Physical and human geography.',
+    topics: [
+      { id: 'igcse-g0460-1', title: 'Earth in the Universe', resources: [] },
+      { id: 'igcse-g0460-2', title: 'Plate tectonics and landforms', resources: [] },
+      { id: 'igcse-g0460-3', title: 'Rocks, weathering and soil formation', resources: [] },
+      { id: 'igcse-g0460-4', title: 'Weather, climate and ecosystems', resources: [] },
+      { id: 'igcse-g0460-5', title: 'Tropical rainforests and deserts', resources: [] },
+      { id: 'igcse-g0460-6', title: 'Rivers and coasts', resources: [] },
+      { id: 'igcse-g0460-7', title: 'Population dynamics and migration', resources: [] },
+      { id: 'igcse-g0460-8', title: 'Settlement and urbanization', resources: [] },
+      { id: 'igcse-g0460-9', title: 'Economic development and resources', resources: [] },
+      { id: 'igcse-g0460-10', title: 'Industry and agriculture', resources: [] },
+      { id: 'igcse-g0460-11', title: 'Globalisation and trade', resources: [] },
+      { id: 'igcse-g0460-12', title: 'Environmental management and sustainability', resources: [] }
+    ]
+  },
+  {
+    id: 'igcse-bus-0450',
+    name: 'Business Studies',
+    level: 'IGCSE',
+    description: 'Cambridge IGCSE Business Studies (0450) - Business fundamentals and management.',
+    topics: [
+      { id: 'igcse-b0450-1', title: 'Nature of business activity', resources: [] },
+      { id: 'igcse-b0450-2', title: 'Business objectives and stakeholders', resources: [] },
+      { id: 'igcse-b0450-3', title: 'Business organization and finance', resources: [] },
+      { id: 'igcse-b0450-4', title: 'Human resource management', resources: [] },
+      { id: 'igcse-b0450-5', title: 'Marketing and market research', resources: [] },
+      { id: 'igcse-b0450-6', title: 'Product and pricing strategies', resources: [] },
+      { id: 'igcse-b0450-7', title: 'Promotion and distribution', resources: [] },
+      { id: 'igcse-b0450-8', title: 'Operations and production management', resources: [] },
+      { id: 'igcse-b0450-9', title: 'Business growth and integration', resources: [] },
+      { id: 'igcse-b0450-10', title: 'International business and trade', resources: [] },
+      { id: 'igcse-b0450-11', title: 'Information technology in business', resources: [] },
+      { id: 'igcse-b0450-12', title: 'Social responsibility and ethics', resources: [] }
+    ]
+  },
+  {
+    id: 'igcse-eco-0455',
+    name: 'Economics',
+    level: 'IGCSE',
+    description: 'Cambridge IGCSE Economics (0455) - Microeconomics and macroeconomics.',
+    topics: [
+      { id: 'igcse-ec0455-1', title: 'Economics fundamentals and choices', resources: [] },
+      { id: 'igcse-ec0455-2', title: 'Factors of production and specialization', resources: [] },
+      { id: 'igcse-ec0455-3', title: 'Demand and supply', resources: [] },
+      { id: 'igcse-ec0455-4', title: 'Price elasticity of demand', resources: [] },
+      { id: 'igcse-ec0455-5', title: 'Price elasticity of supply', resources: [] },
+      { id: 'igcse-ec0455-6', title: 'Market equilibrium and disequilibrium', resources: [] },
+      { id: 'igcse-ec0455-7', title: 'Costs and revenue', resources: [] },
+      { id: 'igcse-ec0455-8', title: 'Profit and competition', resources: [] },
+      { id: 'igcse-ec0455-9', title: 'Market structures', resources: [] },
+      { id: 'igcse-ec0455-10', title: 'Government intervention in markets', resources: [] },
+      { id: 'igcse-ec0455-11', title: 'Macroeconomics and development', resources: [] },
+      { id: 'igcse-ec0455-12', title: 'Inflation and unemployment', resources: [] },
+      { id: 'igcse-ec0455-13', title: 'International trade and exchange rates', resources: [] },
+      { id: 'igcse-ec0455-14', title: 'Economic growth and sustainability', resources: [] }
+    ]
+  },
+  {
+    id: 'igcse-acc-0452',
+    name: 'Accounting',
+    level: 'IGCSE',
+    description: 'Cambridge IGCSE Accounting (0452) - Recording transactions and financial reporting.',
+    topics: [
+      { id: 'igcse-a0452-1', title: 'Nature and purpose of accounting', resources: [] },
+      { id: 'igcse-a0452-2', title: 'Accounting equation and double entry', resources: [] },
+      { id: 'igcse-a0452-3', title: 'Books of original entry', resources: [] },
+      { id: 'igcse-a0452-4', title: 'The ledger and trial balance', resources: [] },
+      { id: 'igcse-a0452-5', title: 'Bank reconciliation', resources: [] },
+      { id: 'igcse-a0452-6', title: 'Depreciation and accruals', resources: [] },
+      { id: 'igcse-a0452-7', title: 'Profit and loss accounts', resources: [] },
+      { id: 'igcse-a0452-8', title: 'Balance sheets and working capital', resources: [] },
+      { id: 'igcse-a0452-9', title: 'Financial statements analysis', resources: [] },
+      { id: 'igcse-a0452-10', title: 'Budgeting and cash flow', resources: [] },
+      { id: 'igcse-a0452-11', title: 'Partnership and company accounts', resources: [] },
+      { id: 'igcse-a0452-12', title: 'Accounting standards and concepts', resources: [] }
+    ]
+  },
+  {
+    id: 'igcse-urdu-0667',
+    name: 'Urdu Language',
+    level: 'IGCSE',
+    description: 'Cambridge IGCSE Urdu Language (0667) - Reading, writing and communication.',
+    topics: [
+      { id: 'igcse-u0667-1', title: 'Listening and understanding', resources: [] },
+      { id: 'igcse-u0667-2', title: 'Speaking and pronunciation', resources: [] },
+      { id: 'igcse-u0667-3', title: 'Urdu script and characters', resources: [] },
+      { id: 'igcse-u0667-4', title: 'Grammar and tenses', resources: [] },
+      { id: 'igcse-u0667-5', title: 'Vocabulary building and usage', resources: [] },
+      { id: 'igcse-u0667-6', title: 'Reading comprehension', resources: [] },
+      { id: 'igcse-u0667-7', title: 'Writing and composition', resources: [] },
+      { id: 'igcse-u0667-8', title: 'Formal and informal writing', resources: [] },
+      { id: 'igcse-u0667-9', title: 'Urdu literature and culture', resources: [] },
+      { id: 'igcse-u0667-10', title: 'Communication skills', resources: [] }
+    ]
+  },
+  {
+    id: 'igcse-isl-0493',
+    name: 'Islamic Studies',
+    level: 'IGCSE',
+    description: 'Cambridge IGCSE Islamic Studies (0493) - Belief, practice and ethics.',
+    topics: [
+      { id: 'igcse-is0493-1', title: 'Islamic beliefs and theology', resources: [] },
+      { id: 'igcse-is0493-2', title: 'The Quran and Hadith', resources: [] },
+      { id: 'igcse-is0493-3', title: 'Ibadah - acts of worship', resources: [] },
+      { id: 'igcse-is0493-4', title: 'Islamic law and Sharia', resources: [] },
+      { id: 'igcse-is0493-5', title: 'Family and relationships', resources: [] },
+      { id: 'igcse-is0493-6', title: 'Islamic ethics and morality', resources: [] },
+      { id: 'igcse-is0493-7', title: 'Ummah and social responsibility', resources: [] },
+      { id: 'igcse-is0493-8', title: 'Islamic history and scholars', resources: [] },
+      { id: 'igcse-is0493-9', title: 'Islam in the modern world', resources: [] },
+      { id: 'igcse-is0493-10', title: 'Inter-faith dialogue and coexistence', resources: [] }
+    ]
+  },
+  {
+    id: 'igcse-german-0525',
+    name: 'German Language',
+    level: 'IGCSE',
+    description: 'Cambridge IGCSE German Language (0525) - Communication and cultural awareness.',
+    topics: [
+      { id: 'igcse-g0525-1', title: 'Listening skills and comprehension', resources: [] },
+      { id: 'igcse-g0525-2', title: 'Speaking and oral communication', resources: [] },
+      { id: 'igcse-g0525-3', title: 'Pronunciation and intonation', resources: [] },
+      { id: 'igcse-g0525-4', title: 'German grammar fundamentals', resources: [] },
+      { id: 'igcse-g0525-5', title: 'Verb forms and tenses', resources: [] },
+      { id: 'igcse-g0525-6', title: 'Sentence structure and syntax', resources: [] },
+      { id: 'igcse-g0525-7', title: 'Reading comprehension and texts', resources: [] },
+      { id: 'igcse-g0525-8', title: 'Written expression and composition', resources: [] },
+      { id: 'igcse-g0525-9', title: 'German culture and society', resources: [] },
+      { id: 'igcse-g0525-10', title: 'Advanced German communication', resources: [] }
+    ]
+  },
+  {
+    id: 'igcse-french-0520',
+    name: 'French Language',
+    level: 'IGCSE',
+    description: 'Cambridge IGCSE French Language (0520) - Practical communication skills.',
+    topics: [
+      { id: 'igcse-f0520-1', title: 'Listening and understanding', resources: [] },
+      { id: 'igcse-f0520-2', title: 'Speaking and conversation', resources: [] },
+      { id: 'igcse-f0520-3', title: 'Pronunciation and accent', resources: [] },
+      { id: 'igcse-f0520-4', title: 'French grammar basics', resources: [] },
+      { id: 'igcse-f0520-5', title: 'Tenses and verb conjugation', resources: [] },
+      { id: 'igcse-f0520-6', title: 'Syntax and sentence building', resources: [] },
+      { id: 'igcse-f0520-7', title: 'Reading comprehension', resources: [] },
+      { id: 'igcse-f0520-8', title: 'Writing and written composition', resources: [] },
+      { id: 'igcse-f0520-9', title: 'French civilisation and culture', resources: [] },
+      { id: 'igcse-f0520-10', title: 'Communication in context', resources: [] }
+    ]
+  },
+  {
+    id: 'igcse-spanish-0530',
+    name: 'Spanish Language',
+    level: 'IGCSE',
+    description: 'Cambridge IGCSE Spanish Language (0530) - Language proficiency and cultural understanding.',
+    topics: [
+      { id: 'igcse-s0530-1', title: 'Listening comprehension', resources: [] },
+      { id: 'igcse-s0530-2', title: 'Speaking and speech production', resources: [] },
+      { id: 'igcse-s0530-3', title: 'Pronunciation and phonetics', resources: [] },
+      { id: 'igcse-s0530-4', title: 'Spanish grammar fundamentals', resources: [] },
+      { id: 'igcse-s0530-5', title: 'Verb system and tenses', resources: [] },
+      { id: 'igcse-s0530-6', title: 'Complex sentence structures', resources: [] },
+      { id: 'igcse-s0530-7', title: 'Reading comprehension and materials', resources: [] },
+      { id: 'igcse-s0530-8', title: 'Writing and text production', resources: [] },
+      { id: 'igcse-s0530-9', title: 'Hispanic culture and traditions', resources: [] },
+      { id: 'igcse-s0530-10', title: 'Sociolinguistics and communication', resources: [] }
+    ]
+  },
+  {
+    id: 'igcse-art-0400',
+    name: 'Art & Design',
+    level: 'IGCSE',
+    description: 'Cambridge IGCSE Art & Design (0400) - Visual communication and artistic practice.',
+    topics: [
+      { id: 'igcse-art0400-1', title: 'Visual language and design elements', resources: [] },
+      { id: 'igcse-art0400-2', title: 'Colour theory and application', resources: [] },
+      { id: 'igcse-art0400-3', title: 'Form, shape and composition', resources: [] },
+      { id: 'igcse-art0400-4', title: 'Drawing techniques and media', resources: [] },
+      { id: 'igcse-art0400-5', title: 'Painting and printmaking', resources: [] },
+      { id: 'igcse-art0400-6', title: '3D art and sculpture', resources: [] },
+      { id: 'igcse-art0400-7', title: 'Graphic design and communication', resources: [] },
+      { id: 'igcse-art0400-8', title: 'Photography and digital media', resources: [] },
+      { id: 'igcse-art0400-9', title: 'Art history and context', resources: [] },
+      { id: 'igcse-art0400-10', title: 'Portfolio development and presentation', resources: [] }
+    ]
+  },
+  {
+    id: 'igcse-music-0500',
+    name: 'Music',
+    level: 'IGCSE',
+    description: 'Cambridge IGCSE Music (0500) - Performance, composition and listening.',
+    topics: [
+      { id: 'igcse-mus0500-1', title: 'Music theory fundamentals', resources: [] },
+      { id: 'igcse-mus0500-2', title: 'Notation and reading music', resources: [] },
+      { id: 'igcse-mus0500-3', title: 'Instruments and the orchestra', resources: [] },
+      { id: 'igcse-mus0500-4', title: 'Harmony and chord progressions', resources: [] },
+      { id: 'igcse-mus0500-5', title: 'Melody composition and development', resources: [] },
+      { id: 'igcse-mus0500-6', title: 'Rhythm and time signatures', resources: [] },
+      { id: 'igcse-mus0500-7', title: 'Music styles and genres', resources: [] },
+      { id: 'igcse-mus0500-8', title: 'Listening and analysis', resources: [] },
+      { id: 'igcse-mus0500-9', title: 'Performance techniques', resources: [] },
+      { id: 'igcse-mus0500-10', title: 'Music technology and recording', resources: [] }
+    ]
+  },
+  {
+    id: 'igcse-pe-0413',
+    name: 'Physical Education',
+    level: 'IGCSE',
+    description: 'Cambridge IGCSE Physical Education (0413) - Sport, fitness and training.',
+    topics: [
+      { id: 'igcse-pe0413-1', title: 'Sport and society', resources: [] },
+      { id: 'igcse-pe0413-2', title: 'Anatomy and physiology', resources: [] },
+      { id: 'igcse-pe0413-3', title: 'Fitness components and testing', resources: [] },
+      { id: 'igcse-pe0413-4', title: 'Training principles and methods', resources: [] },
+      { id: 'igcse-pe0413-5', title: 'Sport psychology and emotions', resources: [] },
+      { id: 'igcse-pe0413-6', title: 'Skill development and techniques', resources: [] },
+      { id: 'igcse-pe0413-7', title: 'Movement analysis and mechanics', resources: [] },
+      { id: 'igcse-pe0413-8', title: 'Nutrition and performance', resources: [] },
+      { id: 'igcse-pe0413-9', title: 'Ethics and fair play in sport', resources: [] },
+      { id: 'igcse-pe0413-10', title: 'Sports organization and management', resources: [] }
+    ]
+  },
+  {
+    id: 'igcse-envs-0680',
+    name: 'Environmental Management',
+    level: 'IGCSE',
+    description: 'Cambridge IGCSE Environmental Management (0680) - Resources and sustainability.',
+    topics: [
+      { id: 'igcse-em0680-1', title: 'Ecosystems and biomes', resources: [] },
+      { id: 'igcse-em0680-2', title: 'Energy resources and flows', resources: [] },
+      { id: 'igcse-em0680-3', title: 'Sustainable management of resources', resources: [] },
+      { id: 'igcse-em0680-4', title: 'Freshwater systems and management', resources: [] },
+      { id: 'igcse-em0680-5', title: 'Soil conservation and agriculture', resources: [] },
+      { id: 'igcse-em0680-6', title: 'Forestry and woodland management', resources: [] },
+      { id: 'igcse-em0680-7', title: 'Wildlife conservation and protection', resources: [] },
+      { id: 'igcse-em0680-8', title: 'Natural hazards and risks', resources: [] },
+      { id: 'igcse-em0680-9', title: 'Pollution and environmental damage', resources: [] },
+      { id: 'igcse-em0680-10', title: 'Population and settlement planning', resources: [] }
+    ]
+  },
+  {
+    id: 'igcse-chinese-0523',
+    name: 'Chinese Language',
+    level: 'IGCSE',
+    description: 'Cambridge IGCSE Chinese Language (0523) - Communication and cultural learning.',
+    topics: [
+      { id: 'igcse-ch0523-1', title: 'Listening and comprehension', resources: [] },
+      { id: 'igcse-ch0523-2', title: 'Speaking and oral interaction', resources: [] },
+      { id: 'igcse-ch0523-3', title: 'Pinyin and romanization', resources: [] },
+      { id: 'igcse-ch0523-4', title: 'Chinese characters and writing', resources: [] },
+      { id: 'igcse-ch0523-5', title: 'Grammar and sentence patterns', resources: [] },
+      { id: 'igcse-ch0523-6', title: 'Tones and pronunciation', resources: [] },
+      { id: 'igcse-ch0523-7', title: 'Reading comprehension', resources: [] },
+      { id: 'igcse-ch0523-8', title: 'Written expression', resources: [] },
+      { id: 'igcse-ch0523-9', title: 'Chinese culture and traditions', resources: [] },
+      { id: 'igcse-ch0523-10', title: 'Contemporary China and society', resources: [] }
+    ]
+  },
+  {
+    id: 'igcse-arabic-0544',
+    name: 'Arabic Language',
+    level: 'IGCSE',
+    description: 'Cambridge IGCSE Arabic Language (0544) - Language skills and cultural awareness.',
+    topics: [
+      { id: 'igcse-ar0544-1', title: 'Listening skills and understanding', resources: [] },
+      { id: 'igcse-ar0544-2', title: 'Speaking and conversation', resources: [] },
+      { id: 'igcse-ar0544-3', title: 'Arabic script and writing systems', resources: [] },
+      { id: 'igcse-ar0544-4', title: 'Grammar and sentence structure', resources: [] },
+      { id: 'igcse-ar0544-5', title: 'Verb conjugation and tenses', resources: [] },
+      { id: 'igcse-ar0544-6', title: 'Vocabulary and communication', resources: [] },
+      { id: 'igcse-ar0544-7', title: 'Reading comprehension', resources: [] },
+      { id: 'igcse-ar0544-8', title: 'Written composition and essays', resources: [] },
+      { id: 'igcse-ar0544-9', title: 'Arab culture and civilisation', resources: [] },
+      { id: 'igcse-ar0544-10', title: 'Modern Arab world and issues', resources: [] }
+    ]
+  },
+  {
+    id: 'igcse-firstlang-0109',
+    name: 'First Language English',
+    level: 'IGCSE',
+    description: 'Cambridge IGCSE First Language English (0109) - Extended reading and writing.',
+    topics: [
+      { id: 'igcse-fle0109-1', title: 'Reading and comprehension skills', resources: [] },
+      { id: 'igcse-fle0109-2', title: 'Textual analysis and evaluation', resources: [] },
+      { id: 'igcse-fle0109-3', title: 'Writing for different audiences', resources: [] },
+      { id: 'igcse-fle0109-4', title: 'Creative and imaginative writing', resources: [] },
+      { id: 'igcse-fle0109-5', title: 'Formal and discursive writing', resources: [] },
+      { id: 'igcse-fle0109-6', title: 'Descriptive and narrative techniques', resources: [] },
+      { id: 'igcse-fle0109-7', title: 'Argument and persuasive writing', resources: [] },
+      { id: 'igcse-fle0109-8', title: 'Writer intent and voice', resources: [] },
+      { id: 'igcse-fle0109-9', title: 'Paper 2 and extended writing', resources: [] },
+      { id: 'igcse-fle0109-10', title: 'Grammar, spelling and punctuation', resources: [] }
+    ]
+  },
+  {
+    id: 'igcse-thinsk-0983',
+    name: 'Thinking Skills',
+    level: 'IGCSE',
+    description: 'Cambridge IGCSE Thinking Skills (0983) - Logic, reasoning and problem-solving.',
+    topics: [
+      { id: 'igcse-ts0983-1', title: 'Problem solving and techniques', resources: [] },
+      { id: 'igcse-ts0983-2', title: 'Critical thinking and reasoning', resources: [] },
+      { id: 'igcse-ts0983-3', title: 'Logic and argument analysis', resources: [] },
+      { id: 'igcse-ts0983-4', title: 'Deductive reasoning', resources: [] },
+      { id: 'igcse-ts0983-5', title: 'Inductive reasoning and inference', resources: [] },
+      { id: 'igcse-ts0983-6', title: 'Creative thinking and innovation', resources: [] },
+      { id: 'igcse-ts0983-7', title: 'Decision making and analysis', resources: [] },
+      { id: 'igcse-ts0983-8', title: 'Data interpretation and statistics', resources: [] },
+      { id: 'igcse-ts0983-9', title: 'Fallacies and bias detection', resources: [] },
+      { id: 'igcse-ts0983-10', title: 'Research and evidence evaluation', resources: [] }
+    ]
+  },
+  {
+    id: 'igcse-ict-0417',
+    name: 'Information and Communication Technology',
+    level: 'IGCSE',
+    description: 'Cambridge IGCSE ICT (0417) - Digital literacy and technology skills.',
+    topics: [
+      { id: 'igcse-ict0417-1', title: 'ICT fundamentals and systems', resources: [] },
+      { id: 'igcse-ict0417-2', title: 'Internet and online services', resources: [] },
+      { id: 'igcse-ict0417-3', title: 'Web design and development', resources: [] },
+      { id: 'igcse-ict0417-4', title: 'Database creation and management', resources: [] },
+      { id: 'igcse-ict0417-5', title: 'Spreadsheets and data analysis', resources: [] },
+      { id: 'igcse-ict0417-6', title: 'Presentations and multimedia', resources: [] },
+      { id: 'igcse-ict0417-7', title: 'Document production and publishing', resources: [] },
+      { id: 'igcse-ict0417-8', title: 'Cyber security and data protection', resources: [] },
+      { id: 'igcse-ict0417-9', title: 'Project management and planning', resources: [] },
+      { id: 'igcse-ict0417-10', title: 'E-commerce and digital communication', resources: [] }
+    ]
+  },
+  {
+    id: 'igcse-socstud-0987',
+    name: 'Social Studies',
+    level: 'IGCSE',
+    description: 'Cambridge IGCSE Social Studies (0987) - Society, development and citizenship.',
+    topics: [
+      { id: 'igcse-ss0987-1', title: 'Identity and culture', resources: [] },
+      { id: 'igcse-ss0987-2', title: 'Social groups and society', resources: [] },
+      { id: 'igcse-ss0987-3', title: 'Beliefs and ideologies', resources: [] },
+      { id: 'igcse-ss0987-4', title: 'Political systems and governance', resources: [] },
+      { id: 'igcse-ss0987-5', title: 'Citizens and rights', resources: [] },
+      { id: 'igcse-ss0987-6', title: 'Economic systems and work', resources: [] },
+      { id: 'igcse-ss0987-7', title: 'Development and inequality', resources: [] },
+      { id: 'igcse-ss0987-8', title: 'Global cooperation and conflict', resources: [] },
+      { id: 'igcse-ss0987-9', title: 'Environmental and social change', resources: [] },
+      { id: 'igcse-ss0987-10', title: 'Research and social investigation', resources: [] }
+    ]
+  },
+
   // --- CAMBRIDGE A LEVEL (SAMPLES) ---
   {
     id: 'phys-9702',
