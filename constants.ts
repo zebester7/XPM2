@@ -1718,6 +1718,494 @@ export const SUBJECTS_DATA: Subject[] = [
     ]
   },
 
+  // --- CAMBRIDGE A2 LEVEL (FULL SYLLABUS INDEX) ---
+  {
+    id: 'a2-math-9709',
+    name: 'Mathematics',
+    level: 'A2 Level',
+    description: 'Cambridge International A2 Level Mathematics (9709) - Advanced Pure Mathematics and Applied.',
+    topics: [
+      { id: 'a2-m9709-1', title: 'Polynomial and algebraic methods', resources: [] },
+      { id: 'a2-m9709-2', title: 'Rational functions and graphs', resources: [] },
+      { id: 'a2-m9709-3', title: 'Trigonometric identities and equations', resources: [] },
+      { id: 'a2-m9709-4', title: 'Exponential and logarithmic functions', resources: [] },
+      { id: 'a2-m9709-5', title: 'Differentiation and applications', resources: [] },
+      { id: 'a2-m9709-6', title: 'Integration and differential equations', resources: [] },
+      { id: 'a2-m9709-7', title: 'Numerical methods and approximations', resources: [] },
+      { id: 'a2-m9709-8', title: 'Complex numbers', resources: [] },
+      { id: 'a2-m9709-9', title: 'Matrices and linear transformations', resources: [] },
+      { id: 'a2-m9709-10', title: 'Probability distributions and inference', resources: [] }
+    ]
+  },
+  {
+    id: 'a2-phys-9702',
+    name: 'Physics',
+    level: 'A2 Level',
+    description: 'Cambridge International A2 Level Physics (9702) - Advanced mechanics and modern physics.',
+    topics: [
+      { id: 'a2-p9702-1', title: 'Circular motion and gravitation', resources: [] },
+      { id: 'a2-p9702-2', title: 'Oscillations and resonance', resources: [] },
+      { id: 'a2-p9702-3', title: 'Gravitational fields', resources: [] },
+      { id: 'a2-p9702-4', title: 'Electric fields and potential', resources: [] },
+      { id: 'a2-p9702-5', title: 'Capacitance and energy storage', resources: [] },
+      { id: 'a2-p9702-6', title: 'Magnetic fields and forces', resources: [] },
+      { id: 'a2-p9702-7', title: 'Electromagnetic induction', resources: [] },
+      { id: 'a2-p9702-8', title: 'Alternating currents and power', resources: [] },
+      { id: 'a2-p9702-9', title: 'Nuclear physics and mass-energy', resources: [] },
+      { id: 'a2-p9702-10', title: 'Quantum physics and photons', resources: [] }
+    ]
+  },
+  {
+    id: 'a2-chem-9701',
+    name: 'Chemistry',
+    level: 'A2 Level',
+    description: 'Cambridge International A2 Level Chemistry (9701) - Advanced organic and inorganic chemistry.',
+    topics: [
+      { id: 'a2-c9701-1', title: 'Transition metals and properties', resources: [] },
+      { id: 'a2-c9701-2', title: 'Organic synthesis and mechanisms', resources: [] },
+      { id: 'a2-c9701-3', title: 'Aromatic chemistry and benzene', resources: [] },
+      { id: 'a2-c9701-4', title: 'Carbonyl compounds and carboxylic acids', resources: [] },
+      { id: 'a2-c9701-5', title: 'Amines, esters and condensation polymers', resources: [] },
+      { id: 'a2-c9701-6', title: 'Amino acids and proteins', resources: [] },
+      { id: 'a2-c9701-7', title: 'Polymerisation and macromolecules', resources: [] },
+      { id: 'a2-c9701-8', title: 'Advanced spectroscopic analysis', resources: [] },
+      { id: 'a2-c9701-9', title: 'Thermodynamics and entropy', resources: [] },
+      { id: 'a2-c9701-10', title: 'Kinetics and order of reaction', resources: [] }
+    ]
+  },
+  {
+    id: 'a2-bio-9700',
+    name: 'Biology',
+    level: 'A2 Level',
+    description: 'Cambridge International A2 Level Biology (9700) - Genetics, ecology and evolution.',
+    topics: [
+      { id: 'a2-b9700-1', title: 'Nucleic acids and DNA structure', resources: [] },
+      { id: 'a2-b9700-2', title: 'Protein synthesis and translation', resources: [] },
+      { id: 'a2-b9700-3', title: 'Gene expression and regulation', resources: [] },
+      { id: 'a2-b9700-4', title: 'Genetic inheritance and variation', resources: [] },
+      { id: 'a2-b9700-5', title: 'Evolution and natural selection', resources: [] },
+      { id: 'a2-b9700-6', title: 'Population genetics and evolution', resources: [] },
+      { id: 'a2-b9700-7', title: 'Ecology and energy flow', resources: [] },
+      { id: 'a2-b9700-8', title: 'Succession and biodiversity', resources: [] },
+      { id: 'a2-b9700-9', title: 'Ecosystem management and conservation', resources: [] },
+      { id: 'a2-b9700-10', title: 'Responses to stimuli and behaviour', resources: [] }
+    ]
+  },
+  {
+    id: 'a2-cs-9618',
+    name: 'Computer Science',
+    level: 'A2 Level',
+    description: 'Cambridge International A2 Level Computer Science (9618) - Advanced algorithms and systems.',
+    topics: [
+      { id: 'a2-cs9618-1', title: 'Advanced algorithm design', resources: [] },
+      { id: 'a2-cs9618-2', title: 'Computational complexity and Big O notation', resources: [] },
+      { id: 'a2-cs9618-3', title: 'Data structures and abstract data types', resources: [] },
+      { id: 'a2-cs9618-4', title: 'Advanced programming paradigms', resources: [] },
+      { id: 'a2-cs9618-5', title: 'Artificial intelligence and machine learning', resources: [] },
+      { id: 'a2-cs9618-6', title: 'Database management systems', resources: [] },
+      { id: 'a2-cs9618-7', title: 'Web technologies and standards', resources: [] },
+      { id: 'a2-cs9618-8', title: 'Security protocols and encryption', resources: [] },
+      { id: 'a2-cs9618-9', title: 'Software engineering and development', resources: [] },
+      { id: 'a2-cs9618-10', title: 'Computing ethics and social impact', resources: [] }
+    ]
+  },
+  {
+    id: 'a2-eng-9093',
+    name: 'English Language',
+    level: 'A2 Level',
+    description: 'Cambridge International A2 Level English Language (9093) - Advanced linguistic studies.',
+    topics: [
+      { id: 'a2-e9093-1', title: 'Phonology and phonetics', resources: [] },
+      { id: 'a2-e9093-2', title: 'Morphology and word formation', resources: [] },
+      { id: 'a2-e9093-3', title: 'Syntax and sentence structure', resources: [] },
+      { id: 'a2-e9093-4', title: 'Semantics and pragmatics', resources: [] },
+      { id: 'a2-e9093-5', title: 'Discourse analysis and coherence', resources: [] },
+      { id: 'a2-e9093-6', title: 'Sociolinguistics and variation', resources: [] },
+      { id: 'a2-e9093-7', title: 'Historical linguistics and language change', resources: [] },
+      { id: 'a2-e9093-8', title: 'Language acquisition and development', resources: [] },
+      { id: 'a2-e9093-9', title: 'Register and stylistics', resources: [] },
+      { id: 'a2-e9093-10', title: 'Language disorders and therapy', resources: [] }
+    ]
+  },
+  {
+    id: 'a2-englit-9695',
+    name: 'English Literature',
+    level: 'A2 Level',
+    description: 'Cambridge International A2 Level English Literature (9695) - Major literary works and criticism.',
+    topics: [
+      { id: 'a2-el9695-1', title: 'Renaissance and early modern literature', resources: [] },
+      { id: 'a2-el9695-2', title: 'Romantic poetry and movement', resources: [] },
+      { id: 'a2-el9695-3', title: 'Victorian literature and society', resources: [] },
+      { id: 'a2-el9695-4', title: 'Modern and contemporary drama', resources: [] },
+      { id: 'a2-el9695-5', title: 'Modernist poetry and experimental writing', resources: [] },
+      { id: 'a2-el9695-6', title: 'American literature and culture', resources: [] },
+      { id: 'a2-el9695-7', title: 'Literary theory and criticism', resources: [] },
+      { id: 'a2-el9695-8', title: 'Postcolonial and world literature', resources: [] },
+      { id: 'a2-el9695-9', title: 'Gender and representation in literature', resources: [] },
+      { id: 'a2-el9695-10', title: 'Literary adaptation and interpretation', resources: [] }
+    ]
+  },
+  {
+    id: 'a2-hist-9389',
+    name: 'History',
+    level: 'A2 Level',
+    description: 'Cambridge International A2 Level History (9389) - Thematic and historiographical study.',
+    topics: [
+      { id: 'a2-h9389-1', title: 'Nationalism and imperialism 1750-1914', resources: [] },
+      { id: 'a2-h9389-2', title: 'The origins of World War I', resources: [] },
+      { id: 'a2-h9389-3', title: 'Development of communist ideology', resources: [] },
+      { id: 'a2-h9389-4', title: 'The rise of fascism and totalitarianism', resources: [] },
+      { id: 'a2-h9389-5', title: 'World War II and its consequences', resources: [] },
+      { id: 'a2-h9389-6', title: 'Cold War and international relations', resources: [] },
+      { id: 'a2-h9389-7', title: 'Post-war decolonisation movements', resources: [] },
+      { id: 'a2-h9389-8', title: 'Technology and society 1900-2000', resources: [] },
+      { id: 'a2-h9389-9', title: 'Historiographical methodology', resources: [] },
+      { id: 'a2-h9389-10', title: 'Primary source analysis and evaluation', resources: [] }
+    ]
+  },
+  {
+    id: 'a2-geo-9395',
+    name: 'Geography',
+    level: 'A2 Level',
+    description: 'Cambridge International A2 Level Geography (9395) - Applied geographical analysis.',
+    topics: [
+      { id: 'a2-g9395-1', title: 'Hazards and risk management', resources: [] },
+      { id: 'a2-g9395-2', title: 'Climate and natural disasters', resources: [] },
+      { id: 'a2-g9395-3', title: 'Economic strategies and development', resources: [] },
+      { id: 'a2-g9395-4', title: 'Migration and demographic changes', resources: [] },
+      { id: 'a2-g9395-5', title: 'Geopolitics and territorial conflict', resources: [] },
+      { id: 'a2-g9395-6', title: 'Urban development and planning', resources: [] },
+      { id: 'a2-g9395-7', title: 'Environmental management and conservation', resources: [] },
+      { id: 'a2-g9395-8', title: 'Globalisation and cultural geography', resources: [] },
+      { id: 'a2-g9395-9', title: 'Geographical enquiry methods', resources: [] },
+      { id: 'a2-g9395-10', title: 'Sustainability and future geographies', resources: [] }
+    ]
+  },
+  {
+    id: 'a2-eco-9708',
+    name: 'Economics',
+    level: 'A2 Level',
+    description: 'Cambridge International A2 Level Economics (9708) - Macroeconomics and policy analysis.',
+    topics: [
+      { id: 'a2-eco9708-1', title: 'National income and circular flow', resources: [] },
+      { id: 'a2-eco9708-2', title: 'Aggregate demand and supply', resources: [] },
+      { id: 'a2-eco9708-3', title: 'Inflation and unemployment', resources: [] },
+      { id: 'a2-eco9708-4', title: 'Economic growth and development', resources: [] },
+      { id: 'a2-eco9708-5', title: 'Money, banking and financial systems', resources: [] },
+      { id: 'a2-eco9708-6', title: 'Monetary policy and interest rates', resources: [] },
+      { id: 'a2-eco9708-7', title: 'Fiscal policy and government spending', resources: [] },
+      { id: 'a2-eco9708-8', title: 'International trade and exchange rates', resources: [] },
+      { id: 'a2-eco9708-9', title: 'Balance of payments and capital flows', resources: [] },
+      { id: 'a2-eco9708-10', title: 'Economic integration and globalisation', resources: [] }
+    ]
+  },
+  {
+    id: 'a2-bus-9609',
+    name: 'Business',
+    level: 'A2 Level',
+    description: 'Cambridge International A2 Level Business (9609) - Strategic management and planning.',
+    topics: [
+      { id: 'a2-b9609-1', title: 'Strategic planning and analysis', resources: [] },
+      { id: 'a2-b9609-2', title: 'Market research and consumer behaviour', resources: [] },
+      { id: 'a2-b9609-3', title: 'Marketing mix and strategies', resources: [] },
+      { id: 'a2-b9609-4', title: 'Operations management systems', resources: [] },
+      { id: 'a2-b9609-5', title: 'Supply chain and logistics', resources: [] },
+      { id: 'a2-b9609-6', title: 'Financial planning and control', resources: [] },
+      { id: 'a2-b9609-7', title: 'Investment appraisal and capital budgeting', resources: [] },
+      { id: 'a2-b9609-8', title: 'Organisational behaviour and culture', resources: [] },
+      { id: 'a2-b9609-9', title: 'International business and trade', resources: [] },
+      { id: 'a2-b9609-10', title: 'Emerging issues and contemporary challenges', resources: [] }
+    ]
+  },
+  {
+    id: 'a2-acc-9706',
+    name: 'Accounting',
+    level: 'A2 Level',
+    description: 'Cambridge International A2 Level Accounting (9706) - Advanced financial and management accounting.',
+    topics: [
+      { id: 'a2-a9706-1', title: 'Consolidated financial statements', resources: [] },
+      { id: 'a2-a9706-2', title: 'Analysis and interpretation of accounts', resources: [] },
+      { id: 'a2-a9706-3', title: 'Cash flow statements and working capital', resources: [] },
+      { id: 'a2-a9706-4', title: 'Cost accounting and costing methods', resources: [] },
+      { id: 'a2-a9706-5', title: 'Budgeting and standard costing', resources: [] },
+      { id: 'a2-a9706-6', title: 'Decision making and relevant costing', resources: [] },
+      { id: 'a2-a9706-7', title: 'Performance measurement and control', resources: [] },
+      { id: 'a2-a9706-8', title: 'Corporate governance and reporting', resources: [] },
+      { id: 'a2-a9706-9', title: 'International accounting standards', resources: [] },
+      { id: 'a2-a9706-10', title: 'Strategic management accounting', resources: [] }
+    ]
+  },
+  {
+    id: 'a2-urdu-9676',
+    name: 'Urdu Language',
+    level: 'A2 Level',
+    description: 'Cambridge International A2 Level Urdu Language (9676) - Advanced communication and literature.',
+    topics: [
+      { id: 'a2-u9676-1', title: 'Advanced listening comprehension', resources: [] },
+      { id: 'a2-u9676-2', title: 'Fluent speaking and debate', resources: [] },
+      { id: 'a2-u9676-3', title: 'Complex reading and interpretation', resources: [] },
+      { id: 'a2-u9676-4', title: 'Advanced writing and essays', resources: [] },
+      { id: 'a2-u9676-5', title: 'Advanced grammar and stylistics', resources: [] },
+      { id: 'a2-u9676-6', title: 'Classical Urdu literature', resources: [] },
+      { id: 'a2-u9676-7', title: 'Modern Urdu poetry and prose', resources: [] },
+      { id: 'a2-u9676-8', title: 'Linguistic analysis and variation', resources: [] },
+      { id: 'a2-u9676-9', title: 'Cultural and historical context', resources: [] },
+      { id: 'a2-u9676-10', title: 'Communication in professional settings', resources: [] }
+    ]
+  },
+  {
+    id: 'a2-isl-9011',
+    name: 'Islamic Studies',
+    level: 'A2 Level',
+    description: 'Cambridge International A2 Level Islamic Studies (9011) - Advanced theology and jurisprudence.',
+    topics: [
+      { id: 'a2-is9011-1', title: 'Advanced Islamic theology and belief', resources: [] },
+      { id: 'a2-is9011-2', title: 'Quran exegesis and interpretation', resources: [] },
+      { id: 'a2-is9011-3', title: 'Hadith sciences and methodology', resources: [] },
+      { id: 'a2-is9011-4', title: 'Islamic jurisprudence and schools of law', resources: [] },
+      { id: 'a2-is9011-5', title: 'Islamic ethics and moral philosophy', resources: [] },
+      { id: 'a2-is9011-6', title: 'Islamic history and civilisation', resources: [] },
+      { id: 'a2-is9011-7', title: 'Contemporary Islamic thought', resources: [] },
+      { id: 'a2-is9011-8', title: 'Gender and family in Islamic law', resources: [] },
+      { id: 'a2-is9011-9', title: 'Islam and globalisation', resources: [] },
+      { id: 'a2-is9011-10', title: 'Inter-faith dialogue and comparative religion', resources: [] }
+    ]
+  },
+  {
+    id: 'a2-german-9717',
+    name: 'German Language',
+    level: 'A2 Level',
+    description: 'Cambridge International A2 Level German Language (9717) - Near-native proficiency.',
+    topics: [
+      { id: 'a2-g9717-1', title: 'Advanced conversational fluency', resources: [] },
+      { id: 'a2-g9717-2', title: 'Academic and formal register', resources: [] },
+      { id: 'a2-g9717-3', title: 'Complex text analysis and interpretation', resources: [] },
+      { id: 'a2-g9717-4', title: 'Advanced creative writing', resources: [] },
+      { id: 'a2-g9717-5', title: 'German literature and classics', resources: [] },
+      { id: 'a2-g9717-6', title: 'Contemporary German media and journalism', resources: [] },
+      { id: 'a2-g9717-7', title: 'German history and philosophy', resources: [] },
+      { id: 'a2-g9717-8', title: 'Applied German language in professional contexts', resources: [] },
+      { id: 'a2-g9717-9', title: 'Regional cultures and dialects', resources: [] },
+      { id: 'a2-g9717-10', title: 'Comparative language and culture analysis', resources: [] }
+    ]
+  },
+  {
+    id: 'a2-french-9716',
+    name: 'French Language',
+    level: 'A2 Level',
+    description: 'Cambridge International A2 Level French Language (9716) - Advanced language mastery.',
+    topics: [
+      { id: 'a2-f9716-1', title: 'Fluent advanced conversation', resources: [] },
+      { id: 'a2-f9716-2', title: 'Sophisticated written expression', resources: [] },
+      { id: 'a2-f9716-3', title: 'Advanced text comprehension', resources: [] },
+      { id: 'a2-f9716-4', title: 'Critical essay writing', resources: [] },
+      { id: 'a2-f9716-5', title: 'French literature and authors', resources: [] },
+      { id: 'a2-f9716-6', title: 'Contemporary French cinema and media', resources: [] },
+      { id: 'a2-f9716-7', title: 'French culture and society', resources: [] },
+      { id: 'a2-f9716-8', title: 'Political and social discourse', resources: [] },
+      { id: 'a2-f9716-9', title: 'Francophone world and diversity', resources: [] },
+      { id: 'a2-f9716-10', title: 'Stylistic analysis and rhetoric', resources: [] }
+    ]
+  },
+  {
+    id: 'a2-spanish-9719',
+    name: 'Spanish Language',
+    level: 'A2 Level',
+    description: 'Cambridge International A2 Level Spanish Language (9719) - Bilingual competence.',
+    topics: [
+      { id: 'a2-s9719-1', title: 'Near-native oral proficiency', resources: [] },
+      { id: 'a2-s9719-2', title: 'Academic writing and composition', resources: [] },
+      { id: 'a2-s9719-3', title: 'Advanced comprehension of complex texts', resources: [] },
+      { id: 'a2-s9719-4', title: 'Spanish literature and literary analysis', resources: [] },
+      { id: 'a2-s9719-5', title: 'Contemporary Spanish media studies', resources: [] },
+      { id: 'a2-s9719-6', title: 'Latin American culture and literature', resources: [] },
+      { id: 'a2-s9719-7', title: 'Spanish history and politics', resources: [] },
+      { id: 'a2-s9719-8', title: 'Business and professional Spanish', resources: [] },
+      { id: 'a2-s9719-9', title: 'Regional Spanish and dialects', resources: [] },
+      { id: 'a2-s9719-10', title: 'Language variation and sociolinguistics', resources: [] }
+    ]
+  },
+  {
+    id: 'a2-chinese-9715',
+    name: 'Chinese Language',
+    level: 'A2 Level',
+    description: 'Cambridge International A2 Level Chinese Language (9715) - Advanced Mandarin proficiency.',
+    topics: [
+      { id: 'a2-ch9715-1', title: 'Advanced listening and comprehension', resources: [] },
+      { id: 'a2-ch9715-2', title: 'Fluent speaking and presentation', resources: [] },
+      { id: 'a2-ch9715-3', title: 'Advanced reading of classical and modern texts', resources: [] },
+      { id: 'a2-ch9715-4', title: 'Complex Chinese writing and composition', resources: [] },
+      { id: 'a2-ch9715-5', title: 'Classical Chinese literature', resources: [] },
+      { id: 'a2-ch9715-6', title: 'Modern Chinese poetry and prose', resources: [] },
+      { id: 'a2-ch9715-7', title: 'Chinese history and philosophy', resources: [] },
+      { id: 'a2-ch9715-8', title: 'Contemporary Chinese media and issues', resources: [] },
+      { id: 'a2-ch9715-9', title: 'Chinese language variation and dialects', resources: [] },
+      { id: 'a2-ch9715-10', title: 'Chinese culture and traditions', resources: [] }
+    ]
+  },
+  {
+    id: 'a2-arabic-9722',
+    name: 'Arabic Language',
+    level: 'A2 Level',
+    description: 'Cambridge International A2 Level Arabic Language (9722) - Advanced Arabic communication.',
+    topics: [
+      { id: 'a2-ar9722-1', title: 'Advanced oral proficiency and discussion', resources: [] },
+      { id: 'a2-ar9722-2', title: 'Sophisticated written expression', resources: [] },
+      { id: 'a2-ar9722-3', title: 'Literary Arabic and classical texts', resources: [] },
+      { id: 'a2-ar9722-4', title: 'Modern Arabic literature and poetry', resources: [] },
+      { id: 'a2-ar9722-5', title: 'Arabic media and journalism', resources: [] },
+      { id: 'a2-ar9722-6', title: 'Islamic scholarship and theology texts', resources: [] },
+      { id: 'a2-ar9722-7', title: 'Modern Arab world and politics', resources: [] },
+      { id: 'a2-ar9722-8', title: 'Arabic language variation and dialects', resources: [] },
+      { id: 'a2-ar9722-9', title: 'Arabic-speaking cultures and traditions', resources: [] },
+      { id: 'a2-ar9722-10', title: 'Bilingual communication and code-switching', resources: [] }
+    ]
+  },
+  {
+    id: 'a2-law-9084',
+    name: 'Law',
+    level: 'A2 Level',
+    description: 'Cambridge International A2 Level Law (9084) - Advanced jurisprudence and case law.',
+    topics: [
+      { id: 'a2-l9084-1', title: 'Constitutional law and human rights', resources: [] },
+      { id: 'a2-l9084-2', title: 'Criminal procedure and evidence', resources: [] },
+      { id: 'a2-l9084-3', title: 'Civil procedure and remedies', resources: [] },
+      { id: 'a2-l9084-4', title: 'Contract law and enforcement', resources: [] },
+      { id: 'a2-l9084-5', title: 'Tort law and liability', resources: [] },
+      { id: 'a2-l9084-6', title: 'Property law and interests', resources: [] },
+      { id: 'a2-l9084-7', title: 'Company law and corporate governance', resources: [] },
+      { id: 'a2-l9084-8', title: 'Employment law and discrimination', resources: [] },
+      { id: 'a2-l9084-9', title: 'International law and treaties', resources: [] },
+      { id: 'a2-l9084-10', title: 'Jurisprudence and legal theory', resources: [] }
+    ]
+  },
+  {
+    id: 'a2-psych-9990',
+    name: 'Psychology',
+    level: 'A2 Level',
+    description: 'Cambridge International A2 Level Psychology (9990) - Advanced psychological theories.',
+    topics: [
+      { id: 'a2-py9990-1', title: 'Psychological research methods and statistics', resources: [] },
+      { id: 'a2-py9990-2', title: 'Brain and behaviour', resources: [] },
+      { id: 'a2-py9990-3', title: 'Cognitive psychology and learning', resources: [] },
+      { id: 'a2-py9990-4', title: 'Developmental psychology across lifespan', resources: [] },
+      { id: 'a2-py9990-5', title: 'Individual differences and personality', resources: [] },
+      { id: 'a2-py9990-6', title: 'Social psychology and groups', resources: [] },
+      { id: 'a2-py9990-7', title: 'Abnormal psychology and mental health', resources: [] },
+      { id: 'a2-py9990-8', title: 'Psychological therapies and intervention', resources: [] },
+      { id: 'a2-py9990-9', title: 'Applied psychology in education and work', resources: [] },
+      { id: 'a2-py9990-10', title: 'Contemporary psychology issues', resources: [] }
+    ]
+  },
+  {
+    id: 'a2-soc-9744',
+    name: 'Sociology',
+    level: 'A2 Level',
+    description: 'Cambridge International A2 Level Sociology (9744) - Advanced social theory.',
+    topics: [
+      { id: 'a2-so9744-1', title: 'Sociological theory and perspectives', resources: [] },
+      { id: 'a2-so9744-2', title: 'Research methods in sociology', resources: [] },
+      { id: 'a2-so9744-3', title: 'Social stratification and inequality', resources: [] },
+      { id: 'a2-so9744-4', title: 'Socialisation and culture', resources: [] },
+      { id: 'a2-so9744-5', title: 'Education and social reproduction', resources: [] },
+      { id: 'a2-so9744-6', title: 'Family and kinship structures', resources: [] },
+      { id: 'a2-so9744-7', title: 'Religion and secularisation', resources: [] },
+      { id: 'a2-so9744-8', title: 'Media and mass communication', resources: [] },
+      { id: 'a2-so9744-9', title: 'Deviance and social control', resources: [] },
+      { id: 'a2-so9744-10', title: 'Social change and globalisation', resources: [] }
+    ]
+  },
+  {
+    id: 'a2-art-9704',
+    name: 'Art & Design',
+    level: 'A2 Level',
+    description: 'Cambridge International A2 Level Art & Design (9704) - Advanced artistic practice.',
+    topics: [
+      { id: 'a2-art9704-1', title: 'Advanced sculptural and 3D concepts', resources: [] },
+      { id: 'a2-art9704-2', title: 'Contemporary art practice and movements', resources: [] },
+      { id: 'a2-art9704-3', title: 'Digital art and new media', resources: [] },
+      { id: 'a2-art9704-4', title: 'Photography as fine art', resources: [] },
+      { id: 'a2-art9704-5', title: 'Graphic design theory and practice', resources: [] },
+      { id: 'a2-art9704-6', title: 'Fashion and textile design', resources: [] },
+      { id: 'a2-art9704-7', title: 'Art history and critical analysis', resources: [] },
+      { id: 'a2-art9704-8', title: 'Artist research and contextual study', resources: [] },
+      { id: 'a2-art9704-9', title: 'Exhibition and curation', resources: [] },
+      { id: 'a2-art9704-10', title: 'Professional practice and portfolio', resources: [] }
+    ]
+  },
+  {
+    id: 'a2-music-9703',
+    name: 'Music',
+    level: 'A2 Level',
+    description: 'Cambridge International A2 Level Music (9703) - Advanced composition and analysis.',
+    topics: [
+      { id: 'a2-mus9703-1', title: 'Advanced harmonic and tonal analysis', resources: [] },
+      { id: 'a2-mus9703-2', title: 'Advanced composition techniques', resources: [] },
+      { id: 'a2-mus9703-3', title: 'Orchestration and arrangement', resources: [] },
+      { id: 'a2-mus9703-4', title: 'Music history and style periods', resources: [] },
+      { id: 'a2-mus9703-5', title: 'Jazz and popular music forms', resources: [] },
+      { id: 'a2-mus9703-6', title: 'World music and ethnomusicology', resources: [] },
+      { id: 'a2-mus9703-7', title: 'Advanced music technology and production', resources: [] },
+      { id: 'a2-mus9703-8', title: 'Musical interpretation and performance', resources: [] },
+      { id: 'a2-mus9703-9', title: 'Music criticism and analysis', resources: [] },
+      { id: 'a2-mus9703-10', title: 'Contemporary music and innovation', resources: [] }
+    ]
+  },
+  {
+    id: 'a2-envs-9649',
+    name: 'Environmental Management',
+    level: 'A2 Level',
+    description: 'Cambridge International A2 Level Environmental Management (9649) - Advanced conservation.',
+    topics: [
+      { id: 'a2-em9649-1', title: 'Ecological principles and systems', resources: [] },
+      { id: 'a2-em9649-2', title: 'Biodiversity and conservation strategies', resources: [] },
+      { id: 'a2-em9649-3', title: 'Environmental impact assessment', resources: [] },
+      { id: 'a2-em9649-4', title: 'Sustainable resource management', resources: [] },
+      { id: 'a2-em9649-5', title: 'Environmental policy and legislation', resources: [] },
+      { id: 'a2-em9649-6', title: 'Climate change and mitigation', resources: [] },
+      { id: 'a2-em9649-7', title: 'Pollution control and remediation', resources: [] },
+      { id: 'a2-em9649-8', title: 'Renewable energy and sustainability', resources: [] },
+      { id: 'a2-em9649-9', title: 'Environmental ethics and values', resources: [] },
+      { id: 'a2-em9649-10', title: 'Global environmental challenges', resources: [] }
+    ]
+  },
+  {
+    id: 'a2-think-9694',
+    name: 'Thinking Skills',
+    level: 'A2 Level',
+    description: 'Cambridge International A2 Level Thinking Skills (9694) - Advanced analytical thinking.',
+    topics: [
+      { id: 'a2-th9694-1', title: 'Logical analysis and formal logic', resources: [] },
+      { id: 'a2-th9694-2', title: 'Epistemology and theory of knowledge', resources: [] },
+      { id: 'a2-th9694-3', title: 'Scientific reasoning and methodology', resources: [] },
+      { id: 'a2-th9694-4', title: 'Statistical reasoning and probability', resources: [] },
+      { id: 'a2-th9694-5', title: 'Ethical reasoning and dilemmas', resources: [] },
+      { id: 'a2-th9694-6', title: 'Critical evaluation and argumentation', resources: [] },
+      { id: 'a2-th9694-7', title: 'Decision-making under uncertainty', resources: [] },
+      { id: 'a2-th9694-8', title: 'Complex problem-solving', resources: [] },
+      { id: 'a2-th9694-9', title: 'Research design and analysis', resources: [] },
+      { id: 'a2-th9694-10', title: 'Applied thinking in real-world contexts', resources: [] }
+    ]
+  },
+  {
+    id: 'a2-it-9626',
+    name: 'Information Technology',
+    level: 'A2 Level',
+    description: 'Cambridge International A2 Level Information Technology (9626) - Advanced IT systems.',
+    topics: [
+      { id: 'a2-it9626-1', title: 'Advanced database design and management', resources: [] },
+      { id: 'a2-it9626-2', title: 'Advanced networking and infrastructure', resources: [] },
+      { id: 'a2-it9626-3', title: 'Cloud computing and virtualisation', resources: [] },
+      { id: 'a2-it9626-4', title: 'Business intelligence and analytics', resources: [] },
+      { id: 'a2-it9626-5', title: 'Advanced web design and development', resources: [] },
+      { id: 'a2-it9626-6', title: 'Systems security and cryptography', resources: [] },
+      { id: 'a2-it9626-7', title: 'Mobile and ubiquitous computing', resources: [] },
+      { id: 'a2-it9626-8', title: 'IT project management', resources: [] },
+      { id: 'a2-it9626-9', title: 'Enterprise systems and ERP', resources: [] },
+      { id: 'a2-it9626-10', title: 'Digital transformation and innovation', resources: [] }
+    ]
+  },
+
   // --- FEDERAL BOARD SAMPLES ---
   {
     id: 'fb-phys-9',
