@@ -2568,6 +2568,388 @@ export const SUBJECTS_DATA: Subject[] = [
       { id: 'fbise-pak10-9', title: 'Economic development and challenges', resources: [] },
       { id: 'fbise-pak10-10', title: 'International relations and foreign policy', resources: [] }
     ]
+  },
+
+  // --- FEDERAL BOARD GRADE 11 (F.Sc. INTERMEDIATE PART I) ---
+  {
+    id: 'fbise-eng-11',
+    name: 'English',
+    level: 'Grade 11',
+    description: 'FBISE Grade 11 English (F.Sc. Part I) - Intermediate English communication.',
+    topics: [
+      { id: 'fbise-e11-1', title: 'Poetry and verse analysis', resources: [] },
+      { id: 'fbise-e11-2', title: 'Short stories and narratives', resources: [] },
+      { id: 'fbise-e11-3', title: 'Drama and theatrical studies', resources: [] },
+      { id: 'fbise-e11-4', title: 'Comprehension and critical reading', resources: [] },
+      { id: 'fbise-e11-5', title: 'Composition and essay writing', resources: [] },
+      { id: 'fbise-e11-6', title: 'Grammar and advanced syntax', resources: [] },
+      { id: 'fbise-e11-7', title: 'Vocabulary development', resources: [] },
+      { id: 'fbise-e11-8', title: 'Communication skills', resources: [] },
+      { id: 'fbise-e11-9', title: 'Translation and interpretation', resources: [] },
+      { id: 'fbise-e11-10', title: 'Literature appreciation', resources: [] }
+    ]
+  },
+  {
+    id: 'fbise-urdu-11',
+    name: 'Urdu',
+    level: 'Grade 11',
+    description: 'FBISE Grade 11 Urdu (F.Sc. Part I) - Intermediate Urdu language skills.',
+    topics: [
+      { id: 'fbise-u11-1', title: 'Prose and essays', resources: [] },
+      { id: 'fbise-u11-2', title: 'Ghazal and poetry forms', resources: [] },
+      { id: 'fbise-u11-3', title: 'Grammar and syntax', resources: [] },
+      { id: 'fbise-u11-4', title: 'Composition and writing', resources: [] },
+      { id: 'fbise-u11-5', title: 'Rhetoric and persuasion', resources: [] },
+      { id: 'fbise-u11-6', title: 'Vocabulary and idioms', resources: [] },
+      { id: 'fbise-u11-7', title: 'Literary analysis', resources: [] },
+      { id: 'fbise-u11-8', title: 'Translation skills', resources: [] },
+      { id: 'fbise-u11-9', title: 'Journalism and technical writing', resources: [] },
+      { id: 'fbise-u11-10', title: 'Oral proficiency', resources: [] }
+    ]
+  },
+  {
+    id: 'fbise-isl-11',
+    name: 'Islamic Studies',
+    level: 'Grade 11',
+    description: 'FBISE Grade 11 Islamic Studies (F.Sc. Part I) - Islamic knowledge and ethics.',
+    topics: [
+      { id: 'fbise-is11-1', title: 'Quran and Hadith studies', resources: [] },
+      { id: 'fbise-is11-2', title: 'Islamic jurisprudence', resources: [] },
+      { id: 'fbise-is11-3', title: 'Islamic history and civilization', resources: [] },
+      { id: 'fbise-is11-4', title: 'Islamic ethics and morality', resources: [] },
+      { id: 'fbise-is11-5', title: 'Islamic economic system', resources: [] },
+      { id: 'fbise-is11-6', title: 'Islamic social values', resources: [] },
+      { id: 'fbise-is11-7', title: 'Contemporary Islamic issues', resources: [] },
+      { id: 'fbise-is11-8', title: 'Islam and science', resources: [] },
+      { id: 'fbise-is11-9', title: 'Islamic philosophy', resources: [] },
+      { id: 'fbise-is11-10', title: 'Inter-faith relations', resources: [] }
+    ]
+  },
+  {
+    id: 'fbise-pst-11',
+    name: 'Pakistan Studies',
+    level: 'Grade 11',
+    description: 'FBISE Grade 11 Pakistan Studies (F.Sc. Part I) - Pakistan history and society.',
+    topics: [
+      { id: 'fbise-pst11-1', title: 'Pakistan geography and diversity', resources: [] },
+      { id: 'fbise-pst11-2', title: 'Islamic history in South Asia', resources: [] },
+      { id: 'fbise-pst11-3', title: 'Mughal contributions', resources: [] },
+      { id: 'fbise-pst11-4', title: 'British colonial period', resources: [] },
+      { id: 'fbise-pst11-5', title: 'Independence movement', resources: [] },
+      { id: 'fbise-pst11-6', title: 'State of Pakistan', resources: [] },
+      { id: 'fbise-pst11-7', title: 'Constitution and governance', resources: [] },
+      { id: 'fbise-pst11-8', title: 'Economy and development', resources: [] },
+      { id: 'fbise-pst11-9', title: 'Social structure and culture', resources: [] },
+      { id: 'fbise-pst11-10', title: 'International relations', resources: [] }
+    ]
+  },
+  {
+    id: 'fbise-math-11',
+    name: 'Mathematics',
+    level: 'Grade 11',
+    description: 'FBISE Grade 11 Mathematics (F.Sc. Part I) - Functions, calculus and algebra.',
+    topics: [
+      { id: 'fbise-m11-1', title: 'Functions and relations', resources: [] },
+      { id: 'fbise-m11-2', title: 'Exponential and logarithmic functions', resources: [] },
+      { id: 'fbise-m11-3', title: 'Trigonometric functions', resources: [] },
+      { id: 'fbise-m11-4', title: 'Trigonometric identities', resources: [] },
+      { id: 'fbise-m11-5', title: 'Complex numbers', resources: [] },
+      { id: 'fbise-m11-6', title: 'Sequences and series', resources: [] },
+      { id: 'fbise-m11-7', title: 'Limits and continuity', resources: [] },
+      { id: 'fbise-m11-8', title: 'Differentiation', resources: [] },
+      { id: 'fbise-m11-9', title: 'Mathematical induction', resources: [] },
+      { id: 'fbise-m11-10', title: 'Linear algebra basics', resources: [] }
+    ]
+  },
+  {
+    id: 'fbise-phys-11',
+    name: 'Physics',
+    level: 'Grade 11',
+    description: 'FBISE Grade 11 Physics (F.Sc. Part I) - Mechanics and thermodynamics.',
+    topics: [
+      { id: 'fbise-p11-1', title: 'Measurements and errors', resources: [] },
+      { id: 'fbise-p11-2', title: 'Motion and kinematics', resources: [] },
+      { id: 'fbise-p11-3', title: 'Forces and Newton laws', resources: [] },
+      { id: 'fbise-p11-4', title: 'Work and energy', resources: [] },
+      { id: 'fbise-p11-5', title: 'Circular motion', resources: [] },
+      { id: 'fbise-p11-6', title: 'Gravity and orbital motion', resources: [] },
+      { id: 'fbise-p11-7', title: 'Rotational dynamics', resources: [] },
+      { id: 'fbise-p11-8', title: 'Elasticity and fluids', resources: [] },
+      { id: 'fbise-p11-9', title: 'Thermodynamics basics', resources: [] },
+      { id: 'fbise-p11-10', title: 'Thermal properties of matter', resources: [] }
+    ]
+  },
+  {
+    id: 'fbise-chem-11',
+    name: 'Chemistry',
+    level: 'Grade 11',
+    description: 'FBISE Grade 11 Chemistry (F.Sc. Part I) - Atomic structure and bonding.',
+    topics: [
+      { id: 'fbise-c11-1', title: 'Atomic structure and quantum numbers', resources: [] },
+      { id: 'fbise-c11-2', title: 'Periodic table and trends', resources: [] },
+      { id: 'fbise-c11-3', title: 'Chemical bonding', resources: [] },
+      { id: 'fbise-c11-4', title: 'Molecular structure and properties', resources: [] },
+      { id: 'fbise-c11-5', title: 'States of matter', resources: [] },
+      { id: 'fbise-c11-6', title: 'Gases and gas laws', resources: [] },
+      { id: 'fbise-c11-7', title: 'Thermochemistry and enthalpy', resources: [] },
+      { id: 'fbise-c11-8', title: 'Solutions and concentration', resources: [] },
+      { id: 'fbise-c11-9', title: 'Chemical kinetics', resources: [] },
+      { id: 'fbise-c11-10', title: 'Equilibrium basics', resources: [] }
+    ]
+  },
+  {
+    id: 'fbise-bio-11',
+    name: 'Biology',
+    level: 'Grade 11',
+    description: 'FBISE Grade 11 Biology (F.Sc. Part I) - Cell biology and physiology.',
+    topics: [
+      { id: 'fbise-b11-1', title: 'Cell structure and ultrastructure', resources: [] },
+      { id: 'fbise-b11-2', title: 'Transport across membranes', resources: [] },
+      { id: 'fbise-b11-3', title: 'Photosynthesis and respiration', resources: [] },
+      { id: 'fbise-b11-4', title: 'Enzyme action and metabolism', resources: [] },
+      { id: 'fbise-b11-5', title: 'Nutrition and heterotrophic nutrition', resources: [] },
+      { id: 'fbise-b11-6', title: 'Gas exchange and respiration', resources: [] },
+      { id: 'fbise-b11-7', title: 'Transport in plants and animals', resources: [] },
+      { id: 'fbise-b11-8', title: 'Excretion and osmoregulation', resources: [] },
+      { id: 'fbise-b11-9', title: 'Coordination and control', resources: [] },
+      { id: 'fbise-b11-10', title: 'Support and movement', resources: [] }
+    ]
+  },
+  {
+    id: 'fbise-cs-11',
+    name: 'Computer Science',
+    level: 'Grade 11',
+    description: 'FBISE Grade 11 Computer Science (F.Sc. Part I) - Programming fundamentals.',
+    topics: [
+      { id: 'fbise-cs11-1', title: 'Computer architecture', resources: [] },
+      { id: 'fbise-cs11-2', title: 'Number systems and data representation', resources: [] },
+      { id: 'fbise-cs11-3', title: 'Boolean logic and gates', resources: [] },
+      { id: 'fbise-cs11-4', title: 'Algorithm design', resources: [] },
+      { id: 'fbise-cs11-5', title: 'Programming basics', resources: [] },
+      { id: 'fbise-cs11-6', title: 'Variables and data types', resources: [] },
+      { id: 'fbise-cs11-7', title: 'Control flow and loops', resources: [] },
+      { id: 'fbise-cs11-8', title: 'Functions and modularity', resources: [] },
+      { id: 'fbise-cs11-9', title: 'Arrays and strings', resources: [] },
+      { id: 'fbise-cs11-10', title: 'Introduction to OOP', resources: [] }
+    ]
+  },
+  {
+    id: 'fbise-econ-11',
+    name: 'Economics',
+    level: 'Grade 11',
+    description: 'FBISE Grade 11 Economics (F.Sc. Part I) - Microeconomics fundamentals.',
+    topics: [
+      { id: 'fbise-ec11-1', title: 'Introduction to economics', resources: [] },
+      { id: 'fbise-ec11-2', title: 'Supply and demand', resources: [] },
+      { id: 'fbise-ec11-3', title: 'Elasticity of demand and supply', resources: [] },
+      { id: 'fbise-ec11-4', title: 'Consumer behavior', resources: [] },
+      { id: 'fbise-ec11-5', title: 'Production and costs', resources: [] },
+      { id: 'fbise-ec11-6', title: 'Market structures', resources: [] },
+      { id: 'fbise-ec11-7', title: 'Factor markets', resources: [] },
+      { id: 'fbise-ec11-8', title: 'Economic efficiency', resources: [] },
+      { id: 'fbise-ec11-9', title: 'Government intervention', resources: [] },
+      { id: 'fbise-ec11-10', title: 'Economic welfare', resources: [] }
+    ]
+  },
+
+  // --- FEDERAL BOARD GRADE 12 (F.Sc. INTERMEDIATE PART II) ---
+  {
+    id: 'fbise-eng-12',
+    name: 'English',
+    level: 'Grade 12',
+    description: 'FBISE Grade 12 English (F.Sc. Part II) - Advanced English proficiency.',
+    topics: [
+      { id: 'fbise-e12-1', title: 'Literary criticism and analysis', resources: [] },
+      { id: 'fbise-e12-2', title: 'College essays and academic writing', resources: [] },
+      { id: 'fbise-e12-3', title: 'Advanced comprehension', resources: [] },
+      { id: 'fbise-e12-4', title: 'Poetry interpretation', resources: [] },
+      { id: 'fbise-e12-5', title: 'Drama and performance', resources: [] },
+      { id: 'fbise-e12-6', title: 'Applied grammar', resources: [] },
+      { id: 'fbise-e12-7', title: 'Stylistics and language devices', resources: [] },
+      { id: 'fbise-e12-8', title: 'Public speaking and presentation', resources: [] },
+      { id: 'fbise-e12-9', title: 'Professional communication', resources: [] },
+      { id: 'fbise-e12-10', title: 'Research and academic writing', resources: [] }
+    ]
+  },
+  {
+    id: 'fbise-urdu-12',
+    name: 'Urdu',
+    level: 'Grade 12',
+    description: 'FBISE Grade 12 Urdu (F.Sc. Part II) - Advanced Urdu proficiency.',
+    topics: [
+      { id: 'fbise-u12-1', title: 'Advanced prose analysis', resources: [] },
+      { id: 'fbise-u12-2', title: 'Modern and contemporary poetry', resources: [] },
+      { id: 'fbise-u12-3', title: 'Drama and performance', resources: [] },
+      { id: 'fbise-u12-4', title: 'Stylistic analysis', resources: [] },
+      { id: 'fbise-u12-5', title: 'Advanced composition', resources: [] },
+      { id: 'fbise-u12-6', title: 'Academic writing', resources: [] },
+      { id: 'fbise-u12-7', title: 'Linguistic analysis', resources: [] },
+      { id: 'fbise-u12-8', title: 'Translation techniques', resources: [] },
+      { id: 'fbise-u12-9', title: 'Media and journalism', resources: [] },
+      { id: 'fbise-u12-10', title: 'Literature and culture', resources: [] }
+    ]
+  },
+  {
+    id: 'fbise-isl-12',
+    name: 'Islamic Studies',
+    level: 'Grade 12',
+    description: 'FBISE Grade 12 Islamic Studies (F.Sc. Part II) - Advanced Islamic studies.',
+    topics: [
+      { id: 'fbise-is12-1', title: 'Quranic sciences and interpretation', resources: [] },
+      { id: 'fbise-is12-2', title: 'Hadith principles', resources: [] },
+      { id: 'fbise-is12-3', title: 'Islamic law and jurisprudence', resources: [] },
+      { id: 'fbise-is12-4', title: 'Islamic intellectual heritage', resources: [] },
+      { id: 'fbise-is12-5', title: 'Islamic civilization advancement', resources: [] },
+      { id: 'fbise-is12-6', title: 'Contemporary Islamic thought', resources: [] },
+      { id: 'fbise-is12-7', title: 'Islamic politics and governance', resources: [] },
+      { id: 'fbise-is12-8', title: 'Islamic bioethics', resources: [] },
+      { id: 'fbise-is12-9', title: 'Comparative religion', resources: [] },
+      { id: 'fbise-is12-10', title: 'Islam and modernity', resources: [] }
+    ]
+  },
+  {
+    id: 'fbise-pst-12',
+    name: 'Pakistan Studies',
+    level: 'Grade 12',
+    description: 'FBISE Grade 12 Pakistan Studies (F.Sc. Part II) - Advanced Pakistan analysis.',
+    topics: [
+      { id: 'fbise-pst12-1', title: 'Medieval Islamic state system', resources: [] },
+      { id: 'fbise-pst12-2', title: 'Mughal administration', resources: [] },
+      { id: 'fbise-pst12-3', title: 'British colonial impact', resources: [] },
+      { id: 'fbise-pst12-4', title: 'Nationalist movements', resources: [] },
+      { id: 'fbise-pst12-5', title: 'Pakistan establishment and early challenges', resources: [] },
+      { id: 'fbise-pst12-6', title: 'Constitutional development', resources: [] },
+      { id: 'fbise-pst12-7', title: 'Pakistan foreign policy', resources: [] },
+      { id: 'fbise-pst12-8', title: 'Pakistan political system', resources: [] },
+      { id: 'fbise-pst12-9', title: 'Economy and development', resources: [] },
+      { id: 'fbise-pst12-10', title: 'Regional geopolitics', resources: [] }
+    ]
+  },
+  {
+    id: 'fbise-math-12',
+    name: 'Mathematics',
+    level: 'Grade 12',
+    description: 'FBISE Grade 12 Mathematics (F.Sc. Part II) - Calculus and advanced algebra.',
+    topics: [
+      { id: 'fbise-m12-1', title: 'Differential calculus', resources: [] },
+      { id: 'fbise-m12-2', title: 'Integral calculus', resources: [] },
+      { id: 'fbise-m12-3', title: 'Differential equations', resources: [] },
+      { id: 'fbise-m12-4', title: 'Vectors in 3D space', resources: [] },
+      { id: 'fbise-m12-5', title: 'Vector calculus', resources: [] },
+      { id: 'fbise-m12-6', title: 'Analytical geometry', resources: [] },
+      { id: 'fbise-m12-7', title: 'Linear programming', resources: [] },
+      { id: 'fbise-m12-8', title: 'Probability and statistics', resources: [] },
+      { id: 'fbise-m12-9', title: 'Matrices and determinants', resources: [] },
+      { id: 'fbise-m12-10', title: 'Advanced algebra', resources: [] }
+    ]
+  },
+  {
+    id: 'fbise-phys-12',
+    name: 'Physics',
+    level: 'Grade 12',
+    description: 'FBISE Grade 12 Physics (F.Sc. Part II) - Electricity, magnetism and waves.',
+    topics: [
+      { id: 'fbise-p12-1', title: 'Electrostatics', resources: [] },
+      { id: 'fbise-p12-2', title: 'Current electricity', resources: [] },
+      { id: 'fbise-p12-3', title: 'Magnetism', resources: [] },
+      { id: 'fbise-p12-4', title: 'Electromagnetic induction', resources: [] },
+      { id: 'fbise-p12-5', title: 'Alternating current', resources: [] },
+      { id: 'fbise-p12-6', title: 'Electromagnetic waves', resources: [] },
+      { id: 'fbise-p12-7', title: 'Optics and light', resources: [] },
+      { id: 'fbise-p12-8', title: 'Atomic physics', resources: [] },
+      { id: 'fbise-p12-9', title: 'Nuclear physics', resources: [] },
+      { id: 'fbise-p12-10', title: 'Modern physics applications', resources: [] }
+    ]
+  },
+  {
+    id: 'fbise-chem-12',
+    name: 'Chemistry',
+    level: 'Grade 12',
+    description: 'FBISE Grade 12 Chemistry (F.Sc. Part II) - Organic and physical chemistry.',
+    topics: [
+      { id: 'fbise-c12-1', title: 'Chemical equilibrium', resources: [] },
+      { id: 'fbise-c12-2', title: 'Ionic equilibrium and pH', resources: [] },
+      { id: 'fbise-c12-3', title: 'Electrochemistry', resources: [] },
+      { id: 'fbise-c12-4', title: 'Thermodynamics', resources: [] },
+      { id: 'fbise-c12-5', title: 'Organic chemistry fundamentals', resources: [] },
+      { id: 'fbise-c12-6', title: 'Alkanes and alkenes', resources: [] },
+      { id: 'fbise-c12-7', title: 'Aromatic compounds', resources: [] },
+      { id: 'fbise-c12-8', title: 'Functional groups and reactions', resources: [] },
+      { id: 'fbise-c12-9', title: 'Polymers and macromolecules', resources: [] },
+      { id: 'fbise-c12-10', title: 'Analytical chemistry', resources: [] }
+    ]
+  },
+  {
+    id: 'fbise-bio-12',
+    name: 'Biology',
+    level: 'Grade 12',
+    description: 'FBISE Grade 12 Biology (F.Sc. Part II) - Genetics, evolution and ecology.',
+    topics: [
+      { id: 'fbise-b12-1', title: 'Cell division and meiosis', resources: [] },
+      { id: 'fbise-b12-2', title: 'Genetics and inheritance patterns', resources: [] },
+      { id: 'fbise-b12-3', title: 'Molecular genetics', resources: [] },
+      { id: 'fbise-b12-4', title: 'Genetic engineering', resources: [] },
+      { id: 'fbise-b12-5', title: 'Evolution mechanisms', resources: [] },
+      { id: 'fbise-b12-6', title: 'Ecology and ecosystems', resources: [] },
+      { id: 'fbise-b12-7', title: 'Population dynamics', resources: [] },
+      { id: 'fbise-b12-8', title: 'Behavior and adaptation', resources: [] },
+      { id: 'fbise-b12-9', title: 'Immunology', resources: [] },
+      { id: 'fbise-b12-10', title: 'Biotechnology applications', resources: [] }
+    ]
+  },
+  {
+    id: 'fbise-cs-12',
+    name: 'Computer Science',
+    level: 'Grade 12',
+    description: 'FBISE Grade 12 Computer Science (F.Sc. Part II) - Advanced programming.',
+    topics: [
+      { id: 'fbise-cs12-1', title: 'Advanced OOP concepts', resources: [] },
+      { id: 'fbise-cs12-2', title: 'Data structures and algorithms', resources: [] },
+      { id: 'fbise-cs12-3', title: 'Database design and SQL', resources: [] },
+      { id: 'fbise-cs12-4', title: 'Web technologies', resources: [] },
+      { id: 'fbise-cs12-5', title: 'Networking protocols', resources: [] },
+      { id: 'fbise-cs12-6', title: 'Network security', resources: [] },
+      { id: 'fbise-cs12-7', title: 'Software development life cycle', resources: [] },
+      { id: 'fbise-cs12-8', title: 'Advanced algorithms', resources: [] },
+      { id: 'fbise-cs12-9', title: 'Artificial intelligence', resources: [] },
+      { id: 'fbise-cs12-10', title: 'Cloud computing', resources: [] }
+    ]
+  },
+  {
+    id: 'fbise-econ-12',
+    name: 'Economics',
+    level: 'Grade 12',
+    description: 'FBISE Grade 12 Economics (F.Sc. Part II) - Macroeconomics and policy.',
+    topics: [
+      { id: 'fbise-ec12-1', title: 'National income accounting', resources: [] },
+      { id: 'fbise-ec12-2', title: 'Aggregate demand and supply', resources: [] },
+      { id: 'fbise-ec12-3', title: 'Inflation and unemployment', resources: [] },
+      { id: 'fbise-ec12-4', title: 'Monetary policy', resources: [] },
+      { id: 'fbise-ec12-5', title: 'Fiscal policy', resources: [] },
+      { id: 'fbise-ec12-6', title: 'International trade', resources: [] },
+      { id: 'fbise-ec12-7', title: 'Exchange rates', resources: [] },
+      { id: 'fbise-ec12-8', title: 'Economic development', resources: [] },
+      { id: 'fbise-ec12-9', title: 'Pakistan economy', resources: [] },
+      { id: 'fbise-ec12-10', title: 'Global economic issues', resources: [] }
+    ]
+  },
+  {
+    id: 'fbise-hist-12',
+    name: 'History',
+    level: 'Grade 12',
+    description: 'FBISE Grade 12 History (F.Sc. Part II) - World history and analysis.',
+    topics: [
+      { id: 'fbise-h12-1', title: 'Medieval world systems', resources: [] },
+      { id: 'fbise-h12-2', title: 'Islamic golden age', resources: [] },
+      { id: 'fbise-h12-3', title: 'Renaissance and enlightenment', resources: [] },
+      { id: 'fbise-h12-4', title: 'Industrial revolution', resources: [] },
+      { id: 'fbise-h12-5', title: 'Imperialism and colonialism', resources: [] },
+      { id: 'fbise-h12-6', title: 'World wars and conflicts', resources: [] },
+      { id: 'fbise-h12-7', title: 'Decolonization and independence', resources: [] },
+      { id: 'fbise-h12-8', title: 'Cold war era', resources: [] },
+      { id: 'fbise-h12-9', title: 'Globalization', resources: [] },
+      { id: 'fbise-h12-10', title: 'Modern geopolitics', resources: [] }
+    ]
   }
 ];
 
