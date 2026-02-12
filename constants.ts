@@ -2206,15 +2206,185 @@ export const SUBJECTS_DATA: Subject[] = [
     ]
   },
 
-  // --- FEDERAL BOARD SAMPLES ---
+  // --- FEDERAL BOARD GRADE 9 (FBISE SSC-I) ---
   {
-    id: 'fb-phys-9',
+    id: 'fbise-eng-9',
+    name: 'English',
+    level: 'Grade 9',
+    description: 'FBISE Grade 9 English (SSC-I) - Reading, writing and communication.',
+    topics: [
+      { id: 'fbise-e9-1', title: 'Prose and comprehension', resources: [] },
+      { id: 'fbise-e9-2', title: 'Poetry and poetic devices', resources: [] },
+      { id: 'fbise-e9-3', title: 'Grammar and parts of speech', resources: [] },
+      { id: 'fbise-e9-4', title: 'Vocabulary and word usage', resources: [] },
+      { id: 'fbise-e9-5', title: 'Tenses and sentence structure', resources: [] },
+      { id: 'fbise-e9-6', title: 'Paragraph writing and composition', resources: [] },
+      { id: 'fbise-e9-7', title: 'Letter writing and formal communication', resources: [] },
+      { id: 'fbise-e9-8', title: 'Reading comprehension skills', resources: [] },
+      { id: 'fbise-e9-9', title: 'Summary writing and paraphrasing', resources: [] },
+      { id: 'fbise-e9-10', title: 'Essay writing and expression', resources: [] }
+    ]
+  },
+  {
+    id: 'fbise-urdu-9',
+    name: 'Urdu',
+    level: 'Grade 9',
+    description: 'FBISE Grade 9 Urdu (SSC-I) - Language skills and literature.',
+    topics: [
+      { id: 'fbise-u9-1', title: 'Asbaab-e-Waqiat اسباب و قاعات', resources: [] },
+      { id: 'fbise-u9-2', title: 'Prose reading and comprehension', resources: [] },
+      { id: 'fbise-u9-3', title: 'Poetry and ghazal appreciation', resources: [] },
+      { id: 'fbise-u9-4', title: 'Grammar-Morphology', resources: [] },
+      { id: 'fbise-u9-5', title: 'Syntax and sentence construction', resources: [] },
+      { id: 'fbise-u9-6', title: 'Composition and formal writing', resources: [] },
+      { id: 'fbise-u9-7', title: 'Vocabulary and idioms', resources: [] },
+      { id: 'fbise-u9-8', title: 'Letter writing and applications', resources: [] },
+      { id: 'fbise-u9-9', title: 'Translation and conversion', resources: [] },
+      { id: 'fbise-u9-10', title: 'Listening and speaking skills', resources: [] }
+    ]
+  },
+  {
+    id: 'fbise-isl-9',
+    name: 'Islamic Studies',
+    level: 'Grade 9',
+    description: 'FBISE Grade 9 Islamic Studies (SSC-I) - Islamic teachings and values.',
+    topics: [
+      { id: 'fbise-is9-1', title: 'Quran and Tajweed basics', resources: [] },
+      { id: 'fbise-is9-2', title: 'Hadith and Sunnah', resources: [] },
+      { id: 'fbise-is9-3', title: 'Fiqah and Islamic jurisprudence', resources: [] },
+      { id: 'fbise-is9-4', title: 'Islamic history and biography', resources: [] },
+      { id: 'fbise-is9-5', title: 'Islamic ethics and morality', resources: [] },
+      { id: 'fbise-is9-6', title: 'Aqaid and Islamic beliefs', resources: [] },
+      { id: 'fbise-is9-7', title: 'Acts of worship and practices', resources: [] },
+      { id: 'fbise-is9-8', title: 'Islamic social values', resources: [] },
+      { id: 'fbise-is9-9', title: 'Family and kinship in Islam', resources: [] },
+      { id: 'fbise-is9-10', title: 'Islam and modern challenges', resources: [] }
+    ]
+  },
+  {
+    id: 'fbise-ss-9',
+    name: 'Social Studies',
+    level: 'Grade 9',
+    description: 'FBISE Grade 9 Social Studies (SSC-I) - Society, history and geography.',
+    topics: [
+      { id: 'fbise-ss9-1', title: 'Pakistan geography and climate', resources: [] },
+      { id: 'fbise-ss9-2', title: 'Population and demographics', resources: [] },
+      { id: 'fbise-ss9-3', title: 'Development of Indian subcontinent', resources: [] },
+      { id: 'fbise-ss9-4', title: 'Muslim rule and Islamic kingdoms', resources: [] },
+      { id: 'fbise-ss9-5', title: 'British rule and colonial India', resources: [] },
+      { id: 'fbise-ss9-6', title: 'Independence and partition', resources: [] },
+      { id: 'fbise-ss9-7', title: 'Creation of Pakistan', resources: [] },
+      { id: 'fbise-ss9-8', title: 'Pakistan government and constitution', resources: [] },
+      { id: 'fbise-ss9-9', title: 'Economy and natural resources', resources: [] },
+      { id: 'fbise-ss9-10', title: 'Culture and society of Pakistan', resources: [] }
+    ]
+  },
+  {
+    id: 'fbise-math-9',
+    name: 'Mathematics',
+    level: 'Grade 9',
+    description: 'FBISE Grade 9 Mathematics (SSC-I) - Algebra, geometry and trigonometry.',
+    topics: [
+      { id: 'fbise-m9-1', title: 'Matrices and determinants', resources: [] },
+      { id: 'fbise-m9-2', title: 'Real numbers and radicals', resources: [] },
+      { id: 'fbise-m9-3', title: 'Logarithms and exponentials', resources: [] },
+      { id: 'fbise-m9-4', title: 'Algebraic expressions and factorization', resources: [] },
+      { id: 'fbise-m9-5', title: 'Linear equations and inequalities', resources: [] },
+      { id: 'fbise-m9-6', title: 'Quadratic equations', resources: [] },
+      { id: 'fbise-m9-7', title: 'Sequences and series', resources: [] },
+      { id: 'fbise-m9-8', title: 'Basic geometry and circle theorems', resources: [] },
+      { id: 'fbise-m9-9', title: 'Introduction to trigonometry', resources: [] },
+      { id: 'fbise-m9-10', title: 'Statistics and probability basics', resources: [] }
+    ]
+  },
+  {
+    id: 'fbise-phys-9',
     name: 'Physics',
     level: 'Grade 9',
-    description: 'FBISE Grade 9 Physics (SSC-I).',
+    description: 'FBISE Grade 9 Physics (SSC-I) - Mechanics, heat and waves.',
     topics: [
-      { id: 'fb-p9-1', title: 'Physical Quantities and Measurement', resources: [] },
-      { id: 'fb-p9-2', title: 'Kinematics', resources: [] }
+      { id: 'fbise-p9-1', title: 'Physical quantities and measurement', resources: [] },
+      { id: 'fbise-p9-2', title: 'Kinematics and motion', resources: [] },
+      { id: 'fbise-p9-3', title: 'Dynamics and forces', resources: [] },
+      { id: 'fbise-p9-4', title: 'Work, energy and power', resources: [] },
+      { id: 'fbise-p9-5', title: 'Circular motion and gravitation', resources: [] },
+      { id: 'fbise-p9-6', title: 'Pressure and density', resources: [] },
+      { id: 'fbise-p9-7', title: 'Heat and temperature', resources: [] },
+      { id: 'fbise-p9-8', title: 'Waves and oscillations', resources: [] },
+      { id: 'fbise-p9-9', title: 'Sound and acoustics', resources: [] },
+      { id: 'fbise-p9-10', title: 'Introduction to electricity', resources: [] }
+    ]
+  },
+  {
+    id: 'fbise-chem-9',
+    name: 'Chemistry',
+    level: 'Grade 9',
+    description: 'FBISE Grade 9 Chemistry (SSC-I) - Atomic structure and chemical reactions.',
+    topics: [
+      { id: 'fbise-c9-1', title: 'Atomic structure and electrons', resources: [] },
+      { id: 'fbise-c9-2', title: 'Periodic table and periodicity', resources: [] },
+      { id: 'fbise-c9-3', title: 'Chemical bonding and compounds', resources: [] },
+      { id: 'fbise-c9-4', title: 'States of matter', resources: [] },
+      { id: 'fbise-c9-5', title: 'Mole concept and stoichiometry', resources: [] },
+      { id: 'fbise-c9-6', title: 'Solutions and solubility', resources: [] },
+      { id: 'fbise-c9-7', title: 'Acids, bases and salts', resources: [] },
+      { id: 'fbise-c9-8', title: 'Chemical reactions and equations', resources: [] },
+      { id: 'fbise-c9-9', title: 'Metals and non-metals', resources: [] },
+      { id: 'fbise-c9-10', title: 'Oxidation reduction reactions', resources: [] }
+    ]
+  },
+  {
+    id: 'fbise-bio-9',
+    name: 'Biology',
+    level: 'Grade 9',
+    description: 'FBISE Grade 9 Biology (SSC-I) - Cell structure, physiology and ecology.',
+    topics: [
+      { id: 'fbise-b9-1', title: 'Organization of life', resources: [] },
+      { id: 'fbise-b9-2', title: 'Cell structure and organelles', resources: [] },
+      { id: 'fbise-b9-3', title: 'Cell division and reproduction', resources: [] },
+      { id: 'fbise-b9-4', title: 'Bioenergetics and photosynthesis', resources: [] },
+      { id: 'fbise-b9-5', title: 'Plant and animal tissues', resources: [] },
+      { id: 'fbise-b9-6', title: 'Transport in plants and animals', resources: [] },
+      { id: 'fbise-b9-7', title: 'Nutrition and digestion', resources: [] },
+      { id: 'fbise-b9-8', title: 'Respiration and gaseous exchange', resources: [] },
+      { id: 'fbise-b9-9', title: 'Homeostasis and regulation', resources: [] },
+      { id: 'fbise-b9-10', title: 'Ecology and ecosystems', resources: [] }
+    ]
+  },
+  {
+    id: 'fbise-cs-9',
+    name: 'Computer Science',
+    level: 'Grade 9',
+    description: 'FBISE Grade 9 Computer Science (SSC-I) - Programming and IT fundamentals.',
+    topics: [
+      { id: 'fbise-cs9-1', title: 'Computer fundamentals and hardware', resources: [] },
+      { id: 'fbise-cs9-2', title: 'Software and operating systems', resources: [] },
+      { id: 'fbise-cs9-3', title: 'Data and number systems', resources: [] },
+      { id: 'fbise-cs9-4', title: 'Algorithms and flowcharts', resources: [] },
+      { id: 'fbise-cs9-5', title: 'Programming basics and syntax', resources: [] },
+      { id: 'fbise-cs9-6', title: 'Variables and data types', resources: [] },
+      { id: 'fbise-cs9-7', title: 'Control structures and loops', resources: [] },
+      { id: 'fbise-cs9-8', title: 'Functions and procedures', resources: [] },
+      { id: 'fbise-cs9-9', title: 'Arrays and data structures', resources: [] },
+      { id: 'fbise-cs9-10', title: 'Introduction to databases', resources: [] }
+    ]
+  },
+  {
+    id: 'fbise-pak-9',
+    name: 'Pakistan Studies',
+    level: 'Grade 9',
+    description: 'FBISE Grade 9 Pakistan Studies (SSC-I) - National history and civics.',
+    topics: [
+      { id: 'fbise-pak9-1', title: 'Pakistan geographical location', resources: [] },
+      { id: 'fbise-pak9-2', title: 'Climate zones and natural resources', resources: [] },
+      { id: 'fbise-pak9-3', title: 'Muslims in South Asia', resources: [] },
+      { id: 'fbise-pak9-4', title: 'Ali Jinnah and independence movement', resources: [] },
+      { id: 'fbise-pak9-5', title: 'Creation and division of India', resources: [] },
+      { id: 'fbise-pak9-6', title: 'Constitution of Pakistan', resources: [] },
+      { id: 'fbise-pak9-7', title: 'Government structure and institutions', resources: [] },
+      { id: 'fbise-pak9-8', title: 'National identity and patriotism', resources: [] },
+      { id: 'fbise-pak9-9', title: 'Economy and development programs', resources: [] },
+      { id: 'fbise-pak9-10', title: 'International relations and diplomacy', resources: [] }
     ]
   }
 ];
