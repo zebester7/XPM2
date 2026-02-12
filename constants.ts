@@ -2386,6 +2386,188 @@ export const SUBJECTS_DATA: Subject[] = [
       { id: 'fbise-pak9-9', title: 'Economy and development programs', resources: [] },
       { id: 'fbise-pak9-10', title: 'International relations and diplomacy', resources: [] }
     ]
+  },
+
+  // --- FEDERAL BOARD GRADE 10 (FBISE SSC-II) ---
+  {
+    id: 'fbise-eng-10',
+    name: 'English',
+    level: 'Grade 10',
+    description: 'FBISE Grade 10 English (SSC-II) - Advanced reading, writing and communication.',
+    topics: [
+      { id: 'fbise-e10-1', title: 'Poetry analysis and interpretation', resources: [] },
+      { id: 'fbise-e10-2', title: 'Prose and short stories', resources: [] },
+      { id: 'fbise-e10-3', title: 'Drama and theatrical analysis', resources: [] },
+      { id: 'fbise-e10-4', title: 'Advanced grammar and syntax', resources: [] },
+      { id: 'fbise-e10-5', title: 'Composition and essay types', resources: [] },
+      { id: 'fbise-e10-6', title: 'Report writing and research', resources: [] },
+      { id: 'fbise-e10-7', title: 'Critical thinking and debate', resources: [] },
+      { id: 'fbise-e10-8', title: 'Effective communication skills', resources: [] },
+      { id: 'fbise-e10-9', title: 'Translation and interpretation', resources: [] },
+      { id: 'fbise-e10-10', title: 'Literature and cultural studies', resources: [] }
+    ]
+  },
+  {
+    id: 'fbise-urdu-10',
+    name: 'Urdu',
+    level: 'Grade 10',
+    description: 'FBISE Grade 10 Urdu (SSC-II) - Advanced language and literary skills.',
+    topics: [
+      { id: 'fbise-u10-1', title: 'Prose reading and critical analysis', resources: [] },
+      { id: 'fbise-u10-2', title: 'Ghazal and classical poetry', resources: [] },
+      { id: 'fbise-u10-3', title: 'Modern Urdu literature', resources: [] },
+      { id: 'fbise-u10-4', title: 'Grammar and linguistic analysis', resources: [] },
+      { id: 'fbise-u10-5', title: 'Phonetics and pronunciation', resources: [] },
+      { id: 'fbise-u10-6', title: 'Creative and formal composition', resources: [] },
+      { id: 'fbise-u10-7', title: 'Journalism and technical writing', resources: [] },
+      { id: 'fbise-u10-8', title: 'Idioms and advanced vocabulary', resources: [] },
+      { id: 'fbise-u10-9', title: 'Translation advanced techniques', resources: [] },
+      { id: 'fbise-u10-10', title: 'Rhetoric and persuasive writing', resources: [] }
+    ]
+  },
+  {
+    id: 'fbise-isl-10',
+    name: 'Islamic Studies',
+    level: 'Grade 10',
+    description: 'FBISE Grade 10 Islamic Studies (SSC-II) - Advanced Islamic knowledge and practice.',
+    topics: [
+      { id: 'fbise-is10-1', title: 'Quran memorization and tafseer', resources: [] },
+      { id: 'fbise-is10-2', title: 'Hadith authentication and application', resources: [] },
+      { id: 'fbise-is10-3', title: 'Islamic jurisprudence schools', resources: [] },
+      { id: 'fbise-is10-4', title: 'Islamic civilization and contributions', resources: [] },
+      { id: 'fbise-is10-5', title: 'Contemporary Islamic issues', resources: [] },
+      { id: 'fbise-is10-6', title: 'Islamic economics and finance', resources: [] },
+      { id: 'fbise-is10-7', title: 'Islamic law and rights', resources: [] },
+      { id: 'fbise-is10-8', title: 'Islamic medicine and science', resources: [] },
+      { id: 'fbise-is10-9', title: 'Inter-faith dialogue and relations', resources: [] },
+      { id: 'fbise-is10-10', title: 'Islamic philosophy and thought', resources: [] }
+    ]
+  },
+  {
+    id: 'fbise-ss-10',
+    name: 'Social Studies',
+    level: 'Grade 10',
+    description: 'FBISE Grade 10 Social Studies (SSC-II) - Advanced society, history and governance.',
+    topics: [
+      { id: 'fbise-ss10-1', title: 'Provincial geography and resources', resources: [] },
+      { id: 'fbise-ss10-2', title: 'Economic development and trade', resources: [] },
+      { id: 'fbise-ss10-3', title: 'Medieval Islamic empires', resources: [] },
+      { id: 'fbise-ss10-4', title: 'European expansion and colonialism', resources: [] },
+      { id: 'fbise-ss10-5', title: 'Indian independence struggle', resources: [] },
+      { id: 'fbise-ss10-6', title: 'Pakistan independence and partition', resources: [] },
+      { id: 'fbise-ss10-7', title: 'Pakistan constitutional evolution', resources: [] },
+      { id: 'fbise-ss10-8', title: 'Democratic governance and citizenship', resources: [] },
+      { id: 'fbise-ss10-9', title: 'Global economics and development', resources: [] },
+      { id: 'fbise-ss10-10', title: 'Modern Pakistan challenges', resources: [] }
+    ]
+  },
+  {
+    id: 'fbise-math-10',
+    name: 'Mathematics',
+    level: 'Grade 10',
+    description: 'FBISE Grade 10 Mathematics (SSC-II) - Advanced calculus and analytical geometry.',
+    topics: [
+      { id: 'fbise-m10-1', title: 'Quadratic functions and equations', resources: [] },
+      { id: 'fbise-m10-2', title: 'Trigonometric functions', resources: [] },
+      { id: 'fbise-m10-3', title: 'Trigonometric ratios and angles', resources: [] },
+      { id: 'fbise-m10-4', title: 'Sine rule and cosine rule', resources: [] },
+      { id: 'fbise-m10-5', title: 'Analytical geometry and straight lines', resources: [] },
+      { id: 'fbise-m10-6', title: 'Circles and their equations', resources: [] },
+      { id: 'fbise-m10-7', title: 'Conic sections', resources: [] },
+      { id: 'fbise-m10-8', title: 'Introduction to calculus limits', resources: [] },
+      { id: 'fbise-m10-9', title: 'Differentiation basics', resources: [] },
+      { id: 'fbise-m10-10', title: 'Integration and applications', resources: [] }
+    ]
+  },
+  {
+    id: 'fbise-phys-10',
+    name: 'Physics',
+    level: 'Grade 10',
+    description: 'FBISE Grade 10 Physics (SSC-II) - Electricity, magnetism and modern physics.',
+    topics: [
+      { id: 'fbise-p10-1', title: 'Electrostatics and electric fields', resources: [] },
+      { id: 'fbise-p10-2', title: 'Current electricity and circuits', resources: [] },
+      { id: 'fbise-p10-3', title: 'Magnetism and magnetic fields', resources: [] },
+      { id: 'fbise-p10-4', title: 'Electromagnetic induction', resources: [] },
+      { id: 'fbise-p10-5', title: 'Alternating current', resources: [] },
+      { id: 'fbise-p10-6', title: 'Electromagnetic waves', resources: [] },
+      { id: 'fbise-p10-7', title: 'Optics and light', resources: [] },
+      { id: 'fbise-p10-8', title: 'Modern physics introduction', resources: [] },
+      { id: 'fbise-p10-9', title: 'Atomic and nuclear physics', resources: [] },
+      { id: 'fbise-p10-10', title: 'Radioactivity and radiation', resources: [] }
+    ]
+  },
+  {
+    id: 'fbise-chem-10',
+    name: 'Chemistry',
+    level: 'Grade 10',
+    description: 'FBISE Grade 10 Chemistry (SSC-II) - Organic chemistry and chemical analysis.',
+    topics: [
+      { id: 'fbise-c10-1', title: 'Thermochemistry and energy', resources: [] },
+      { id: 'fbise-c10-2', title: 'Chemical kinetics and equilibrium', resources: [] },
+      { id: 'fbise-c10-3', title: 'Ionic equilibria and pH', resources: [] },
+      { id: 'fbise-c10-4', title: 'Electrochemistry', resources: [] },
+      { id: 'fbise-c10-5', title: 'Organic chemistry fundamentals', resources: [] },
+      { id: 'fbise-c10-6', title: 'Hydrocarbons and alkanes', resources: [] },
+      { id: 'fbise-c10-7', title: 'Functional groups and reactions', resources: [] },
+      { id: 'fbise-c10-8', title: 'Polymers and synthetic compounds', resources: [] },
+      { id: 'fbise-c10-9', title: 'Quantitative analysis', resources: [] },
+      { id: 'fbise-c10-10', title: 'Industrial chemistry applications', resources: [] }
+    ]
+  },
+  {
+    id: 'fbise-bio-10',
+    name: 'Biology',
+    level: 'Grade 10',
+    description: 'FBISE Grade 10 Biology (SSC-II) - Genetics, evolution and human systems.',
+    topics: [
+      { id: 'fbise-b10-1', title: 'Genetics and inheritance', resources: [] },
+      { id: 'fbise-b10-2', title: 'DNA and molecular genetics', resources: [] },
+      { id: 'fbise-b10-3', title: 'Protein synthesis and gene expression', resources: [] },
+      { id: 'fbise-b10-4', title: 'Evolution and natural selection', resources: [] },
+      { id: 'fbise-b10-5', title: 'Human nervous system', resources: [] },
+      { id: 'fbise-b10-6', title: 'Endocrine system and hormones', resources: [] },
+      { id: 'fbise-b10-7', title: 'Immune system and disease', resources: [] },
+      { id: 'fbise-b10-8', title: 'Reproduction and development', resources: [] },
+      { id: 'fbise-b10-9', title: 'Population ecology and conservation', resources: [] },
+      { id: 'fbise-b10-10', title: 'Biotechnology and applications', resources: [] }
+    ]
+  },
+  {
+    id: 'fbise-cs-10',
+    name: 'Computer Science',
+    level: 'Grade 10',
+    description: 'FBISE Grade 10 Computer Science (SSC-II) - Advanced programming and systems.',
+    topics: [
+      { id: 'fbise-cs10-1', title: 'Advanced programming concepts', resources: [] },
+      { id: 'fbise-cs10-2', title: 'Object-oriented programming', resources: [] },
+      { id: 'fbise-cs10-3', title: 'Data structures and algorithms', resources: [] },
+      { id: 'fbise-cs10-4', title: 'Database design and SQL', resources: [] },
+      { id: 'fbise-cs10-5', title: 'Web application development', resources: [] },
+      { id: 'fbise-cs10-6', title: 'Network technology and security', resources: [] },
+      { id: 'fbise-cs10-7', title: 'Cloud computing and services', resources: [] },
+      { id: 'fbise-cs10-8', title: 'Artificial intelligence basics', resources: [] },
+      { id: 'fbise-cs10-9', title: 'Mobile app development', resources: [] },
+      { id: 'fbise-cs10-10', title: 'Software project management', resources: [] }
+    ]
+  },
+  {
+    id: 'fbise-pak-10',
+    name: 'Pakistan Studies',
+    level: 'Grade 10',
+    description: 'FBISE Grade 10 Pakistan Studies (SSC-II) - Modern Pakistan and global role.',
+    topics: [
+      { id: 'fbise-pak10-1', title: 'Pakistan physical features', resources: [] },
+      { id: 'fbise-pak10-2', title: 'Climate and environmental issues', resources: [] },
+      { id: 'fbise-pak10-3', title: 'Medieval Islamic history', resources: [] },
+      { id: 'fbise-pak10-4', title: 'Mughal empire and decline', resources: [] },
+      { id: 'fbise-pak10-5', title: 'Colonial rule and resistance', resources: [] },
+      { id: 'fbise-pak10-6', title: 'Independence and early years', resources: [] },
+      { id: 'fbise-pak10-7', title: 'Pakistan constitutional development', resources: [] },
+      { id: 'fbise-pak10-8', title: 'Political systems and democracy', resources: [] },
+      { id: 'fbise-pak10-9', title: 'Economic development and challenges', resources: [] },
+      { id: 'fbise-pak10-10', title: 'International relations and foreign policy', resources: [] }
+    ]
   }
 ];
 
