@@ -19,7 +19,6 @@ const Navbar: React.FC<NavbarProps> = ({ user, onLogout }) => {
   const navLinks = [
     { name: 'O Level', path: '/o-level-tutors', private: false },
     { name: 'A Level', path: '/a-level-tutors', private: false },
-    { name: 'Resources', path: '/subjects', private: true },
     { name: 'Teachers', path: '/teacher-directory', private: false },
     { name: 'Blog', path: '/blog', private: false },
   ];

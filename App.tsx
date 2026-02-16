@@ -30,6 +30,7 @@ const TeacherRegistrationPage = lazy(() => import('./pages/TeacherRegistrationPa
 const ExamLandingPage = lazy(() => import('./pages/ExamLandingPage.tsx'));
 const BlogPage = lazy(() => import('./pages/BlogPage.tsx'));
 const SitemapPage = lazy(() => import('./pages/SitemapPage.tsx'));
+const OLevelIslamabadPage = lazy(() => import('./pages/OLevelIslamabadPage.tsx'));
 
 const LoadingScreen = React.memo(() => (
   <div className="min-h-[60vh] flex items-center justify-center bg-slate-50">
@@ -140,6 +141,7 @@ const App: React.FC = () => {
                 <Route path="/teacher-registration" element={<PageWrapper>{user ? <TeacherRegistrationPage user={user} onUpdateUser={updateUser} /> : <Navigate to="/login" replace />}</PageWrapper>} />
                 
                 <Route path="/o-level-tutors" element={<PageWrapper><ExamLandingPage exam="O Level" /></PageWrapper>} />
+                <Route path="/o-level-tutors-islamabad" element={<PageWrapper><OLevelIslamabadPage /></PageWrapper>} />
                 <Route path="/a-level-tutors" element={<PageWrapper><ExamLandingPage exam="A Level" /></PageWrapper>} />
                 <Route path="/igcse-tutors" element={<PageWrapper><ExamLandingPage exam="IGCSE" /></PageWrapper>} />
                 <Route path="/sat-tutors" element={<PageWrapper><ExamLandingPage exam="SAT" /></PageWrapper>} />

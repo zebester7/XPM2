@@ -218,5 +218,71 @@ export const pageConfigs: Record<string, SEOMetadata> = {
     description: "Read our blog for exam tips, study techniques, subject insights, and educational resources.",
     keywords: "blog, education blog, exam tips, study techniques, educational resources",
     canonical: "https://www.xpmtutors.com/blog"
+  },
+  oLevelTutors: {
+    title: "Online O Level Tutors | Expert O Level Tutoring | XPM Tutors",
+    description: "Find the best online O Level tutors for Cambridge & Edexcel. Expert tutors for Physics, Maths, Chemistry & all subjects. Book a free trial session today!",
+    keywords: "O Level tutors, online O Level tutors, O Level Physics tutor, O Level Maths tutor, O Level Chemistry tutor, Cambridge O Level, Edexcel O Level",
+    canonical: "https://www.xpmtutors.com/o-level-tutors"
+  },
+  oLevelIslamabad: {
+    title: "O Level Tutors in Islamabad | Expert Online Tutoring | XPM Tutors",
+    description: "Find top-rated O Level tutors in Islamabad. Expert tutoring for Cambridge & Edexcel O Levels. Physics, Maths, Chemistry, and all subjects. Free trial session available!",
+    keywords: "O Level tutors Islamabad, O Level tuition Islamabad, Physics tutor Islamabad, Maths tutor Islamabad, online O Level tutors Islamabad",
+    canonical: "https://www.xpmtutors.com/o-level-tutors-islamabad"
   }
 };
+
+/**
+ * Generate Local Business structured data with service area
+ */
+export function generateLocalBusinessSchema(data: {
+  name: string;
+  description: string;
+  city: string;
+  country: string;
+  serviceAreas?: string[];
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": data.name,
+    "description": data.description,
+    "url": "https://www.xpmtutors.com",
+    "image": "https://www.xpmtutors.com/logo.png",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": data.city,
+      "addressCountry": data.country
+    },
+    "areaServed": data.serviceAreas || [data.city, data.country],
+    "availableLanguage": ["en", "ur"],
+    "serviceType": "Online Tutoring"
+  };
+}
+
+/**
+ * Generate Educational Service structured data
+ */
+export function generateEducationalServiceSchema(data: {
+  name: string;
+  description: string;
+  exam: string;
+  subjects: string[];
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "EducationalEvent",
+    "name": `${data.exam} ${data.name}`,
+    "description": data.description,
+    "educationalLevel": data.exam,
+    "keywords": data.subjects.join(", "),
+    "url": "https://www.xpmtutors.com",
+    "organizer": {
+      "@type": "Organization",
+      "name": "XPM Tutors",
+      "url": "https://www.xpmtutors.com",
+      "logo": "https://www.xpmtutors.com/logo.png"
+    }
+  };
+}

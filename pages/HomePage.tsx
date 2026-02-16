@@ -210,7 +210,7 @@ const HomePage: React.FC<{ reviews: Review[] }> = ({ reviews }) => {
           <div className="space-y-8">
             <div className="border-b border-slate-100 pb-8">
               <h4 className="text-lg font-black text-slate-900 mb-2">How do I hire an online O Level tutor?</h4>
-              <p className="text-slate-600 font-medium">You can browse our expert faculty directory, select your subject, and book a trial session directly through our portal or WhatsApp.</p>
+              <p className="text-slate-600 font-medium">You can browse our <Link to="/o-level-tutors" className="text-xpm-blue font-bold hover:underline">expert O Level tutors</Link>, select your subject, and book a trial session directly through our portal or WhatsApp. We also offer <Link to="/o-level-tutors-islamabad" className="text-xpm-blue font-bold hover:underline">specialized tutoring in Islamabad</Link>.</p>
             </div>
             <div className="border-b border-slate-100 pb-8">
               <h4 className="text-lg font-black text-slate-900 mb-2">Do you provide tutoring for SAT and NET Entry Tests?</h4>
@@ -218,7 +218,50 @@ const HomePage: React.FC<{ reviews: Review[] }> = ({ reviews }) => {
             </div>
             <div className="border-b border-slate-100 pb-8">
               <h4 className="text-lg font-black text-slate-900 mb-2">Are XPM tutors verified for Cambridge and Edexcel?</h4>
-              <p className="text-slate-600 font-medium">Absolutely. Every tutor on our platform undergoes a rigorous document verification process before teaching.</p>
+              <p className="text-slate-600 font-medium">Absolutely. Every tutor on our platform undergoes a rigorous document verification process before teaching. All our <Link to="/o-level-tutors" className="text-xpm-blue font-bold hover:underline">O Level tutors</Link> are qualified and experienced with Cambridge and Edexcel boards.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Specialized O Level Section */}
+      <section className="py-24 bg-gradient-to-br from-xpm-blue/5 to-slate-50">
+        <div className="max-w-4xl mx-auto px-4">
+          <div className="bg-white p-12 rounded-[2.5rem] border border-xpm-blue/20 shadow-sm">
+            <h2 className="text-3xl font-black text-slate-900 mb-6 uppercase tracking-tighter">Looking for O Level Tutors?</h2>
+            <p className="text-lg text-slate-600 leading-relaxed font-medium mb-8">
+              XPM Tutors specializes in expert <span className="font-bold">O Level tutoring for Cambridge and Edexcel</span>. With a 95%+ A* pass rate and expert tutors across Pakistan, UK, UAE, and beyond, we help students master Physics, Mathematics, Chemistry, and all O Level subjects.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+              <div className="flex gap-3">
+                <span className="text-2xl">📍</span>
+                <div>
+                  <h4 className="font-black text-slate-900">Islamabad-Based Experts</h4>
+                  <p className="text-sm text-slate-600">Top-rated tutors from Islamabad institutions</p>
+                </div>
+              </div>
+              <div className="flex gap-3">
+                <span className="text-2xl">🌍</span>
+                <div>
+                  <h4 className="font-black text-slate-900">Global Availability</h4>
+                  <p className="text-sm text-slate-600">Online sessions from anywhere, anytime</p>
+                </div>
+              </div>
+              <div className="flex gap-3">
+                <span className="text-2xl">⭐</span>
+                <div>
+                  <h4 className="font-black text-slate-900">Proven Results</h4>
+                  <p className="text-sm text-slate-600">95%+ A* pass rate for our students</p>
+                </div>
+              </div>
+            </div>
+            <div className="flex flex-wrap gap-4">
+              <Link to="/o-level-tutors" className="px-8 py-4 bg-xpm-blue text-white font-black rounded-lg hover:bg-blue-700 transition uppercase tracking-widest text-sm">
+                Browse All O Level Tutors
+              </Link>
+              <Link to="/o-level-tutors-islamabad" className="px-8 py-4 bg-xpm-orange text-white font-black rounded-lg hover:bg-orange-600 transition uppercase tracking-widest text-sm">
+                O Level Tutors in Islamabad
+              </Link>
             </div>
           </div>
         </div>
