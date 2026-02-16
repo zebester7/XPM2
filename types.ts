@@ -6,6 +6,7 @@ export type SubscriptionStatus = 'none' | 'pending' | 'active';
 export interface AppSettings {
   subscriptionFee: number;
   originalPrice: number;
+  logoUrl?: string;
 }
 
 export interface LearningMaterial {

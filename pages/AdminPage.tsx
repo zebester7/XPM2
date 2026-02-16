@@ -53,6 +53,10 @@ const AdminPage: React.FC<AdminPageProps> = ({ adminUser, questions, reviews, on
   const qpInputRef = useRef<HTMLInputElement>(null);
   const msInputRef = useRef<HTMLInputElement>(null);
   const matInputRef = useRef<HTMLInputElement>(null);
+  const logoInputRef = useRef<HTMLInputElement>(null);
+
+  const [logoUploading, setLogoUploading] = useState(false);
+  const [logoUploadMessage, setLogoUploadMessage] = useState('');
 
   const [usersVersion, setUsersVersion] = useState(0);
   const allUsers = useMemo(() => db.getUsers(), [usersVersion]);
@@ -112,6 +116,51 @@ const AdminPage: React.FC<AdminPageProps> = ({ adminUser, questions, reviews, on
         setUploadedFiles(prev => ({ ...prev, [type]: { name: file.name, data: reader.result as string } }));
       };
       reader.readAsDataURL(file);
+    }
+  };
+
+  const handleLogoUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    // Validate file type
+    if (!file.type.startsWith('image/')) {
+      setLogoUploadMessage('❌ Please upload a valid image file');
+      return;
+    }
+
+    // Validate file size (max 5MB)
+    if (file.size > 5 * 1024 * 1024) {
+      setLogoUploadMessage('❌ File size must be less than 5MB');
+      return;
+    }
+
+    setLogoUploading(true);
+    setLogoUploadMessage('⏳ Uploading...');
+
+    try {
+      const formData = new FormData();
+      formData.append('file', file);
+
+      const response = await fetch('/api/upload-logo', {
+        method: 'POST',
+        body: formData
+      });
+
+      if (!response.ok) {
+        throw new Error('Upload failed');
+      }
+
+      const data = await response.json();
+      setAppSettings({ ...appSettings, logoUrl: data.url });
+      setLogoUploadMessage('✅ Logo uploaded successfully!');
+      setTimeout(() => setLogoUploadMessage(''), 3000);
+    } catch (error) {
+      setLogoUploadMessage('❌ Upload failed. Please try again.');
+      console.error('Logo upload error:', error);
+    } finally {
+      setLogoUploading(false);
+      if (logoInputRef.current) logoInputRef.current.value = '';
     }
   };
 
@@ -673,6 +722,33 @@ const AdminPage: React.FC<AdminPageProps> = ({ adminUser, questions, reviews, on
           <div className="p-12 max-w-2xl mx-auto">
             <h3 className="text-2xl font-black text-slate-900 mb-8 uppercase tracking-tighter">Configurations</h3>
             <form onSubmit={(e) => { e.preventDefault(); db.saveSettings(appSettings); alert('Settings Saved'); }} className="space-y-8">
+              <div className="bg-slate-50 p-8 rounded-3xl border border-slate-100">
+                <label className="block text-[10px] font-black text-slate-400 mb-3 uppercase">Logo Image</label>
+                <div className="flex flex-col gap-4">
+                  {appSettings.logoUrl && (
+                    <div className="flex items-center gap-4 p-4 bg-white rounded-2xl border border-slate-200">
+                      <img src={appSettings.logoUrl} alt="Current Logo" className="h-16 w-16 object-contain" />
+                      <div className="flex-1 text-sm text-slate-600">
+                        <p className="font-semibold">Current Logo</p>
+                        <p className="text-xs text-slate-500 mt-1">Click upload to replace</p>
+                      </div>
+                    </div>
+                  )}
+                  <input 
+                    ref={logoInputRef}
+                    type="file" 
+                    accept="image/*"
+                    onChange={handleLogoUpload}
+                    disabled={logoUploading}
+                    className="px-4 py-3 bg-white rounded-2xl border-2 border-dashed border-slate-300 hover:border-xpm-blue cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none text-sm"
+                  />
+                  {logoUploadMessage && (
+                    <p className={`text-sm font-semibold ${logoUploadMessage.includes('✅') ? 'text-green-600' : logoUploadMessage.includes('❌') ? 'text-red-600' : 'text-slate-600'}`}>
+                      {logoUploadMessage}
+                    </p>
+                  )}
+                </div>
+              </div>
               <div className="bg-slate-50 p-8 rounded-3xl border border-slate-100">
                 <label className="block text-[10px] font-black text-slate-400 mb-3 uppercase">Subscription Fee (PKR)</label>
                 <input type="number" value={appSettings.subscriptionFee} onChange={(e) => setAppSettings({...appSettings, subscriptionFee: parseInt(e.target.value)})} className="w-full px-6 py-4 bg-white rounded-2xl focus:ring-2 focus:ring-xpm-blue outline-none font-black text-lg shadow-inner" />

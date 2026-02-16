@@ -3,7 +3,7 @@ import os
 import json
 import uuid
 import time
-from fastapi import FastAPI, Request, Form, Depends, HTTPException, status, Response, Body
+from fastapi import FastAPI, Request, Form, Depends, HTTPException, status, Response, Body, UploadFile, File
 from fastapi.responses import HTMLResponse, RedirectResponse, FileResponse
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
@@ -228,6 +228,40 @@ async def api_update_user(uid: str, user: Dict[str, Any] = Body(...), response: 
             save_db(db_data)
             return user
     raise HTTPException(status_code=404, detail='User not found')
+
+# --- Logo Upload Endpoint ---
+@app.post('/api/upload-logo')
+async def upload_logo(file: UploadFile = File(...), response: Response = None):
+    if response is None:
+        response = Response()
+    response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
+    
+    try:
+        # Validate file type
+        if not file.content_type.startswith('image/'):
+            raise HTTPException(status_code=400, detail='File must be an image')
+        
+        # Create uploads directory if it doesn't exist
+        uploads_dir = Path('public/uploads')
+        uploads_dir.mkdir(parents=True, exist_ok=True)
+        
+        # Generate unique filename
+        file_ext = Path(file.filename).suffix
+        unique_filename = f"logo_{uuid.uuid4()}{file_ext}"
+        file_path = uploads_dir / unique_filename
+        
+        # Save file
+        contents = await file.read()
+        with open(file_path, 'wb') as f:
+            f.write(contents)
+        
+        # Return the public URL
+        return {
+            'url': f'/public/uploads/{unique_filename}',
+            'filename': unique_filename
+        }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f'Upload failed: {str(e)}')
 
 # --- Sitemap Route for SEO ---
 @app.get("/sitemap.xml", response_class=FileResponse)

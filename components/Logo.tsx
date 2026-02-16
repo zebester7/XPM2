@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { useSettings } from '../SettingsContext';
 
 interface LogoProps {
   className?: string;
@@ -7,10 +8,13 @@ interface LogoProps {
 }
 
 const Logo: React.FC<LogoProps> = ({ className = "h-10 w-10", showText = true }) => {
+  const { settings } = useSettings();
+  const logoUrl = settings.logoUrl || '/xpm-logo.png';
+
   return (
     <div className={`flex items-center gap-3`}>
       <img 
-        src="/xpm-logo.png" 
+        src={logoUrl}
         alt="XPM Tutors - Expert Physics & Maths Tutors"
         className={className}
         style={{ objectFit: 'contain' }}
