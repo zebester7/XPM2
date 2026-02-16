@@ -48,6 +48,14 @@ export const INTERNAL_LINKS: Record<string, PageLink> = {
     priority: 0.95,
     publicPage: true,
   },
+  aLevelIslamabad: {
+    path: '/a-level-tutors-islamabad',
+    title: 'A Level Tutors in Islamabad',
+    description: 'Expert A Level tutors in Islamabad for university entrance preparation',
+    category: 'exam',
+    priority: 0.93,
+    publicPage: true,
+  },
   igcse: {
     path: '/igcse-tutors',
     title: 'IGCSE Tutors',

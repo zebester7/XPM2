@@ -14,26 +14,48 @@ const ExamLandingPage: React.FC<ExamLandingPageProps> = ({ exam }) => {
       title: 'Online O Level Tutors | Expert O Level Tutoring | XPM Tutors',
       description: 'Find the best online O Level tutors for Cambridge & Edexcel. Expert tutors for Physics, Maths, Chemistry & all subjects. Book a free trial session today!',
       keywords: 'O Level tutors, online O Level tutors, O Level Physics tutor, O Level Maths tutor, O Level Chemistry tutor, Cambridge O Level, Edexcel O Level, O Level tuition',
-      longText: 'Mastering the O Level curriculum requires a deep understanding of conceptual logic. Our expert O Level tutors specialize in Physics (5054), Mathematics Syllabus D (4024), Chemistry (5070), Biology (5090), Computer Science (2210), and English literature. We provide daily topical past paper practice, personalized study plans, and specialized revision sessions to ensure you achieve A* grades.',
+      longText: 'Mastering the O Level curriculum requires a deep understanding of conceptual logic. Our expert O Level tutors specialize in Physics (5054), Mathematics Syllabus D (4024), Chemistry (5070), Biology (5090), Computer Science (2210), Engineering (6037), Economics (2281), and English literature. We provide daily topical past paper practice, personalized study plans, and specialized revision sessions to ensure you achieve A* grades.',
+      subjects: [
+        { name: 'Physics', code: '5054', desc: 'Forces, motion, energy, waves, and modern physics' },
+        { name: 'Mathematics', code: '4024', desc: 'Algebra, geometry, calculus, and statistics' },
+        { name: 'Chemistry', code: '5070', desc: 'Atomic structure, bonding, reactions, and organic chemistry' },
+        { name: 'Biology', code: '5090', desc: 'Cells, genetics, ecology, and human physiology' },
+        { name: 'Computer Science', code: '2210', desc: 'Programming, algorithms, and data structures' },
+        { name: 'Engineering', code: '6037', desc: 'Mechanics, design, and thermodynamics' },
+        { name: 'Economics', code: '2281', desc: 'Microeconomics, macroeconomics, and economic systems' },
+        { name: 'English Language', code: '1123', desc: 'Reading, writing, and comprehension skills' }
+      ],
       faqs: [
         { question: 'What are the benefits of hiring an O Level tutor online?', answer: 'Online O Level tutoring provides personalized attention, flexible scheduling, 1-on-1 doubt clearance, past paper practice, and the convenience of learning from home. Our tutors achieve 95%+ A* pass rates.' },
         { question: 'How much does O Level tutoring cost?', answer: 'Our O Level tutoring starts from affordable rates with flexible packages. We offer trial sessions so you can experience our teaching quality before committing.' },
         { question: 'Can online O Level tutors help with exam preparation?', answer: 'Yes! Our O Level tutors specialize in exam preparation with intensive topical revision, timed practice tests, exam technique training, and strategy sessions.' },
-        { question: 'Which subjects can O Level tutors teach?', answer: 'We offer tutoring for all O Level subjects including Mathematics, Physics, Chemistry, Biology, Computer Science, English Language, History, and Geography.' },
+        { question: 'Which subjects can O Level tutors teach?', answer: 'We offer tutoring for all O Level subjects including Mathematics, Physics, Chemistry, Biology, Computer Science, Engineering, Economics, English Language, History, and Geography.' },
         { question: 'How do I find the best O Level tutor for my needs?', answer: 'Browse our teacher directory, check tutor qualifications, read student reviews, and book a free trial session to find the perfect match for your learning style.' }
       ],
-      serviceArea: ['Pakistan', 'United Kingdom', 'UAE', 'Saudi Arabia', 'Kuwait', 'Qatar', 'Bahrain']
+      serviceArea: ['Pakistan', 'United Kingdom', 'UAE', 'Saudi Arabia', 'Kuwait', 'Qatar', 'Bahrain', 'Oman', 'Canada', 'Australia', 'Malaysia', 'Singapore']
     },
     'A Level': {
       title: 'A Level Online Tutors | Expert A Level Tutoring | XPM Tutors',
-      description: 'Expert online A Level tutors for Science & Mathematics. Get into top universities with our proven A Level tutoring strategies. Book a free trial!',
-      keywords: 'A Level tutors, online A Level tutors, A Level Physics tutor, A Level Maths tutor, A Level Chemistry, A Level preparation',
-      longText: 'A Level Physics and Mathematics are notorious for their difficulty. XPM Tutors breaks down complex topics like Quantum Physics and Advanced Integration into manageable segments. Our mentors are top achievers who have navigated these exact boards successfully.',
-      faqs: [
-        { question: 'What makes a good A Level tutor?', answer: 'Good A Level tutors combine deep subject knowledge with strong teaching skills. They provide personalized attention, exam technique training, and help students achieve top grades for university admission.' },
-        { question: 'How can A Level tutors help with university entrance?', answer: 'Our A Level tutors focus on achieving A* grades, which are crucial for competitive university programs like Medicine, Engineering, and Law.' }
+      description: 'Expert online A Level tutors for Science, Maths & Humanities. Achieve A* grades and secure university admission. Book a free trial session now!',
+      keywords: 'A Level tutors, online A Level tutors, A Level Physics tutor, A Level Maths tutor, A Level Chemistry, A Level Biology, A Level preparation, Cambridge A Level',
+      longText: 'A Level Physics, Mathematics, and Chemistry are crucial for university admission to top programs. XPM Tutors breaks down complex topics like Quantum Physics, Advanced Integration, Organic Chemistry, and Genetics into manageable segments. Our expert mentors are top A* achievers who have successfully navigated Cambridge and Edexcel boards.',
+      subjects: [
+        { name: 'Physics', code: '9702', desc: 'Mechanics, thermodynamics, waves, optics, atoms, and nuclear physics' },
+        { name: 'Mathematics', code: '9709', desc: 'Pure mathematics, mechanics, and statistics' },
+        { name: 'Chemistry', code: '9701', desc: 'Physical chemistry, organic chemistry, and inorganic chemistry' },
+        { name: 'Biology', code: '9700', desc: 'Cell biology, genetics, ecology, and physiology' },
+        { name: 'Further Mathematics', code: '9231', desc: 'Complex analysis, differential equations, and advanced mechanics' },
+        { name: 'Computer Science', code: '9618', desc: 'Data structures, algorithms, networking, and databases' },
+        { name: 'Economics', code: '9708', desc: 'Microeconomics, macroeconomics, and international trade' },
+        { name: 'English Literature', code: '9695', desc: 'Poetry, drama, prose analysis, and literary criticism' }
       ],
-      serviceArea: ['Pakistan', 'United Kingdom', 'UAE', 'Saudi Arabia']
+      faqs: [
+        { question: 'What makes a good A Level tutor?', answer: 'Good A Level tutors combine deep subject knowledge with strong teaching skills. They provide personalized attention, exam technique training, and help students achieve A* grades for university admission.' },
+        { question: 'How can A Level tutors help with university entrance?', answer: 'Our A Level tutors focus on achieving A* grades in subjects like Physics, Chemistry, Mathematics, and Biology, which are crucial for competitive university programs in Medicine, Engineering, and Natural Sciences.' },
+        { question: 'Can A Level tutors help with university applications?', answer: 'Yes! Our tutors help with personal statements, interview preparation, and subject-specific guidance to strengthen your university application to top institutions like Cambridge and Oxford.' },
+        { question: 'How long does A Level tutoring typically take?', answer: 'A Level typically spans 2 years. We recommend starting tutoring in Year 12 for better preparation. Some students start in Year 13 for intensive final revision.' }
+      ],
+      serviceArea: ['Pakistan', 'United Kingdom', 'UAE', 'Saudi Arabia', 'Kuwait', 'Qatar', 'Bahrain', 'Oman', 'Canada', 'Australia', 'Malaysia', 'Singapore', 'Hong Kong', 'Kenya']
     },
     'SAT': {
       title: 'Digital SAT Online Prep | SAT Tutors | XPM Tutors',
@@ -133,19 +155,35 @@ const ExamLandingPage: React.FC<ExamLandingPageProps> = ({ exam }) => {
             </div>
           </div>
 
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+            {data.subjects && data.subjects.length > 0 && data.subjects.map((subject, idx) => (
+              <div key={idx} className="p-6 bg-white border border-slate-200 rounded-2xl hover:border-xpm-blue/50 transition">
+                <h4 className="text-lg font-black text-xpm-blue mb-2 uppercase">{subject.name}</h4>
+                <p className="text-sm text-xpm-green font-bold mb-3">Code: {subject.code}</p>
+                <p className="text-slate-600 text-sm leading-relaxed">{subject.desc}</p>
+              </div>
+            ))}
+            {(!data.subjects || data.subjects.length === 0) && (
+              <>
+                <div className="p-6 bg-white border border-slate-200 rounded-2xl">
+                  <h4 className="text-lg font-black text-xpm-blue mb-2">Physics</h4>
+                  <p className="text-slate-600 text-sm">Expert coaching in physics concepts</p>
+                </div>
+                <div className="p-6 bg-white border border-slate-200 rounded-2xl">
+                  <h4 className="text-lg font-black text-xpm-blue mb-2">Mathematics</h4>
+                  <p className="text-slate-600 text-sm">Advanced problem-solving techniques</p>
+                </div>
+                <div className="p-6 bg-white border border-slate-200 rounded-2xl">
+                  <h4 className="text-lg font-black text-xpm-blue mb-2">Chemistry</h4>
+                  <p className="text-slate-600 text-sm">Comprehensive chemistry guidance</p>
+                </div>
+              </>
+            )}
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
              <div className="p-8 bg-white border border-slate-100 rounded-3xl shadow-sm">
-                <h3 className="text-xl font-black mb-4 uppercase">Core Subjects</h3>
-                <ul className="space-y-3">
-                   {['Physics', 'Mathematics', 'Chemistry', 'Computer Science'].map(s => (
-                     <li key={s} className="flex items-center gap-2 text-slate-600 font-bold">
-                        <span className="text-xpm-green">✓</span> {s}
-                     </li>
-                   ))}
-                </ul>
-             </div>
-             <div className="p-8 bg-white border border-slate-100 rounded-3xl shadow-sm">
-                <h3 className="text-xl font-black mb-4 uppercase">Our Services</h3>
+                <h3 className="text-xl font-black mb-4 uppercase">Key Services</h3>
                 <ul className="space-y-3">
                    {['1-on-1 Live Sessions', 'Past Paper Practice', 'Recorded Lessons', '24/7 WhatsApp Support'].map(s => (
                      <li key={s} className="flex items-center gap-2 text-slate-600 font-bold">

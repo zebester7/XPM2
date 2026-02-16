@@ -267,6 +267,49 @@ const HomePage: React.FC<{ reviews: Review[] }> = ({ reviews }) => {
         </div>
       </section>
 
+      {/* A Level Specialized Section */}
+      <section className="py-24 bg-xpm-blue/5 border-t border-xpm-blue/20">
+        <div className="max-w-4xl mx-auto px-4">
+          <div className="bg-white p-12 rounded-[2.5rem] border border-xpm-blue/20 shadow-sm">
+            <h2 className="text-3xl font-black text-slate-900 mb-6 uppercase tracking-tighter">Ace Your A Levels With Expert Tutoring</h2>
+            <p className="text-lg text-slate-600 leading-relaxed font-medium mb-8">
+              Preparing for <span className="font-bold">Cambridge A Levels</span>? XPM Tutors provides specialized coaching for Physics, Mathematics, Chemistry, Biology, Computer Science, and more. Our tutors help you achieve A* grades and secure admission to top universities.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+              <div className="flex gap-3">
+                <span className="text-2xl">📖</span>
+                <div>
+                  <h4 className="font-black text-slate-900">University-Track Mentors</h4>
+                  <p className="text-sm text-slate-600">A* achievers guiding you to top universities</p>
+                </div>
+              </div>
+              <div className="flex gap-3">
+                <span className="text-2xl">🎯</span>
+                <div>
+                  <h4 className="font-black text-slate-900">Holistic Preparation</h4>
+                  <p className="text-sm text-slate-600">Academics + UCAS + interview prep</p>
+                </div>
+              </div>
+              <div className="flex gap-3">
+                <span className="text-2xl">✅</span>
+                <div>
+                  <h4 className="font-black text-slate-900">Proven Results</h4>
+                  <p className="text-sm text-slate-600">Students admitted to Oxford, Cambridge, Imperial</p>
+                </div>
+              </div>
+            </div>
+            <div className="flex flex-wrap gap-4">
+              <Link to="/a-level-tutors" className="px-8 py-4 bg-xpm-blue text-white font-black rounded-lg hover:bg-blue-900 transition uppercase tracking-widest text-sm">
+                Browse All A Level Tutors
+              </Link>
+              <Link to="/a-level-tutors-islamabad" className="px-8 py-4 bg-xpm-orange text-white font-black rounded-lg hover:bg-orange-600 transition uppercase tracking-widest text-sm">
+                A Level Tutors in Islamabad
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <style dangerouslySetInnerHTML={{ __html: `
         @keyframes scrollVertical { 0% { transform: translateY(0); } 100% { transform: translateY(-50%); } }
         .animate-scroll-vertical { animation: scrollVertical 60s linear infinite; }
