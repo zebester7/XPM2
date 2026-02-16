@@ -3,13 +3,13 @@ import os
 import json
 import uuid
 import time
-from fastapi import FastAPI, Request, Form, Depends, HTTPException, status, Response
+from fastapi import FastAPI, Request, Form, Depends, HTTPException, status, Response, Body
 from fastapi.responses import HTMLResponse, RedirectResponse, FileResponse
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 from pathlib import Path
-from typing import List, Optional
+from typing import List, Optional, Dict, Any
 
 app = FastAPI()
 
@@ -136,19 +136,28 @@ async def api_get_teachers(response: Response):
 
 
 @app.post('/api/teachers')
-async def api_create_teacher(teacher: dict, response: Response):
+async def api_create_teacher(teacher: Dict[str, Any] = Body(...), response: Response = None):
+    if response is None:
+        response = Response()
     response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
     response.headers["Pragma"] = "no-cache"
     response.headers["Expires"] = "0"
     db_data = load_db()
     teachers = db_data.setdefault('teachers', [])
-    teachers.append(teacher)
+    # Check if teacher with same id exists, update instead of create duplicate
+    existing_idx = next((i for i, t in enumerate(teachers) if t.get('id') == teacher.get('id')), None)
+    if existing_idx is not None:
+        teachers[existing_idx] = teacher
+    else:
+        teachers.append(teacher)
     save_db(db_data)
     return teacher
 
 
 @app.put('/api/teachers/{tid}')
-async def api_update_teacher(tid: str, teacher: dict, response: Response):
+async def api_update_teacher(tid: str, teacher: Dict[str, Any] = Body(...), response: Response = None):
+    if response is None:
+        response = Response()
     response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
     response.headers["Pragma"] = "no-cache"
     response.headers["Expires"] = "0"
@@ -186,7 +195,9 @@ async def api_get_users(response: Response):
 
 
 @app.post('/api/users')
-async def api_create_or_update_user(user: dict, response: Response):
+async def api_create_or_update_user(user: Dict[str, Any] = Body(...), response: Response = None):
+    if response is None:
+        response = Response()
     response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
     response.headers["Pragma"] = "no-cache"
     response.headers["Expires"] = "0"
@@ -203,7 +214,9 @@ async def api_create_or_update_user(user: dict, response: Response):
 
 
 @app.put('/api/users/{uid}')
-async def api_update_user(uid: str, user: dict, response: Response):
+async def api_update_user(uid: str, user: Dict[str, Any] = Body(...), response: Response = None):
+    if response is None:
+        response = Response()
     response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
     response.headers["Pragma"] = "no-cache"
     response.headers["Expires"] = "0"
