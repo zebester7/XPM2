@@ -396,3 +396,4 @@ export const db = {
     await fetch(`/api/blogs/${id}`, { method: 'DELETE' }).catch(() => {});
     return blogs;
   }
+};
