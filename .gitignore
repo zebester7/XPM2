@@ -12,6 +12,18 @@ dist
 dist-ssr
 *.local
 
+# Python files (backend not needed for frontend deployment)
+*.py
+*.pyc
+__pycache__
+*.egg-info
+.venv
+venv
+env
+requirements.txt
+api/
+templates/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
