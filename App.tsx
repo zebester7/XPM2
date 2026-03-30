@@ -35,6 +35,10 @@ const OLevelIslamabadPage = lazy(() => import('./pages/OLevelIslamabadPage.tsx')
 const ALevelIslamabadPage = lazy(() => import('./pages/ALevelIslamabadPage.tsx'));
 const IRServicesPage = lazy(() => import('./pages/IRServicesPage.tsx'));
 const QuranTutoringPage = lazy(() => import('./pages/QuranTutoringPage.tsx'));
+const QuranBeginnerPage = lazy(() => import('./pages/QuranBeginnerPage.tsx'));
+const QuranIntermediatePage = lazy(() => import('./pages/QuranIntermediatePage.tsx'));
+const QuranAdvancedPage = lazy(() => import('./pages/QuranAdvancedPage.tsx'));
+const QuranExpertPage = lazy(() => import('./pages/QuranExpertPage.tsx'));
 
 const LoadingScreen = React.memo(() => (
   <div className="min-h-[60vh] flex items-center justify-center bg-slate-50">
@@ -156,6 +160,10 @@ const App: React.FC = () => {
                 <Route path="/blog" element={<PageWrapper><BlogPage /></PageWrapper>} />
                 <Route path="/ir-services" element={<PageWrapper><IRServicesPage /></PageWrapper>} />
                 <Route path="/quran-tutoring" element={<PageWrapper><QuranTutoringPage /></PageWrapper>} />
+                <Route path="/quran-beginner" element={<PageWrapper><QuranBeginnerPage /></PageWrapper>} />
+                <Route path="/quran-intermediate" element={<PageWrapper><QuranIntermediatePage /></PageWrapper>} />
+                <Route path="/quran-advanced" element={<PageWrapper><QuranAdvancedPage /></PageWrapper>} />
+                <Route path="/quran-expert" element={<PageWrapper><QuranExpertPage /></PageWrapper>} />
 
                 <Route path="/sitemap" element={<PageWrapper><SitemapPage /></PageWrapper>} />
 

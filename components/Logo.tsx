@@ -46,10 +46,3 @@ const Logo: React.FC<LogoProps> = ({ className = "h-10 w-10", showText = true })
 };
 
 export default Logo;
-    </div>
-  );
-    </div>
-  );
-};
-
-export default Logo;

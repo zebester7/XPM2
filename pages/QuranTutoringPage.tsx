@@ -78,15 +78,23 @@ const QuranTutoringPage: React.FC = () => {
               </ul>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <Link
-                  to="/hire-teacher"
-                  className="px-8 py-4 bg-emerald-500 text-white font-black rounded-2xl shadow-xl shadow-emerald-500/20 hover:bg-emerald-600 transition transform hover:-translate-y-1 text-center text-lg"
+                <a
+                  href="https://wa.me/923009508592?text=Assalamu%20Alaikum%20I%20would%20like%20to%20book%20a%20free%20Quran%20tutoring%20trial%20class"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-8 py-4 bg-emerald-500 text-white font-black rounded-2xl shadow-xl shadow-emerald-500/20 hover:bg-emerald-600 transition transform hover:-translate-y-1 text-center text-lg flex items-center justify-center gap-2"
                 >
-                  Book Free Trial Class
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a9.87 9.87 0 00-9.746 9.798c0 2.734.842 5.404 2.439 7.623l.375 1.414 1.53-1.506c2.117 1.627 4.767 2.469 7.402 2.469 5.428 0 9.854-4.426 9.854-9.854 0-2.635-.846-5.291-2.443-7.577A9.835 9.835 0 0011.968 5.41c-5.428 0-9.847 4.426-9.847 9.851 0 .533.043 1.06.123 1.579l.26 1.561-1.534.381c-.766.184-1.41.653-1.756 1.286A10.021 10.021 0 001.5 12.208c0-5.428 4.426-9.854 9.854-9.854z"/>
+                  </svg>
+                  WhatsApp: Book Free Trial
+                </a>
+                <Link
+                  to="/quran-beginner"
+                  className="px-8 py-4 bg-white text-emerald-600 border-2 border-emerald-200 font-black rounded-2xl hover:bg-emerald-50 transition"
+                >
+                  Explore Levels
                 </Link>
-                <button className="px-8 py-4 bg-white text-emerald-600 border-2 border-emerald-200 font-black rounded-2xl hover:bg-emerald-50 transition">
-                  Learn More
-                </button>
               </div>
             </div>
 
@@ -235,12 +243,25 @@ const QuranTutoringPage: React.FC = () => {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl sm:text-5xl font-black mb-6">Experience Excellence in Quranic Learning</h2>
           <p className="text-xl mb-10 text-white/90">Book your first free class today and discover the difference expert instruction makes.</p>
-          <Link
-            to="/hire-teacher"
-            className="inline-block px-10 py-5 bg-white text-emerald-600 font-black rounded-2xl shadow-xl shadow-black/20 hover:bg-slate-50 transition transform hover:-translate-y-1 text-lg"
-          >
-            Reserve Free Quran Class Now
-          </Link>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="https://wa.me/923009508592?text=Assalamu%20Alaikum%20I%20would%20like%20to%20reserve%20a%20free%20Quran%20class"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block px-10 py-5 bg-white text-emerald-600 font-black rounded-2xl shadow-xl shadow-black/20 hover:bg-slate-50 transition transform hover:-translate-y-1 text-lg flex items-center justify-center gap-2"
+            >
+              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a9.87 9.87 0 00-9.746 9.798c0 2.734.842 5.404 2.439 7.623l.375 1.414 1.53-1.506c2.117 1.627 4.767 2.469 7.402 2.469 5.428 0 9.854-4.426 9.854-9.854 0-2.635-.846-5.291-2.443-7.577A9.835 9.835 0 0011.968 5.41c-5.428 0-9.847 4.426-9.847 9.851 0 .533.043 1.06.123 1.579l.26 1.561-1.534.381c-.766.184-1.41.653-1.756 1.286A10.021 10.021 0 001.5 12.208c0-5.428 4.426-9.854 9.854-9.854z"/>
+              </svg>
+              Reserve Free Class on WhatsApp
+            </a>
+            <Link
+              to="/quran-beginner"
+              className="inline-block px-10 py-5 bg-emerald-50 text-emerald-600 font-black rounded-2xl shadow-xl shadow-black/20 hover:bg-white transition text-lg"
+            >
+              Explore All Levels
+            </Link>
+          </div>
         </div>
       </section>
     </div>
