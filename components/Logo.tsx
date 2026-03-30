@@ -9,7 +9,7 @@ interface LogoProps {
 
 const Logo: React.FC<LogoProps> = ({ className = "h-10 w-10", showText = true }) => {
   const { settings } = useSettings();
-  const logoUrl = settings.logoUrl || '/xpm-logo.png';
+  const logoUrl = settings.logoUrl || '/xpm-logo.svg';
 
   return (
     <div className={`flex items-center gap-3`}>
@@ -18,6 +18,7 @@ const Logo: React.FC<LogoProps> = ({ className = "h-10 w-10", showText = true })
         alt="XPM Tutors - Expert Physics & Maths Tutors"
         className={className}
         style={{ objectFit: 'contain' }}
+        loading="eager"
       />
       {showText && (
         <div className="flex flex-col leading-none">

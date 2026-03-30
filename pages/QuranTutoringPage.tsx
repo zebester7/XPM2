@@ -1,0 +1,250 @@
+import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
+
+const QuranTutoringPage: React.FC = () => {
+  useEffect(() => {
+    document.title = "Online Quran Classes with Tajweed | Female Quran Tutors for Kids | Hifz Program 2026";
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 'Expert Online Quran tutoring with Tajweed mastery, Hifz programs, and qualified female Qaris. Learn Quran with excellence. Book your free trial class now.');
+    }
+  }, []);
+
+  return (
+    <div className="bg-white overflow-x-hidden">
+      {/* Schema Markup */}
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "name": "Online Quran Tutoring with Tajweed",
+          "description": "Professional online Quran classes with Tajweed rules, Hifz programs, and qualified Qaris",
+          "provider": {
+            "@type": "Organization",
+            "name": "XPM Tutors",
+            "url": "https://xpmtutors.com"
+          },
+          "areaServed": "Global",
+          "offers": {
+            "@type": "Offer",
+            "name": "Free Demo Quran Class",
+            "price": "0",
+            "priceCurrency": "USD",
+            "url": "https://xpmtutors.com/hire-teacher"
+          }
+        })}
+      </script>
+
+      {/* Hero Section - Serene Design */}
+      <section className="relative py-16 lg:py-32 overflow-hidden bg-gradient-to-br from-emerald-50 via-blue-50 to-slate-50">
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute -top-40 -right-40 w-96 h-96 bg-emerald-100/20 rounded-full blur-3xl"></div>
+          <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-blue-100/20 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-emerald-100/80 rounded-full mb-6 border border-emerald-200">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                </span>
+                <span className="text-[10px] font-black uppercase tracking-widest text-emerald-700">Quranic Excellence Online</span>
+              </div>
+              
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 mb-6 leading-tight">
+                Learn <span className="text-emerald-600">Quran with Tajweed</span> from Qualified Qaris
+              </h1>
+              
+              <p className="text-lg text-slate-600 mb-8 leading-relaxed max-w-lg">
+                Master proper Quranic recitation with certified female Qaris. From Tajweed fundamentals to comprehensive Hifz programs, we provide serene, respectful online learning experiences for all ages.
+              </p>
+
+              <ul className="space-y-3 mb-10">
+                {[
+                  'Certified female Qaris with excellence credentials',
+                  'Comprehensive Tajweed rules and proper pronunciation',
+                  'Flexible Hifz programs tailored to your pace',
+                  '1-on-1 personalized attention and correction'
+                ].map((item, idx) => (
+                  <li key={idx} className="flex items-start gap-3">
+                    <svg className="w-5 h-5 text-emerald-500 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                    <span className="text-slate-700 font-medium">{item}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link
+                  to="/hire-teacher"
+                  className="px-8 py-4 bg-emerald-500 text-white font-black rounded-2xl shadow-xl shadow-emerald-500/20 hover:bg-emerald-600 transition transform hover:-translate-y-1 text-center text-lg"
+                >
+                  Book Free Trial Class
+                </Link>
+                <button className="px-8 py-4 bg-white text-emerald-600 border-2 border-emerald-200 font-black rounded-2xl hover:bg-emerald-50 transition">
+                  Learn More
+                </button>
+              </div>
+            </div>
+
+            {/* Feature Cards */}
+            <div className="space-y-6">
+              <div className="bg-white/80 backdrop-blur p-8 rounded-2xl border border-emerald-100 shadow-sm hover:shadow-lg transition">
+                <div className="w-14 h-14 bg-emerald-100 rounded-xl flex items-center justify-center mb-4">
+                  <span className="text-2xl">🕌</span>
+                </div>
+                <h3 className="text-xl font-black text-slate-900 mb-2">Tajweed Mastery</h3>
+                <p className="text-slate-600">Learn proper articulation points (Makhraj) and rules with expert guidance from qualified Qaris certified in Tajweed.</p>
+              </div>
+
+              <div className="bg-white/80 backdrop-blur p-8 rounded-2xl border border-emerald-100 shadow-sm hover:shadow-lg transition">
+                <div className="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
+                  <span className="text-2xl">📖</span>
+                </div>
+                <h3 className="text-xl font-black text-slate-900 mb-2">Hifz Programs</h3>
+                <p className="text-slate-600">Structured memorization programs designed for different ages and learning speeds with proven retention techniques.</p>
+              </div>
+
+              <div className="bg-white/80 backdrop-blur p-8 rounded-2xl border border-emerald-100 shadow-sm hover:shadow-lg transition">
+                <div className="w-14 h-14 bg-amber-100 rounded-xl flex items-center justify-center mb-4">
+                  <span className="text-2xl">👩‍🏫</span>
+                </div>
+                <h3 className="text-xl font-black text-slate-900 mb-2">Female Qaris</h3>
+                <p className="text-slate-600">Respectfully taught by experienced female Quranic scholars ensuring a serene and comfortable learning environment.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Program Levels */}
+      <section className="py-16 lg:py-24 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl sm:text-5xl font-black text-slate-900 mb-4">Our Quran Learning Path</h2>
+            <p className="text-xl text-slate-600">Structured programs from beginner to master level</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              {
+                level: 'Beginner',
+                title: 'Quranic Foundations',
+                features: ['Arabic letters & pronunciation', 'Basic Tajweed rules', 'Surah Al-Fatiha learning', 'Weekly sessions']
+              },
+              {
+                level: 'Intermediate',
+                title: 'Tajweed Mastery',
+                features: ['Advanced Tajweed rules', 'Surah memorization', 'Clarification of difficult verses', 'Bi-weekly sessions']
+              },
+              {
+                level: 'Advanced',
+                title: 'Hifz Program',
+                features: ['Structured memorization', 'Revision techniques', 'Tarteel perfection', 'Daily sessions']
+              },
+              {
+                level: 'Expert',
+                title: 'Scholarly Study',
+                features: ['Detailed Tafsir (exegesis)', 'Linguistic analysis', 'Advanced recitation', 'Personalized sessions']
+              }
+            ].map((program, idx) => (
+              <div key={idx} className="bg-white rounded-2xl border border-slate-100 overflow-hidden hover:shadow-lg transition">
+                <div className={`h-2 ${idx === 0 ? 'bg-blue-500' : idx === 1 ? 'bg-emerald-500' : idx === 2 ? 'bg-amber-500' : 'bg-purple-500'}`}></div>
+                <div className="p-8">
+                  <div className="text-sm font-black uppercase tracking-wider text-slate-500 mb-2">{program.level}</div>
+                  <h3 className="text-2xl font-black text-slate-900 mb-4">{program.title}</h3>
+                  <ul className="space-y-2">
+                    {program.features.map((feature, i) => (
+                      <li key={i} className="flex items-start gap-2 text-slate-600">
+                        <span className="text-emerald-500 font-bold mt-1">✓</span>
+                        <span className="text-sm">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us */}
+      <section className="py-16 lg:py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-4xl sm:text-5xl font-black text-slate-900 mb-8">Why XPM for Quran Learning?</h2>
+              <div className="space-y-6">
+                {[
+                  {
+                    title: 'Certified Instructors',
+                    desc: 'Our Qaris hold certifications in Tajweed and have years of teaching experience'
+                  },
+                  {
+                    title: 'Serene Environment',
+                    desc: 'Respectful, peaceful learning setting dedicated to Islamic education excellence'
+                  },
+                  {
+                    title: 'Flexible Scheduling',
+                    desc: 'Classes at times convenient for students across different time zones'
+                  },
+                  {
+                    title: 'Progress Tracking',
+                    desc: 'Regular assessments and detailed feedback for continuous improvement'
+                  }
+                ].map((item, idx) => (
+                  <div key={idx} className="flex gap-4">
+                    <div className="flex-shrink-0">
+                      <div className="flex items-center justify-center h-12 w-12 rounded-md bg-emerald-100">
+                        <span className="text-emerald-600 text-xl">✓</span>
+                      </div>
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-black text-slate-900">{item.title}</h3>
+                      <p className="text-slate-600 mt-1">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="bg-gradient-to-br from-emerald-50 to-blue-50 p-12 rounded-3xl border border-emerald-100">
+              <div className="text-center">
+                <div className="text-6xl mb-6">📚</div>
+                <h3 className="text-2xl font-black text-slate-900 mb-4">Begin Your Quranic Journey</h3>
+                <p className="text-slate-600 mb-8 leading-relaxed">
+                  Join hundreds of students learning Quran with proper Tajweed. Our structured programs ensure steady progress and genuine understanding.
+                </p>
+                <Link
+                  to="/hire-teacher"
+                  className="inline-block px-8 py-4 bg-emerald-500 text-white font-black rounded-xl hover:bg-emerald-600 transition"
+                >
+                  Start Free Trial
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 lg:py-24 bg-gradient-to-r from-emerald-600 to-blue-600 text-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-4xl sm:text-5xl font-black mb-6">Experience Excellence in Quranic Learning</h2>
+          <p className="text-xl mb-10 text-white/90">Book your first free class today and discover the difference expert instruction makes.</p>
+          <Link
+            to="/hire-teacher"
+            className="inline-block px-10 py-5 bg-white text-emerald-600 font-black rounded-2xl shadow-xl shadow-black/20 hover:bg-slate-50 transition transform hover:-translate-y-1 text-lg"
+          >
+            Reserve Free Quran Class Now
+          </Link>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default QuranTutoringPage;

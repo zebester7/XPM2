@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Review } from '../types.ts';
+import XPMAdvantage from '../components/XPMAdvantage.tsx';
 
 function useIsVisible(ref: React.RefObject<HTMLElement>) {
   const [isIntersecting, setIntersecting] = useState(false);
@@ -309,6 +310,9 @@ const HomePage: React.FC<{ reviews: Review[] }> = ({ reviews }) => {
           </div>
         </div>
       </section>
+
+      {/* XPM Advantage Section */}
+      <XPMAdvantage showBackground={true} variant="light" />
 
       <style dangerouslySetInnerHTML={{ __html: `
         @keyframes scrollVertical { 0% { transform: translateY(0); } 100% { transform: translateY(-50%); } }

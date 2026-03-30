@@ -9,6 +9,7 @@ import { SettingsProvider } from './SettingsContext.tsx';
 import Navbar from './components/Navbar.tsx';
 import Footer from './components/Footer.tsx';
 import ScrollToTop from './components/ScrollToTop.tsx';
+import StickyDemoButton from './components/StickyDemoButton.tsx';
 
 // Optimized Lazy Loading
 const HomePage = lazy(() => import('./pages/HomePage.tsx'));
@@ -32,6 +33,8 @@ const BlogPage = lazy(() => import('./pages/BlogPage.tsx'));
 const SitemapPage = lazy(() => import('./pages/SitemapPage.tsx'));
 const OLevelIslamabadPage = lazy(() => import('./pages/OLevelIslamabadPage.tsx'));
 const ALevelIslamabadPage = lazy(() => import('./pages/ALevelIslamabadPage.tsx'));
+const IRServicesPage = lazy(() => import('./pages/IRServicesPage.tsx'));
+const QuranTutoringPage = lazy(() => import('./pages/QuranTutoringPage.tsx'));
 
 const LoadingScreen = React.memo(() => (
   <div className="min-h-[60vh] flex items-center justify-center bg-slate-50">
@@ -130,6 +133,7 @@ const App: React.FC = () => {
     <SettingsProvider>
       <Router>
         <ScrollToTop />
+        <StickyDemoButton />
         <div className="flex flex-col min-h-screen overflow-x-hidden">
           <Navbar user={user} onLogout={handleLogout} />
           <main className="flex-grow relative">
@@ -150,6 +154,8 @@ const App: React.FC = () => {
                 <Route path="/net-entry-test-tutors" element={<PageWrapper><ExamLandingPage exam="NET Entry Test" /></PageWrapper>} />
                 <Route path="/pma-tutors" element={<PageWrapper><ExamLandingPage exam="PMA Long Course" /></PageWrapper>} />
                 <Route path="/blog" element={<PageWrapper><BlogPage /></PageWrapper>} />
+                <Route path="/ir-services" element={<PageWrapper><IRServicesPage /></PageWrapper>} />
+                <Route path="/quran-tutoring" element={<PageWrapper><QuranTutoringPage /></PageWrapper>} />
 
                 <Route path="/sitemap" element={<PageWrapper><SitemapPage /></PageWrapper>} />
 

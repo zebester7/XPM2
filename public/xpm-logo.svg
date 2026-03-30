@@ -1,0 +1,34 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Circle -->
+  <circle cx="100" cy="100" r="95" fill="#0066CC" opacity="0.95"/>
+  
+  <!-- Accent Circle -->
+  <circle cx="100" cy="100" r="85" fill="none" stroke="#10B981" stroke-width="2" opacity="0.5"/>
+  
+  <!-- X Shape -->
+  <g fill="none" stroke="white" stroke-width="16" stroke-linecap="round">
+    <line x1="50" y1="50" x2="150" y2="150"/>
+    <line x1="150" y1="50" x2="50" y2="150"/>
+  </g>
+  
+  <!-- P Shape -->
+  <g fill="white">
+    <!-- Vertical line for P -->
+    <rect x="65" y="55" width="8" height="90" rx="2"/>
+    <!-- Top curve of P -->
+    <path d="M 73 55 Q 95 55 95 70 Q 95 85 73 85 Z" fill="white"/>
+  </g>
+  
+  <!-- M Shape -->
+  <g fill="white">
+    <!-- Left vertical of M -->
+    <rect x="105" y="55" width="8" height="90" rx="2"/>
+    <!-- Right vertical of M -->
+    <rect x="137" y="55" width="8" height="90" rx="2"/>
+    <!-- Peak of M -->
+    <path d="M 113 65 L 121 50 L 145 65 Z" fill="white"/>
+  </g>
+  
+  <!-- Green accent dot -->
+  <circle cx="100" cy="155" r="6" fill="#10B981"/>
+</svg>
