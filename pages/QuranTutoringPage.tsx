@@ -118,7 +118,9 @@ const QuranTutoringPage: React.FC = () => {
 
               <div className="bg-white/80 backdrop-blur p-8 rounded-2xl border border-emerald-100 shadow-sm hover:shadow-lg transition">
                 <div className="w-14 h-14 bg-amber-100 rounded-xl flex items-center justify-center mb-4">
-                  <span className="text-2xl">👩‍🏫</span>
+                  <svg className="w-7 h-7 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                  </svg>
                 </div>
                 <h3 className="text-xl font-black text-slate-900 mb-2">Female Qaris</h3>
                 <p className="text-slate-600">Respectfully taught by experienced female Quranic scholars ensuring a serene and comfortable learning environment.</p>
@@ -128,7 +130,7 @@ const QuranTutoringPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Program Levels */}
+      {/* Program Levels - Browse All */}
       <section className="py-16 lg:py-24 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -141,39 +143,54 @@ const QuranTutoringPage: React.FC = () => {
               {
                 level: 'Beginner',
                 title: 'Quranic Foundations',
-                features: ['Arabic letters & pronunciation', 'Basic Tajweed rules', 'Surah Al-Fatiha learning', 'Weekly sessions']
+                features: ['Arabic letters & pronunciation', 'Basic Tajweed rules', 'Surah Al-Fatiha learning', 'Weekly sessions'],
+                path: '/quran-beginner',
+                color: 'blue'
               },
               {
                 level: 'Intermediate',
                 title: 'Tajweed Mastery',
-                features: ['Advanced Tajweed rules', 'Surah memorization', 'Clarification of difficult verses', 'Bi-weekly sessions']
+                features: ['Advanced Tajweed rules', 'Surah memorization', 'Clarification of difficult verses', 'Bi-weekly sessions'],
+                path: '/quran-intermediate',
+                color: 'emerald'
               },
               {
                 level: 'Advanced',
                 title: 'Hifz Program',
-                features: ['Structured memorization', 'Revision techniques', 'Tarteel perfection', 'Daily sessions']
+                features: ['Structured memorization', 'Revision techniques', 'Tarteel perfection', 'Daily sessions'],
+                path: '/quran-advanced',
+                color: 'amber'
               },
               {
                 level: 'Expert',
                 title: 'Scholarly Study',
-                features: ['Detailed Tafsir (exegesis)', 'Linguistic analysis', 'Advanced recitation', 'Personalized sessions']
+                features: ['Detailed Tafsir (exegesis)', 'Linguistic analysis', 'Advanced recitation', 'Personalized sessions'],
+                path: '/quran-expert',
+                color: 'purple'
               }
             ].map((program, idx) => (
-              <div key={idx} className="bg-white rounded-2xl border border-slate-100 overflow-hidden hover:shadow-lg transition">
-                <div className={`h-2 ${idx === 0 ? 'bg-blue-500' : idx === 1 ? 'bg-emerald-500' : idx === 2 ? 'bg-amber-500' : 'bg-purple-500'}`}></div>
-                <div className="p-8">
-                  <div className="text-sm font-black uppercase tracking-wider text-slate-500 mb-2">{program.level}</div>
-                  <h3 className="text-2xl font-black text-slate-900 mb-4">{program.title}</h3>
-                  <ul className="space-y-2">
-                    {program.features.map((feature, i) => (
-                      <li key={i} className="flex items-start gap-2 text-slate-600">
-                        <span className="text-emerald-500 font-bold mt-1">✓</span>
-                        <span className="text-sm">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
+              <Link key={idx} to={program.path} className="block group">
+                <div className="bg-white rounded-2xl border border-slate-100 overflow-hidden hover:shadow-lg transition h-full">
+                  <div className={`h-2 ${idx === 0 ? 'bg-blue-500' : idx === 1 ? 'bg-emerald-500' : idx === 2 ? 'bg-amber-500' : 'bg-purple-500'}`}></div>
+                  <div className="p-8">
+                    <div className="text-sm font-black uppercase tracking-wider text-slate-500 mb-2">{program.level}</div>
+                    <h3 className="text-2xl font-black text-slate-900 mb-4 group-hover:text-emerald-600 transition">{program.title}</h3>
+                    <ul className="space-y-2 mb-6">
+                      {program.features.map((feature, i) => (
+                        <li key={i} className="flex items-start gap-2 text-slate-600 text-sm">
+                          <svg className="w-4 h-4 text-emerald-500 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                          </svg>
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <button className={`w-full py-2 px-4 font-black rounded-lg transition text-white text-sm ${idx === 0 ? 'bg-blue-500 group-hover:bg-blue-600' : idx === 1 ? 'bg-emerald-500 group-hover:bg-emerald-600' : idx === 2 ? 'bg-amber-500 group-hover:bg-amber-600' : 'bg-purple-500 group-hover:bg-purple-600'}`}>
+                      Learn More
+                    </button>
+                  </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
@@ -207,7 +224,9 @@ const QuranTutoringPage: React.FC = () => {
                   <div key={idx} className="flex gap-4">
                     <div className="flex-shrink-0">
                       <div className="flex items-center justify-center h-12 w-12 rounded-md bg-emerald-100">
-                        <span className="text-emerald-600 text-xl">✓</span>
+                        <svg className="w-6 h-6 text-emerald-600" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                        </svg>
                       </div>
                     </div>
                     <div>
@@ -221,7 +240,9 @@ const QuranTutoringPage: React.FC = () => {
 
             <div className="bg-gradient-to-br from-emerald-50 to-blue-50 p-12 rounded-3xl border border-emerald-100">
               <div className="text-center">
-                <div className="text-6xl mb-6">📚</div>
+                <svg className="w-16 h-16 mx-auto mb-6 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6.253v13m0-13C6.5 6.253 2 10.998 2 17s4.5 10.747 10 10.747c5.5 0 10-4.998 10-10.747S17.5 6.253 12 6.253z" />
+                </svg>
                 <h3 className="text-2xl font-black text-slate-900 mb-4">Begin Your Quranic Journey</h3>
                 <p className="text-slate-600 mb-8 leading-relaxed">
                   Join hundreds of students learning Quran with proper Tajweed. Our structured programs ensure steady progress and genuine understanding.

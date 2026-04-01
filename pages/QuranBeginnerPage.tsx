@@ -79,7 +79,9 @@ const QuranBeginnerPage: React.FC = () => {
             <div className="space-y-6">
               <div className="bg-white/80 backdrop-blur p-8 rounded-2xl border border-blue-100 shadow-sm hover:shadow-lg transition">
                 <div className="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
-                  <span className="text-2xl">📖</span>
+                  <svg className="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C6.5 6.253 2 10.998 2 17s4.5 10.747 10 10.747c5.5 0 10-4.998 10-10.747S17.5 6.253 12 6.253z" />
+                  </svg>
                 </div>
                 <h3 className="text-xl font-black text-slate-900 mb-2">Course Duration</h3>
                 <p className="text-slate-600">3-4 months with weekly sessions. Progress at your own pace with flexible scheduling.</p>
@@ -87,7 +89,9 @@ const QuranBeginnerPage: React.FC = () => {
 
               <div className="bg-white/80 backdrop-blur p-8 rounded-2xl border border-emerald-100 shadow-sm hover:shadow-lg transition">
                 <div className="w-14 h-14 bg-emerald-100 rounded-xl flex items-center justify-center mb-4">
-                  <span className="text-2xl">✨</span>
+                  <svg className="w-7 h-7 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
                 </div>
                 <h3 className="text-xl font-black text-slate-900 mb-2">Learning Method</h3>
                 <p className="text-slate-600">Interactive 1-on-1 sessions with qualified female Qaris. Personalized feedback after each class.</p>
@@ -95,7 +99,9 @@ const QuranBeginnerPage: React.FC = () => {
 
               <div className="bg-white/80 backdrop-blur p-8 rounded-2xl border border-amber-100 shadow-sm hover:shadow-lg transition">
                 <div className="w-14 h-14 bg-amber-100 rounded-xl flex items-center justify-center mb-4">
-                  <span className="text-2xl">🎓</span>
+                  <svg className="w-7 h-7 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+                  </svg>
                 </div>
                 <h3 className="text-xl font-black text-slate-900 mb-2">After Completion</h3>
                 <p className="text-slate-600">Graduate to Tajweed Mastery course. Receive completion certificate and join advanced programs.</p>
@@ -158,7 +164,9 @@ const QuranBeginnerPage: React.FC = () => {
                 <ul className="space-y-2">
                   {item.topics.map((topic, i) => (
                     <li key={i} className="flex items-start gap-2 text-slate-600">
-                      <span className="text-emerald-500 font-bold mt-1">✓</span>
+                      <svg className="w-4 h-4 text-emerald-500 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                      </svg>
                       <span className="text-sm">{topic}</span>
                     </li>
                   ))}
