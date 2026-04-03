@@ -121,11 +121,11 @@ const QuranExpertPage: React.FC = () => {
                 <p className="text-slate-600">Flexible personalized curriculum based on your academic goals and existing knowledge. Customizable duration from 6 months to ongoing.</p>
               </div>
 
-              <div cvg className="w-7 h-7 text-fuchsia-600" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                  </svgur p-8 rounded-2xl border border-fuchsia-100 shadow-sm hover:shadow-lg transition">
+              <div className="bg-white/80 backdrop-blur p-8 rounded-2xl border border-fuchsia-100 shadow-sm hover:shadow-lg transition">
                 <div className="w-14 h-14 bg-fuchsia-100 rounded-xl flex items-center justify-center mb-4">
-                  <span className="text-2xl">🌟</span>
+                  <svg className="w-7 h-7 text-fuchsia-600" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                  </svg>
                 </div>
                 <h3 className="text-xl font-black text-slate-900 mb-2">Credentials</h3>
                 <p className="text-slate-600">Learn from scholars with advanced Islamic education. Prepare to teach, write, or pursue higher Islamic studies internationally.</p>
