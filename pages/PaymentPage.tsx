@@ -77,6 +77,12 @@ const PaymentPage: React.FC<PaymentPageProps> = ({ user, onUpdateUser }) => {
 
     setTimeout(() => {
       onUpdateUser(updatedUser);
+      // Fire Google Ads conversion event
+      if (typeof window !== 'undefined' && (window as any).gtag) {
+        (window as any).gtag('event', 'conversion', {
+          'send_to': 'AW-17941657556/8S-cCLzE0ZMcENTvn-tC'
+        });
+      }
       setIsSubmitting(false);
     }, 1500);
   };
