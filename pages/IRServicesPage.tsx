@@ -18,20 +18,31 @@ const IRServicesPage: React.FC = () => {
           "@context": "https://schema.org",
           "@type": "Service",
           "name": "Professional O Level IR Writing Consultancy",
-          "description": "Expert Individual Report writing support for O Level Global Perspectives",
+          "description": "Expert Individual Report writing support for O Level Global Perspectives with distinction-grade guidance",
           "provider": {
             "@type": "Organization",
             "name": "XPM Tutors",
-            "url": "https://xpmtutors.com"
+            "url": "https://xpmtutors.com",
+            "logo": "https://xpmtutors.com/logo.png",
+            "sameAs": ["https://facebook.com/xpmtutors"]
           },
-          "areaServed": "Global",
+          "areaServed": {
+            "@type": "Country",
+            "name": "Global"
+          },
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "ratingCount": "180"
+          },
           "offers": {
             "@type": "Offer",
-            "name": "Free Demo Class",
+            "name": "Free Demo IR Consultancy Session",
             "price": "0",
             "priceCurrency": "USD",
             "url": "https://xpmtutors.com/hire-teacher"
-          }
+          },
+          "serviceType": ["Academic Writing Support", "Individual Report Consultation", "Global Perspectives Tutoring"]
         })}
       </script>
 

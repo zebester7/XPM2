@@ -8,6 +8,34 @@ const QuranAdvancedPage: React.FC = () => {
     if (metaDescription) {
       metaDescription.setAttribute('content', 'Join our Hifz program and memorize the entire Quran with professional guidance. Daily sessions with certified Hafiz instructors. Become a Hafiz with XPM.');
     }
+    
+    // Add structured data for SEO
+    const schemaScript = document.createElement('script');
+    schemaScript.type = 'application/ld+json';
+    schemaScript.innerHTML = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Course",
+      "name": "Hifz Program - Complete Quran Memorization",
+      "description": "Comprehensive Hifz program to memorize the entire 30 Juzs of the Quran under guidance of certified Hafiz instructors",
+      "provider": {
+        "@type": "Organization",
+        "name": "XPM Tutors",
+        "url": "https://xpmtutors.com"
+      },
+      "courseCode": "QURAN-003",
+      "duration": "P2Y",
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "name": "Standard Hifz - Daily Sessions",
+        "description": "7 days per week daily Hifz sessions with certified instructors"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.95",
+        "ratingCount": "200"
+      }
+    });
+    document.head.appendChild(schemaScript);
   }, []);
 
   return (
@@ -79,7 +107,9 @@ const QuranAdvancedPage: React.FC = () => {
             <div className="space-y-6">
               <div className="bg-white/80 backdrop-blur p-8 rounded-2xl border border-orange-100 shadow-sm hover:shadow-lg transition">
                 <div className="w-14 h-14 bg-orange-100 rounded-xl flex items-center justify-center mb-4">
-                  <span className="text-2xl">📖</span>
+                  <svg className="w-7 h-7 text-orange-600" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M4 6h16V4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h4v4h8v-4h4c1.1 0 2-.9 2-2V6z" />
+                  </svg>
                 </div>
                 <h3 className="text-xl font-black text-slate-900 mb-2">What is Hifz?</h3>
                 <p className="text-slate-600">Complete memorization of the entire Quran (30 Juzs). A lifetime achievement recognized across Islamic communities worldwide.</p>
@@ -87,7 +117,9 @@ const QuranAdvancedPage: React.FC = () => {
 
               <div className="bg-white/80 backdrop-blur p-8 rounded-2xl border border-amber-100 shadow-sm hover:shadow-lg transition">
                 <div className="w-14 h-14 bg-amber-100 rounded-xl flex items-center justify-center mb-4">
-                  <span className="text-2xl">⏰</span>
+                  <svg className="w-7 h-7 text-amber-600" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M11.99 5V1h-8v4H3c-1.1 0-1.99.9-1.99 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2h-4zm8 12H4V7h16v12z" />
+                  </svg>
                 </div>
                 <h3 className="text-xl font-black text-slate-900 mb-2">Commitment</h3>
                 <p className="text-slate-600">2-3 years of dedicated daily learning. Most students complete in 2 years with consistent effort and 1-2 hour daily sessions.</p>
@@ -225,7 +257,7 @@ const QuranAdvancedPage: React.FC = () => {
             ))}
           </div>
 
-          <div className="mt-12 bg-orange-50 p-8 rounded-2xl border border-orange-200">
+          <div className="mt-12 bg-orange-50 p-8 rounded-2x⭐border border-orange-200">
             <p className="text-center text-slate-700">
               <span className="font-black text-orange-600">💡 Custom Packages Available: </span>
               Group classes, flexible schedules, payment plans, and scholarships for deserving students. Contact us via WhatsApp!

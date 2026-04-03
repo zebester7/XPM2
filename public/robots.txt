@@ -8,8 +8,13 @@ Disallow: /payment
 Disallow: /login
 Disallow: /signup
 
-# Allow specific admin pages if needed
+# Allow specific public pages
 Allow: /teacher-registration
+Allow: /quran-beginner
+Allow: /quran-intermediate
+Allow: /quran-advanced
+Allow: /quran-expert
+Allow: /ir-services
 
 # Sitemap location
 Sitemap: https://www.xpmtutors.com/sitemap.xml
@@ -17,6 +22,15 @@ Sitemap: https://www.xpmtutors.com/sitemap.xml
 # Crawl delay for balanced server load
 Crawl-delay: 1
 Request-rate: 1/1s
+
+# Additional metadata
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
 
 # Google-specific rules
 User-agent: Googlebot

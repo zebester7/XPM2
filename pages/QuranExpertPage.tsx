@@ -8,6 +8,30 @@ const QuranExpertPage: React.FC = () => {
     if (metaDescription) {
       metaDescription.setAttribute('content', 'Master advanced Islamic scholarship including Tafsir, Quranic linguistics, and scholarly interpretation. For advanced learners and academic students.');
     }
+    
+    // Add structured data for SEO
+    const schemaScript = document.createElement('script');
+    schemaScript.type = 'application/ld+json';
+    schemaScript.innerHTML = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Course",
+      "name": "Quran Scholarship Program - Expert Level",
+      "description": "Advanced Islamic scholarship program covering Tafsir, Quranic linguistics, historical context, and scholarly interpretation",
+      "provider": {
+        "@type": "Organization",
+        "name": "XPM Tutors",
+        "url": "https://xpmtutors.com"
+      },
+      "courseCode": "QURAN-004",
+      "duration": "P1Y",
+      "educationLevel": "University/Advanced",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "ratingCount": "120"
+      }
+    });
+    document.head.appendChild(schemaScript);
   }, []);
 
   return (
@@ -79,7 +103,9 @@ const QuranExpertPage: React.FC = () => {
             <div className="space-y-6">
               <div className="bg-white/80 backdrop-blur p-8 rounded-2xl border border-purple-100 shadow-sm hover:shadow-lg transition">
                 <div className="w-14 h-14 bg-purple-100 rounded-xl flex items-center justify-center mb-4">
-                  <span className="text-2xl">🎓</span>
+                  <svg className="w-7 h-7 text-purple-600" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z" />
+                  </svg>
                 </div>
                 <h3 className="text-xl font-black text-slate-900 mb-2">For Whom?</h3>
                 <p className="text-slate-600">Advanced learners, university students, Islamic scholars, teachers, or anyone seeking deep Quranic knowledge and academic excellence.</p>
@@ -87,13 +113,17 @@ const QuranExpertPage: React.FC = () => {
 
               <div className="bg-white/80 backdrop-blur p-8 rounded-2xl border border-violet-100 shadow-sm hover:shadow-lg transition">
                 <div className="w-14 h-14 bg-violet-100 rounded-xl flex items-center justify-center mb-4">
-                  <span className="text-2xl">📚</span>
+                  <svg className="w-7 h-7 text-violet-600" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M4 6h16V4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h4v4h8v-4h4c1.1 0 2-.9 2-2V6z" />
+                  </svg>
                 </div>
                 <h3 className="text-xl font-black text-slate-900 mb-2">Program Structure</h3>
                 <p className="text-slate-600">Flexible personalized curriculum based on your academic goals and existing knowledge. Customizable duration from 6 months to ongoing.</p>
               </div>
 
-              <div className="bg-white/80 backdrop-blur p-8 rounded-2xl border border-fuchsia-100 shadow-sm hover:shadow-lg transition">
+              <div cvg className="w-7 h-7 text-fuchsia-600" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                  </svgur p-8 rounded-2xl border border-fuchsia-100 shadow-sm hover:shadow-lg transition">
                 <div className="w-14 h-14 bg-fuchsia-100 rounded-xl flex items-center justify-center mb-4">
                   <span className="text-2xl">🌟</span>
                 </div>

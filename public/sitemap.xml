@@ -1,9 +1,183 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
+  <!-- ========================================
+       HOMEPAGE
+       ======================================== -->
   <url>
     <loc>https://www.xpmtutors.com/</loc>
     <priority>1.0</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2026-04-03</lastmod>
+  </url>
+
+  <!-- ========================================
+       EXAM BOARDS & TUTORING SERVICES (HIGHEST PRIORITY)
+       ======================================== -->
+  <url>
+    <loc>https://www.xpmtutors.com/o-level-tutors</loc>
+    <priority>0.95</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2026-04-03</lastmod>
+  </url>
+
+  <url>
+    <loc>https://www.xpmtutors.com/o-level-tutors-islamabad</loc>
+    <priority>0.94</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2026-04-03</lastmod>
+  </url>
+
+  <url>
+    <loc>https://www.xpmtutors.com/a-level-tutors</loc>
+    <priority>0.95</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2026-04-03</lastmod>
+  </url>
+
+  <url>
+    <loc>https://www.xpmtutors.com/a-level-tutors-islamabad</loc>
+    <priority>0.94</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2026-04-03</lastmod>
+  </url>
+
+  <url>
+    <loc>https://www.xpmtutors.com/igcse-tutors</loc>
+    <priority>0.92</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2026-04-03</lastmod>
+  </url>
+
+  <url>
+    <loc>https://www.xpmtutors.com/sat-tutors</loc>
+    <priority>0.90</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2026-04-03</lastmod>
+  </url>
+
+  <url>
+    <loc>https://www.xpmtutors.com/net-entry-test-tutors</loc>
+    <priority>0.88</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-04-03</lastmod>
+  </url>
+
+  <url>
+    <loc>https://www.xpmtutors.com/pma-tutors</loc>
+    <priority>0.88</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-04-03</lastmod>
+  </url>
+
+  <!-- ========================================
+       QURAN TEACHING PROGRAMS (HIGH PRIORITY)
+       ======================================== -->
+  <url>
+    <loc>https://www.xpmtutors.com/quran-tutoring</loc>
+    <priority>0.92</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2026-04-03</lastmod>
+  </url>
+
+  <url>
+    <loc>https://www.xpmtutors.com/quran-beginner</loc>
+    <priority>0.88</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-04-03</lastmod>
+  </url>
+
+  <url>
+    <loc>https://www.xpmtutors.com/quran-intermediate</loc>
+    <priority>0.88</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-04-03</lastmod>
+  </url>
+
+  <url>
+    <loc>https://www.xpmtutors.com/quran-advanced</loc>
+    <priority>0.88</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-04-03</lastmod>
+  </url>
+
+  <url>
+    <loc>https://www.xpmtutors.com/quran-expert</loc>
+    <priority>0.88</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-04-03</lastmod>
+  </url>
+
+  <!-- ========================================
+       SPECIALIZED SERVICES
+       ======================================== -->
+  <url>
+    <loc>https://www.xpmtutors.com/ir-services</loc>
+    <priority>0.86</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-04-03</lastmod>
+  </url>
+
+  <url>
+    <loc>https://www.xpmtutors.com/hire-teacher</loc>
+    <priority>0.85</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2026-04-03</lastmod>
+  </url>
+
+  <url>
+    <loc>https://www.xpmtutors.com/teacher-directory</loc>
+    <priority>0.85</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2026-04-03</lastmod>
+  </url>
+
+  <url>
+    <loc>https://www.xpmtutors.com/teacher-registration</loc>
+    <priority>0.80</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-04-03</lastmod>
+  </url>
+
+  <!-- ========================================
+       COMMUNITY & CONTENT PAGES
+       ======================================== -->
+  <url>
+    <loc>https://www.xpmtutors.com/blog</loc>
+    <priority>0.82</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2026-04-03</lastmod>
+  </url>
+
+  <url>
+    <loc>https://www.xpmtutors.com/reviews</loc>
+    <priority>0.80</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2026-04-03</lastmod>
+  </url>
+
+  <url>
+    <loc>https://www.xpmtutors.com/syllabus-precision</loc>
+    <priority>0.80</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-04-03</lastmod>
+  </url>
+
+  <url>
+    <loc>https://www.xpmtutors.com/study-groups</loc>
+    <priority>0.78</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2026-04-03</lastmod>
+  </url>
+
+  <!-- ========================================
+       UTILITY PAGES
+       ======================================== -->
+  <url>
+    <loc>https://www.xpmtutors.com/sitemap</loc>
+    <priority>0.50</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-04-03</lastmod>
   </url>
 
 </urlset>

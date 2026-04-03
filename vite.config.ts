@@ -21,6 +21,31 @@ export default defineConfig(({ mode }) => {
         alias: {
           '@': path.resolve(__dirname, '.'),
         }
+      },
+      build: {
+        target: 'esnext',
+        minify: 'terser',
+        cssCodeSplit: true,
+        sourcemap: false,
+        outDir: 'dist',
+        chunkSizeWarningLimit: 1000,
+        rollupOptions: {
+          output: {
+            manualChunks: {
+              'vendor': ['react', 'react-dom', 'react-router-dom'],
+              'quran-pages': [
+                './pages/QuranBeginnerPage.tsx',
+                './pages/QuranIntermediatePage.tsx',
+                './pages/QuranAdvancedPage.tsx',
+                './pages/QuranExpertPage.tsx'
+              ],
+              'services': [
+                './pages/IRServicesPage.tsx',
+                './pages/HireTeacherPage.tsx'
+              ]
+            }
+          }
+        }
       }
     };
 });

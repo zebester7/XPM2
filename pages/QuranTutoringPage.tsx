@@ -102,7 +102,9 @@ const QuranTutoringPage: React.FC = () => {
             <div className="space-y-6">
               <div className="bg-white/80 backdrop-blur p-8 rounded-2xl border border-emerald-100 shadow-sm hover:shadow-lg transition">
                 <div className="w-14 h-14 bg-emerald-100 rounded-xl flex items-center justify-center mb-4">
-                  <span className="text-2xl">🕌</span>
+                  <svg className="w-7 h-7 text-emerald-600" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3-13c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3zm-6 0c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z" />
+                  </svg>
                 </div>
                 <h3 className="text-xl font-black text-slate-900 mb-2">Tajweed Mastery</h3>
                 <p className="text-slate-600">Learn proper articulation points (Makhraj) and rules with expert guidance from qualified Qaris certified in Tajweed.</p>
@@ -110,7 +112,9 @@ const QuranTutoringPage: React.FC = () => {
 
               <div className="bg-white/80 backdrop-blur p-8 rounded-2xl border border-emerald-100 shadow-sm hover:shadow-lg transition">
                 <div className="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
-                  <span className="text-2xl">📖</span>
+                  <svg className="w-7 h-7 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M4 6h16V4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h4v4h8v-4h4c1.1 0 2-.9 2-2V6z" />
+                  </svg>
                 </div>
                 <h3 className="text-xl font-black text-slate-900 mb-2">Hifz Programs</h3>
                 <p className="text-slate-600">Structured memorization programs designed for different ages and learning speeds with proven retention techniques.</p>

@@ -8,6 +8,31 @@ const QuranIntermediatePage: React.FC = () => {
     if (metaDescription) {
       metaDescription.setAttribute('content', 'Master advanced Tajweed rules with our Intermediate course. Learn proper Quranic recitation techniques from certified Qaris. Free demo available.');
     }
+    
+    // Add structured data for SEO
+    const schemaScript = document.createElement('script');
+    schemaScript.type = 'application/ld+json';
+    schemaScript.innerHTML = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Course",
+      "name": "Tajweed Mastery - Intermediate Level",
+      "description": "Advanced Tajweed course for intermediate Quran learners covering Ghunnah, Qalqalah, Idgham and professional recitation",
+      "provider": {
+        "@type": "Organization",
+        "name": "XPM Tutors",
+        "url": "https://xpmtutors.com"
+      },
+      "courseCode": "QURAN-002",
+      "duration": "P6M",
+      "coursePrerequisites": "Completion of Quranic Foundations or intermediate-level Quran knowledge",
+      "offers": {
+        "@type": "Offer",
+        "url": "https://xpmtutors.com/quran-intermediate",
+        "price": "2000",
+        "priceCurrency": "PKR"
+      }
+    });
+    document.head.appendChild(schemaScript);
   }, []);
 
   return (
@@ -79,7 +104,9 @@ const QuranIntermediatePage: React.FC = () => {
             <div className="space-y-6">
               <div className="bg-white/80 backdrop-blur p-8 rounded-2xl border border-emerald-100 shadow-sm hover:shadow-lg transition">
                 <div className="w-14 h-14 bg-emerald-100 rounded-xl flex items-center justify-center mb-4">
-                  <span className="text-2xl">🎯</span>
+                  <svg className="w-7 h-7 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
                 </div>
                 <h3 className="text-xl font-black text-slate-900 mb-2">Prerequisites</h3>
                 <p className="text-slate-600">Completion of Quranic Foundations or intermediate-level Quran knowledge. Perfect for those ready to advance.</p>
@@ -87,7 +114,9 @@ const QuranIntermediatePage: React.FC = () => {
 
               <div className="bg-white/80 backdrop-blur p-8 rounded-2xl border border-green-100 shadow-sm hover:shadow-lg transition">
                 <div className="w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center mb-4">
-                  <span className="text-2xl">⏱️</span>
+                  <svg className="w-7 h-7 text-green-600" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z" />
+                  </svg>
                 </div>
                 <h3 className="text-xl font-black text-slate-900 mb-2">Course Duration</h3>
                 <p className="text-slate-600">4-6 months with bi-weekly intensive sessions. Deep dives into each Tajweed rule.</p>

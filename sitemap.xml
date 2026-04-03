@@ -1,176 +1,197 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <!-- Home Page -->
+  <!-- ========================================
+       HOMEPAGE
+       ======================================== -->
   <url>
     <loc>https://www.xpmtutors.com/</loc>
     <priority>1.0</priority>
     <changefreq>weekly</changefreq>
-    <lastmod>2026-02-12</lastmod>
+    <lastmod>2026-04-03</lastmod>
   </url>
 
-  <!-- Exam Landing Pages - High Priority -->
+  <!-- ========================================
+       EXAM BOARDS & TUTORING SERVICES (HIGHEST PRIORITY)
+       ======================================== -->
   <url>
     <loc>https://www.xpmtutors.com/o-level-tutors</loc>
     <priority>0.95</priority>
     <changefreq>weekly</changefreq>
-    <lastmod>2026-02-12</lastmod>
+    <lastmod>2026-04-03</lastmod>
   </url>
 
   <url>
     <loc>https://www.xpmtutors.com/o-level-tutors-islamabad</loc>
-    <priority>0.93</priority>
+    <priority>0.94</priority>
     <changefreq>weekly</changefreq>
-    <lastmod>2026-02-16</lastmod>
+    <lastmod>2026-04-03</lastmod>
   </url>
 
   <url>
     <loc>https://www.xpmtutors.com/a-level-tutors</loc>
     <priority>0.95</priority>
     <changefreq>weekly</changefreq>
-    <lastmod>2026-02-16</lastmod>
+    <lastmod>2026-04-03</lastmod>
   </url>
 
   <url>
     <loc>https://www.xpmtutors.com/a-level-tutors-islamabad</loc>
-    <priority>0.93</priority>
+    <priority>0.94</priority>
     <changefreq>weekly</changefreq>
-    <lastmod>2026-02-16</lastmod>
+    <lastmod>2026-04-03</lastmod>
   </url>
 
   <url>
     <loc>https://www.xpmtutors.com/igcse-tutors</loc>
-    <priority>0.9</priority>
+    <priority>0.92</priority>
     <changefreq>weekly</changefreq>
-    <lastmod>2026-02-12</lastmod>
+    <lastmod>2026-04-03</lastmod>
   </url>
 
   <url>
     <loc>https://www.xpmtutors.com/sat-tutors</loc>
-    <priority>0.9</priority>
+    <priority>0.90</priority>
     <changefreq>weekly</changefreq>
-    <lastmod>2026-02-12</lastmod>
+    <lastmod>2026-04-03</lastmod>
   </url>
 
   <url>
     <loc>https://www.xpmtutors.com/net-entry-test-tutors</loc>
-    <priority>0.85</priority>
+    <priority>0.88</priority>
     <changefreq>monthly</changefreq>
-    <lastmod>2026-02-12</lastmod>
+    <lastmod>2026-04-03</lastmod>
   </url>
 
   <url>
     <loc>https://www.xpmtutors.com/pma-tutors</loc>
-    <priority>0.85</priority>
+    <priority>0.88</priority>
     <changefreq>monthly</changefreq>
-    <lastmod>2026-02-12</lastmod>
+    <lastmod>2026-04-03</lastmod>
   </url>
 
-  <!-- Core Learning Resources -->
+  <!-- ========================================
+       QURAN TEACHING PROGRAMS (HIGH PRIORITY - NEW)
+       ======================================== -->
   <url>
-    <loc>https://www.xpmtutors.com/subjects</loc>
-    <priority>0.95</priority>
+    <loc>https://www.xpmtutors.com/quran-tutoring</loc>
+    <priority>0.92</priority>
     <changefreq>weekly</changefreq>
-    <lastmod>2026-02-12</lastmod>
+    <lastmod>2026-04-03</lastmod>
   </url>
 
   <url>
-    <loc>https://www.xpmtutors.com/past-papers</loc>
-    <priority>0.9</priority>
-    <changefreq>weekly</changefreq>
-    <lastmod>2026-02-12</lastmod>
+    <loc>https://www.xpmtutors.com/quran-beginner</loc>
+    <priority>0.88</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-04-03</lastmod>
   </url>
 
   <url>
-    <loc>https://www.xpmtutors.com/questions</loc>
-    <priority>0.85</priority>
-    <changefreq>daily</changefreq>
-    <lastmod>2026-02-12</lastmod>
+    <loc>https://www.xpmtutors.com/quran-intermediate</loc>
+    <priority>0.88</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-04-03</lastmod>
   </url>
 
-  <!-- Teacher & Community Pages -->
   <url>
-    <loc>https://www.xpmtutors.com/teacher-directory</loc>
-    <priority>0.9</priority>
-    <changefreq>weekly</changefreq>
-    <lastmod>2026-02-12</lastmod>
+    <loc>https://www.xpmtutors.com/quran-advanced</loc>
+    <priority>0.88</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-04-03</lastmod>
+  </url>
+
+  <url>
+    <loc>https://www.xpmtutors.com/quran-expert</loc>
+    <priority>0.88</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-04-03</lastmod>
+  </url>
+
+  <!-- ========================================
+       SPECIALIZED SERVICES (HIGH PRIORITY)
+       ======================================== -->
+  <url>
+    <loc>https://www.xpmtutors.com/ir-services</loc>
+    <priority>0.86</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-04-03</lastmod>
   </url>
 
   <url>
     <loc>https://www.xpmtutors.com/hire-teacher</loc>
     <priority>0.85</priority>
-    <changefreq>monthly</changefreq>
-    <lastmod>2026-02-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <lastmod>2026-04-03</lastmod>
+  </url>
+
+  <url>
+    <loc>https://www.xpmtutors.com/teacher-directory</loc>
+    <priority>0.85</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2026-04-03</lastmod>
   </url>
 
   <url>
     <loc>https://www.xpmtutors.com/teacher-registration</loc>
-    <priority>0.85</priority>
+    <priority>0.80</priority>
     <changefreq>monthly</changefreq>
-    <lastmod>2026-02-12</lastmod>
+    <lastmod>2026-04-03</lastmod>
   </url>
 
-  <!-- Learning & Study Tools -->
-  <url>
-    <loc>https://www.xpmtutors.com/syllabus-precision</loc>
-    <priority>0.85</priority>
-    <changefreq>monthly</changefreq>
-    <lastmod>2026-02-12</lastmod>
-  </url>
-
-  <url>
-    <loc>https://www.xpmtutors.com/study-groups</loc>
-    <priority>0.8</priority>
-    <changefreq>weekly</changefreq>
-    <lastmod>2026-02-12</lastmod>
-  </url>
-
-  <!-- Content & Social Proof -->
+  <!-- ========================================
+       COMMUNITY & CONTENT PAGES (MEDIUM PRIORITY)
+       ======================================== -->
   <url>
     <loc>https://www.xpmtutors.com/blog</loc>
-    <priority>0.85</priority>
+    <priority>0.82</priority>
     <changefreq>weekly</changefreq>
-    <lastmod>2026-02-12</lastmod>
-  </url>
-
-  <url>
-    <loc>https://www.xpmtutors.com/sitemap</loc>
-    <priority>0.85</priority>
-    <changefreq>weekly</changefreq>
-    <lastmod>2026-02-12</lastmod>
+    <lastmod>2026-04-03</lastmod>
   </url>
 
   <url>
     <loc>https://www.xpmtutors.com/reviews</loc>
-    <priority>0.8</priority>
+    <priority>0.80</priority>
     <changefreq>weekly</changefreq>
-    <lastmod>2026-02-12</lastmod>
+    <lastmod>2026-04-03</lastmod>
   </url>
 
-  <!-- User Account Pages (Lower Priority) -->
   <url>
-    <loc>https://www.xpmtutors.com/dashboard</loc>
-    <priority>0.7</priority>
+    <loc>https://www.xpmtutors.com/syllabus-precision</loc>
+    <priority>0.80</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-04-03</lastmod>
+  </url>
+
+  <url>
+    <loc>https://www.xpmtutors.com/study-groups</loc>
+    <priority>0.78</priority>
     <changefreq>weekly</changefreq>
-    <lastmod>2026-02-12</lastmod>
+    <lastmod>2026-04-03</lastmod>
   </url>
 
+  <!-- ========================================
+       UTILITY PAGES (LOW PRIORITY)
+       ======================================== -->
   <url>
-    <loc>https://www.xpmtutors.com/login</loc>
-    <priority>0.6</priority>
+    <loc>https://www.xpmtutors.com/sitemap</loc>
+    <priority>0.50</priority>
     <changefreq>monthly</changefreq>
+    <lastmod>2026-04-03</lastmod>
   </url>
 
-  <url>
-    <loc>https://www.xpmtutors.com/signup</loc>
-    <priority>0.6</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://www.xpmtutors.com/payment</loc>
-    <priority>0.5</priority>
-    <changefreq>monthly</changefreq>
-  </url>
+  <!-- ========================================
+       PROTECTED/USER PAGES - NOT INDEXED
+       ======================================== 
+       The following pages are NOT included as they require authentication:
+       - /dashboard (user dashboard)
+       - /subjects (protected learning resources)
+       - /past-papers (protected resources)
+       - /questions (protected community)
+       - /login (auth gate)
+       - /signup (auth gate)
+       - /payment (user only)
+       - /admin (admin only)
+  -->
 
 </urlset>
