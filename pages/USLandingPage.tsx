@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { updatePageMeta } from '../seoHelper';
 import { addHrefLangTags, generateHreflangs, generateLocalBusinessSchema, addStructuredData } from '../internationalSEOHelper';
+import { RegionalReviewsSection } from '../components/RegionalReviewsSection';
 
 const USLandingPage: React.FC = () => {
   useEffect(() => {
@@ -134,26 +135,25 @@ const USLandingPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Testimonial Section */}
-      <section className="py-16 lg:py-24 bg-amber-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Reviews Section */}
+      <RegionalReviewsSection region="us" accentColor="red" />
+
+      {/* Blog Section */}
+      <section className="py-16 lg:py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 mb-12 text-center">
-            What Our Students Say
+            Latest US Exam Tips & Resources
           </h2>
-          
-          <div className="bg-white rounded-3xl p-8 lg:p-12 shadow-xl border-l-4 border-amber-600">
-            <p className="text-xl text-slate-700 mb-6 italic">
-              "XPM Tutors helped me improve my SAT score from 1150 to 1520 in just 4 months. The tutors are incredibly patient and know exactly how to tackle difficult questions. I got accepted to my dream school!"
-            </p>
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 bg-amber-200 rounded-full flex items-center justify-center">
-                <span className="text-lg font-black">JM</span>
-              </div>
-              <div>
-                <p className="font-black text-slate-900">Jessica Martinez</p>
-                <p className="text-sm text-slate-600">Student, California</p>
-              </div>
-            </div>
+          <p className="text-center text-slate-600 text-lg mb-12 max-w-2xl mx-auto">
+            Read expert articles on SAT strategies, AP exam guides, and college prep tips
+          </p>
+          <div className="text-center">
+            <Link 
+              to="/us/blog"
+              className="inline-block px-8 py-4 bg-red-600 text-white font-black rounded-2xl hover:bg-red-700 transition shadow-lg"
+            >
+              Read All USA Blog Articles
+            </Link>
           </div>
         </div>
       </section>

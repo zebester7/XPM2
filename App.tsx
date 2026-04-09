@@ -43,6 +43,9 @@ const UKLandingPage = lazy(() => import('./pages/UKLandingPage.tsx'));
 const USLandingPage = lazy(() => import('./pages/USLandingPage.tsx'));
 const UAELandingPage = lazy(() => import('./pages/UAELandingPage.tsx'));
 const PakistanLandingPage = lazy(() => import('./pages/PakistanLandingPage.tsx'));
+const UKBlogPage = lazy(() => import('./pages/UKBlogPage.tsx'));
+const USBlogPage = lazy(() => import('./pages/USBlogPage.tsx'));
+const UAEBlogPage = lazy(() => import('./pages/UAEBlogPage.tsx'));
 
 const LoadingScreen = React.memo(() => (
   <div className="min-h-[60vh] flex items-center justify-center bg-slate-50">
@@ -150,9 +153,12 @@ const App: React.FC = () => {
                 <Route path="/" element={<PageWrapper><HomePage reviews={reviews} /></PageWrapper>} />
                 
                 {/* Geo-Specific Landing Pages */}
-                <Route path="/uk/*" element={<PageWrapper><UKLandingPage /></PageWrapper>} />
-                <Route path="/us/*" element={<PageWrapper><USLandingPage /></PageWrapper>} />
-                <Route path="/ae/*" element={<PageWrapper><UAELandingPage /></PageWrapper>} />
+                <Route path="/uk" element={<PageWrapper><UKLandingPage /></PageWrapper>} />
+                <Route path="/uk/blog" element={<PageWrapper><UKBlogPage /></PageWrapper>} />
+                <Route path="/us" element={<PageWrapper><USLandingPage /></PageWrapper>} />
+                <Route path="/us/blog" element={<PageWrapper><USBlogPage /></PageWrapper>} />
+                <Route path="/ae" element={<PageWrapper><UAELandingPage /></PageWrapper>} />
+                <Route path="/ae/blog" element={<PageWrapper><UAEBlogPage /></PageWrapper>} />
                 <Route path="/pk/*" element={<PageWrapper><PakistanLandingPage /></PageWrapper>} />
                 
                 <Route path="/login" element={<PageWrapper>{!user ? <LoginPage onLogin={handleLogin} /> : <Navigate to="/dashboard" replace />}</PageWrapper>} />

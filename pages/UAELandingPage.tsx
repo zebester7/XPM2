@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { updatePageMeta } from '../seoHelper';
 import { addHrefLangTags, generateHreflangs, generateLocalBusinessSchema, addStructuredData } from '../internationalSEOHelper';
+import { RegionalReviewsSection } from '../components/RegionalReviewsSection';
 
 const UAELandingPage: React.FC = () => {
   useEffect(() => {
@@ -159,6 +160,29 @@ const UAELandingPage: React.FC = () => {
                 </ul>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Reviews Section */}
+      <RegionalReviewsSection region="ae" accentColor="green" />
+
+      {/* Blog Section */}
+      <section className="py-16 lg:py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 mb-12 text-center">
+            Latest UAE IB & IGCSE Tips
+          </h2>
+          <p className="text-center text-slate-600 text-lg mb-12 max-w-2xl mx-auto">
+            Read expert articles on IB strategies, IGCSE guides, and exam preparation tips for Dubai students
+          </p>
+          <div className="text-center">
+            <Link 
+              to="/ae/blog"
+              className="inline-block px-8 py-4 bg-green-600 text-white font-black rounded-2xl hover:bg-green-700 transition shadow-lg"
+            >
+              Read All UAE Blog Articles
+            </Link>
           </div>
         </div>
       </section>

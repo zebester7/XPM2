@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { updatePageMeta } from '../seoHelper';
 import { addHrefLangTags, generateHreflangs, generateLocalBusinessSchema, addStructuredData } from '../internationalSEOHelper';
+import { RegionalReviewsSection } from '../components/RegionalReviewsSection';
 
 const UKLandingPage: React.FC = () => {
   useEffect(() => {
@@ -130,6 +131,29 @@ const UKLandingPage: React.FC = () => {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Reviews Section */}
+      <RegionalReviewsSection region="uk" accentColor="blue" />
+
+      {/* Blog Section */}
+      <section className="py-16 lg:py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 mb-12 text-center">
+            Latest UK Exam Tips & Resources
+          </h2>
+          <p className="text-center text-slate-600 text-lg mb-12 max-w-2xl mx-auto">
+            Read expert articles on GCSE strategies, A Level subject guides, and exam preparation tips
+          </p>
+          <div className="text-center">
+            <Link 
+              to="/uk/blog"
+              className="inline-block px-8 py-4 bg-blue-600 text-white font-black rounded-2xl hover:bg-blue-700 transition shadow-lg"
+            >
+              Read All UK Blog Articles
+            </Link>
           </div>
         </div>
       </section>
