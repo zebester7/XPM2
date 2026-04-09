@@ -65,110 +65,43 @@ const safeSet = (key: string, value: any) => {
 // =============================================================================
 
 /**
- * Writes an item to both cache and API (the source of truth)
+ * IMPROVED SYNC MECHANISM:
+ * - Source of truth is localStorage (persists across sessions)
+ * - All writes update localStorage immediately (no API dependency)
+ * - Cross-tab sync via StorageEvent listeners
+ * - No API endpoints required - all data is client-side
  */
-const syncToAPI = async (collection: string, item: any, method: 'POST' | 'PUT' = 'POST', itemId?: string) => {
-  try {
-    const url = itemId ? `/api/${collection}/${itemId}` : `/api/${collection}`;
-    const response = await fetch(url, {
-      method: itemId && method === 'PUT' ? 'PUT' : 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(item),
-      cache: 'no-store'
-    });
-    
-    if (!response.ok) {
-      console.warn(`API sync failed for ${collection}:`, response.status);
-      return false;
-    }
-    
-    return true;
-  } catch (e) {
-    console.debug(`API offline or error for ${collection}:`, e);
-    return false;
-  }
-};
 
-/**
- * Sync specific collection from API to cache
- */
-const syncCollectionFromAPI = async (collection: string, storageKey: string) => {
-  try {
-    const response = await fetch(`/api/${collection}`, {
-      cache: 'no-store',
-      headers: { 'Cache-Control': 'no-cache, no-store, must-revalidate' }
-    }).catch(() => null);
-
-    if (response?.ok) {
-      const data = await response.json();
-      if (Array.isArray(data)) {
-        const cached = safeGet(storageKey, []);
-        const cacheStr = JSON.stringify(cached);
-        const dataStr = JSON.stringify(data);
+// Listen for changes from other tabs/windows
+const setupCrossTabSync = () => {
+  if (typeof window === 'undefined') return;
+  
+  window.addEventListener('storage', (event) => {
+    if (!event.key || !event.newValue) return;
+    
+    // Another tab has updated data
+    if (Object.values(STORAGE_KEYS).includes(event.key)) {
+      try {
+        const newData = JSON.parse(event.newValue);
+        cache[event.key] = newData;
         
-        // Only update if different
-        if (cacheStr !== dataStr) {
-          safeSet(storageKey, data);
-          try { 
-            window.dispatchEvent(new CustomEvent('dataRefreshed', { detail: { type: collection } })); 
-          } catch (e) {}
-          return true;
-        }
+        // Dispatch event so UI can re-render
+        const collectionName = Object.entries(STORAGE_KEYS)
+          .find(([_, v]) => v === event.key)?.[0] || 'unknown';
+        
+        window.dispatchEvent(new CustomEvent('dataUpdated', { 
+          detail: { collection: event.key, data: newData }
+        }));
+      } catch (e) {
+        console.error('Cross-tab sync error:', e);
       }
     }
-  } catch (e) {
-    console.debug(`Sync from API failed for ${collection}:`, e);
-  }
-  return false;
+  });
 };
 
-/**
- * Periodic sync from API to detect external changes
- */
-const syncFromAPI = async () => {
-  try {
-    // Priority: teachers and users change most frequently from admin
-    await Promise.all([
-      syncCollectionFromAPI('teachers', STORAGE_KEYS.TEACHERS),
-      syncCollectionFromAPI('users', STORAGE_KEYS.USERS),
-      syncCollectionFromAPI('blogs', STORAGE_KEYS.BLOGS),
-      syncCollectionFromAPI('reviews', STORAGE_KEYS.REVIEWS),
-      syncCollectionFromAPI('past-papers', STORAGE_KEYS.PAST_PAPERS)
-    ]);
-  } catch (e) {
-    console.debug("Batch sync from API failed:", e);
-  }
-};
-
-// Start automatic sync
-const startBackendSync = () => {
-  if (syncIntervalId) return;
-  
-  // Sync immediately
-  syncFromAPI();
-  
-  // Sync every 2 seconds when page is visible (catch admin changes)
-  syncIntervalId = setInterval(() => {
-    if (document.visibilityState === 'visible') {
-      syncFromAPI();
-    }
-  }, 2000) as unknown as NodeJS.Timeout;
-
-  if (typeof document !== 'undefined') {
-    document.addEventListener('visibilitychange', () => {
-      if (document.visibilityState === 'hidden' && syncIntervalId) {
-        clearInterval(syncIntervalId);
-        syncIntervalId = null;
-      } else if (document.visibilityState === 'visible') {
-        startBackendSync();
-      }
-    });
-  }
-};
-
-// Auto-start sync when module loads
+// Setup cross-tab sync
 if (typeof window !== 'undefined') {
-  startBackendSync();
+  setupCrossTabSync();
 }
 
 // =============================================================================
@@ -246,8 +179,6 @@ export const db = {
       users.push(user); 
     }
     safeSet(STORAGE_KEYS.USERS, users);
-    // Sync to API (non-blocking)
-    await syncToAPI('users', user, 'PUT', user.id).catch(() => {});
     return users;
   },
 
@@ -255,7 +186,6 @@ export const db = {
   getSettings: (): AppSettings => safeGet<AppSettings>(STORAGE_KEYS.SETTINGS, { subscriptionFee: 1500, originalPrice: 3999 }),
   saveSettings: async (settings: AppSettings) => {
     safeSet(STORAGE_KEYS.SETTINGS, settings);
-    await syncToAPI('settings', settings, 'PUT').catch(() => {});
   },
 
   // Subjects
@@ -277,13 +207,11 @@ export const db = {
     const index = materials.findIndex(m => m.id === material.id);
     if (index > -1) { materials[index] = material; } else { materials.push(material); }
     safeSet(STORAGE_KEYS.MATERIALS, materials);
-    await syncToAPI('materials', material, material.id ? 'PUT' : 'POST', material.id).catch(() => {});
     return materials;
   },
   deleteLearningMaterial: async (id: string) => {
     const materials = db.getLearningMaterials().filter(m => m.id !== id);
     safeSet(STORAGE_KEYS.MATERIALS, materials);
-    await fetch(`/api/materials/${id}`, { method: 'DELETE' }).catch(() => {});
     return materials;
   },
 
@@ -294,13 +222,11 @@ export const db = {
     const index = papers.findIndex(p => p.id === paper.id);
     if (index > -1) { papers[index] = paper; } else { papers.push(paper); }
     safeSet(STORAGE_KEYS.PAST_PAPERS, papers);
-    await syncToAPI('past-papers', paper, paper.id ? 'PUT' : 'POST', paper.id).catch(() => {});
     return papers;
   },
   deletePastPaper: async (id: string) => {
     const papers = db.getPastPapers().filter(p => p.id !== id);
     safeSet(STORAGE_KEYS.PAST_PAPERS, papers);
-    await fetch(`/api/past-papers/${id}`, { method: 'DELETE' }).catch(() => {});
     return papers;
   },
 
@@ -312,15 +238,12 @@ export const db = {
     if (idx > -1) { ts[idx] = teacher; } else { ts.push(teacher); }
     safeSet(STORAGE_KEYS.TEACHERS, ts);
     try { window.dispatchEvent(new CustomEvent('teachersUpdated')); } catch (e) {}
-    // Sync to API
-    await syncToAPI('teachers', teacher, idx > -1 ? 'PUT' : 'POST', teacher.id).catch(() => {});
     return ts;
   },
   deleteTeacher: async (id: string) => {
     const ts = db.getTeachers().filter(t => t.id !== id);
     safeSet(STORAGE_KEYS.TEACHERS, ts);
     try { window.dispatchEvent(new CustomEvent('teachersUpdated')); } catch (e) {}
-    await fetch(`/api/teachers/${id}`, { method: 'DELETE' }).catch(() => {});
     return ts;
   },
 
@@ -350,7 +273,6 @@ export const db = {
     const qs = db.getQuestions();
     qs.unshift(q);
     safeSet(STORAGE_KEYS.QUESTIONS, qs);
-    await syncToAPI('questions', q, 'POST').catch(() => {});
     return qs;
   },
   updateQuestion: async (updatedQ: Question) => {
@@ -359,7 +281,6 @@ export const db = {
     if (index > -1) {
       qs[index] = updatedQ;
       safeSet(STORAGE_KEYS.QUESTIONS, qs);
-      await syncToAPI('questions', updatedQ, 'PUT', updatedQ.id).catch(() => {});
     }
     return qs;
   },
@@ -370,13 +291,11 @@ export const db = {
     const reviews = db.getReviews();
     reviews.unshift(r);
     safeSet(STORAGE_KEYS.REVIEWS, reviews);
-    await syncToAPI('reviews', r, 'POST').catch(() => {});
     return reviews;
   },
   deleteReview: async (id: string) => {
     const reviews = db.getReviews().filter(r => r.id !== id);
     safeSet(STORAGE_KEYS.REVIEWS, reviews);
-    await fetch(`/api/reviews/${id}`, { method: 'DELETE' }).catch(() => {});
     return reviews;
   },
 
@@ -387,13 +306,11 @@ export const db = {
     const index = blogs.findIndex(b => b.id === blog.id);
     if (index > -1) { blogs[index] = blog; } else { blogs.unshift(blog); }
     safeSet(STORAGE_KEYS.BLOGS, blogs);
-    await syncToAPI('blogs', blog, blog.id ? 'PUT' : 'POST', blog.id).catch(() => {});
     return blogs;
   },
   deleteBlog: async (id: string) => {
     const blogs = db.getBlogs().filter(b => b.id !== id);
     safeSet(STORAGE_KEYS.BLOGS, blogs);
-    await fetch(`/api/blogs/${id}`, { method: 'DELETE' }).catch(() => {});
     return blogs;
   }
 };
