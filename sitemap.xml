@@ -1,14 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0">
 
   <!-- ========================================
-       HOMEPAGE
+       HOMEPAGE - GLOBAL
        ======================================== -->
   <url>
     <loc>https://www.xpmtutors.com/</loc>
     <priority>1.0</priority>
     <changefreq>weekly</changefreq>
-    <lastmod>2026-04-03</lastmod>
+    <lastmod>2026-04-09</lastmod>
+    <mobile:mobile/>
+  </url>
+
+  <!-- ========================================
+       GEO-SPECIFIC LANDING PAGES (NEW - HIGH PRIORITY)
+       ======================================== -->
+  <url>
+    <loc>https://www.xpmtutors.com/uk/</loc>
+    <priority>0.98</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2026-04-09</lastmod>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://www.xpmtutors.com/us/</loc>
+    <priority>0.98</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2026-04-09</lastmod>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://www.xpmtutors.com/ae/</loc>
+    <priority>0.98</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2026-04-09</lastmod>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://www.xpmtutors.com/pk/</loc>
+    <priority>0.98</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2026-04-09</lastmod>
+    <mobile:mobile/>
   </url>
 
   <!-- ========================================
@@ -19,6 +57,7 @@
     <priority>0.95</priority>
     <changefreq>weekly</changefreq>
     <lastmod>2026-04-03</lastmod>
+    <mobile:mobile/>
   </url>
 
   <url>
@@ -26,6 +65,7 @@
     <priority>0.94</priority>
     <changefreq>weekly</changefreq>
     <lastmod>2026-04-03</lastmod>
+    <mobile:mobile/>
   </url>
 
   <url>
@@ -33,6 +73,7 @@
     <priority>0.95</priority>
     <changefreq>weekly</changefreq>
     <lastmod>2026-04-03</lastmod>
+    <mobile:mobile/>
   </url>
 
   <url>
@@ -40,6 +81,7 @@
     <priority>0.94</priority>
     <changefreq>weekly</changefreq>
     <lastmod>2026-04-03</lastmod>
+    <mobile:mobile/>
   </url>
 
   <url>
@@ -47,6 +89,7 @@
     <priority>0.92</priority>
     <changefreq>weekly</changefreq>
     <lastmod>2026-04-03</lastmod>
+    <mobile:mobile/>
   </url>
 
   <url>
@@ -54,6 +97,7 @@
     <priority>0.90</priority>
     <changefreq>weekly</changefreq>
     <lastmod>2026-04-03</lastmod>
+    <mobile:mobile/>
   </url>
 
   <url>
@@ -61,6 +105,7 @@
     <priority>0.88</priority>
     <changefreq>monthly</changefreq>
     <lastmod>2026-04-03</lastmod>
+    <mobile:mobile/>
   </url>
 
   <url>
@@ -68,16 +113,18 @@
     <priority>0.88</priority>
     <changefreq>monthly</changefreq>
     <lastmod>2026-04-03</lastmod>
+    <mobile:mobile/>
   </url>
 
   <!-- ========================================
-       QURAN TEACHING PROGRAMS (HIGH PRIORITY - NEW)
+       QURAN TEACHING PROGRAMS (HIGH PRIORITY)
        ======================================== -->
   <url>
     <loc>https://www.xpmtutors.com/quran-tutoring</loc>
     <priority>0.92</priority>
     <changefreq>weekly</changefreq>
     <lastmod>2026-04-03</lastmod>
+    <mobile:mobile/>
   </url>
 
   <url>
@@ -85,6 +132,7 @@
     <priority>0.88</priority>
     <changefreq>monthly</changefreq>
     <lastmod>2026-04-03</lastmod>
+    <mobile:mobile/>
   </url>
 
   <url>
@@ -92,6 +140,7 @@
     <priority>0.88</priority>
     <changefreq>monthly</changefreq>
     <lastmod>2026-04-03</lastmod>
+    <mobile:mobile/>
   </url>
 
   <url>
@@ -99,6 +148,7 @@
     <priority>0.88</priority>
     <changefreq>monthly</changefreq>
     <lastmod>2026-04-03</lastmod>
+    <mobile:mobile/>
   </url>
 
   <url>
@@ -106,6 +156,7 @@
     <priority>0.88</priority>
     <changefreq>monthly</changefreq>
     <lastmod>2026-04-03</lastmod>
+    <mobile:mobile/>
   </url>
 
   <!-- ========================================
@@ -116,6 +167,7 @@
     <priority>0.86</priority>
     <changefreq>monthly</changefreq>
     <lastmod>2026-04-03</lastmod>
+    <mobile:mobile/>
   </url>
 
   <url>
@@ -123,6 +175,7 @@
     <priority>0.85</priority>
     <changefreq>weekly</changefreq>
     <lastmod>2026-04-03</lastmod>
+    <mobile:mobile/>
   </url>
 
   <url>
@@ -130,6 +183,7 @@
     <priority>0.85</priority>
     <changefreq>weekly</changefreq>
     <lastmod>2026-04-03</lastmod>
+    <mobile:mobile/>
   </url>
 
   <url>
@@ -137,6 +191,7 @@
     <priority>0.80</priority>
     <changefreq>monthly</changefreq>
     <lastmod>2026-04-03</lastmod>
+    <mobile:mobile/>
   </url>
 
   <!-- ========================================
@@ -147,6 +202,7 @@
     <priority>0.82</priority>
     <changefreq>weekly</changefreq>
     <lastmod>2026-04-03</lastmod>
+    <mobile:mobile/>
   </url>
 
   <url>
@@ -154,6 +210,7 @@
     <priority>0.80</priority>
     <changefreq>weekly</changefreq>
     <lastmod>2026-04-03</lastmod>
+    <mobile:mobile/>
   </url>
 
   <url>
@@ -161,6 +218,7 @@
     <priority>0.80</priority>
     <changefreq>monthly</changefreq>
     <lastmod>2026-04-03</lastmod>
+    <mobile:mobile/>
   </url>
 
   <url>
@@ -168,6 +226,267 @@
     <priority>0.78</priority>
     <changefreq>weekly</changefreq>
     <lastmod>2026-04-03</lastmod>
+    <mobile:mobile/>
+  </url>
+
+  <!-- ========================================
+       BLOG POSTS - UK GCSE & A LEVEL (NEW - 11 POSTS)
+       ======================================== -->
+  <url>
+    <loc>https://www.xpmtutors.com/blog/gcse-mathematics-tips</loc>
+    <priority>0.75</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-01-15</lastmod>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://www.xpmtutors.com/blog/a-level-chemistry-guide</loc>
+    <priority>0.75</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-01-10</lastmod>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://www.xpmtutors.com/blog/gcse-english-grade-9</loc>
+    <priority>0.70</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-01-08</lastmod>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://www.xpmtutors.com/blog/physics-gcse-mistakes</loc>
+    <priority>0.70</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-01-05</lastmod>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://www.xpmtutors.com/blog/igcse-vs-gcse-comparison</loc>
+    <priority>0.70</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-01-02</lastmod>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://www.xpmtutors.com/blog/a-level-economics-concepts</loc>
+    <priority>0.65</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2025-12-28</lastmod>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://www.xpmtutors.com/blog/gcse-exam-preparation-plan</loc>
+    <priority>0.75</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2025-12-25</lastmod>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://www.xpmtutors.com/blog/gcse-biology-exam-traps</loc>
+    <priority>0.65</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2025-12-22</lastmod>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://www.xpmtutors.com/blog/uk-university-admissions</loc>
+    <priority>0.75</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2025-12-20</lastmod>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://www.xpmtutors.com/blog/online-vs-face-to-face-tutoring</loc>
+    <priority>0.70</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2025-12-18</lastmod>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://www.xpmtutors.com/blog/getting-a-star-gcse</loc>
+    <priority>0.70</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2025-12-15</lastmod>
+    <mobile:mobile/>
+  </url>
+
+  <!-- ========================================
+       BLOG POSTS - USA SAT & AP (NEW - 8 POSTS)
+       ======================================== -->
+  <url>
+    <loc>https://www.xpmtutors.com/blog/sat-math-perfect-score</loc>
+    <priority>0.75</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-01-12</lastmod>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://www.xpmtutors.com/blog/sat-reading-writing-tips</loc>
+    <priority>0.75</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-01-10</lastmod>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://www.xpmtutors.com/blog/ap-calculus-ab-guide</loc>
+    <priority>0.75</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-01-08</lastmod>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://www.xpmtutors.com/blog/college-essay-personal-statement</loc>
+    <priority>0.75</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-01-05</lastmod>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://www.xpmtutors.com/blog/ap-biology-cellular</loc>
+    <priority>0.70</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-01-02</lastmod>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://www.xpmtutors.com/blog/act-vs-sat-comparison</loc>
+    <priority>0.70</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2025-12-28</lastmod>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://www.xpmtutors.com/blog/high-school-gpa-college</loc>
+    <priority>0.70</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2025-12-25</lastmod>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://www.xpmtutors.com/blog/ap-chemistry-essential-topics</loc>
+    <priority>0.70</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2025-12-22</lastmod>
+    <mobile:mobile/>
+  </url>
+
+  <!-- ========================================
+       BLOG POSTS - UAE IB & IGCSE (NEW - 6 POSTS)
+       ======================================== -->
+  <url>
+    <loc>https://www.xpmtutors.com/blog/ib-diploma-dubai-guide</loc>
+    <priority>0.75</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-01-14</lastmod>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://www.xpmtutors.com/blog/igcse-uae-curriculum</loc>
+    <priority>0.75</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-01-12</lastmod>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://www.xpmtutors.com/blog/expat-education-dubai-curriculum</loc>
+    <priority>0.70</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-01-10</lastmod>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://www.xpmtutors.com/blog/online-classes-timezone-uae</loc>
+    <priority>0.65</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-01-08</lastmod>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://www.xpmtutors.com/blog/ib-mathematics-levels</loc>
+    <priority>0.70</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-01-05</lastmod>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://www.xpmtutors.com/blog/ib-stress-mental-health</loc>
+    <priority>0.70</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-01-02</lastmod>
+    <mobile:mobile/>
+  </url>
+
+  <!-- ========================================
+       BLOG POSTS - PAKISTAN O LEVEL & A LEVEL (NEW - 6 POSTS)
+       ======================================== -->
+  <url>
+    <loc>https://www.xpmtutors.com/blog/o-level-maths-pakistan-guide</loc>
+    <priority>0.75</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-01-15</lastmod>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://www.xpmtutors.com/blog/a-level-physics-pakistan</loc>
+    <priority>0.75</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-01-13</lastmod>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://www.xpmtutors.com/blog/o-level-english-literature-pk</loc>
+    <priority>0.70</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-01-11</lastmod>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://www.xpmtutors.com/blog/a-level-chemistry-organic-pk</loc>
+    <priority>0.70</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-01-09</lastmod>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://www.xpmtutors.com/blog/o-level-biology-cellular-processes</loc>
+    <priority>0.70</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-01-07</lastmod>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://www.xpmtutors.com/blog/online-tutoring-pakistan-guide</loc>
+    <priority>0.70</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-01-05</lastmod>
+    <mobile:mobile/>
   </url>
 
   <!-- ========================================
@@ -177,21 +496,8 @@
     <loc>https://www.xpmtutors.com/sitemap</loc>
     <priority>0.50</priority>
     <changefreq>monthly</changefreq>
-    <lastmod>2026-04-03</lastmod>
+    <lastmod>2026-04-09</lastmod>
+    <mobile:mobile/>
   </url>
-
-  <!-- ========================================
-       PROTECTED/USER PAGES - NOT INDEXED
-       ======================================== 
-       The following pages are NOT included as they require authentication:
-       - /dashboard (user dashboard)
-       - /subjects (protected learning resources)
-       - /past-papers (protected resources)
-       - /questions (protected community)
-       - /login (auth gate)
-       - /signup (auth gate)
-       - /payment (user only)
-       - /admin (admin only)
-  -->
 
 </urlset>
