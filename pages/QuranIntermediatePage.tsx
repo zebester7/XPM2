@@ -27,9 +27,7 @@ const QuranIntermediatePage: React.FC = () => {
       "coursePrerequisites": "Completion of Quranic Foundations or intermediate-level Quran knowledge",
       "offers": {
         "@type": "Offer",
-        "url": "https://xpmtutors.com/quran-intermediate",
-        "price": "2000",
-        "priceCurrency": "PKR"
+        "url": "https://xpmtutors.com/quran-intermediate"
       }
     });
     document.head.appendChild(schemaScript);
@@ -188,35 +186,7 @@ const QuranIntermediatePage: React.FC = () => {
         </div>
       </section>
 
-      {/* Pricing */}
-      <section className="py-16 lg:py-24 bg-slate-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-black text-slate-900 mb-4">Investment in Your Tajweed Journey</h2>
-          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {[
-              { plan: 'Bi-Weekly Sessions', price: '2,000 PKR/session', desc: '2 sessions per month - Recommended' },
-              { plan: 'Weekly Sessions', price: '1,800 PKR/session', desc: '4 sessions per month - Accelerated learning' }
-            ].map((item, idx) => (
-              <div key={idx} className="bg-white p-8 rounded-2xl border-2 border-emerald-200 hover:shadow-lg transition">
-                <h3 className="text-2xl font-black text-slate-900 mb-2">{item.plan}</h3>
-                <div className="text-3xl font-black text-emerald-600 mb-2">{item.price}</div>
-                <p className="text-slate-600 mb-6">{item.desc}</p>
-                <a
-                  href="https://wa.me/923009508592?text=I%20want%20to%20enroll%20in%20Tajweed%20Mastery%20course"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block w-full py-3 bg-emerald-500 text-white font-black rounded-lg text-center hover:bg-emerald-600 transition"
-                >
-                  Inquire Now
-                </a>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Final CTA */}
       <section className="py-16 lg:py-24 bg-gradient-to-r from-emerald-600 to-teal-600 text-white">

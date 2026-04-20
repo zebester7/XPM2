@@ -28,8 +28,6 @@ const QuranTutoringPage: React.FC = () => {
           "offers": {
             "@type": "Offer",
             "name": "Free Demo Quran Class",
-            "price": "0",
-            "priceCurrency": "USD",
             "url": "https://xpmtutors.com/hire-teacher"
           }
         })}

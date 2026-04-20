@@ -27,9 +27,7 @@ const QuranBeginnerPage: React.FC = () => {
       "syllabuUrl": "https://xpmtutors.com/quran-beginner",
       "offers": {
         "@type": "Offer",
-        "url": "https://xpmtutors.com/quran-beginner",
-        "price": "2000",
-        "priceCurrency": "PKR"
+        "url": "https://xpmtutors.com/quran-beginner"
       },
       "aggregateRating": {
         "@type": "AggregateRating",
@@ -205,37 +203,7 @@ const QuranBeginnerPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Pricing Section */}
-      <section className="py-16 lg:py-24 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl sm:text-5xl font-black text-slate-900 mb-4">Flexible Pricing Plans</h2>
-            <p className="text-xl text-slate-600">Choose what works best for you</p>
-          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              { plan: 'Pay Per Class', price: '1,500 PKR', desc: 'No commitment, cancel anytime' },
-              { plan: '4-Class Bundle', price: '5,000 PKR', desc: 'Save 500 PKR (1 free class)', highlight: true },
-              { plan: '8-Class Bundle', price: '9,500 PKR', desc: 'Best value - Save 2,500 PKR' }
-            ].map((item, idx) => (
-              <div key={idx} className={`p-8 rounded-2xl border-2 ${item.highlight ? 'border-emerald-500 bg-emerald-50' : 'border-slate-100 bg-white'}`}>
-                <div className="text-sm font-black uppercase tracking-wider text-blue-600 mb-2">{item.plan}</div>
-                <div className="text-4xl font-black text-slate-900 mb-2">{item.price}</div>
-                <p className="text-slate-600 mb-6">{item.desc}</p>
-                <a
-                  href="https://wa.me/923009508592?text=I%20am%20interested%20in%20the%20Quranic%20Foundations%20course"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block w-full py-3 bg-emerald-500 text-white font-black rounded-lg text-center hover:bg-emerald-600 transition"
-                >
-                  Inquire on WhatsApp
-                </a>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* FAQ Section */}
       <section className="py-16 lg:py-24 bg-slate-50">

@@ -582,6 +582,8 @@ const HomePage: React.FC<{ reviews: Review[] }> = ({ reviews }) => {
           </p>
         </div>
       </section>
+
+      <style dangerouslySetInnerHTML={{ __html: `
         @keyframes scrollVertical { 0% { transform: translateY(0); } 100% { transform: translateY(-50%); } }
         .animate-scroll-vertical { animation: scrollVertical 60s linear infinite; }
         .group-hover\\:pause-animation:hover { animation-play-state: paused; }

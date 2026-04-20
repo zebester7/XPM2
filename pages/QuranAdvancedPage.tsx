@@ -229,42 +229,7 @@ const QuranAdvancedPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Pricing */}
-      <section className="py-16 lg:py-24 bg-slate-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-black text-slate-900 mb-4">Hifz Program Investment</h2>
-          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {[
-              { plan: 'Standard Hifz', price: '2,500 PKR/session', desc: 'Daily sessions (7 days/week) - Full commitment path' },
-              { plan: 'Intensive Hifz', price: '3,500 PKR/session', desc: '1-on-1 personalized coaching with daily support' }
-            ].map((item, idx) => (
-              <div key={idx} className="bg-white p-8 rounded-2xl border-2 border-orange-200 hover:shadow-lg transition">
-                <h3 className="text-2xl font-black text-slate-900 mb-2">{item.plan}</h3>
-                <div className="text-3xl font-black text-orange-600 mb-2">{item.price}</div>
-                <p className="text-slate-600 mb-6">{item.desc}</p>
-                <a
-                  href="https://wa.me/923009508592?text=I%20want%20to%20enroll%20in%20Hifz%20program"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block w-full py-3 bg-orange-500 text-white font-black rounded-lg text-center hover:bg-orange-600 transition"
-                >
-                  Get More Info
-                </a>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-12 bg-orange-50 p-8 rounded-2x⭐border border-orange-200">
-            <p className="text-center text-slate-700">
-              <span className="font-black text-orange-600">💡 Custom Packages Available: </span>
-              Group classes, flexible schedules, payment plans, and scholarships for deserving students. Contact us via WhatsApp!
-            </p>
-          </div>
-        </div>
-      </section>
 
       {/* FAQ */}
       <section className="py-16 lg:py-24 bg-white">

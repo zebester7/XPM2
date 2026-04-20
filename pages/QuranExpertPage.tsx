@@ -275,51 +275,15 @@ const QuranExpertPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Pricing */}
+      {/* CTA Section */}
       <section className="py-16 lg:py-24 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-black text-slate-900 mb-4">Custom Program Pricing</h2>
-            <p className="text-slate-600 mt-2">Personalized programs tailored to your needs</p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {[
-              {
-                plan: 'Standard Scholar',
-                price: '4,000 PKR/session',
-                desc: 'Bi-weekly expert sessions with curriculum guidance'
-              },
-              {
-                plan: 'Intensive Scholar',
-                price: '6,000 PKR/session',
-                desc: 'Weekly deep-dive sessions with research support'
-              }
-            ].map((item, idx) => (
-              <div key={idx} className="bg-gradient-to-br from-purple-50 to-violet-50 p-8 rounded-2xl border-2 border-purple-200 hover:shadow-lg transition">
-                <h3 className="text-2xl font-black text-slate-900 mb-2">{item.plan}</h3>
-                <div className="text-3xl font-black text-purple-600 mb-2">{item.price}</div>
-                <p className="text-slate-600 mb-6">{item.desc}</p>
-                <a
-                  href="https://wa.me/923009508592?text=I%20am%20interested%20in%20Quran%20Scholarship%20program"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block w-full py-3 bg-purple-600 text-white font-black rounded-lg text-center hover:bg-purple-700 transition"
-                >
-                  Get Details
-                </a>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-12 bg-gradient-to-r from-purple-100 to-violet-100 p-8 rounded-2xl border border-purple-300 text-center">
-            <p className="text-slate-800 font-black mb-3">
-              🎓 Group Classes & Customized Packages Available
-            </p>
-            <p className="text-slate-700">
-              Discuss your specific academic goals with our lead scholars. We offer customized programs for university students, researchers, and serious scholars pursuing Islamic studies at advanced levels.
-            </p>
-          </div>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p className="text-slate-800 font-black mb-3">
+            🎓 Group Classes & Customized Packages Available
+          </p>
+          <p className="text-slate-700">
+            Discuss your specific academic goals with our lead scholars. We offer customized programs for university students, researchers, and serious scholars pursuing Islamic studies at advanced levels.
+          </p>
         </div>
       </section>
 
