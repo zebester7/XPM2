@@ -40,6 +40,7 @@ const QuranIntermediatePage = lazy(() => import('./pages/QuranIntermediatePage.t
 const QuranAdvancedPage = lazy(() => import('./pages/QuranAdvancedPage.tsx'));
 const QuranExpertPage = lazy(() => import('./pages/QuranExpertPage.tsx'));
 const MishalRazzaqPage = lazy(() => import('./pages/MishalRazzaqPage.tsx'));
+const AdminPanel = lazy(() => import('./pages/AdminPanel.tsx'));
 const UKLandingPage = lazy(() => import('./pages/UKLandingPage.tsx'));
 const USLandingPage = lazy(() => import('./pages/USLandingPage.tsx'));
 const UAELandingPage = lazy(() => import('./pages/UAELandingPage.tsx'));
@@ -228,6 +229,8 @@ const App: React.FC = () => {
                     </PageWrapper> : <Navigate to="/" replace />
                   } 
                 />
+                
+                <Route path="/admin-panel" element={<AdminPanel />} />
               </Routes>
             </Suspense>
           </main>

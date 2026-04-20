@@ -69,16 +69,19 @@ const MishalRazzaqPage: React.FC = () => {
     {
       title: "Life is a Test",
       subtitle: "The Deeper Meaning",
+      image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=600&h=400&fit=crop",
       icon: "🌅"
     },
     {
       title: "How Habits Are Formed",
       subtitle: "Neuroscience & Islam",
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=400&fit=crop",
       icon: "🧠"
     },
     {
       title: "Understanding Emotions",
       subtitle: "Through Deen",
+      image: "https://images.unsplash.com/photo-1507794778202-cad84cf45f1d?w=600&h=400&fit=crop",
       icon: "💝"
     }
   ];
@@ -183,59 +186,6 @@ const MishalRazzaqPage: React.FC = () => {
         </div>
       </motion.section>
 
-      {/* Who Is Behind This Section */}
-      <motion.section 
-        className="py-20 md:py-28 px-4 sm:px-6 lg:px-8"
-        style={{ backgroundColor: colors.white }}
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-      >
-        <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-3 gap-12 items-center">
-            {/* Profile Image Area */}
-            <motion.div
-              className="flex justify-center md:justify-start"
-              variants={itemVariants}
-            >
-              <div 
-                className="w-40 h-40 md:w-48 md:h-48 rounded-full shadow-2xl flex items-center justify-center text-6xl border-4"
-                style={{ backgroundColor: colors.navy, borderColor: colors.gold, fontSize: '60px' }}
-              >
-                👩‍🏫
-              </div>
-            </motion.div>
-
-            {/* Bio Section */}
-            <motion.div className="md:col-span-2" variants={itemVariants}>
-              <h2 className="text-4xl md:text-5xl font-black mb-4" style={{ color: colors.darkNavy }}>
-                Who Is Behind This?
-              </h2>
-              <p className="text-lg mb-4 leading-relaxed italic" style={{ color: colors.charcoal }}>
-                I am a Geophysics researcher and educator with passion with ba connected for connecting Islam islam mderscience and psychology.
-              </p>
-              
-              {/* Credentials */}
-              <div className="space-y-3 mt-8">
-                <div className="flex items-center gap-3">
-                  <span style={{ color: colors.gold }}>✓</span>
-                  <span style={{ color: colors.charcoal }} className="font-bold">Islamic Knowledge & Teaching</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <span style={{ color: colors.gold }}>✓</span>
-                  <span style={{ color: colors.charcoal }} className="font-bold">Neuroscience & Mind Studies</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <span style={{ color: colors.gold }}>✓</span>
-                  <span style={{ color: colors.charcoal }} className="font-bold">Critical Thinker & Speaker</span>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </motion.section>
-
       {/* Explore Our Core Topics */}
       <motion.section 
         className="py-20 md:py-28 px-4 sm:px-6 lg:px-8"
@@ -302,12 +252,11 @@ const MishalRazzaqPage: React.FC = () => {
                 variants={cardVariants}
                 whileHover="hover"
               >
-                <div 
-                  className="h-48 flex items-center justify-center text-6xl relative overflow-hidden"
-                  style={{ backgroundColor: colors.navy }}
-                >
-                  <div className="absolute inset-0 group-hover:scale-110 transition duration-500">{item.icon}</div>
-                </div>
+                <img 
+                  src={item.image} 
+                  alt={item.title}
+                  className="w-full h-48 object-cover group-hover:scale-110 transition duration-500"
+                />
                 <div className="p-8 bg-white">
                   <h3 className="text-xl font-black mb-2" style={{ color: colors.darkNavy }}>
                     {item.title}
