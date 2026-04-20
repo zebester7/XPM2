@@ -490,6 +490,160 @@
   </url>
 
   <!-- ========================================
+       REGIONAL BLOG SECTIONS (HIGH PRIORITY)
+       ======================================== -->
+  <url>
+    <loc>https://www.xpmtutors.com/uk/blog</loc>
+    <priority>0.82</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2026-04-15</lastmod>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://www.xpmtutors.com/us/blog</loc>
+    <priority>0.82</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2026-04-15</lastmod>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://www.xpmtutors.com/ae/blog</loc>
+    <priority>0.82</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2026-04-15</lastmod>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://www.xpmtutors.com/pk/blog</loc>
+    <priority>0.82</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2026-04-15</lastmod>
+    <mobile:mobile/>
+  </url>
+
+  <!-- ========================================
+       FEATURED TUTOR PAGES (HIGH PRIORITY)
+       ======================================== -->
+  <url>
+    <loc>https://www.xpmtutors.com/tutor/mishal-razzaq</loc>
+    <priority>0.88</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2026-04-10</lastmod>
+    <mobile:mobile/>
+  </url>
+
+  <!-- ========================================
+       REGIONAL A LEVEL PAGES (HIGH PRIORITY)
+       ======================================== -->
+  <url>
+    <loc>https://www.xpmtutors.com/a-level-tutors-uk</loc>
+    <priority>0.92</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2026-04-12</lastmod>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://www.xpmtutors.com/a-level-tutors-usa</loc>
+    <priority>0.92</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2026-04-12</lastmod>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://www.xpmtutors.com/a-level-tutors-pakistan</loc>
+    <priority>0.92</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2026-04-12</lastmod>
+    <mobile:mobile/>
+  </url>
+
+  <!-- ========================================
+       REGIONAL O LEVEL PAGES (HIGH PRIORITY)
+       ======================================== -->
+  <url>
+    <loc>https://www.xpmtutors.com/o-level-tutors-uk</loc>
+    <priority>0.92</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2026-04-12</lastmod>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://www.xpmtutors.com/o-level-tutors-usa</loc>
+    <priority>0.92</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2026-04-12</lastmod>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://www.xpmtutors.com/o-level-tutors-pakistan</loc>
+    <priority>0.92</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2026-04-12</lastmod>
+    <mobile:mobile/>
+  </url>
+
+  <!-- ========================================
+       CITY-SPECIFIC O LEVEL PAGES (MEDIUM PRIORITY)
+       ======================================== -->
+  <url>
+    <loc>https://www.xpmtutors.com/o-level-tutors-karachi</loc>
+    <priority>0.88</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2026-04-14</lastmod>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://www.xpmtutors.com/o-level-tutors-lahore</loc>
+    <priority>0.88</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2026-04-14</lastmod>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://www.xpmtutors.com/o-level-tutors-rawalpindi</loc>
+    <priority>0.87</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2026-04-14</lastmod>
+    <mobile:mobile/>
+  </url>
+
+  <!-- ========================================
+       SUBJECT-SPECIFIC O LEVEL PAGES (MEDIUM PRIORITY)
+       ======================================== -->
+  <url>
+    <loc>https://www.xpmtutors.com/o-level-physics-tutor</loc>
+    <priority>0.85</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2026-04-11</lastmod>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://www.xpmtutors.com/o-level-maths-tutor</loc>
+    <priority>0.85</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2026-04-11</lastmod>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://www.xpmtutors.com/o-level-chemistry-tutor</loc>
+    <priority>0.85</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2026-04-11</lastmod>
+    <mobile:mobile/>
+  </url>
+
+  <!-- ========================================
        UTILITY PAGES (LOW PRIORITY)
        ======================================== -->
   <url>

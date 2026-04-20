@@ -156,6 +156,87 @@ export function generateFAQSchema(faqs: Array<{ question: string; answer: string
 }
 
 /**
+ * Generate BlogPosting structured data for articles
+ */
+export function generateBlogSchema(data: {
+  title: string;
+  description: string;
+  content: string;
+  author: string;
+  publishedDate: string;
+  modifiedDate?: string;
+  image?: string;
+  slug: string;
+  category?: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": data.title,
+    "description": data.description,
+    "articleBody": data.content,
+    "author": {
+      "@type": "Person",
+      "name": data.author,
+      "url": "https://www.xpmtutors.com"
+    },
+    "datePublished": data.publishedDate,
+    "dateModified": data.modifiedDate || data.publishedDate,
+    "image": data.image || "https://www.xpmtutors.com/logo.png",
+    "publisher": {
+      "@type": "Organization",
+      "name": "XPM Tutors",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.xpmtutors.com/logo.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `https://www.xpmtutors.com/blog/${data.slug}`
+    },
+    "keywords": data.category || "education, tutoring"
+  };
+}
+
+/**
+ * Generate Teacher/Expert Profile structured data
+ */
+export function generateTeacherSchema(data: {
+  name: string;
+  title: string;
+  bio?: string;
+  image?: string;
+  qualifications?: string[];
+  specialties?: string[];
+  rating?: number;
+  ratingCount?: number;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": data.name,
+    "jobTitle": data.title,
+    "description": data.bio,
+    "image": data.image,
+    "expertise": data.specialties || [],
+    "credential": {
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "degree",
+      "name": data.qualifications?.[0] || "Expert Tutor"
+    },
+    ...(data.rating && {
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": data.rating,
+        "ratingCount": data.ratingCount || 1
+      }
+    }),
+    "url": "https://www.xpmtutors.com"
+  };
+}
+
+/**
  * Page-specific SEO configurations
  */
 export const pageConfigs: Record<string, SEOMetadata> = {

@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { db } from '../db';
 import { BlogPost } from '../types';
+import { generateBlogSchema, updatePageMeta } from '../seoHelper';
 
 const BlogPage: React.FC = () => {
   const [posts, setPosts] = useState<BlogPost[]>([]);
@@ -10,6 +11,31 @@ const BlogPage: React.FC = () => {
   useEffect(() => {
     setPosts(db.getBlogs());
   }, []);
+
+  useEffect(() => {
+    // Update page meta when a blog post is selected
+    if (selectedPost) {
+      const slug = selectedPost.title.toLowerCase().replace(/\s+/g, '-').replace(/[^\w\-]/g, '');
+      
+      const blogSchema = generateBlogSchema({
+        title: selectedPost.title,
+        description: selectedPost.excerpt,
+        content: selectedPost.content,
+        author: selectedPost.author,
+        publishedDate: new Date(selectedPost.date).toISOString().split('T')[0],
+        category: selectedPost.category,
+        slug: slug
+      });
+
+      updatePageMeta({
+        title: `${selectedPost.title} | XPM Tutors Blog`,
+        description: selectedPost.excerpt,
+        keywords: `${selectedPost.category}, blog, tutoring, education`,
+        canonical: `https://www.xpmtutors.com/blog/${slug}`,
+        structuredData: blogSchema
+      });
+    }
+  }, [selectedPost]);
 
   const formatDate = (ts: number) => {
     return new Date(ts).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
