@@ -1,16 +1,41 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import SchemaMarkup from '../components/SchemaMarkup.tsx';
-import HealingMindSidebar from '../components/HealingMindSidebar.tsx';
 
-// Custom Tailwind color configuration would include:
-// emerald-900: #0F5C4D (Deep Emerald)
-// navy-900: #12324A (Navy)
-// ivory-50: #F8F5EE (Warm Ivory)
-// gold-400: #C7A96B (Soft Gold)
-// charcoal-800: #1F2933 (Charcoal)
+// Premium color palette matching Aql & Imaan design
+const colors = {
+  darkNavy: '#0f1f2e',
+  navy: '#1a2d4a',
+  lightNavy: '#2d4563',
+  gold: '#d4af37',
+  lightGold: '#e6c757',
+  ivory: '#f5f3ef',
+  charcoal: '#2a2a2a',
+  white: '#ffffff'
+};
 
 const MishalRazzaqPage: React.FC = () => {
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
+
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.1, delayChildren: 0.2 }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+    hover: { y: -8, transition: { duration: 0.3 } }
+  };
 
   const faqItems = [
     {
@@ -39,357 +64,523 @@ const MishalRazzaqPage: React.FC = () => {
     }
   ];
 
+  // Featured content items
+  const featuredContent = [
+    {
+      title: "Life is a Test",
+      subtitle: "The Deeper Meaning",
+      icon: "🌅"
+    },
+    {
+      title: "How Habits Are Formed",
+      subtitle: "Neuroscience & Islam",
+      icon: "🧠"
+    },
+    {
+      title: "Understanding Emotions",
+      subtitle: "Through Deen",
+      icon: "💝"
+    }
+  ];
+
+  // What Makes Different Section
+  const differentiators = [
+    {
+      icon: "🕌",
+      title: "Islam & Science Combined",
+      description: "We bridge traditional Islamic knowledge with modern neuroscience"
+    },
+    {
+      icon: "💡",
+      title: "Practical Insights",
+      description: "Actionable frameworks for real-world emotional challenges"
+    },
+    {
+      icon: "📚",
+      title: "In-Depth Analysis",
+      description: "Scholarly yet accessible exploration of complex topics"
+    },
+    {
+      icon: "🎯",
+      title: "Structured Learning",
+      description: "Clear pathways for understanding and personal development"
+    }
+  ];
+
   return (
-    <div className="min-h-screen" style={{ backgroundColor: '#F8F5EE' }}>
-      {/* Include Scrolling Sidebar */}
-      <HealingMindSidebar />
-      
-      {/* Schema Markup */}
+    <motion.div 
+      className="min-h-screen"
+      style={{ backgroundColor: colors.ivory }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.6 }}
+    >
       <SchemaMarkup 
         pageTitle="The Healing Mind: Islam, Philosophy & Neuroscience"
         pageDescription="Discover how Islam addresses depression, anxiety, and emotional pain through neuroscience-informed teaching by Prof. Mishal Razzaq."
         canonical="https://xpmtutors.com/mishal-razzaq"
       />
 
-      {/* Hero Section */}
-      <section data-section="top" className="py-20 md:py-32 md:mr-20 text-white" style={{ background: 'linear-gradient(135deg, #0F5C4D 0%, #0A4A3E 50%, #12324A 100%)' }}>
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center md:text-left">
-            <div className="inline-block px-4 py-2 rounded-full mb-6 border-2" style={{ borderColor: '#C7A96B', backgroundColor: 'rgba(199, 169, 107, 0.1)' }}>
-              <p className="text-sm font-bold uppercase tracking-widest" style={{ color: '#C7A96B' }}>Scholarly Islamic Wellness</p>
+      {/* Hero Section - Redesigned Premium Style */}
+      <motion.section 
+        className="relative py-24 md:py-40 text-white overflow-hidden"
+        style={{ background: `linear-gradient(135deg, ${colors.darkNavy} 0%, ${colors.navy} 50%, ${colors.lightNavy} 100%)` }}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+      >
+        {/* Animated background elements */}
+        <div className="absolute top-0 right-0 w-96 h-96 rounded-full opacity-10 blur-3xl" style={{ backgroundColor: colors.gold }}></div>
+        
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <motion.div 
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            <div className="inline-block px-4 py-2 rounded-full mb-6 border border-white/20 backdrop-blur-sm">
+              <p className="text-xs font-bold uppercase tracking-widest" style={{ color: colors.gold }}>Scholarly Islamic Wellness</p>
             </div>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-black mb-4 leading-tight">
-              The Healing Mind
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+          >
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black mb-4 leading-tight">
+              Where Faith
+              <br />
+              <span style={{ color: colors.gold }}>Meets Intellect</span>
             </h1>
-            <p className="text-2xl md:text-3xl font-bold mb-6" style={{ color: '#C7A96B' }}>Islam, Philosophy & Neuroscience</p>
-            <p className="text-lg md:text-xl mb-8 max-w-3xl leading-relaxed opacity-90">
-              Where ancient wisdom meets modern science to address depression, anxiety, trauma, and existential emptiness.
+            <p className="text-xl md:text-2xl mb-8 max-w-3xl opacity-90">
+              Understanding life through Islam, Psychology and Science.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <a 
-                href="#topics"
-                className="inline-block px-8 py-4 font-bold rounded-lg hover:opacity-90 transition shadow-xl text-navy-900"
-                style={{ backgroundColor: '#C7A96B' }}
-              >
-                Explore the Framework
-              </a>
-              <a 
-                href="#contact"
-                className="inline-block px-8 py-4 font-bold rounded-lg hover:opacity-90 transition border-2"
-                style={{ borderColor: '#C7A96B', color: '#F8F5EE', backgroundColor: 'rgba(15, 92, 77, 0.5)' }}
-              >
-                Get in Touch
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
+          </motion.div>
 
-      {/* About Prof. Section */}
-      <section data-section="about" className="py-20 md:py-28 px-4 sm:px-6 lg:px-8 md:mr-20">
+          <motion.div 
+            className="flex flex-col sm:flex-row gap-4 pt-8"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+          >
+            <a 
+              href="#topics"
+              className="inline-block px-8 py-4 font-bold rounded-lg transition shadow-2xl hover:shadow-xl hover:scale-105"
+              style={{ backgroundColor: colors.gold, color: colors.darkNavy }}
+            >
+              Explore Articles
+            </a>
+            <a 
+              href="#contact"
+              className="inline-block px-8 py-4 font-bold rounded-lg transition border-2 hover:bg-white/10"
+              style={{ borderColor: colors.gold, color: colors.white }}
+            >
+              Start Learning
+            </a>
+          </motion.div>
+        </div>
+      </motion.section>
+
+      {/* Who Is Behind This Section */}
+      <motion.section 
+        className="py-20 md:py-28 px-4 sm:px-6 lg:px-8"
+        style={{ backgroundColor: colors.white }}
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+      >
         <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-4xl md:text-5xl font-black mb-6" style={{ color: '#12324A' }}>
-                About Prof. Mishal Razzaq
+          <div className="grid md:grid-cols-3 gap-12 items-center">
+            {/* Profile Image Area */}
+            <motion.div
+              className="flex justify-center md:justify-start"
+              variants={itemVariants}
+            >
+              <div 
+                className="w-40 h-40 md:w-48 md:h-48 rounded-full shadow-2xl flex items-center justify-center text-6xl border-4"
+                style={{ backgroundColor: colors.navy, borderColor: colors.gold, fontSize: '60px' }}
+              >
+                👩‍🏫
+              </div>
+            </motion.div>
+
+            {/* Bio Section */}
+            <motion.div className="md:col-span-2" variants={itemVariants}>
+              <h2 className="text-4xl md:text-5xl font-black mb-4" style={{ color: colors.darkNavy }}>
+                Who Is Behind This?
               </h2>
-              <p className="text-lg mb-4 leading-relaxed" style={{ color: '#1F2933' }}>
-                Prof. Mishal Razzaq is a specialized educator and thoughtful guide in the intersection of Islamic psychology, philosophy, and neuroscience-informed mental wellness.
+              <p className="text-lg mb-4 leading-relaxed italic" style={{ color: colors.charcoal }}>
+                I am a Geophysics researcher and educator with passion with ba connected for connecting Islam islam mderscience and psychology.
               </p>
-              <p className="text-lg mb-4 leading-relaxed" style={{ color: '#1F2933' }}>
-                With a deep commitment to bridging faith and reason, she brings together rigorous intellectual inquiry, compassionate human understanding, and scholarly engagement with Islamic teachings to address the emotional, psychological, and spiritual struggles that affect people globally.
-              </p>
-              <p className="text-lg leading-relaxed" style={{ color: '#1F2933' }}>
-                Her work focuses on education rather than clinical treatment—helping students, seekers, parents, researchers, and people of faith understand how Islamic teachings illuminate suffering, resilience, meaning, and healing.
-              </p>
-            </div>
-            <div className="p-10 rounded-2xl shadow-xl border-2" style={{ backgroundColor: 'rgba(15, 92, 77, 0.08)', borderColor: '#0F5C4D' }}>
-              <h3 className="text-2xl font-bold mb-8" style={{ color: '#0F5C4D' }}>Core Expertise</h3>
-              <ul className="space-y-5">
-                <li className="flex gap-3">
-                  <span className="text-2xl font-bold" style={{ color: '#0F5C4D' }}>✦</span>
-                  <span style={{ color: '#1F2933' }}><strong>Islamic Psychology:</strong> Faith and emotional wellbeing integration</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-2xl font-bold" style={{ color: '#0F5C4D' }}>✦</span>
-                  <span style={{ color: '#1F2933' }}><strong>Neuroscience of Faith:</strong> Brain science validating spiritual practice</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-2xl font-bold" style={{ color: '#0F5C4D' }}>✦</span>
-                  <span style={{ color: '#1F2933' }}><strong>Islamic Philosophy:</strong> Purpose, meaning, consciousness</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-2xl font-bold" style={{ color: '#0F5C4D' }}>✦</span>
-                  <span style={{ color: '#1F2933' }}><strong>Faith-Based Healing:</strong> Trauma recovery and resilience</span>
-                </li>
-              </ul>
-            </div>
+              
+              {/* Credentials */}
+              <div className="space-y-3 mt-8">
+                <div className="flex items-center gap-3">
+                  <span style={{ color: colors.gold }}>✓</span>
+                  <span style={{ color: colors.charcoal }} className="font-bold">Islamic Knowledge & Teaching</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <span style={{ color: colors.gold }}>✓</span>
+                  <span style={{ color: colors.charcoal }} className="font-bold">Neuroscience & Mind Studies</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <span style={{ color: colors.gold }}>✓</span>
+                  <span style={{ color: colors.charcoal }} className="font-bold">Critical Thinker & Speaker</span>
+                </div>
+              </div>
+            </motion.div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
-      {/* Core Topics */}
-      <section data-section="topics" className="py-20 md:py-28 px-4 sm:px-6 lg:px-8 md:mr-20" style={{ backgroundColor: 'rgba(248, 245, 238, 0.7)' }}>
+      {/* Explore Our Core Topics */}
+      <motion.section 
+        className="py-20 md:py-28 px-4 sm:px-6 lg:px-8"
+        style={{ backgroundColor: colors.darkNavy }}
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+      >
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-black mb-4 text-center" style={{ color: '#12324A' }}>
-            Understanding the Mind
-          </h2>
-          <p className="text-lg text-center mb-16 max-w-2xl mx-auto" style={{ color: '#1F2933' }}>Heart, and Spirit: A Scholarly Exploration</p>
-          <div className="grid md:grid-cols-3 gap-8">
+          <motion.div className="text-center mb-16" variants={itemVariants}>
+            <h2 className="text-4xl md:text-5xl font-black mb-4" style={{ color: colors.gold }}>
+              Explore Our Core Topics
+            </h2>
+          </motion.div>
+
+          <div className="grid md:grid-cols-4 gap-6">
             {[
-              {
-                title: "Neuroscience & Mind",
-                description: "How your brain works, stress responses, and the science behind Islamic practices like prayer and dhikr",
-                icon: "🧠"
-              },
-              {
-                title: "Depression & Hope",
-                description: "Understanding depression through both neuroscience and faith, with practical tools for healing",
-                icon: "🌟"
-              },
-              {
-                title: "Anxiety & Trust",
-                description: "How tawakkul (trust) and Islamic practices interrupt anxiety cycles and restore peace",
-                icon: "🤝"
-              },
-              {
-                title: "Trauma & Healing",
-                description: "Faith-based approaches to healing from trauma through forgiveness, renewal, and community",
-                icon: "💚"
-              },
-              {
-                title: "Purpose & Meaning",
-                description: "Finding identity and direction through Islamic philosophy and values",
-                icon: "🎯"
-              },
-              {
-                title: "Community & Belonging",
-                description: "How Islamic community structure combats loneliness and supports wellbeing",
-                icon: "👥"
-              }
+              { title: "Quran & Tadabbur", subtitle: "Reflecting on Quran Divine Guidance", icon: "📖", color: colors.navy },
+              { title: "Psychology", subtitle: "Understanding Human Behavior", icon: "🧠", color: colors.lightNavy },
+              { title: "Neuroscience", subtitle: "The Brain & Habit Formation", icon: "🔬", color: colors.navy },
+              { title: "Science & Reality", subtitle: "Logic & The Universe", icon: "🌌", color: colors.lightNavy }
             ].map((topic, idx) => (
-              <div key={idx} className="p-8 rounded-xl shadow-md hover:shadow-lg transition border-2 bg-white hover:border-" style={{ borderColor: '#0F5C4D' }}>
-                <div className="text-4xl mb-4">{topic.icon}</div>
-                <h3 className="text-xl font-bold mb-3" style={{ color: '#0F5C4D' }}>{topic.title}</h3>
-                <p style={{ color: '#1F2933' }}>{topic.description}</p>
-              </div>
+              <motion.div
+                key={idx}
+                className="p-8 rounded-xl shadow-lg hover:shadow-2xl transition cursor-pointer"
+                style={{ backgroundColor: topic.color }}
+                variants={cardVariants}
+                whileHover="hover"
+              >
+                <div className="text-5xl mb-4">{topic.icon}</div>
+                <h3 className="text-xl font-bold mb-2" style={{ color: colors.gold }}>{topic.title}</h3>
+                <p className="text-sm leading-relaxed" style={{ color: colors.white }}>
+                  {topic.subtitle}
+                </p>
+              </motion.div>
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
-      {/* How Islam Helps */}
-      <section data-section="framework" className="py-20 md:py-28 px-4 sm:px-6 lg:px-8 md:mr-20">
+      {/* Start Here - Featured Content */}
+      <motion.section 
+        className="py-20 md:py-28 px-4 sm:px-6 lg:px-8"
+        style={{ backgroundColor: colors.ivory }}
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+      >
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-black mb-4 text-center" style={{ color: '#12324A' }}>
-            The Islamic Framework
-          </h2>
-          <p className="text-lg text-center mb-16 max-w-2xl mx-auto" style={{ color: '#1F2933' }}>for Mental and Emotional Wellbeing</p>
-          <div className="grid md:grid-cols-2 gap-8">
-            {[
-              {
-                name: "Tawakkul",
-                subtitle: "Trust & Release",
-                description: "Place your trust in Allah after doing your best. This interrupts anxiety loops and restores peace."
-              },
-              {
-                name: "Sabr",
-                subtitle: "Patient Perseverance",
-                description: "Active perseverance through difficulty with faith that 'with hardship comes ease.'"
-              },
-              {
-                name: "Salah",
-                subtitle: "Prayer as Foundation",
-                description: "Five daily practices that regulate the nervous system and create spiritual connection."
-              },
-              {
-                name: "Dhikr",
-                subtitle: "Sacred Remembrance",
-                description: "Repetitive, meaningful phrases that interrupt rumination and calm the mind."
-              },
-              {
-                name: "Dua",
-                subtitle: "Supplication",
-                description: "Direct conversation with Allah about your pain, hopes, and struggles."
-              },
-              {
-                name: "Taubah",
-                subtitle: "Repentance & Renewal",
-                description: "The Islamic path to release guilt, start fresh, and repair your relationship with Allah."
-              },
-              {
-                name: "Shukr",
-                subtitle: "Gratitude",
-                description: "Recognizing and appreciating blessings—neurologically and spiritually powerful."
-              },
-              {
-                name: "Community",
-                subtitle: "Brotherhood & Sisterhood",
-                description: "Being part of a global family that cares for each other's wellbeing."
-              }
-            ].map((item, idx) => (
-              <div key={idx} className="p-8 rounded-xl shadow-md hover:shadow-lg transition border-l-4 bg-white" style={{ borderColor: '#C7A96B', backgroundColor: 'rgba(15, 92, 77, 0.04)' }}>
-                <h3 className="text-2xl font-black mb-2" style={{ color: '#0F5C4D' }}>{item.name}</h3>
-                <p className="text-sm font-bold mb-3 uppercase tracking-widest" style={{ color: '#C7A96B' }}>{item.subtitle}</p>
-                <p style={{ color: '#1F2933' }} className="leading-relaxed">{item.description}</p>
-              </div>
+          <motion.div className="text-center mb-16" variants={itemVariants}>
+            <h2 className="text-4xl md:text-5xl font-black mb-4" style={{ color: colors.darkNavy }}>
+              Start Here
+            </h2>
+            <p className="text-lg" style={{ color: colors.charcoal }}>Featured Lessons & Articles</p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {featuredContent.map((item, idx) => (
+              <motion.div
+                key={idx}
+                className="rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition cursor-pointer group"
+                variants={cardVariants}
+                whileHover="hover"
+              >
+                <div 
+                  className="h-48 flex items-center justify-center text-6xl relative overflow-hidden"
+                  style={{ backgroundColor: colors.navy }}
+                >
+                  <div className="absolute inset-0 group-hover:scale-110 transition duration-500">{item.icon}</div>
+                </div>
+                <div className="p-8 bg-white">
+                  <h3 className="text-xl font-black mb-2" style={{ color: colors.darkNavy }}>
+                    {item.title}
+                  </h3>
+                  <p style={{ color: colors.gold }} className="font-bold text-sm">
+                    {item.subtitle}
+                  </p>
+                </div>
+              </motion.div>
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
-      {/* Services */}
-      <section data-section="services" className="py-20 md:py-28 px-4 sm:px-6 lg:px-8 md:mr-20" style={{ backgroundColor: 'rgba(248, 245, 238, 0.7)' }}>
+      {/* What Makes This Different */}
+      <motion.section 
+        className="py-20 md:py-28 px-4 sm:px-6 lg:px-8"
+        style={{ backgroundColor: colors.darkNavy }}
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+      >
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-black mb-4 text-center" style={{ color: '#12324A' }}>
-            Services & Engagement
-          </h2>
-          <p className="text-lg text-center mb-16 max-w-2xl mx-auto" style={{ color: '#1F2933' }}>How to Connect and Learn</p>
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="p-8 rounded-xl shadow-md border-2 hover:border-" style={{ borderColor: '#0F5C4D' }}>
-              <h3 className="text-2xl font-bold mb-4" style={{ color: '#0F5C4D' }}>Educational Lectures & Seminars</h3>
-              <p className="mb-4" style={{ color: '#1F2933' }}>In-depth presentations on Islamic psychology topics, customized to your audience, ranging from 1-hour introductions to multi-day seminars. Available in-person or virtual.</p>
-              <p className="text-sm font-bold" style={{ color: '#C7A96B' }}>For: Universities, conferences, communities, corporate wellness</p>
-            </div>
-            <div className="p-8 rounded-xl shadow-md border-2 hover:border-" style={{ borderColor: '#0F5C4D' }}>
-              <h3 className="text-2xl font-bold mb-4" style={{ color: '#0F5C4D' }}>Workshops & Facilitated Sessions</h3>
-              <p className="mb-4" style={{ color: '#1F2933' }}>Interactive workshops combining teaching, practice, and dialogue. Topics like "Pausing the Panic," "Finding Your Purpose," "Faith and Resilience."</p>
-              <p className="text-sm font-bold" style={{ color: '#C7A96B' }}>For: Student groups, professional development, communities</p>
-            </div>
-            <div className="p-8 rounded-xl shadow-md border-2 hover:border-" style={{ borderColor: '#0F5C4D' }}>
-              <h3 className="text-2xl font-bold mb-4" style={{ color: '#0F5C4D' }}>Mentoring & Guidance</h3>
-              <p className="mb-4" style={{ color: '#1F2933' }}>One-on-one or small-group mentoring for faith-based guidance on emotional and mental wellbeing. Complements professional therapy.</p>
-              <p className="text-sm font-bold" style={{ color: '#C7A96B' }}>For: Students, professionals, parents, healing journeys</p>
-            </div>
-            <div className="p-8 rounded-xl shadow-md border-2 hover:border-" style={{ borderColor: '#0F5C4D' }}>
-              <h3 className="text-2xl font-bold mb-4" style={{ color: '#0F5C4D' }}>Speaking & Collaboration</h3>
-              <p className="mb-4" style={{ color: '#1F2933' }}>Speaking engagements at conferences, institutional events, interfaith dialogues, and collaborations with media and education platforms.</p>
-              <p className="text-sm font-bold" style={{ color: '#C7A96B' }}>For: Academic conferences, media, publishing partnerships</p>
-            </div>
-          </div>
-        </div>
-      </section>
+          <motion.div className="text-center mb-16" variants={itemVariants}>
+            <h2 className="text-4xl md:text-5xl font-black" style={{ color: colors.white }}>
+              What Makes This Different?
+            </h2>
+          </motion.div>
 
-      {/* FAQ */}
-      <section data-section="faq" className="py-20 md:py-28 px-4 sm:px-6 lg:px-8 md:mr-20">
+          <div className="grid md:grid-cols-2 gap-12">
+            {differentiators.map((item, idx) => (
+              <motion.div
+                key={idx}
+                className="flex gap-6"
+                variants={itemVariants}
+              >
+                <div className="text-5xl flex-shrink-0">{item.icon}</div>
+                <div>
+                  <h3 className="text-xl font-bold mb-2" style={{ color: colors.gold }}>
+                    {item.title}
+                  </h3>
+                  <p className="leading-relaxed" style={{ color: colors.white }}>
+                    {item.description}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* CTA Buttons */}
+          <motion.div 
+            className="flex flex-col sm:flex-row gap-4 justify-center mt-16"
+            variants={itemVariants}
+          >
+            <a 
+              href="#topics"
+              className="inline-block px-8 py-4 font-bold rounded-lg transition shadow-xl hover:scale-105"
+              style={{ backgroundColor: colors.gold, color: colors.darkNavy }}
+            >
+              Explore Articles
+            </a>
+            <a 
+              href="#contact"
+              className="inline-block px-8 py-4 font-bold rounded-lg transition border-2"
+              style={{ borderColor: colors.gold, color: colors.gold }}
+            >
+              Join Courses
+            </a>
+          </motion.div>
+        </div>
+      </motion.section>
+
+      {/* FAQ Section */}
+      <motion.section 
+        className="py-20 md:py-28 px-4 sm:px-6 lg:px-8"
+        style={{ backgroundColor: colors.ivory }}
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+      >
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-black mb-4 text-center" style={{ color: '#12324A' }}>
+          <motion.h2 
+            className="text-4xl md:text-5xl font-black mb-4 text-center"
+            style={{ color: colors.darkNavy }}
+            variants={itemVariants}
+          >
             Questions & Answers
-          </h2>
-          <p className="text-lg text-center mb-16" style={{ color: '#1F2933' }}>Understanding Islam and Mental Wellness</p>
+          </motion.h2>
+          <motion.p 
+            className="text-lg text-center mb-16"
+            style={{ color: colors.charcoal }}
+            variants={itemVariants}
+          >
+            Understanding Islam and Mental Wellness
+          </motion.p>
+
           <div className="space-y-4">
             {faqItems.map((item, idx) => (
-              <div key={idx} className="border-2 rounded-xl overflow-hidden bg-white" style={{ borderColor: '#0F5C4D' }}>
+              <motion.div
+                key={idx}
+                className="border-2 rounded-xl overflow-hidden bg-white"
+                style={{ borderColor: colors.gold }}
+                variants={itemVariants}
+              >
                 <button
                   onClick={() => setExpandedFaq(expandedFaq === idx ? null : idx)}
-                  className="w-full px-6 py-4 flex items-center justify-between font-bold transition"
-                  style={{ backgroundColor: 'rgba(248, 245, 238, 0.8)', color: '#0F5C4D' }}
+                  className="w-full px-6 py-4 flex items-center justify-between font-bold transition hover:bg-opacity-80"
+                  style={{ backgroundColor: colors.ivory, color: colors.darkNavy }}
                 >
                   <span className="text-left">{item.question}</span>
-                  <span className="text-2xl" style={{ color: '#C7A96B' }}>{expandedFaq === idx ? '−' : '+'}</span>
+                  <motion.span 
+                    className="text-2xl"
+                    style={{ color: colors.gold }}
+                    animate={{ rotate: expandedFaq === idx ? 180 : 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    ▼
+                  </motion.span>
                 </button>
-                {expandedFaq === idx && (
-                  <div className="px-6 py-4 border-t-2" style={{ borderColor: '#0F5C4D', color: '#1F2933' }}>
+                <motion.div
+                  initial={false}
+                  animate={{ height: expandedFaq === idx ? "auto" : 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="overflow-hidden"
+                >
+                  <div className="px-6 py-4 border-t-2" style={{ borderColor: colors.gold, color: colors.charcoal }}>
                     <p className="leading-relaxed">{item.answer}</p>
                   </div>
-                )}
-              </div>
+                </motion.div>
+              </motion.div>
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Testimonials Section */}
-      <section className="py-20 md:py-28 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: 'rgba(248, 245, 238, 0.7)' }}>
+      <motion.section 
+        className="py-20 md:py-28 px-4 sm:px-6 lg:px-8"
+        style={{ backgroundColor: colors.lightNavy }}
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+      >
         <div className="max-w-6xl mx-auto">
-          <h3 className="text-4xl md:text-5xl font-black mb-4 text-center" style={{ color: '#12324A' }}>
+          <motion.h3 
+            className="text-4xl md:text-5xl font-black mb-4 text-center"
+            style={{ color: colors.gold }}
+            variants={itemVariants}
+          >
             What Students & Colleagues Say
-          </h3>
-          <p className="text-lg text-center mb-16 max-w-2xl mx-auto" style={{ color: '#1F2933' }}>Real perspectives from those who've engaged with Prof. Mishal's teaching</p>
+          </motion.h3>
+          <motion.p 
+            className="text-lg text-center mb-16"
+            style={{ color: colors.white }}
+            variants={itemVariants}
+          >
+            Real perspectives from those who've engaged with Prof. Mishal's teaching
+          </motion.p>
+
           <div className="grid md:grid-cols-2 gap-8">
             {[
               {
                 name: "Fatima Ahmed",
                 role: "Graduate Student, Islamic Studies",
-                review: "Prof. Mishal's approach to Islamic psychology has been transformative. She bridges the gap between traditional Islamic knowledge and modern neuroscience in a way that feels both authentic and scientifically grounded. Her lectures on tawakkul and anxiety were eye-opening.",
+                review: "Prof. Mishal's approach to Islamic psychology has been transformative. She bridges the gap between traditional Islamic knowledge and modern neuroscience.",
                 rating: 5
               },
               {
                 name: "Hassan Khan",
                 role: "University Chaplain",
-                review: "I've invited Prof. Mishal to speak to our student community multiple times. Her ability to address mental health through an Islamic lens, without minimizing clinical concerns, is remarkable. Students leave feeling heard and empowered.",
+                review: "I've invited Prof. Mishal to speak multiple times. Her ability to address mental health through an Islamic lens is remarkable. Students leave feeling heard and empowered.",
                 rating: 5
               },
               {
                 name: "Dr. Sarah Williams",
                 role: "Clinical Psychologist",
-                review: "As a non-Muslim therapist, I appreciated Prof. Mishal's scholarship on how Islamic practices support mental health. Her framework helps me better understand and respect my Muslim clients' spiritual resources. Highly recommended for interfaith dialogue.",
+                review: "As a non-Muslim therapist, I appreciated Prof. Mishal's scholarship on how Islamic practices support mental health. Highly recommended for interfaith dialogue.",
                 rating: 5
               },
               {
                 name: "Amira Hassan",
                 role: "High School Teacher",
-                review: "I brought Prof. Mishal to lead a workshop for our Muslim students on faith and resilience. The response was overwhelming—students felt seen and understood. Her workshop equipped them with both Islamic wisdom and practical mental health tools.",
-                rating: 5
-              },
-              {
-                name: "Muhammad Ali",
-                role: "Community Mental Health Advocate",
-                review: "Prof. Mishal's perspective on healing through community and spiritual connection addresses a critical gap in our mental health conversations. Her work gives permission and language for integrating faith with healing.",
-                rating: 5
-              },
-              {
-                name: "Dr. Zainab Mustafa",
-                role: "Islamic Scholar & Researcher",
-                review: "A rare voice—scholarly, compassionate, and deeply grounded in Islamic tradition while remaining open to modern science. Prof. Mishal's work will influence how we teach Islamic psychology for years to come.",
+                review: "I brought Prof. Mishal for a workshop on faith and resilience. The response was overwhelming. Her workshop equipped students with Islamic wisdom and practical tools.",
                 rating: 5
               }
             ].map((item, idx) => (
-              <div key={idx} className="p-8 rounded-xl shadow-md bg-white border-l-4" style={{ borderColor: '#0F5C4D' }}>
+              <motion.div
+                key={idx}
+                className="p-8 rounded-xl shadow-lg bg-white"
+                variants={cardVariants}
+                whileHover="hover"
+              >
                 <div className="flex items-center justify-between mb-4">
                   <div>
-                    <h4 className="text-lg font-black" style={{ color: '#12324A' }}>{item.name}</h4>
-                    <p className="text-sm font-bold" style={{ color: '#C7A96B' }}>{item.role}</p>
+                    <h4 className="text-lg font-black" style={{ color: colors.darkNavy }}>
+                      {item.name}
+                    </h4>
+                    <p className="text-sm font-bold" style={{ color: colors.gold }}>
+                      {item.role}
+                    </p>
                   </div>
-                  <div className="flex text-yellow-500">
+                  <div className="flex text-yellow-400">
                     {Array.from({ length: item.rating }).map((_, i) => (
                       <span key={i}>⭐</span>
                     ))}
                   </div>
                 </div>
-                <p style={{ color: '#1F2933' }} className="leading-relaxed italic">"{item.review}"</p>
-              </div>
+                <p style={{ color: colors.charcoal }} className="leading-relaxed italic">
+                  "{item.review}"
+                </p>
+              </motion.div>
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
-      {/* CTA Section */}
-      <section data-section="contact" className="py-20 md:py-28 text-white px-4 sm:px-6 lg:px-8" style={{ background: 'linear-gradient(135deg, #0F5C4D 0%, #0A4A3E 50%, #12324A 100%)' }}>
-        <div className="max-w-4xl mx-auto text-center md:mr-20">
-          <h2 className="text-4xl md:text-5xl font-black mb-6">Ready to Engage?</h2>
-          <p className="text-xl mb-8 opacity-90">
+      {/* Contact CTA Section */}
+      <motion.section 
+        className="py-20 md:py-28 text-white px-4 sm:px-6 lg:px-8"
+        style={{ background: `linear-gradient(135deg, ${colors.darkNavy} 0%, ${colors.navy} 100%)` }}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.6 }}
+      >
+        <div className="max-w-4xl mx-auto text-center">
+          <motion.h2 
+            className="text-4xl md:text-5xl font-black mb-6"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            Ready to Engage?
+          </motion.h2>
+          <motion.p 
+            className="text-xl mb-8 opacity-90"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
             Whether you're seeking to learn, attend a workshop, explore mentoring, or collaborate—we welcome genuine seekers of all backgrounds.
-          </p>
-          <div className="p-10 rounded-2xl border-2 mb-8" style={{ backgroundColor: 'rgba(199, 169, 107, 0.1)', borderColor: '#C7A96B' }}>
-            <p className="text-lg font-bold mb-3" style={{ color: '#C7A96B' }}>Connect via Email</p>
+          </motion.p>
+
+          <motion.div 
+            className="p-10 rounded-2xl border-2 mb-8 inline-block"
+            style={{ backgroundColor: `rgba(212, 175, 55, 0.1)`, borderColor: colors.gold }}
+            initial={{ scale: 0.95, opacity: 0 }}
+            whileInView={{ scale: 1, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            <p className="text-lg font-bold mb-3" style={{ color: colors.gold }}>
+              Connect via Email
+            </p>
             <a 
               href="mailto:mishalrazaq665@gmail.com"
-              className="text-3xl md:text-4xl font-black hover:opacity-90 transition"
-              style={{ color: '#C7A96B' }}
+              className="text-3xl md:text-4xl font-black hover:opacity-80 transition"
+              style={{ color: colors.gold }}
             >
               mishalrazaq665@gmail.com
             </a>
-          </div>
-          <p className="opacity-80">
-            Please include: your interest (lectures, workshops, mentoring, collaboration, speaking), your context, and any specific needs.
-          </p>
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
 
-      {/* Footer Spacer for Mobile */}
+      {/* Footer Spacer */}
       <div className="h-20 md:h-0"></div>
-    </div>
+    </motion.div>
   );
 };
 
