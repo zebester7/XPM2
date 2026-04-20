@@ -7,7 +7,7 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-slate-900 text-white py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-6 gap-12">
           <div className="col-span-1 md:col-span-2">
             <Link to="/" className="inline-block mb-6">
               <Logo className="h-12 w-12" />
@@ -50,6 +50,16 @@ const Footer: React.FC = () => {
               <li><Link to="/reviews" className="hover:text-xpm-green transition">Reviews</Link></li>
               <li><Link to="/login" className="hover:text-xpm-green transition">Login</Link></li>
               <li><Link to="/signup" className="hover:text-xpm-green transition">Sign Up</Link></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="font-bold text-xpm-orange mb-6 uppercase tracking-widest text-xs">Featured Programs</h4>
+            <ul className="space-y-3 text-slate-300 font-medium text-sm">
+              <li><Link to="/mishal-razzaq" className="hover:text-xpm-green transition">The Healing Mind</Link></li>
+              <li><Link to="/quran-tutoring" className="hover:text-xpm-green transition">Quran Tutoring</Link></li>
+              <li><Link to="/ir-services" className="hover:text-xpm-green transition">Islamic Resources</Link></li>
+              <li><Link to="/teacher-registration" className="hover:text-xpm-green transition">Become a Tutor</Link></li>
             </ul>
           </div>
         </div>

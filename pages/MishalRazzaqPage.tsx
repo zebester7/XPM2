@@ -299,6 +299,71 @@ const MishalRazzaqPage: React.FC = () => {
         </div>
       </section>
 
+      {/* Testimonials Section */}
+      <section className="py-20 md:py-28 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: 'rgba(248, 245, 238, 0.7)' }}>
+        <div className="max-w-6xl mx-auto">
+          <h3 className="text-4xl md:text-5xl font-black mb-4 text-center" style={{ color: '#12324A' }}>
+            What Students & Colleagues Say
+          </h3>
+          <p className="text-lg text-center mb-16 max-w-2xl mx-auto" style={{ color: '#1F2933' }}>Real perspectives from those who've engaged with Prof. Mishal's teaching</p>
+          <div className="grid md:grid-cols-2 gap-8">
+            {[
+              {
+                name: "Fatima Ahmed",
+                role: "Graduate Student, Islamic Studies",
+                review: "Prof. Mishal's approach to Islamic psychology has been transformative. She bridges the gap between traditional Islamic knowledge and modern neuroscience in a way that feels both authentic and scientifically grounded. Her lectures on tawakkul and anxiety were eye-opening.",
+                rating: 5
+              },
+              {
+                name: "Hassan Khan",
+                role: "University Chaplain",
+                review: "I've invited Prof. Mishal to speak to our student community multiple times. Her ability to address mental health through an Islamic lens, without minimizing clinical concerns, is remarkable. Students leave feeling heard and empowered.",
+                rating: 5
+              },
+              {
+                name: "Dr. Sarah Williams",
+                role: "Clinical Psychologist",
+                review: "As a non-Muslim therapist, I appreciated Prof. Mishal's scholarship on how Islamic practices support mental health. Her framework helps me better understand and respect my Muslim clients' spiritual resources. Highly recommended for interfaith dialogue.",
+                rating: 5
+              },
+              {
+                name: "Amira Hassan",
+                role: "High School Teacher",
+                review: "I brought Prof. Mishal to lead a workshop for our Muslim students on faith and resilience. The response was overwhelming—students felt seen and understood. Her workshop equipped them with both Islamic wisdom and practical mental health tools.",
+                rating: 5
+              },
+              {
+                name: "Muhammad Ali",
+                role: "Community Mental Health Advocate",
+                review: "Prof. Mishal's perspective on healing through community and spiritual connection addresses a critical gap in our mental health conversations. Her work gives permission and language for integrating faith with healing.",
+                rating: 5
+              },
+              {
+                name: "Dr. Zainab Mustafa",
+                role: "Islamic Scholar & Researcher",
+                review: "A rare voice—scholarly, compassionate, and deeply grounded in Islamic tradition while remaining open to modern science. Prof. Mishal's work will influence how we teach Islamic psychology for years to come.",
+                rating: 5
+              }
+            ].map((item, idx) => (
+              <div key={idx} className="p-8 rounded-xl shadow-md bg-white border-l-4" style={{ borderColor: '#0F5C4D' }}>
+                <div className="flex items-center justify-between mb-4">
+                  <div>
+                    <h4 className="text-lg font-black" style={{ color: '#12324A' }}>{item.name}</h4>
+                    <p className="text-sm font-bold" style={{ color: '#C7A96B' }}>{item.role}</p>
+                  </div>
+                  <div className="flex text-yellow-500">
+                    {Array.from({ length: item.rating }).map((_, i) => (
+                      <span key={i}>⭐</span>
+                    ))}
+                  </div>
+                </div>
+                <p style={{ color: '#1F2933' }} className="leading-relaxed italic">"{item.review}"</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section data-section="contact" className="py-20 md:py-28 text-white px-4 sm:px-6 lg:px-8" style={{ background: 'linear-gradient(135deg, #0F5C4D 0%, #0A4A3E 50%, #12324A 100%)' }}>
         <div className="max-w-4xl mx-auto text-center md:mr-20">
