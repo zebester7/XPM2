@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Review } from '../types.ts';
 import XPMAdvantage from '../components/XPMAdvantage.tsx';
+import SchemaMarkup from '../components/SchemaMarkup.tsx';
+import HealingMindSidebar from '../components/HealingMindSidebar.tsx';
 
 function useIsVisible(ref: React.RefObject<HTMLElement>) {
   const [isIntersecting, setIntersecting] = useState(false);
@@ -34,6 +36,51 @@ const AnimatedCounter: React.FC<{ end: number; duration?: number; suffix?: strin
     }
   }, [isVisible, end, duration]);
   return <span ref={countRef}>{count}{suffix}</span>;
+};
+
+const HealingMindFAQ: React.FC = () => {
+  const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
+
+  const faqItems = [
+    {
+      question: "What is the relationship between Islam and mental health?",
+      answer: "Islam is not a clinical psychology system, but it's a comprehensive worldview and lifestyle that addresses the human condition—including suffering, resilience, meaning, and wellbeing. Through spiritual practice, meaning and purpose, community, ethical framework, hope, and practical tools like tawakkul (trust) and sabr (patience), Islam supports mental and emotional health. It complements—not replaces—professional mental health care."
+    },
+    {
+      question: "Can Islam help with anxiety and depression?",
+      answer: "Yes. For anxiety: tawakkul (trust in Allah) interrupts the worry loop, dhikr (remembrance) calms the nervous system, and prayer activates your body's natural calming response. For depression: understanding your purpose, knowing you're not alone, and Islamic hope grounded in theology all combat depression. Professional help is crucial for clinical conditions—Islam works alongside professional care."
+    },
+    {
+      question: "Is this a replacement for therapy or psychiatric medication?",
+      answer: "No. Islamic practice complements professional care; it doesn't replace it. For clinical depression, anxiety disorders, trauma, or suicidality, professional help is essential. The integration model works best: medication (neuroscience), therapy (coping and thinking), Islamic practice (meaning and community) together."
+    },
+    {
+      question: "Who can benefit from this teaching?",
+      answer: "Muslims benefit from deepening their tradition; non-Muslims benefit from learning universal wisdom about suffering, resilience, and meaning. This teaching serves students, parents, professionals, researchers, and anyone seeking to understand faith and mental health."
+    }
+  ];
+
+  return (
+    <div className="space-y-4">
+      {faqItems.map((item, idx) => (
+        <div key={idx} className="border-2 rounded-xl overflow-hidden bg-white" style={{ borderColor: '#0F5C4D' }}>
+          <button
+            onClick={() => setExpandedFaq(expandedFaq === idx ? null : idx)}
+            className="w-full px-6 py-4 flex items-center justify-between font-bold transition"
+            style={{ backgroundColor: 'rgba(248, 245, 238, 0.8)', color: '#0F5C4D' }}
+          >
+            <span className="text-left">{item.question}</span>
+            <span className="text-2xl" style={{ color: '#C7A96B' }}>{expandedFaq === idx ? '−' : '+'}</span>
+          </button>
+          {expandedFaq === idx && (
+            <div className="px-6 py-4 border-t-2" style={{ borderColor: '#0F5C4D', color: '#1F2933' }}>
+              <p className="leading-relaxed">{item.answer}</p>
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+  );
 };
 
 const HomePage: React.FC<{ reviews: Review[] }> = ({ reviews }) => {
@@ -314,7 +361,227 @@ const HomePage: React.FC<{ reviews: Review[] }> = ({ reviews }) => {
       {/* XPM Advantage Section */}
       <XPMAdvantage showBackground={true} variant="light" />
 
-      <style dangerouslySetInnerHTML={{ __html: `
+      {/* THE HEALING MIND SECTION */}
+      <HealingMindSidebar />
+      <SchemaMarkup 
+        pageTitle="The Healing Mind: Islam, Philosophy & Neuroscience"
+        pageDescription="Discover how Islam addresses depression, anxiety, and emotional pain through neuroscience-informed teaching by Prof. Mishal Razzaq."
+        canonical="https://xpmtutors.com"
+      />
+
+      {/* Hero Section */}
+      <section data-section="top" className="py-20 md:py-32 text-white" style={{ background: 'linear-gradient(135deg, #0F5C4D 0%, #0A4A3E 50%, #12324A 100%)' }}>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center md:text-left">
+            <div className="inline-block px-4 py-2 rounded-full mb-6 border-2" style={{ borderColor: '#C7A96B', backgroundColor: 'rgba(199, 169, 107, 0.1)' }}>
+              <p className="text-sm font-bold uppercase tracking-widest" style={{ color: '#C7A96B' }}>Scholarly Islamic Wellness</p>
+            </div>
+            <h2 className="text-5xl md:text-6xl lg:text-7xl font-black mb-4 leading-tight">
+              The Healing Mind
+            </h2>
+            <p className="text-2xl md:text-3xl font-bold mb-6" style={{ color: '#C7A96B' }}>Islam, Philosophy & Neuroscience</p>
+            <p className="text-lg md:text-xl mb-8 max-w-3xl leading-relaxed opacity-90">
+              Where ancient wisdom meets modern science to address depression, anxiety, trauma, and existential emptiness.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <a 
+                href="#healing-topics"
+                className="inline-block px-8 py-4 font-bold rounded-lg hover:opacity-90 transition shadow-xl text-navy-900"
+                style={{ backgroundColor: '#C7A96B' }}
+              >
+                Explore the Framework
+              </a>
+              <a 
+                href="#healing-contact"
+                className="inline-block px-8 py-4 font-bold rounded-lg hover:opacity-90 transition border-2"
+                style={{ borderColor: '#C7A96B', color: '#F8F5EE', backgroundColor: 'rgba(15, 92, 77, 0.5)' }}
+              >
+                Get in Touch
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* About Prof. Section */}
+      <section data-section="about" className="py-20 md:py-28 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: '#F8F5EE' }}>
+        <div className="max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h3 className="text-4xl md:text-5xl font-black mb-6" style={{ color: '#12324A' }}>
+                About Prof. Mishal Razzaq
+              </h3>
+              <p className="text-lg mb-4 leading-relaxed" style={{ color: '#1F2933' }}>
+                Prof. Mishal Razzaq is a specialized educator and thoughtful guide in the intersection of Islamic psychology, philosophy, and neuroscience-informed mental wellness.
+              </p>
+              <p className="text-lg mb-4 leading-relaxed" style={{ color: '#1F2933' }}>
+                With a deep commitment to bridging faith and reason, she brings together rigorous intellectual inquiry, compassionate human understanding, and scholarly engagement with Islamic teachings to address emotional, psychological, and spiritual struggles.
+              </p>
+            </div>
+            <div className="p-10 rounded-2xl shadow-xl border-2" style={{ backgroundColor: 'rgba(248, 245, 238, 0.7)', borderColor: '#0F5C4D' }}>
+              <h4 className="text-2xl font-bold mb-8" style={{ color: '#0F5C4D' }}>Core Expertise</h4>
+              <ul className="space-y-5">
+                <li className="flex gap-3">
+                  <span className="text-2xl font-bold" style={{ color: '#0F5C4D' }}>✦</span>
+                  <span style={{ color: '#1F2933' }}><strong>Islamic Psychology:</strong> Faith and emotional wellbeing</span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="text-2xl font-bold" style={{ color: '#0F5C4D' }}>✦</span>
+                  <span style={{ color: '#1F2933' }}><strong>Neuroscience of Faith:</strong> Brain science validating spiritual practice</span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="text-2xl font-bold" style={{ color: '#0F5C4D' }}>✦</span>
+                  <span style={{ color: '#1F2933' }}><strong>Islamic Philosophy:</strong> Purpose, meaning, consciousness</span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="text-2xl font-bold" style={{ color: '#0F5C4D' }}>✦</span>
+                  <span style={{ color: '#1F2933' }}><strong>Faith-Based Healing:</strong> Trauma recovery and resilience</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Core Topics */}
+      <section data-section="topics" id="healing-topics" className="py-20 md:py-28 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: '#F8F5EE' }}>
+        <div className="max-w-6xl mx-auto">
+          <h3 className="text-4xl md:text-5xl font-black mb-4 text-center" style={{ color: '#12324A' }}>
+            Understanding the Mind, Heart, and Spirit
+          </h3>
+          <p className="text-lg text-center mb-16 max-w-2xl mx-auto" style={{ color: '#1F2933' }}>A Scholarly Exploration</p>
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                title: "Neuroscience & Mind",
+                description: "How your brain works, stress responses, and the science behind Islamic practices like prayer and dhikr",
+                icon: "🧠"
+              },
+              {
+                title: "Depression & Hope",
+                description: "Understanding depression through both neuroscience and faith, with practical tools for healing",
+                icon: "🌟"
+              },
+              {
+                title: "Anxiety & Trust",
+                description: "How tawakkul (trust) and Islamic practices interrupt anxiety cycles and restore peace",
+                icon: "🤝"
+              },
+              {
+                title: "Trauma & Healing",
+                description: "Faith-based approaches to healing from trauma through forgiveness, renewal, and community",
+                icon: "💚"
+              },
+              {
+                title: "Purpose & Meaning",
+                description: "Finding identity and direction through Islamic philosophy and values",
+                icon: "🎯"
+              },
+              {
+                title: "Community & Belonging",
+                description: "How Islamic community structure combats loneliness and supports wellbeing",
+                icon: "👥"
+              }
+            ].map((topic, idx) => (
+              <div key={idx} className="p-8 rounded-xl shadow-md hover:shadow-lg transition border-2 bg-white" style={{ borderColor: '#0F5C4D' }}>
+                <div className="text-4xl mb-4">{topic.icon}</div>
+                <h4 className="text-xl font-bold mb-3" style={{ color: '#0F5C4D' }}>{topic.title}</h4>
+                <p style={{ color: '#1F2933' }}>{topic.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Islamic Framework */}
+      <section data-section="framework" className="py-20 md:py-28 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: '#F8F5EE' }}>
+        <div className="max-w-6xl mx-auto">
+          <h3 className="text-4xl md:text-5xl font-black mb-4 text-center" style={{ color: '#12324A' }}>
+            The Islamic Framework for Mental Wellbeing
+          </h3>
+          <p className="text-lg text-center mb-16 max-w-2xl mx-auto" style={{ color: '#1F2933' }}>Timeless Wisdom for Modern Challenges</p>
+          <div className="grid md:grid-cols-2 gap-8">
+            {[
+              { name: "Tawakkul", subtitle: "Trust & Release", description: "Place your trust in Allah after doing your best. This interrupts anxiety loops and restores peace." },
+              { name: "Sabr", subtitle: "Patient Perseverance", description: "Active perseverance through difficulty with faith that 'with hardship comes ease.'" },
+              { name: "Salah", subtitle: "Prayer as Foundation", description: "Five daily practices that regulate the nervous system and create spiritual connection." },
+              { name: "Dhikr", subtitle: "Sacred Remembrance", description: "Repetitive, meaningful phrases that interrupt rumination and calm the mind." }
+            ].map((item, idx) => (
+              <div key={idx} className="p-8 rounded-xl shadow-md hover:shadow-lg transition border-l-4 bg-white" style={{ borderColor: '#C7A96B', backgroundColor: 'rgba(15, 92, 77, 0.04)' }}>
+                <h4 className="text-2xl font-black mb-2" style={{ color: '#0F5C4D' }}>{item.name}</h4>
+                <p className="text-sm font-bold mb-3 uppercase tracking-widest" style={{ color: '#C7A96B' }}>{item.subtitle}</p>
+                <p style={{ color: '#1F2933' }} className="leading-relaxed">{item.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Services */}
+      <section data-section="services" className="py-20 md:py-28 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: 'rgba(248, 245, 238, 0.7)' }}>
+        <div className="max-w-6xl mx-auto">
+          <h3 className="text-4xl md:text-5xl font-black mb-4 text-center" style={{ color: '#12324A' }}>
+            Services & Engagement
+          </h3>
+          <p className="text-lg text-center mb-16 max-w-2xl mx-auto" style={{ color: '#1F2933' }}>How to Connect and Learn</p>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="p-8 rounded-xl shadow-md border-2 hover:border-" style={{ borderColor: '#0F5C4D' }}>
+              <h4 className="text-2xl font-bold mb-4" style={{ color: '#0F5C4D' }}>Educational Lectures</h4>
+              <p className="mb-4" style={{ color: '#1F2933' }}>In-depth presentations on Islamic psychology topics. Available in-person or virtual.</p>
+              <p className="text-sm font-bold" style={{ color: '#C7A96B' }}>For: Universities, conferences, communities</p>
+            </div>
+            <div className="p-8 rounded-xl shadow-md border-2 hover:border-" style={{ borderColor: '#0F5C4D' }}>
+              <h4 className="text-2xl font-bold mb-4" style={{ color: '#0F5C4D' }}>Workshops & Sessions</h4>
+              <p className="mb-4" style={{ color: '#1F2933' }}>Interactive workshops combining teaching, practice, and dialogue on mental wellness.</p>
+              <p className="text-sm font-bold" style={{ color: '#C7A96B' }}>For: Student groups, professional development</p>
+            </div>
+            <div className="p-8 rounded-xl shadow-md border-2 hover:border-" style={{ borderColor: '#0F5C4D' }}>
+              <h4 className="text-2xl font-bold mb-4" style={{ color: '#0F5C4D' }}>Mentoring & Guidance</h4>
+              <p className="mb-4" style={{ color: '#1F2933' }}>One-on-one or small-group mentoring for faith-based guidance on emotional wellbeing.</p>
+              <p className="text-sm font-bold" style={{ color: '#C7A96B' }}>For: Students, professionals, parents</p>
+            </div>
+            <div className="p-8 rounded-xl shadow-md border-2 hover:border-" style={{ borderColor: '#0F5C4D' }}>
+              <h4 className="text-2xl font-bold mb-4" style={{ color: '#0F5C4D' }}>Speaking & Collaboration</h4>
+              <p className="mb-4" style={{ color: '#1F2933' }}>Speaking engagements at conferences, interfaith dialogues, and media collaborations.</p>
+              <p className="text-sm font-bold" style={{ color: '#C7A96B' }}>For: Academic conferences, media partnerships</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section data-section="faq" className="py-20 md:py-28 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: '#F8F5EE' }}>
+        <div className="max-w-4xl mx-auto">
+          <h3 className="text-4xl md:text-5xl font-black mb-4 text-center" style={{ color: '#12324A' }}>
+            Questions & Answers
+          </h3>
+          <p className="text-lg text-center mb-16" style={{ color: '#1F2933' }}>Understanding Islam and Mental Wellness</p>
+          <HealingMindFAQ />
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section data-section="contact" id="healing-contact" className="py-20 md:py-28 text-white px-4 sm:px-6 lg:px-8" style={{ background: 'linear-gradient(135deg, #0F5C4D 0%, #0A4A3E 50%, #12324A 100%)' }}>
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-4xl md:text-5xl font-black mb-6">Ready to Engage?</h2>
+          <p className="text-xl mb-8 opacity-90">
+            Whether you're seeking to learn, attend a workshop, explore mentoring, or collaborate—we welcome genuine seekers of all backgrounds.
+          </p>
+          <div className="p-10 rounded-2xl border-2 mb-8" style={{ backgroundColor: 'rgba(199, 169, 107, 0.1)', borderColor: '#C7A96B' }}>
+            <p className="text-lg font-bold mb-3" style={{ color: '#C7A96B' }}>Connect via Email</p>
+            <a 
+              href="mailto:mishalrazaq665@gmail.com"
+              className="text-3xl md:text-4xl font-black hover:opacity-90 transition"
+              style={{ color: '#C7A96B' }}
+            >
+              mishalrazaq665@gmail.com
+            </a>
+          </div>
+          <p className="opacity-80">
+            Please include: your interest (lectures, workshops, mentoring, collaboration), your context, and any specific needs.
+          </p>
+        </div>
+      </section>
         @keyframes scrollVertical { 0% { transform: translateY(0); } 100% { transform: translateY(-50%); } }
         .animate-scroll-vertical { animation: scrollVertical 60s linear infinite; }
         .group-hover\\:pause-animation:hover { animation-play-state: paused; }
