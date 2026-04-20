@@ -39,6 +39,7 @@ const QuranBeginnerPage = lazy(() => import('./pages/QuranBeginnerPage.tsx'));
 const QuranIntermediatePage = lazy(() => import('./pages/QuranIntermediatePage.tsx'));
 const QuranAdvancedPage = lazy(() => import('./pages/QuranAdvancedPage.tsx'));
 const QuranExpertPage = lazy(() => import('./pages/QuranExpertPage.tsx'));
+const MishalRazzaqPage = lazy(() => import('./pages/MishalRazzaqPage.tsx'));
 const UKLandingPage = lazy(() => import('./pages/UKLandingPage.tsx'));
 const USLandingPage = lazy(() => import('./pages/USLandingPage.tsx'));
 const UAELandingPage = lazy(() => import('./pages/UAELandingPage.tsx'));
@@ -176,6 +177,7 @@ const App: React.FC = () => {
                 <Route path="/pma-tutors" element={<PageWrapper><ExamLandingPage exam="PMA Long Course" /></PageWrapper>} />
                 <Route path="/blog" element={<PageWrapper><BlogPage /></PageWrapper>} />
                 <Route path="/ir-services" element={<PageWrapper><IRServicesPage /></PageWrapper>} />
+                <Route path="/mishal-razzaq" element={<PageWrapper><MishalRazzaqPage /></PageWrapper>} />
                 <Route path="/quran-tutoring" element={<PageWrapper><QuranTutoringPage /></PageWrapper>} />
                 <Route path="/quran-beginner" element={<PageWrapper><QuranBeginnerPage /></PageWrapper>} />
                 <Route path="/quran-intermediate" element={<PageWrapper><QuranIntermediatePage /></PageWrapper>} />
