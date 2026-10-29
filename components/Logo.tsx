@@ -11,19 +11,16 @@ const Logo: React.FC<LogoProps> = ({ className = "h-10 w-10", showText = true })
   const { settings } = useSettings();
   const [logoError, setLogoError] = useState(false);
   
-  // Try multiple logo sources in order
-  const logoUrls = [
-    settings.logoUrl || '/xpm-logo.png',
-    '/xpm-logo.svg',
-    '/favicon-32x32.png'
-  ];
+  const logoUrl = settings.logoUrl || '/xpm-logo.svg';
 
   return (
     <div className={`flex items-center gap-3`}>
       {!logoError ? (
-        <img 
-          src={logoUrls[0]}
+        <img
+          src={logoUrl}
           alt="XPM Tutors - Expert Physics & Maths Tutors"
+          width={48}
+          height={48}
           className={className}
           style={{ objectFit: 'contain' }}
           loading="eager"

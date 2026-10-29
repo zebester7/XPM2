@@ -1,15 +1,17 @@
 
 import React, { useState, useEffect, Suspense, lazy, useCallback, useMemo } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { User, Review, Question } from './types.ts';
 import { db } from './db.ts';
 import { SettingsProvider } from './SettingsContext.tsx';
+import { applyRouteSeo, getRouteSeo } from './seoRoutes.ts';
 
 // Components
 import Navbar from './components/Navbar.tsx';
 import Footer from './components/Footer.tsx';
 import ScrollToTop from './components/ScrollToTop.tsx';
 import StickyDemoButton from './components/StickyDemoButton.tsx';
+import Breadcrumb from './components/Breadcrumb.tsx';
 
 // Optimized Lazy Loading
 const HomePage = lazy(() => import('./pages/HomePage.tsx'));
@@ -48,6 +50,8 @@ const PakistanLandingPage = lazy(() => import('./pages/PakistanLandingPage.tsx')
 const UKBlogPage = lazy(() => import('./pages/UKBlogPage.tsx'));
 const USBlogPage = lazy(() => import('./pages/USBlogPage.tsx'));
 const UAEBlogPage = lazy(() => import('./pages/UAEBlogPage.tsx'));
+const BlogPostPage = lazy(() => import('./pages/BlogPostPage.tsx'));
+const NotFoundPage = lazy(() => import('./pages/NotFoundPage.tsx'));
 
 const LoadingScreen = React.memo(() => (
   <div className="min-h-[60vh] flex items-center justify-center bg-slate-50">
@@ -67,6 +71,21 @@ const PageWrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   );
 };
 
+/** Keeps title, description and canonical in sync with the route registry on client-side navigation */
+const RouteSeo: React.FC = () => {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    applyRouteSeo(pathname);
+  }, [pathname]);
+  return null;
+};
+
+/** Breadcrumb bar for every registered page except the homepage */
+const LayoutBreadcrumb: React.FC = () => {
+  const { pathname } = useLocation();
+  return getRouteSeo(pathname) ? <Breadcrumb /> : null;
+};
+
 const ProtectedRoute: React.FC<{ user: User | null; children: React.ReactNode }> = ({ user, children }) => {
   if (!user) return <Navigate to="/login" replace />;
   return <>{children}</>;
@@ -75,7 +94,8 @@ const ProtectedRoute: React.FC<{ user: User | null; children: React.ReactNode }>
 const App: React.FC = () => {
   const [user, setUser] = useState<User | null>(null);
   const [questions, setQuestions] = useState<Question[]>([]);
-  const [reviews, setReviews] = useState<Review[]>([]);
+  // Read synchronously so prerendered pages include reviews (no layout shift when they appear)
+  const [reviews, setReviews] = useState<Review[]>(() => db.getReviews());
 
   useEffect(() => {
     // Initial Load Optimization: Run once
@@ -144,11 +164,12 @@ const App: React.FC = () => {
 
   return (
     <SettingsProvider>
-      <Router>
         <ScrollToTop />
+        <RouteSeo />
         <StickyDemoButton />
         <div className="flex flex-col min-h-screen overflow-x-hidden">
           <Navbar user={user} onLogout={handleLogout} />
+          <LayoutBreadcrumb />
           <main className="flex-grow relative">
             <Suspense fallback={<LoadingScreen />}>
               <Routes>
@@ -161,7 +182,7 @@ const App: React.FC = () => {
                 <Route path="/us/blog" element={<PageWrapper><USBlogPage /></PageWrapper>} />
                 <Route path="/ae" element={<PageWrapper><UAELandingPage /></PageWrapper>} />
                 <Route path="/ae/blog" element={<PageWrapper><UAEBlogPage /></PageWrapper>} />
-                <Route path="/pk/*" element={<PageWrapper><PakistanLandingPage /></PageWrapper>} />
+                <Route path="/pk" element={<PageWrapper><PakistanLandingPage /></PageWrapper>} />
                 
                 <Route path="/login" element={<PageWrapper>{!user ? <LoginPage onLogin={handleLogin} /> : <Navigate to="/dashboard" replace />}</PageWrapper>} />
                 <Route path="/signup" element={<PageWrapper>{!user ? <SignupPage onSignup={handleLogin} /> : <Navigate to="/dashboard" replace />}</PageWrapper>} />
@@ -177,6 +198,7 @@ const App: React.FC = () => {
                 <Route path="/net-entry-test-tutors" element={<PageWrapper><ExamLandingPage exam="NET Entry Test" /></PageWrapper>} />
                 <Route path="/pma-tutors" element={<PageWrapper><ExamLandingPage exam="PMA Long Course" /></PageWrapper>} />
                 <Route path="/blog" element={<PageWrapper><BlogPage /></PageWrapper>} />
+                <Route path="/blog/:slug" element={<PageWrapper><BlogPostPage /></PageWrapper>} />
                 <Route path="/ir-services" element={<PageWrapper><IRServicesPage /></PageWrapper>} />
                 <Route path="/mishal-razzaq" element={<PageWrapper><MishalRazzaqPage /></PageWrapper>} />
                 <Route path="/quran-tutoring" element={<PageWrapper><QuranTutoringPage /></PageWrapper>} />
@@ -231,12 +253,12 @@ const App: React.FC = () => {
                 />
                 
                 <Route path="/admin-panel" element={<AdminPanel />} />
+                <Route path="*" element={<PageWrapper><NotFoundPage /></PageWrapper>} />
               </Routes>
             </Suspense>
           </main>
           <Footer />
         </div>
-      </Router>
     </SettingsProvider>
   );
 };

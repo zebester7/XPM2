@@ -1,41 +1,51 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
+import JsonLd from '../components/JsonLd.tsx';
+import { generateFAQSchema } from '../seoHelper.ts';
 
 const QuranExpertPage: React.FC = () => {
-  useEffect(() => {
-    document.title = "Quran Scholarship Program | Advanced Islamic Studies | XPM Tutors";
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', 'Master advanced Islamic scholarship including Tafsir, Quranic linguistics, and scholarly interpretation. For advanced learners and academic students.');
-    }
-    
-    // Add structured data for SEO
-    const schemaScript = document.createElement('script');
-    schemaScript.type = 'application/ld+json';
-    schemaScript.innerHTML = JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "Course",
-      "name": "Quran Scholarship Program - Expert Level",
-      "description": "Advanced Islamic scholarship program covering Tafsir, Quranic linguistics, historical context, and scholarly interpretation",
-      "provider": {
-        "@type": "Organization",
-        "name": "XPM Tutors",
-        "url": "https://xpmtutors.com"
+  const courseSchema = {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "name": "Quran Scholarship Program - Expert Level",
+    "description": "Advanced Islamic scholarship program covering Tafsir, Quranic linguistics, historical context, and scholarly interpretation",
+    "provider": {
+      "@type": "Organization",
+      "name": "XPM Tutors",
+      "url": "https://www.xpmtutors.com"
+    },
+    "courseCode": "QURAN-004",
+    "duration": "P1Y",
+    "educationLevel": "University/Advanced"
+  };
+
+  const faqs = [
+      {
+        q: 'What is the prerequisite level for this program?',
+        a: 'Advanced Quranic knowledge is recommended. You should have completed intermediate-level courses or have equivalent knowledge. Entry assessments help tailor the program.'
       },
-      "courseCode": "QURAN-004",
-      "duration": "P1Y",
-      "educationLevel": "University/Advanced",
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.9",
-        "ratingCount": "120"
+      {
+        q: 'Can I combine multiple specializations?',
+        a: 'Absolutely! Many students pursue combined tracks like Tafsir + Arabic Linguistics. The curriculum is flexible and personalized to your goals.'
+      },
+      {
+        q: 'Will this prepare me for Islamic universities?',
+        a: 'Yes. Our curriculum aligns with university-level Islamic studies programs. Many alumni have successfully enrolled in Al-Azhar, Umm Al-Qura, and other prestigious institutions.'
+      },
+      {
+        q: 'Is the instruction in English or Arabic?',
+        a: 'We offer instruction in both English and Urdu. Arabic texts are studied in their original form with English/Urdu explanations when needed.'
+      },
+      {
+        q: 'Can I focus on just one area of specialization?',
+        a: 'Yes, completely customizable. You can focus exclusively on Tafsir, Arabic Linguistics, or any other area based on your academic interests.'
       }
-    });
-    document.head.appendChild(schemaScript);
-  }, []);
+    ];
 
   return (
     <div className="bg-white overflow-x-hidden">
+      <JsonLd data={courseSchema} />
+      <JsonLd data={generateFAQSchema(faqs.map(f => ({ question: f.q, answer: f.a })))} />
       {/* Hero Section */}
       <section className="relative py-16 lg:py-32 overflow-hidden bg-gradient-to-br from-purple-50 via-violet-50 to-white">
         <div className="absolute inset-0 overflow-hidden">
@@ -295,28 +305,7 @@ const QuranExpertPage: React.FC = () => {
           </div>
 
           <div className="space-y-6">
-            {[
-              {
-                q: 'What is the prerequisite level for this program?',
-                a: 'Advanced Quranic knowledge is recommended. You should have completed intermediate-level courses or have equivalent knowledge. Entry assessments help tailor the program.'
-              },
-              {
-                q: 'Can I combine multiple specializations?',
-                a: 'Absolutely! Many students pursue combined tracks like Tafsir + Arabic Linguistics. The curriculum is flexible and personalized to your goals.'
-              },
-              {
-                q: 'Will this prepare me for Islamic universities?',
-                a: 'Yes. Our curriculum aligns with university-level Islamic studies programs. Many alumni have successfully enrolled in Al-Azhar, Umm Al-Qura, and other prestigious institutions.'
-              },
-              {
-                q: 'Is the instruction in English or Arabic?',
-                a: 'We offer instruction in both English and Urdu. Arabic texts are studied in their original form with English/Urdu explanations when needed.'
-              },
-              {
-                q: 'Can I focus on just one area of specialization?',
-                a: 'Yes, completely customizable. You can focus exclusively on Tafsir, Arabic Linguistics, or any other area based on your academic interests.'
-              }
-            ].map((item, idx) => (
+            {faqs.map((item, idx) => (
               <details key={idx} className="bg-white p-6 rounded-xl border border-purple-200 group cursor-pointer">
                 <summary className="flex items-start gap-4 font-black text-slate-900 text-lg list-none">
                   <span className="text-purple-600 text-xl group-open:rotate-180 transition">+</span>

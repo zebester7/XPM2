@@ -1,20 +1,12 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
+import JsonLd from '../components/JsonLd.tsx';
 
 const QuranTutoringPage: React.FC = () => {
-  useEffect(() => {
-    document.title = "Online Quran Classes with Tajweed | Female Quran Tutors for Kids | Hifz Program 2026";
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', 'Expert Online Quran tutoring with Tajweed mastery, Hifz programs, and qualified female Qaris. Learn Quran with excellence. Book your free trial class now.');
-    }
-  }, []);
-
   return (
     <div className="bg-white overflow-x-hidden">
       {/* Schema Markup */}
-      <script type="application/ld+json">
-        {JSON.stringify({
+      <JsonLd data={{
           "@context": "https://schema.org",
           "@type": "Service",
           "name": "Online Quran Tutoring with Tajweed",
@@ -22,16 +14,15 @@ const QuranTutoringPage: React.FC = () => {
           "provider": {
             "@type": "Organization",
             "name": "XPM Tutors",
-            "url": "https://xpmtutors.com"
+            "url": "https://www.xpmtutors.com"
           },
           "areaServed": "Global",
           "offers": {
             "@type": "Offer",
             "name": "Free Demo Quran Class",
-            "url": "https://xpmtutors.com/hire-teacher"
+            "url": "https://www.xpmtutors.com/hire-teacher"
           }
-        })}
-      </script>
+        }} />
 
       {/* Hero Section - Serene Design */}
       <section className="relative py-16 lg:py-32 overflow-hidden bg-gradient-to-br from-emerald-50 via-blue-50 to-slate-50">

@@ -1,8 +1,9 @@
 
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { updatePageMeta } from '../seoHelper.ts';
-import Breadcrumb from '../components/Breadcrumb.tsx';
+import { Link, useLocation } from 'react-router-dom';
+import { generateFAQSchema } from '../seoHelper.ts';
+import JsonLd from '../components/JsonLd.tsx';
+import { canonicalUrl } from '../seoRoutes.ts';
 
 interface ExamLandingPageProps {
   exam: string;
@@ -77,36 +78,29 @@ const ExamLandingPage: React.FC<ExamLandingPageProps> = ({ exam }) => {
     faqs: []
   };
 
-  useEffect(() => {
-    // Update meta tags for SEO
-    updatePageMeta({
-      title: data.title,
-      description: data.description,
-      keywords: data.keywords,
-      canonical: `https://www.xpmtutors.com/${exam.toLowerCase().replace(/\s+/g, '-')}-tutors`,
-      structuredData: {
-        "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": `${exam} Tutors | XPM Tutors`,
-        "description": data.description,
-        "url": `https://www.xpmtutors.com/${exam.toLowerCase().replace(/\s+/g, '-')}-tutors`,
-        "image": "https://www.xpmtutors.com/logo.png",
-        "priceRange": "$$",
-        "areaServed": data.serviceArea || ["Pakistan", "United Kingdom", "UAE"],
-        "serviceType": `${exam} Tutoring`,
-        "availableLanguage": ["en", "ur"],
-        "sameAs": [
-          "https://facebook.com/xpmtutors",
-          "https://instagram.com/xpmtutors",
-          "https://twitter.com/xpmtutors"
-        ]
-      }
-    });
-  }, [exam, data]);
+  const { pathname } = useLocation();
+  const pageSchema = {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": `${exam} Tutors | XPM Tutors`,
+      "description": data.description,
+      "url": canonicalUrl(pathname),
+      "image": "https://www.xpmtutors.com/xpm-logo.svg",
+      "priceRange": "$$",
+      "areaServed": data.serviceArea || ["Pakistan", "United Kingdom", "UAE"],
+      "serviceType": `${exam} Tutoring`,
+      "availableLanguage": ["en", "ur"],
+      "sameAs": [
+        "https://facebook.com/xpmtutors",
+        "https://instagram.com/xpmtutors",
+        "https://twitter.com/xpmtutors"
+      ]
+    };
 
   return (
     <div className="bg-white min-h-screen">
-      <Breadcrumb />
+      <JsonLd data={pageSchema} />
+      {(data.faqs || []).length > 0 && <JsonLd data={generateFAQSchema((data.faqs || []))} />}
       
       <section className="bg-xpm-blue py-24 text-white">
         <div className="max-w-7xl mx-auto px-4 text-center">

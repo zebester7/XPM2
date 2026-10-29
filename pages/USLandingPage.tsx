@@ -1,22 +1,11 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { updatePageMeta } from '../seoHelper';
-import { addHrefLangTags, generateHreflangs, generateLocalBusinessSchema, addStructuredData } from '../internationalSEOHelper';
+import { generateLocalBusinessSchema, addStructuredData } from '../internationalSEOHelper';
 import { RegionalReviewsSection } from '../components/RegionalReviewsSection';
 
 const USLandingPage: React.FC = () => {
   useEffect(() => {
-    // Update SEO metadata
-    updatePageMeta({
-      title: 'SAT & AP Exam Prep Tutors USA | Expert Online Tutoring | XPM Tutors',
-      description: 'Best SAT and AP exam prep tutors in the USA. Expert online tutoring for high school and college prep. Free trial sessions. Trusted by thousands of US students.',
-      keywords: 'SAT tutor, AP tutor, SAT prep, AP exam help, high school tutoring USA, college prep tuition, PSAT tutor, ACT tutoring',
-      canonical: 'https://xpmtutors.com/us/'
-    });
 
-    // Add hreflang tags
-    const hreflangs = generateHreflangs('/us/', true);
-    addHrefLangTags(hreflangs);
 
     // Add LocalBusiness schema
     const localBusinessSchema = generateLocalBusinessSchema('en-us');

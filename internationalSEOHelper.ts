@@ -32,7 +32,7 @@ export function addHrefLangTags(hreflangs: HrefLangEntry[]): void {
  * Generate hreflang URLs for a page across all regions
  */
 export function generateHreflangs(pagePath: string, isRegionalPage: boolean = false): HrefLangEntry[] {
-  const baseUrl = 'https://xpmtutors.com';
+  const baseUrl = 'https://www.xpmtutors.com';
   const regions = ['uk', 'us', 'ae', 'pk'];
   const regionMap: Record<string, string> = {
     'uk': 'en-gb',
@@ -99,8 +99,8 @@ export function generateEducationalOrganizationSchema(countryCode: string = 'x-d
     '@type': 'EducationalOrganization',
     name: details.name,
     description: 'Expert online tutors for O Level, A Level, IGCSE, SAT, AP, IB, and more.',
-    url: 'https://xpmtutors.com',
-    logo: 'https://xpmtutors.com/logo.png',
+    url: 'https://www.xpmtutors.com',
+    logo: 'https://www.xpmtutors.com/xpm-logo.svg',
     telephone: details.telephone,
     areaServed: details.areaServed,
     priceRange: details.priceRange,
@@ -143,12 +143,7 @@ export function generateCourseSchemaLocalized(courseData: {
     provider: {
       '@type': 'EducationalOrganization',
       name: 'XPM Tutors',
-      url: 'https://xpmtutors.com'
-    },
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.9',
-      ratingCount: '2847'
+      url: 'https://www.xpmtutors.com'
     },
     ...(courseData.price && {
       offers: {
@@ -225,13 +220,13 @@ export function generateLocalBusinessSchema(countryCode: string) {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
     name: details.name,
-    image: 'https://xpmtutors.com/logo.png',
+    image: 'https://www.xpmtutors.com/xpm-logo.svg',
     description: 'Expert online tutoring service',
     address: details.address,
     telephone: details.telephone,
     priceRange: details.priceRange,
     areaServed: details.areaServed,
-    url: 'https://xpmtutors.com',
+    url: 'https://www.xpmtutors.com',
     sameAs: [
       'https://www.facebook.com/xpmtutors',
       'https://www.twitter.com/xpmtutors'

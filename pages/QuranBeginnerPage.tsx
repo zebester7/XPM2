@@ -1,45 +1,40 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
+import JsonLd from '../components/JsonLd.tsx';
+import { generateFAQSchema } from '../seoHelper.ts';
 
 const QuranBeginnerPage: React.FC = () => {
-  useEffect(() => {
-    document.title = "Quranic Foundations for Beginners | Learn Arabic & Tajweed Online | XPM Tutors";
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', 'Start your Quran learning journey with our Beginner Quranic Foundations course. Learn Arabic letters, basic Tajweed, and Surah Al-Fatiha. Free demo class available.');
+  const courseSchema = {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "name": "Quranic Foundations - Beginner Level",
+    "description": "Complete beginner-friendly Quran learning program covering Arabic letters, Tajweed basics, and Surah Al-Fatiha",
+    "provider": {
+      "@type": "Organization",
+      "name": "XPM Tutors",
+      "url": "https://www.xpmtutors.com"
+    },
+    "courseCode": "QURAN-001",
+    "duration": "P3M",
+    "url": "https://www.xpmtutors.com/quran-beginner",
+    "offers": {
+      "@type": "Offer",
+      "url": "https://www.xpmtutors.com/quran-beginner"
     }
-    
-    // Add structured data for SEO
-    const schemaScript = document.createElement('script');
-    schemaScript.type = 'application/ld+json';
-    schemaScript.innerHTML = JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "Course",
-      "name": "Quranic Foundations - Beginner Level",
-      "description": "Complete beginner-friendly Quran learning program covering Arabic letters, Tajweed basics, and Surah Al-Fatiha",
-      "provider": {
-        "@type": "Organization",
-        "name": "XPM Tutors",
-        "url": "https://xpmtutors.com"
-      },
-      "courseCode": "QURAN-001",
-      "duration": "P3M",
-      "syllabuUrl": "https://xpmtutors.com/quran-beginner",
-      "offers": {
-        "@type": "Offer",
-        "url": "https://xpmtutors.com/quran-beginner"
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.9",
-        "ratingCount": "150"
-      }
-    });
-    document.head.appendChild(schemaScript);
-  }, []);
+  };
+
+  const faqs = [
+      { q: 'What age is this course suitable for?', a: 'This course is perfect for all ages! We have students from 5 years old to adults. Our instructors adapt the teaching style to each student\'s age and learning pace.' },
+      { q: 'Do I need prior Quran knowledge?', a: 'No! This is specifically designed for complete beginners. We start from the very basics of Arabic letters.' },
+      { q: 'How long is each session?', a: 'Each session is typically 30-45 minutes, allowing ample time for learning and practice without overwhelming young learners.' },
+      { q: 'What if I miss a class?', a: 'We understand life happens! You can reschedule missed classes within 7 days or watch a recorded session.' },
+      { q: 'Can I progress to the next level after this?', a: 'Absolutely! Upon completion, you can move to our Tajweed Mastery course or continue with additional short Surahs.' }
+    ];
 
   return (
     <div className="bg-white overflow-x-hidden">
+      <JsonLd data={courseSchema} />
+      <JsonLd data={generateFAQSchema(faqs.map(f => ({ question: f.q, answer: f.a })))} />
       {/* Hero Section */}
       <section className="relative py-16 lg:py-32 overflow-hidden bg-gradient-to-br from-blue-50 via-emerald-50 to-white">
         <div className="absolute inset-0 overflow-hidden">
@@ -210,13 +205,7 @@ const QuranBeginnerPage: React.FC = () => {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-black text-slate-900 mb-12 text-center">Frequently Asked Questions</h2>
           <div className="space-y-6">
-            {[
-              { q: 'What age is this course suitable for?', a: 'This course is perfect for all ages! We have students from 5 years old to adults. Our instructors adapt the teaching style to each student\'s age and learning pace.' },
-              { q: 'Do I need prior Quran knowledge?', a: 'No! This is specifically designed for complete beginners. We start from the very basics of Arabic letters.' },
-              { q: 'How long is each session?', a: 'Each session is typically 30-45 minutes, allowing ample time for learning and practice without overwhelming young learners.' },
-              { q: 'What if I miss a class?', a: 'We understand life happens! You can reschedule missed classes within 7 days or watch a recorded session.' },
-              { q: 'Can I progress to the next level after this?', a: 'Absolutely! Upon completion, you can move to our Tajweed Mastery course or continue with additional short Surahs.' }
-            ].map((item, idx) => (
+            {faqs.map((item, idx) => (
               <div key={idx} className="bg-white p-6 rounded-xl border border-slate-100">
                 <h3 className="text-lg font-black text-slate-900 mb-2">{item.q}</h3>
                 <p className="text-slate-600">{item.a}</p>

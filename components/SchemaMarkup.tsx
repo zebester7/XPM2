@@ -17,8 +17,8 @@ const SchemaMarkup: React.FC<SchemaMarkupProps> = ({ type, data = {} }) => {
           "provider": {
             "@type": "Organization",
             "name": "XPM Tutors",
-            "url": "https://xpmtutors.com",
-            "logo": "https://xpmtutors.com/xpm-logo.svg",
+            "url": "https://www.xpmtutors.com",
+            "logo": "https://www.xpmtutors.com/xpm-logo.svg",
             "sameAs": [
               "https://facebook.com/xpmtutors",
               "https://twitter.com/xpmtutors",
@@ -32,12 +32,7 @@ const SchemaMarkup: React.FC<SchemaMarkupProps> = ({ type, data = {} }) => {
             "name": data.offerName || "Free Demo Class",
             "price": "0",
             "priceCurrency": "USD",
-            "url": "https://xpmtutors.com/hire-teacher"
-          },
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.9",
-            "ratingCount": "5000"
+            "url": "https://www.xpmtutors.com/hire-teacher"
           }
         };
 
@@ -49,11 +44,11 @@ const SchemaMarkup: React.FC<SchemaMarkupProps> = ({ type, data = {} }) => {
           "description": data.description || "Book your free trial tutoring session",
           "price": data.price || "0",
           "priceCurrency": data.currency || "USD",
-          "url": data.url || "https://xpmtutors.com/hire-teacher",
+          "url": data.url || "https://www.xpmtutors.com/hire-teacher",
           "offeredBy": {
             "@type": "Organization",
             "name": "XPM Tutors",
-            "url": "https://xpmtutors.com"
+            "url": "https://www.xpmtutors.com"
           },
           "availability": "https://schema.org/InStock",
           "validFrom": new Date().toISOString()
@@ -65,8 +60,8 @@ const SchemaMarkup: React.FC<SchemaMarkupProps> = ({ type, data = {} }) => {
           "@type": "Organization",
           "name": "XPM Tutors",
           "description": "Expert online tutoring for O Level, A Level, IGCSE, SAT, and entrance exams",
-          "url": "https://xpmtutors.com",
-          "logo": "https://xpmtutors.com/xpm-logo.svg",
+          "url": "https://www.xpmtutors.com",
+          "logo": "https://www.xpmtutors.com/xpm-logo.svg",
           "sameAs": [
             "https://facebook.com/xpmtutors",
             "https://twitter.com/xpmtutors",
@@ -76,11 +71,6 @@ const SchemaMarkup: React.FC<SchemaMarkupProps> = ({ type, data = {} }) => {
             "@type": "ContactPoint",
             "contactType": "Customer Support",
             "email": "support@xpmtutors.com"
-          },
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.9",
-            "ratingCount": "5000"
           }
         };
 
@@ -122,7 +112,7 @@ export const generateSchemaScript = (type: 'service' | 'offer' | 'organization' 
           "provider": {
             "@type": "Organization",
             "name": "XPM Tutors",
-            "url": "https://xpmtutors.com"
+            "url": "https://www.xpmtutors.com"
           },
           "areaServed": "Global",
           "offers": {

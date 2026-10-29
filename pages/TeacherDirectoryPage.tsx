@@ -2,19 +2,13 @@
 import React, { useState, useEffect } from 'react';
 import { Teacher } from '../types';
 import { db } from '../db';
-import { generateTeacherSchema, updatePageMeta } from '../seoHelper';
+import { generateTeacherSchema } from '../seoHelper';
 
 const TeacherDirectoryPage: React.FC = () => {
   const [teachers] = useState<Teacher[]>(db.getTeachers());
 
   useEffect(() => {
     // Update page meta with directory information
-    updatePageMeta({
-      title: 'Expert Online Tutors Directory | XPM Tutors',
-      description: 'Browse our expert online tutors for O Level, A Level, IGCSE, and other exams. Find qualified teachers and contact them directly on WhatsApp.',
-      keywords: 'tutors, teacher directory, online tutors, expert teachers, O Level, A Level',
-      canonical: 'https://www.xpmtutors.com/teacher-directory'
-    });
 
     // Inject schema for the directory listing
     const directorySchema = {

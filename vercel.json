@@ -1,8 +1,43 @@
 {
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/tutor/mishal-razzaq", "destination": "/mishal-razzaq", "permanent": true },
+    { "source": "/pk/blog", "destination": "/blog", "permanent": true },
+    { "source": "/pk/:path+", "destination": "/pk", "permanent": true },
+    { "source": "/o-level-tutors-uk", "destination": "/uk", "permanent": true },
+    { "source": "/a-level-tutors-uk", "destination": "/uk", "permanent": true },
+    { "source": "/o-level-tutors-usa", "destination": "/us", "permanent": true },
+    { "source": "/a-level-tutors-usa", "destination": "/us", "permanent": true },
+    { "source": "/o-level-tutors-pakistan", "destination": "/pk", "permanent": true },
+    { "source": "/a-level-tutors-pakistan", "destination": "/pk", "permanent": true },
+    { "source": "/o-level-tutors-karachi", "destination": "/o-level-tutors", "permanent": true },
+    { "source": "/o-level-tutors-lahore", "destination": "/o-level-tutors", "permanent": true },
+    { "source": "/o-level-tutors-rawalpindi", "destination": "/o-level-tutors-islamabad", "permanent": true },
+    { "source": "/o-level-physics-tutor", "destination": "/o-level-tutors", "permanent": true },
+    { "source": "/o-level-maths-tutor", "destination": "/o-level-tutors", "permanent": true },
+    { "source": "/o-level-chemistry-tutor", "destination": "/o-level-tutors", "permanent": true },
+    { "source": "/index", "destination": "/", "permanent": true }
+  ],
   "rewrites": [
+    { "source": "/login", "destination": "/app-shell.html" },
+    { "source": "/signup", "destination": "/app-shell.html" },
+    { "source": "/dashboard", "destination": "/app-shell.html" },
+    { "source": "/payment", "destination": "/app-shell.html" },
+    { "source": "/teacher-registration", "destination": "/app-shell.html" },
+    { "source": "/subjects", "destination": "/app-shell.html" },
+    { "source": "/subjects/:id", "destination": "/app-shell.html" },
+    { "source": "/past-papers", "destination": "/app-shell.html" },
+    { "source": "/questions", "destination": "/app-shell.html" },
+    { "source": "/syllabus-precision", "destination": "/app-shell.html" },
+    { "source": "/study-groups", "destination": "/app-shell.html" },
+    { "source": "/admin", "destination": "/app-shell.html" },
+    { "source": "/admin-panel", "destination": "/app-shell.html" }
+  ],
+  "headers": [
     {
-      "source": "/(.*)",
-      "destination": "/index.html"
+      "source": "/assets/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
     }
   ]
 }

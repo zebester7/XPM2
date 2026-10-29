@@ -110,7 +110,7 @@ export function generateCourseSchema(data: {
       "@type": "Organization",
       "name": data.provider || "XPM Tutors",
       "url": "https://www.xpmtutors.com",
-      "logo": "https://www.xpmtutors.com/logo.png"
+      "logo": "https://www.xpmtutors.com/xpm-logo.svg"
     }
   };
 }
@@ -182,13 +182,13 @@ export function generateBlogSchema(data: {
     },
     "datePublished": data.publishedDate,
     "dateModified": data.modifiedDate || data.publishedDate,
-    "image": data.image || "https://www.xpmtutors.com/logo.png",
+    "image": data.image || "https://www.xpmtutors.com/xpm-logo.svg",
     "publisher": {
       "@type": "Organization",
       "name": "XPM Tutors",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://www.xpmtutors.com/logo.png"
+        "url": "https://www.xpmtutors.com/xpm-logo.svg"
       }
     },
     "mainEntityOfPage": {
@@ -330,7 +330,7 @@ export function generateLocalBusinessSchema(data: {
     "name": data.name,
     "description": data.description,
     "url": "https://www.xpmtutors.com",
-    "image": "https://www.xpmtutors.com/logo.png",
+    "image": "https://www.xpmtutors.com/xpm-logo.svg",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": data.city,
@@ -363,7 +363,7 @@ export function generateEducationalServiceSchema(data: {
       "@type": "Organization",
       "name": "XPM Tutors",
       "url": "https://www.xpmtutors.com",
-      "logo": "https://www.xpmtutors.com/logo.png"
+      "logo": "https://www.xpmtutors.com/xpm-logo.svg"
     }
   };
 }

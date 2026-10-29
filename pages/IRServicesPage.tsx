@@ -1,20 +1,12 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
+import JsonLd from '../components/JsonLd.tsx';
 
 const IRServicesPage: React.FC = () => {
-  useEffect(() => {
-    document.title = "Professional O Level IR Writing Help | Custom Global Perspectives Report | XPM Tutors";
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', 'Expert Professional IR writing help for O Level Global Perspectives. Get distinction-grade Individual Report support with personalized guidance. Book free demo today.');
-    }
-  }, []);
-
   return (
     <div className="bg-white overflow-x-hidden">
       {/* Schema Markup */}
-      <script type="application/ld+json">
-        {JSON.stringify({
+      <JsonLd data={{
           "@context": "https://schema.org",
           "@type": "Service",
           "name": "Professional O Level IR Writing Consultancy",
@@ -22,29 +14,23 @@ const IRServicesPage: React.FC = () => {
           "provider": {
             "@type": "Organization",
             "name": "XPM Tutors",
-            "url": "https://xpmtutors.com",
-            "logo": "https://xpmtutors.com/logo.png",
+            "url": "https://www.xpmtutors.com",
+            "logo": "https://www.xpmtutors.com/xpm-logo.svg",
             "sameAs": ["https://facebook.com/xpmtutors"]
           },
           "areaServed": {
             "@type": "Country",
             "name": "Global"
           },
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.8",
-            "ratingCount": "180"
-          },
           "offers": {
             "@type": "Offer",
             "name": "Free Demo IR Consultancy Session",
             "price": "0",
             "priceCurrency": "USD",
-            "url": "https://xpmtutors.com/hire-teacher"
+            "url": "https://www.xpmtutors.com/hire-teacher"
           },
           "serviceType": ["Academic Writing Support", "Individual Report Consultation", "Global Perspectives Tutoring"]
-        })}
-      </script>
+        }} />
 
       {/* Hero Section */}
       <section className="relative py-16 lg:py-32 overflow-hidden bg-gradient-to-br from-blue-50 via-white to-slate-50">

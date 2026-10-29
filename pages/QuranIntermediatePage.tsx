@@ -1,40 +1,30 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
+import JsonLd from '../components/JsonLd.tsx';
 
 const QuranIntermediatePage: React.FC = () => {
-  useEffect(() => {
-    document.title = "Tajweed Mastery Course | Advanced Quran Rules | XPM Tutors";
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', 'Master advanced Tajweed rules with our Intermediate course. Learn proper Quranic recitation techniques from certified Qaris. Free demo available.');
+  const courseSchema = {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "name": "Tajweed Mastery - Intermediate Level",
+    "description": "Advanced Tajweed course for intermediate Quran learners covering Ghunnah, Qalqalah, Idgham and professional recitation",
+    "provider": {
+      "@type": "Organization",
+      "name": "XPM Tutors",
+      "url": "https://www.xpmtutors.com"
+    },
+    "courseCode": "QURAN-002",
+    "duration": "P6M",
+    "coursePrerequisites": "Completion of Quranic Foundations or intermediate-level Quran knowledge",
+    "offers": {
+      "@type": "Offer",
+      "url": "https://www.xpmtutors.com/quran-intermediate"
     }
-    
-    // Add structured data for SEO
-    const schemaScript = document.createElement('script');
-    schemaScript.type = 'application/ld+json';
-    schemaScript.innerHTML = JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "Course",
-      "name": "Tajweed Mastery - Intermediate Level",
-      "description": "Advanced Tajweed course for intermediate Quran learners covering Ghunnah, Qalqalah, Idgham and professional recitation",
-      "provider": {
-        "@type": "Organization",
-        "name": "XPM Tutors",
-        "url": "https://xpmtutors.com"
-      },
-      "courseCode": "QURAN-002",
-      "duration": "P6M",
-      "coursePrerequisites": "Completion of Quranic Foundations or intermediate-level Quran knowledge",
-      "offers": {
-        "@type": "Offer",
-        "url": "https://xpmtutors.com/quran-intermediate"
-      }
-    });
-    document.head.appendChild(schemaScript);
-  }, []);
+  };
 
   return (
     <div className="bg-white overflow-x-hidden">
+      <JsonLd data={courseSchema} />
       {/* Hero Section */}
       <section className="relative py-16 lg:py-32 overflow-hidden bg-gradient-to-br from-emerald-50 via-green-50 to-white">
         <div className="absolute inset-0 overflow-hidden">

@@ -58,14 +58,15 @@ const Footer: React.FC = () => {
             <ul className="space-y-3 text-slate-300 font-medium text-sm">
               <li><Link to="/mishal-razzaq" className="hover:text-xpm-green transition">The Healing Mind</Link></li>
               <li><Link to="/quran-tutoring" className="hover:text-xpm-green transition">Quran Tutoring</Link></li>
-              <li><Link to="/ir-services" className="hover:text-xpm-green transition">Islamic Resources</Link></li>
-              <li><Link to="/teacher-registration" className="hover:text-xpm-green transition">Become a Tutor</Link></li>
+              <li><Link to="/ir-services" className="hover:text-xpm-green transition">IR Writing Support</Link></li>
+              <li><Link to="/o-level-tutors-islamabad" className="hover:text-xpm-green transition">O Level Tutors Islamabad</Link></li>
+              <li><Link to="/a-level-tutors-islamabad" className="hover:text-xpm-green transition">A Level Tutors Islamabad</Link></li>
             </ul>
           </div>
         </div>
 
         <div className="mt-16 pt-8 border-t border-white/5">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
             <div className="text-xs text-slate-400">
               <p className="font-bold mb-3 text-slate-300">Popular Subjects</p>
               <div className="flex flex-wrap gap-2">
@@ -73,6 +74,15 @@ const Footer: React.FC = () => {
                 <Link to="/subjects" className="text-[10px] bg-slate-800 px-2 py-1 rounded hover:bg-slate-700 transition">Mathematics</Link>
                 <Link to="/subjects" className="text-[10px] bg-slate-800 px-2 py-1 rounded hover:bg-slate-700 transition">Chemistry</Link>
                 <Link to="/subjects" className="text-[10px] bg-slate-800 px-2 py-1 rounded hover:bg-slate-700 transition">Biology</Link>
+              </div>
+            </div>
+            <div className="text-xs text-slate-400">
+              <p className="font-bold mb-3 text-slate-300">Tutoring by Region</p>
+              <div className="flex flex-wrap gap-2">
+                <Link to="/uk" className="text-[10px] bg-slate-800 px-2 py-1 rounded hover:bg-slate-700 transition">United Kingdom</Link>
+                <Link to="/us" className="text-[10px] bg-slate-800 px-2 py-1 rounded hover:bg-slate-700 transition">United States</Link>
+                <Link to="/ae" className="text-[10px] bg-slate-800 px-2 py-1 rounded hover:bg-slate-700 transition">UAE</Link>
+                <Link to="/pk" className="text-[10px] bg-slate-800 px-2 py-1 rounded hover:bg-slate-700 transition">Pakistan</Link>
               </div>
             </div>
             <div className="text-xs text-slate-400">

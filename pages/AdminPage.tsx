@@ -529,7 +529,7 @@ const AdminPage: React.FC<AdminPageProps> = ({ adminUser, questions, reviews, on
                   <div><h4 className="font-black text-slate-900 text-lg">{user.name}</h4><p className="text-xs font-bold text-slate-400 uppercase">{user.email}</p></div>
                   {user.paymentProof && (
                     <div className="space-y-4">
-                      <div className="aspect-video w-full rounded-2xl overflow-hidden border-4 border-white shadow-xl"><img src={user.paymentProof.screenshot} className="w-full h-full object-cover" /></div>
+                      <div className="aspect-video w-full rounded-2xl overflow-hidden border-4 border-white shadow-xl"><img src={user.paymentProof.screenshot} alt={`Payment proof uploaded by ${user.name}`} className="w-full h-full object-cover" /></div>
                       <button onClick={() => handleApprovePayment(user)} className="w-full py-4 bg-xpm-green text-white font-black rounded-2xl shadow-lg text-xs uppercase">Approve Access</button>
                     </div>
                   )}
@@ -560,17 +560,17 @@ const AdminPage: React.FC<AdminPageProps> = ({ adminUser, questions, reviews, on
                         <div className="bg-white p-6 rounded-xl border border-slate-100 shadow-inner grid grid-cols-1 md:grid-cols-3 gap-4">
                           <div>
                             <div className="text-[10px] font-black text-slate-400 uppercase mb-2">Utility Bill</div>
-                            {t.utilityBill ? <img src={t.utilityBill} className="w-full h-48 object-contain rounded-lg border" /> : <div className="text-xs text-slate-400">Not provided</div>}
+                            {t.utilityBill ? <img src={t.utilityBill} alt={`Utility bill submitted by ${t.name}`} className="w-full h-48 object-contain rounded-lg border" /> : <div className="text-xs text-slate-400">Not provided</div>}
                           </div>
                           <div>
                             <div className="text-[10px] font-black text-slate-400 uppercase mb-2">CNIC / ID</div>
-                            {t.cnic ? <img src={t.cnic} className="w-full h-48 object-contain rounded-lg border" /> : <div className="text-xs text-slate-400">Not provided</div>}
+                            {t.cnic ? <img src={t.cnic} alt={`CNIC submitted by ${t.name}`} className="w-full h-48 object-contain rounded-lg border" /> : <div className="text-xs text-slate-400">Not provided</div>}
                           </div>
                           <div>
                             <div className="text-[10px] font-black text-slate-400 uppercase mb-2">Degree</div>
-                            {t.degree ? <img src={t.degree} className="w-full h-48 object-contain rounded-lg border" /> : <div className="text-xs text-slate-400">Not provided</div>}
+                            {t.degree ? <img src={t.degree} alt={`Degree submitted by ${t.name}`} className="w-full h-48 object-contain rounded-lg border" /> : <div className="text-xs text-slate-400">Not provided</div>}
                             <div className="mt-4 text-[10px] font-black text-slate-400 uppercase mb-2">Payment Screenshot</div>
-                            {t.paymentScreenshot ? <img src={t.paymentScreenshot} className="w-full h-48 object-contain rounded-lg border" /> : <div className="text-xs text-slate-400">Not provided</div>}
+                            {t.paymentScreenshot ? <img src={t.paymentScreenshot} alt={`Payment screenshot submitted by ${t.name}`} className="w-full h-48 object-contain rounded-lg border" /> : <div className="text-xs text-slate-400">Not provided</div>}
                             {t.transactionId && <div className="mt-2 text-xs font-bold">Txn ID: {t.transactionId}</div>}
                           </div>
                         </div>

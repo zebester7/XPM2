@@ -125,7 +125,7 @@ export function getHreflangs(pagePathname: string): Array<{ rel: string; href: s
   
   // Build hreflang links for all regions
   const regions = ['uk', 'us', 'ae', 'pk'];
-  const baseUrl = typeof window !== 'undefined' ? window.location.origin : 'https://xpmtutors.com';
+  const baseUrl = typeof window !== 'undefined' ? window.location.origin : 'https://www.xpmtutors.com';
   
   const links = regions.map(region => ({
     rel: `alternate`,

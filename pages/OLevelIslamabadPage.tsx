@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { updatePageMeta } from '../seoHelper.ts';
-import Breadcrumb from '../components/Breadcrumb.tsx';
+import { generateFAQSchema } from '../seoHelper.ts';
+import JsonLd from '../components/JsonLd.tsx';
 
 const OLevelIslamabadPage: React.FC = () => {
   const seoMetadata = {
@@ -53,49 +53,42 @@ const OLevelIslamabadPage: React.FC = () => {
     ]
   };
 
-  useEffect(() => {
-    updatePageMeta({
-      title: seoMetadata.title,
-      description: seoMetadata.description,
-      keywords: seoMetadata.keywords,
-      canonical: seoMetadata.canonical,
-      structuredData: {
-        "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "O Level Tutors in Islamabad | XPM Tutors",
-        "description": seoMetadata.description,
-        "url": "https://www.xpmtutors.com/o-level-tutors-islamabad",
-        "image": "https://www.xpmtutors.com/logo.png",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Islamabad",
-          "addressRegion": "Islamabad",
-          "addressCountry": "PK"
-        },
-        "areaServed": {
-          "@type": "City",
-          "name": "Islamabad, Pakistan",
-          "sameAs": "https://en.wikipedia.org/wiki/Islamabad"
-        },
-        "serviceType": "O Level Tutoring",
-        "priceRange": "$$",
-        "availableLanguage": ["en", "ur"],
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "contactType": "Customer Support",
-          "availableLanguage": ["en", "ur"]
-        },
-        "sameAs": [
-          "https://facebook.com/xpmtutors",
-          "https://instagram.com/xpmtutors"
-        ]
-      }
-    });
-  }, []);
+  const pageSchema = {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "O Level Tutors in Islamabad | XPM Tutors",
+      "description": seoMetadata.description,
+      "url": "https://www.xpmtutors.com/o-level-tutors-islamabad",
+      "image": "https://www.xpmtutors.com/xpm-logo.svg",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Islamabad",
+        "addressRegion": "Islamabad",
+        "addressCountry": "PK"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Islamabad, Pakistan",
+        "sameAs": "https://en.wikipedia.org/wiki/Islamabad"
+      },
+      "serviceType": "O Level Tutoring",
+      "priceRange": "$$",
+      "availableLanguage": ["en", "ur"],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Customer Support",
+        "availableLanguage": ["en", "ur"]
+      },
+      "sameAs": [
+        "https://facebook.com/xpmtutors",
+        "https://instagram.com/xpmtutors"
+      ]
+    };
 
   return (
     <div className="bg-white min-h-screen">
-      <Breadcrumb />
+      <JsonLd data={pageSchema} />
+      {content.faqs.length > 0 && <JsonLd data={generateFAQSchema(content.faqs)} />}
 
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-xpm-blue to-blue-700 py-24 text-white">

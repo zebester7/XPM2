@@ -1,22 +1,11 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { updatePageMeta } from '../seoHelper';
-import { addHrefLangTags, generateHreflangs, generateLocalBusinessSchema, addStructuredData } from '../internationalSEOHelper';
+import { generateLocalBusinessSchema, addStructuredData } from '../internationalSEOHelper';
 import { RegionalReviewsSection } from '../components/RegionalReviewsSection';
 
 const UKLandingPage: React.FC = () => {
   useEffect(() => {
-    // Update SEO metadata
-    updatePageMeta({
-      title: 'GCSE & A Level Tutors in UK | Expert Online Tutoring | XPM Tutors',
-      description: 'Best GCSE and A Level tutors in the UK. Expert online tutoring for Cambridge, IGCSE, and A Levels. Free trial sessions. Trusted by thousands of UK students.',
-      keywords: 'GCSE tutor, A Level tutor UK, IGCSE tutor, Cambridge, Maths tutor London, Physics tutor UK, Chemistry tutor, online tutoring UK',
-      canonical: 'https://xpmtutors.com/uk/'
-    });
 
-    // Add hreflang tags
-    const hreflangs = generateHreflangs('/uk/', true);
-    addHrefLangTags(hreflangs);
 
     // Add LocalBusiness schema
     const localBusinessSchema = generateLocalBusinessSchema('en-gb');

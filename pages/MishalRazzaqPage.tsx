@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import SchemaMarkup from '../components/SchemaMarkup.tsx';
+import JsonLd from '../components/JsonLd.tsx';
+import { generateFAQSchema } from '../seoHelper.ts';
 
 // Premium color palette matching Aql & Imaan design
 const colors = {
@@ -114,21 +115,24 @@ const MishalRazzaqPage: React.FC = () => {
     <motion.div 
       className="min-h-screen"
       style={{ backgroundColor: colors.ivory }}
-      initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6 }}
     >
-      <SchemaMarkup 
-        pageTitle="The Healing Mind: Islam, Philosophy & Neuroscience"
-        pageDescription="Discover how Islam addresses depression, anxiety, and emotional pain through neuroscience-informed teaching by Prof. Mishal Razzaq."
-        canonical="https://xpmtutors.com/mishal-razzaq"
-      />
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "The Healing Mind: Islam, Philosophy & Neuroscience",
+        "description": "Discover how Islam addresses depression, anxiety, and emotional pain through neuroscience-informed teaching by Prof. Mishal Razzaq.",
+        "url": "https://www.xpmtutors.com/mishal-razzaq",
+        "about": { "@type": "Person", "name": "Mishal Razzaq" },
+        "publisher": { "@id": "https://www.xpmtutors.com/#organization" }
+      }} />
+      <JsonLd data={generateFAQSchema(faqItems)} />
 
       {/* Hero Section - Redesigned Premium Style */}
       <motion.section 
         className="relative py-24 md:py-40 text-white overflow-hidden"
         style={{ background: `linear-gradient(135deg, ${colors.darkNavy} 0%, ${colors.navy} 50%, ${colors.lightNavy} 100%)` }}
-        initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
       >
@@ -138,7 +142,6 @@ const MishalRazzaqPage: React.FC = () => {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div 
             className="text-center mb-12"
-            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
@@ -148,7 +151,6 @@ const MishalRazzaqPage: React.FC = () => {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
@@ -164,7 +166,6 @@ const MishalRazzaqPage: React.FC = () => {
 
           <motion.div 
             className="flex flex-col sm:flex-row gap-4 pt-8"
-            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
           >
@@ -255,6 +256,8 @@ const MishalRazzaqPage: React.FC = () => {
                 <img 
                   src={item.image} 
                   alt={item.title}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-48 object-cover group-hover:scale-110 transition duration-500"
                 />
                 <div className="p-8 bg-white">

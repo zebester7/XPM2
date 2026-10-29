@@ -1,45 +1,55 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
+import JsonLd from '../components/JsonLd.tsx';
+import { generateFAQSchema } from '../seoHelper.ts';
 
 const QuranAdvancedPage: React.FC = () => {
-  useEffect(() => {
-    document.title = "Hifz Program | Complete Quran Memorization | XPM Tutors";
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', 'Join our Hifz program and memorize the entire Quran with professional guidance. Daily sessions with certified Hafiz instructors. Become a Hafiz with XPM.');
+  const courseSchema = {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "name": "Hifz Program - Complete Quran Memorization",
+    "description": "Comprehensive Hifz program to memorize the entire 30 Juzs of the Quran under guidance of certified Hafiz instructors",
+    "provider": {
+      "@type": "Organization",
+      "name": "XPM Tutors",
+      "url": "https://www.xpmtutors.com"
+    },
+    "courseCode": "QURAN-003",
+    "duration": "P2Y",
+    "hasCourseInstance": {
+      "@type": "CourseInstance",
+      "name": "Standard Hifz - Daily Sessions",
+      "description": "7 days per week daily Hifz sessions with certified instructors"
     }
-    
-    // Add structured data for SEO
-    const schemaScript = document.createElement('script');
-    schemaScript.type = 'application/ld+json';
-    schemaScript.innerHTML = JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "Course",
-      "name": "Hifz Program - Complete Quran Memorization",
-      "description": "Comprehensive Hifz program to memorize the entire 30 Juzs of the Quran under guidance of certified Hafiz instructors",
-      "provider": {
-        "@type": "Organization",
-        "name": "XPM Tutors",
-        "url": "https://xpmtutors.com"
+  };
+
+  const faqs = [
+      {
+        q: 'Do I need to know Arabic to start Hifz?',
+        a: 'No, you can start Hifz without knowing Arabic. Our instructors teach proper pronunciation and Tajweed rules so you memorize correctly.'
       },
-      "courseCode": "QURAN-003",
-      "duration": "P2Y",
-      "hasCourseInstance": {
-        "@type": "CourseInstance",
-        "name": "Standard Hifz - Daily Sessions",
-        "description": "7 days per week daily Hifz sessions with certified instructors"
+      {
+        q: 'What if I miss sessions?',
+        a: 'We provide make-up sessions. However, consistent attendance is crucial for success. Our flexible scheduling helps accommodate your schedule.'
       },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.95",
-        "ratingCount": "200"
+      {
+        q: 'Can I do Hifz alongside work or studies?',
+        a: 'Yes! Many of our students balance work/studies with Hifz. 1 hour daily + weekend intensive sessions can work with planning.'
+      },
+      {
+        q: 'How do you assess my progress?',
+        a: 'Weekly progress tests, monthly assessments, and quarterly evaluations track your memorization. We adjust the pace based on your ability.'
+      },
+      {
+        q: 'What happens after I complete Hifz?',
+        a: 'You receive a certificate of completion recognized by Islamic scholars. Many become Hafiz teachers or continue advanced Islamic studies.'
       }
-    });
-    document.head.appendChild(schemaScript);
-  }, []);
+    ];
 
   return (
     <div className="bg-white overflow-x-hidden">
+      <JsonLd data={courseSchema} />
+      <JsonLd data={generateFAQSchema(faqs.map(f => ({ question: f.q, answer: f.a })))} />
       {/* Hero Section */}
       <section className="relative py-16 lg:py-32 overflow-hidden bg-gradient-to-br from-orange-50 via-amber-50 to-white">
         <div className="absolute inset-0 overflow-hidden">
@@ -239,28 +249,7 @@ const QuranAdvancedPage: React.FC = () => {
           </div>
 
           <div className="space-y-6">
-            {[
-              {
-                q: 'Do I need to know Arabic to start Hifz?',
-                a: 'No, you can start Hifz without knowing Arabic. Our instructors teach proper pronunciation and Tajweed rules so you memorize correctly.'
-              },
-              {
-                q: 'What if I miss sessions?',
-                a: 'We provide make-up sessions. However, consistent attendance is crucial for success. Our flexible scheduling helps accommodate your schedule.'
-              },
-              {
-                q: 'Can I do Hifz alongside work or studies?',
-                a: 'Yes! Many of our students balance work/studies with Hifz. 1 hour daily + weekend intensive sessions can work with planning.'
-              },
-              {
-                q: 'How do you assess my progress?',
-                a: 'Weekly progress tests, monthly assessments, and quarterly evaluations track your memorization. We adjust the pace based on your ability.'
-              },
-              {
-                q: 'What happens after I complete Hifz?',
-                a: 'You receive a certificate of completion recognized by Islamic scholars. Many become Hafiz teachers or continue advanced Islamic studies.'
-              }
-            ].map((item, idx) => (
+            {faqs.map((item, idx) => (
               <details key={idx} className="bg-orange-50 p-6 rounded-xl border border-orange-200 group cursor-pointer">
                 <summary className="flex items-start gap-4 font-black text-slate-900 text-lg list-none">
                   <span className="text-orange-600 text-xl group-open:rotate-180 transition">+</span>

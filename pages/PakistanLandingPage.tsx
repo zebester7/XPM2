@@ -1,21 +1,10 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { updatePageMeta } from '../seoHelper';
-import { addHrefLangTags, generateHreflangs, generateLocalBusinessSchema, addStructuredData } from '../internationalSEOHelper';
+import { generateLocalBusinessSchema, addStructuredData } from '../internationalSEOHelper';
 
 const PakistanLandingPage: React.FC = () => {
   useEffect(() => {
-    // Update SEO metadata
-    updatePageMeta({
-      title: 'O & A Level Tutors Pakistan | Expert Online Classes | XPM Tutors',
-      description: 'Best O Level and A Level tutors in Pakistan. Expert online tutoring for Cambridge curriculum. Free trial sessions. Trusted by thousands of Pakistani students.',
-      keywords: 'O Level tutor Pakistan, A Level tutor Pakistan, IGCSE tutor Pakistan, Cambridge tutor Pakistan, Maths tutor Pakistan, Physics tutor Pakistan, Online tutor Pakistan',
-      canonical: 'https://xpmtutors.com/pk/'
-    });
 
-    // Add hreflang tags
-    const hreflangs = generateHreflangs('/pk/', true);
-    addHrefLangTags(hreflangs);
 
     // Add LocalBusiness schema
     const localBusinessSchema = generateLocalBusinessSchema('en-pk');

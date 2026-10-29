@@ -1,22 +1,11 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { updatePageMeta } from '../seoHelper';
-import { addHrefLangTags, generateHreflangs, generateLocalBusinessSchema, addStructuredData } from '../internationalSEOHelper';
+import { generateLocalBusinessSchema, addStructuredData } from '../internationalSEOHelper';
 import { RegionalReviewsSection } from '../components/RegionalReviewsSection';
 
 const UAELandingPage: React.FC = () => {
   useEffect(() => {
-    // Update SEO metadata
-    updatePageMeta({
-      title: 'IB & IGCSE Tutors Dubai | Expert Online Tutoring UAE | XPM Tutors',
-      description: 'Best IB and IGCSE tutors in Dubai & UAE. Expert online tutoring for international curriculum. Free trial sessions. Trusted by thousands of UAE students.',
-      keywords: 'IB tutor Dubai, IGCSE tutor UAE, Cambridge exam Dubai, Maths tutor Dubai, Physics tutor UAE, Chemistry tutor Dubai, online tutor UAE',
-      canonical: 'https://xpmtutors.com/ae/'
-    });
 
-    // Add hreflang tags
-    const hreflangs = generateHreflangs('/ae/', true);
-    addHrefLangTags(hreflangs);
 
     // Add LocalBusiness schema
     const localBusinessSchema = generateLocalBusinessSchema('en-ae');
