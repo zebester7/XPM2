@@ -53,7 +53,7 @@ const BlogPostPage: React.FC = () => {
       '@type': 'Organization',
       '@id': 'https://www.xpmtutors.com/#organization',
       name: 'XPM Tutors',
-      logo: { '@type': 'ImageObject', url: 'https://www.xpmtutors.com/android-chrome-512x512.png' },
+      logo: { '@type': 'ImageObject', url: 'https://www.xpmtutors.com/xpm-logo-512.png' },
     },
   };
 

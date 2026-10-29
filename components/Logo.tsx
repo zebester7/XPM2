@@ -11,7 +11,7 @@ const Logo: React.FC<LogoProps> = ({ className = "h-10 w-10", showText = true })
   const { settings } = useSettings();
   const [logoError, setLogoError] = useState(false);
   
-  const logoUrl = settings.logoUrl || '/xpm-logo.svg';
+  const logoUrl = settings.logoUrl || '/xpm-logo.png';
 
   return (
     <div className={`flex items-center gap-3`}>
