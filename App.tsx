@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect, Suspense, lazy, useCallback, useMemo } from 'react';
+import React, { useState, useEffect, Suspense, lazy, useCallback, useMemo, startTransition } from 'react';
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { User, Review, Question } from './types.ts';
 import { db } from './db.ts';
@@ -115,8 +115,10 @@ const App: React.FC = () => {
       setReviews(db.getReviews());
     };
     
-    // Defer non-critical DB reads slightly to prioritize Hero paint
-    const timeout = setTimeout(initData, 20);
+    // Defer non-critical DB reads slightly to prioritize Hero paint. As a transition, this
+    // update waits for hydration to finish; an urgent update reaching a page whose lazy chunk
+    // is still loading makes React discard the server HTML and flash the Suspense fallback.
+    const timeout = setTimeout(() => startTransition(initData), 20);
     return () => clearTimeout(timeout);
   }, []);
 

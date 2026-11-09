@@ -156,81 +156,34 @@ export function generateCourseSchemaLocalized(courseData: {
 }
 
 /**
- * Generate LocalBusiness schema for regional presence
+ * Online tutoring Service schema for a regional landing page.
+ * XPM Tutors teaches online and has no offices in these countries, so this describes
+ * the service and the country it serves rather than a LocalBusiness with an address.
  */
-export function generateLocalBusinessSchema(countryCode: string) {
-  const businessDetails: Record<string, any> = {
-    'en-gb': {
-      name: 'XPM Tutors - London',
-      address: {
-        streetAddress: '123 Oxford Street',
-        addressLocality: 'London',
-        addressRegion: 'England',
-        postalCode: 'W1D 2DX',
-        addressCountry: 'GB'
-      },
-      telephone: '+44-20-7946-0958',
-      priceRange: '££',
-      areaServed: 'London, UK'
-    },
-    'en-us': {
-      name: 'XPM Tutors - New York',
-      address: {
-        streetAddress: '350 Fifth Avenue',
-        addressLocality: 'New York',
-        addressRegion: 'NY',
-        postalCode: '10118',
-        addressCountry: 'US'
-      },
-      telephone: '+1-212-736-2000',
-      priceRange: '$$',
-      areaServed: 'New York, USA'
-    },
-    'en-ae': {
-      name: 'XPM Tutors - Dubai',
-      address: {
-        streetAddress: 'Dubai Silicon Oasis',
-        addressLocality: 'Dubai',
-        addressRegion: 'Dubai',
-        postalCode: '00000',
-        addressCountry: 'AE'
-      },
-      telephone: '+971-4-389-2222',
-      priceRange: 'AED',
-      areaServed: 'Dubai, UAE'
-    },
-    'en-pk': {
-      name: 'XPM Tutors - Islamabad',
-      address: {
-        streetAddress: 'F-7/1, Islamabad',
-        addressLocality: 'Islamabad',
-        addressRegion: 'ICT',
-        postalCode: '44000',
-        addressCountry: 'PK'
-      },
-      telephone: '+92-51-111-2222',
-      priceRange: '₨',
-      areaServed: 'Islamabad, Pakistan'
-    }
+export function generateRegionalServiceSchema(countryCode: string) {
+  const regions: Record<string, { country: string; path: string; name: string }> = {
+    'en-gb': { country: 'United Kingdom', path: '/uk', name: 'Online GCSE & A Level Tutoring for UK Students' },
+    'en-us': { country: 'United States', path: '/us', name: 'Online SAT & AP Tutoring for US Students' },
+    'en-ae': { country: 'United Arab Emirates', path: '/ae', name: 'Online IB & IGCSE Tutoring for UAE Students' },
+    'en-pk': { country: 'Pakistan', path: '/pk', name: 'Online O & A Level Tutoring for Students in Pakistan' },
   };
-
-  const details = businessDetails[countryCode] || businessDetails['en-us'];
+  const region = regions[countryCode] || regions['en-us'];
 
   return {
     '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
-    name: details.name,
-    image: 'https://www.xpmtutors.com/xpm-logo.svg',
-    description: 'Expert online tutoring service',
-    address: details.address,
-    telephone: details.telephone,
-    priceRange: details.priceRange,
-    areaServed: details.areaServed,
-    url: 'https://www.xpmtutors.com',
-    sameAs: [
-      'https://www.facebook.com/xpmtutors',
-      'https://www.twitter.com/xpmtutors'
-    ]
+    '@type': 'Service',
+    name: region.name,
+    serviceType: 'Online Tutoring',
+    url: `https://www.xpmtutors.com${region.path}`,
+    areaServed: { '@type': 'Country', name: region.country },
+    provider: { '@id': 'https://www.xpmtutors.com/#organization' },
+    offers: {
+      '@type': 'Offer',
+      name: 'Free Trial Session',
+      price: '0',
+      priceCurrency: 'USD',
+      url: 'https://www.xpmtutors.com/hire-teacher'
+    }
   };
 }
 

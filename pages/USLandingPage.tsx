@@ -1,22 +1,13 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { generateLocalBusinessSchema, addStructuredData } from '../internationalSEOHelper';
-import { RegionalReviewsSection } from '../components/RegionalReviewsSection';
+import { generateRegionalServiceSchema } from '../internationalSEOHelper';
+import JsonLd from '../components/JsonLd.tsx';
+import RegionalFaq from '../components/RegionalFaq.tsx';
 
 const USLandingPage: React.FC = () => {
-  useEffect(() => {
-
-
-    // Add LocalBusiness schema
-    const localBusinessSchema = generateLocalBusinessSchema('en-us');
-    addStructuredData(localBusinessSchema, 'local-business-schema');
-
-    // Scroll to top
-    window.scrollTo(0, 0);
-  }, []);
-
   return (
     <div className="bg-white overflow-x-hidden">
+      <JsonLd data={generateRegionalServiceSchema('en-us')} />
       {/* Hero Section */}
       <section className="relative py-16 lg:py-32 overflow-hidden bg-gradient-to-br from-slate-50 to-amber-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -124,8 +115,7 @@ const USLandingPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Reviews Section */}
-      <RegionalReviewsSection region="us" accentColor="red" />
+      <RegionalFaq region="us" />
 
       {/* Blog Section */}
       <section className="py-16 lg:py-24 bg-white">

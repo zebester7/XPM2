@@ -1,21 +1,12 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { generateLocalBusinessSchema, addStructuredData } from '../internationalSEOHelper';
+import { generateRegionalServiceSchema } from '../internationalSEOHelper';
+import JsonLd from '../components/JsonLd.tsx';
 
 const PakistanLandingPage: React.FC = () => {
-  useEffect(() => {
-
-
-    // Add LocalBusiness schema
-    const localBusinessSchema = generateLocalBusinessSchema('en-pk');
-    addStructuredData(localBusinessSchema, 'local-business-schema');
-
-    // Scroll to top
-    window.scrollTo(0, 0);
-  }, []);
-
   return (
     <div className="bg-white overflow-x-hidden">
+      <JsonLd data={generateRegionalServiceSchema('en-pk')} />
       {/* Hero Section */}
       <section className="relative py-16 lg:py-32 overflow-hidden bg-gradient-to-br from-slate-50 to-rose-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
