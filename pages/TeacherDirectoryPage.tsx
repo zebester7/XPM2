@@ -1,8 +1,18 @@
 
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Teacher } from '../types';
 import { db } from '../db';
 import { generateTeacherSchema } from '../seoHelper';
+
+const SUBJECT_PAGES = [
+  { to: '/o-level-tutors', label: 'O Level Tutors', desc: 'Cambridge O Level Physics, Maths, Chemistry, Biology and more' },
+  { to: '/a-level-tutors', label: 'A Level Tutors', desc: 'AS and A Level sciences, Mathematics and Further Maths' },
+  { to: '/igcse-tutors', label: 'IGCSE Tutors', desc: 'Core and Extended IGCSE papers across all major subjects' },
+  { to: '/sat-tutors', label: 'SAT Tutors', desc: 'Digital SAT Math and Reading & Writing' },
+  { to: '/net-entry-test-tutors', label: 'NET Preparation', desc: 'NUST entry test MCQ practice and mock tests' },
+  { to: '/quran-tutoring', label: 'Quran Tutors', desc: 'Tajweed, Hifz and Quran studies with qualified Qaris' },
+];
 
 const TeacherDirectoryPage: React.FC = () => {
   const [teachers] = useState<Teacher[]>(db.getTeachers());
@@ -41,7 +51,7 @@ const TeacherDirectoryPage: React.FC = () => {
     <div className="bg-slate-50 min-h-screen">
       <div className="bg-xpm-blue text-white py-24 text-center">
         <div className="max-w-7xl mx-auto px-4">
-          <h1 className="text-5xl font-black tracking-tighter mb-4 uppercase">Direct Expert Access</h1>
+          <h1 className="text-5xl font-black tracking-tighter mb-4 uppercase">Find an Online Tutor</h1>
           <p className="text-xl text-white/60 font-medium">No middleman. Contact our subject specialists directly on WhatsApp.</p>
         </div>
       </div>
@@ -105,6 +115,35 @@ const TeacherDirectoryPage: React.FC = () => {
             </div>
           ))}
         </div>
+
+        <section className="mt-20 bg-white p-10 md:p-14 rounded-[3rem] border border-slate-100">
+          <h2 className="text-3xl font-black text-slate-900 tracking-tight mb-4">How to choose the right tutor</h2>
+          <p className="text-slate-600 text-lg leading-relaxed mb-4">
+            Start with your exam and subject. A tutor who teaches the exact syllabus you are sitting, whether Cambridge O Level,
+            A Level, IGCSE or the Digital SAT, will already know its past paper patterns and the mark scheme's expectations.
+          </p>
+          <p className="text-slate-600 text-lg leading-relaxed mb-4">
+            Then contact the tutor directly on WhatsApp. Tell them your exam board, your exam date and the topics you find hardest,
+            and ask how they would structure your lessons. Every XPM tutor offers a free trial session, so you can see how they
+            teach before you commit.
+          </p>
+          <p className="text-slate-600 text-lg leading-relaxed">
+            If you are not sure who to contact, <Link to="/hire-teacher" className="text-xpm-blue font-bold hover:underline">tell us what you need</Link> and
+            we will match you with a tutor.
+          </p>
+
+          <h2 className="text-2xl font-black text-slate-900 tracking-tight mt-12 mb-6">Find a tutor by exam</h2>
+          <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {SUBJECT_PAGES.map(page => (
+              <li key={page.to}>
+                <Link to={page.to} className="block h-full p-6 rounded-2xl border border-slate-200 hover:border-xpm-blue hover:bg-xpm-blue/5 transition">
+                  <span className="block font-black text-slate-900">{page.label}</span>
+                  <span className="block text-sm text-slate-600 mt-1">{page.desc}</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
       </div>
     </div>
   );
