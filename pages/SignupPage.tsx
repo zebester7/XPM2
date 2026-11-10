@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { User } from '../types';
 import Logo from '../components/Logo';
 import { db } from '../db';
+import { recordStudent } from '../apiClient.ts';
 
 interface SignupPageProps {
   onSignup: (user: User) => void;
@@ -54,6 +55,9 @@ const SignupPage: React.FC<SignupPageProps> = ({ onSignup }) => {
       registeredAt: Date.now(),
       subscriptionStatus: 'active' // Set to active by default for free registration
     };
+
+    // Also record the registration on the server so it appears in the admin dashboard
+    recordStudent({ name, email, phone }).catch(err => console.error('Could not record registration:', err));
 
     onSignup(newUser);
   };

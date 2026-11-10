@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { User, Teacher } from '../types';
 import { db } from '../db';
+import { recordDemoRequest } from '../apiClient.ts';
 
 interface HireTeacherPageProps {
   user: User | null;
@@ -9,6 +10,8 @@ interface HireTeacherPageProps {
 
 const HireTeacherPage: React.FC<HireTeacherPageProps> = ({ user }) => {
   const [formData, setFormData] = useState({
+    name: user?.name || '',
+    phone: user?.phoneNumber || '',
     subjects: ['Physics'] as string[],
     teachers: [] as string[],
     level: 'O Level',
@@ -17,6 +20,7 @@ const HireTeacherPage: React.FC<HireTeacherPageProps> = ({ user }) => {
   });
 
   const [availableTeachers, setAvailableTeachers] = useState<Teacher[]>([]);
+  const [formError, setFormError] = useState('');
 
   useEffect(() => {
     setAvailableTeachers(db.getTeachers());
@@ -41,8 +45,28 @@ const HireTeacherPage: React.FC<HireTeacherPageProps> = ({ user }) => {
   const subjectsStr = formData.subjects.length > 0 ? formData.subjects.join(', ') : "None selected";
   const teachersStr = formData.teachers.length > 0 ? formData.teachers.join(', ') : "Any available expert";
   
-  const whatsappBaseText = `Hi XPM Tutors! 👋\n\nI would like to book a trial session.\n\n*Target Subjects:* ${subjectsStr}\n*Academic Level:* ${formData.level}\n*Exam Board:* ${formData.board}\n*Preferred Tutors:* ${teachersStr}\n*Specific Requirements:* ${formData.message || "Not specified"}\n\nLooking forward to hearing from you!`;
+  const whatsappBaseText = `Hi XPM Tutors! 👋\n\nI would like to book a trial session.\n\n*Name:* ${formData.name}\n*Target Subjects:* ${subjectsStr}\n*Academic Level:* ${formData.level}\n*Exam Board:* ${formData.board}\n*Preferred Tutors:* ${teachersStr}\n*Specific Requirements:* ${formData.message || "Not specified"}\n\nLooking forward to hearing from you!`;
   const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(whatsappBaseText)}`;
+
+  // Saves the request for the admin dashboard, then lets the link open WhatsApp
+  const handleBook = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    const digits = formData.phone.replace(/D/g, '');
+    if (!formData.name.trim() || digits.length < 7) {
+      e.preventDefault();
+      setFormError('Please enter your name and WhatsApp number so we can reach you.');
+      return;
+    }
+    setFormError('');
+    recordDemoRequest({
+      name: formData.name,
+      phone: formData.phone,
+      subjects: formData.subjects,
+      level: formData.level,
+      board: formData.board,
+      preferredTutors: formData.teachers.join(', '),
+      message: formData.message,
+    }).catch(err => console.error('Could not record demo request:', err));
+  };
 
   const levels = [
     'Grade 1', 'Grade 2', 'Grade 3', 'Grade 4', 'Grade 5', 'Grade 6', 'Grade 7', 'Grade 8', 
@@ -72,6 +96,33 @@ const HireTeacherPage: React.FC<HireTeacherPageProps> = ({ user }) => {
             <div className="bg-white p-10 rounded-[3rem] shadow-2xl border-4 border-xpm-blue/5 sticky top-24">
               <h3 className="text-2xl font-black text-slate-900 mb-8 text-center uppercase tracking-tighter">Book Trial Session</h3>
               <div className="space-y-8">
+                <div className="grid grid-cols-1 gap-4">
+                  <div>
+                    <label htmlFor="demo-name" className="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Your Name</label>
+                    <input
+                      id="demo-name"
+                      required
+                      autoComplete="name"
+                      value={formData.name}
+                      onChange={(e) => setFormData({...formData, name: e.target.value})}
+                      className="w-full px-4 py-3 bg-slate-50 border-2 border-slate-50 rounded-xl focus:border-xpm-blue outline-none font-bold text-xs transition"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="demo-phone" className="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">WhatsApp Number</label>
+                    <input
+                      id="demo-phone"
+                      required
+                      type="tel"
+                      autoComplete="tel"
+                      placeholder="03XX XXXXXXX"
+                      value={formData.phone}
+                      onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                      className="w-full px-4 py-3 bg-slate-50 border-2 border-slate-50 rounded-xl focus:border-xpm-blue outline-none font-bold text-xs transition"
+                    />
+                  </div>
+                </div>
+
                 <div>
                   <label className="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-4">Target Subjects</label>
                   <div className="flex flex-wrap gap-2">
@@ -130,8 +181,10 @@ const HireTeacherPage: React.FC<HireTeacherPageProps> = ({ user }) => {
                 </div>
                 
                 <div className="pt-2">
+                  {formError && <p role="alert" className="mb-3 text-xs font-bold text-red-600">{formError}</p>}
                   <a 
                     href={whatsappLink}
+                    onClick={handleBook}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full py-4 bg-[#25D366] text-white font-bold rounded-xl hover:bg-[#128C7E] transition-colors flex items-center justify-center gap-2 shadow-md uppercase text-sm tracking-wide"

@@ -31,21 +31,21 @@ const Navbar: React.FC<NavbarProps> = ({ user, onLogout }) => {
 
   return (
     <nav className="bg-xpm-blue text-white sticky top-0 z-50 shadow-lg border-b border-white/5">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16">
-          <div className="flex items-center">
+      <div className="max-w-7xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between gap-6 h-16">
+          <div className="flex items-center shrink-0">
             <Link to="/" className="flex items-center" onClick={closeMenu}>
               <Logo className="h-10 w-10" />
             </Link>
           </div>
 
-          <div className="hidden md:flex items-center space-x-1">
+          <div className="hidden xl:flex items-center space-x-1">
             {navLinks.map((link) => (
               (!link.private || user) && (
                 <Link
                   key={link.path}
                   to={link.path}
-                  className={`px-4 py-2 rounded-lg text-sm font-bold transition-all ${
+                  className={`px-4 py-2 rounded-lg text-sm font-bold whitespace-nowrap transition-all ${
                     location.pathname === link.path 
                     ? 'bg-white/10 text-xpm-green' 
                     : 'text-white/80 hover:text-white hover:bg-white/5'
@@ -61,7 +61,7 @@ const Navbar: React.FC<NavbarProps> = ({ user, onLogout }) => {
                 <Link
                   key={link.path}
                   to={link.path}
-                  className={`px-4 py-2 rounded-lg text-sm font-bold transition-all ${
+                  className={`px-4 py-2 rounded-lg text-sm font-bold whitespace-nowrap transition-all ${
                     location.pathname === link.path 
                     ? 'bg-white/10 text-xpm-green' 
                     : 'text-white/80 hover:text-white hover:bg-white/5'
@@ -75,7 +75,7 @@ const Navbar: React.FC<NavbarProps> = ({ user, onLogout }) => {
             {!user?.teacherProfileId && (
               <Link 
                 to="/teacher-registration" 
-                className="ml-4 px-4 py-2 bg-xpm-green text-white text-sm font-black rounded-lg hover:bg-green-600 transition shadow-lg shadow-black/10"
+                className="ml-4 px-4 py-2 whitespace-nowrap bg-xpm-green text-white text-sm font-black rounded-lg hover:bg-green-600 transition shadow-lg shadow-black/10"
               >
                 Join as Tutor
               </Link>
@@ -83,15 +83,15 @@ const Navbar: React.FC<NavbarProps> = ({ user, onLogout }) => {
 
             <Link 
               to="/hire-teacher" 
-              className="ml-2 px-4 py-2 bg-xpm-orange text-white text-sm font-black rounded-lg hover:bg-orange-600 transition shadow-lg shadow-black/10"
+              className="ml-2 px-4 py-2 whitespace-nowrap bg-xpm-orange text-white text-sm font-black rounded-lg hover:bg-orange-600 transition shadow-lg shadow-black/10"
             >
               Hire a Tutor
             </Link>
 
             {user ? (
               <div className="flex items-center space-x-4 ml-4 pl-4 border-l border-white/10">
-                <div className="flex flex-col items-end">
-                  <span className="text-xs font-medium text-white/70">Hi, {user.name}</span>
+                <div className="hidden 2xl:flex flex-col items-end">
+                  <span className="text-xs font-medium text-white/70 whitespace-nowrap">Hi, {user.name.split(" ")[0]}</span>
                   {user.role === 'teacher' && <span className="text-[8px] font-black uppercase text-xpm-green tracking-widest">Registered Tutor</span>}
                 </div>
                 {user.role === 'admin' && (
@@ -99,24 +99,26 @@ const Navbar: React.FC<NavbarProps> = ({ user, onLogout }) => {
                 )}
                 <button
                   onClick={onLogout}
-                  className="text-sm font-bold bg-white/5 border border-white/10 px-4 py-2 rounded-lg hover:bg-white/10 transition"
+                  className="text-sm font-bold whitespace-nowrap bg-white/5 border border-white/10 px-4 py-2 rounded-lg hover:bg-white/10 transition"
                 >
                   Logout
                 </button>
               </div>
             ) : (
               <div className="flex items-center space-x-3 ml-4">
-                <Link to="/login" className="text-sm font-bold hover:text-xpm-green transition">Login</Link>
-                <Link to="/signup" className="bg-white/10 hover:bg-white/20 text-white px-5 py-2.5 rounded-xl text-sm font-black transition border border-white/10">
+                <Link to="/login" className="px-2 text-sm font-bold whitespace-nowrap hover:text-xpm-green transition">Login</Link>
+                <Link to="/signup" className="whitespace-nowrap bg-white/10 hover:bg-white/20 text-white px-5 py-2.5 rounded-xl text-sm font-black transition border border-white/10">
                   Sign Up
                 </Link>
               </div>
             )}
           </div>
 
-          <div className="md:hidden flex items-center">
+          <div className="xl:hidden flex items-center">
             <button
               onClick={toggleOpen}
+              aria-label={isOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={isOpen}
               className="inline-flex items-center justify-center p-2 rounded-md hover:bg-white/5 focus:outline-none"
             >
               <svg className="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
@@ -132,7 +134,7 @@ const Navbar: React.FC<NavbarProps> = ({ user, onLogout }) => {
       </div>
 
       {isOpen && (
-        <div className="md:hidden bg-xpm-dark border-t border-white/5 px-2 pt-2 pb-3 space-y-1 shadow-2xl animate-fade-in-up">
+        <div className="xl:hidden bg-xpm-dark border-t border-white/5 px-4 pt-2 pb-4 space-y-1 shadow-2xl animate-fade-in-up">
           {navLinks.map((link) => (
             (!link.private || user) && (
               <Link
@@ -160,14 +162,14 @@ const Navbar: React.FC<NavbarProps> = ({ user, onLogout }) => {
           <Link
             to="/teacher-registration"
             onClick={closeMenu}
-            className="block px-4 py-3 rounded-lg text-base font-bold bg-xpm-green text-white"
+            className="block mt-3 px-4 py-3 rounded-lg text-base font-bold text-center bg-xpm-green text-white"
           >
             Join as Tutor
           </Link>
           <Link
             to="/hire-teacher"
             onClick={closeMenu}
-            className="block px-4 py-3 rounded-lg text-base font-bold bg-xpm-orange text-white"
+            className="block px-4 py-3 rounded-lg text-base font-bold text-center bg-xpm-orange text-white"
           >
             Hire a Tutor
           </Link>
@@ -179,7 +181,7 @@ const Navbar: React.FC<NavbarProps> = ({ user, onLogout }) => {
               Logout
             </button>
           ) : (
-            <div className="pt-4 space-y-2 px-2">
+            <div className="pt-3 space-y-2">
               <Link to="/login" onClick={closeMenu} className="block px-4 py-3 rounded-lg text-base font-bold text-center border border-white/10">Login</Link>
               <Link to="/signup" onClick={closeMenu} className="block px-4 py-3 rounded-lg text-base font-bold text-center bg-white/10">Sign Up</Link>
             </div>

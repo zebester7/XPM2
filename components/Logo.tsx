@@ -34,8 +34,8 @@ const Logo: React.FC<LogoProps> = ({ className = "h-10 w-10", showText = true })
       )}
       {showText && (
         <div className="flex flex-col leading-none">
-          <span className="text-xl font-black tracking-tighter text-white">XPM <span className="text-xpm-green">TUTORS</span></span>
-          <span className="text-[8px] font-bold uppercase tracking-[0.2em] text-white/50">Excellence in Science</span>
+          <span className="text-xl font-black tracking-tighter text-white whitespace-nowrap">XPM <span className="text-xpm-green">TUTORS</span></span>
+          <span className="text-[8px] font-bold uppercase tracking-[0.2em] text-white/50 whitespace-nowrap">Excellence in Science</span>
         </div>
       )}
     </div>

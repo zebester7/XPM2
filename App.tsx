@@ -43,6 +43,7 @@ const QuranAdvancedPage = lazy(() => import('./pages/QuranAdvancedPage.tsx'));
 const QuranExpertPage = lazy(() => import('./pages/QuranExpertPage.tsx'));
 const MishalRazzaqPage = lazy(() => import('./pages/MishalRazzaqPage.tsx'));
 const AdminPanel = lazy(() => import('./pages/AdminPanel.tsx'));
+const AdminDashboard = lazy(() => import('./pages/AdminDashboard.tsx'));
 const UKLandingPage = lazy(() => import('./pages/UKLandingPage.tsx'));
 const USLandingPage = lazy(() => import('./pages/USLandingPage.tsx'));
 const UAELandingPage = lazy(() => import('./pages/UAELandingPage.tsx'));
@@ -239,8 +240,11 @@ const App: React.FC = () => {
                 <Route path="/study-groups" element={<ProtectedRoute user={user}><PageWrapper><StudyGroupsPage user={user!} /></PageWrapper></ProtectedRoute>} />
                 <Route path="/teacher-directory" element={<PageWrapper><TeacherDirectoryPage /></PageWrapper>} />
                 
+                {/* Backend admin: students, demo requests, teachers (server-side login) */}
+                <Route path="/admin" element={<PageWrapper><AdminDashboard /></PageWrapper>} />
+                {/* Older browser-storage tools (payments, materials, logo) */}
                 <Route 
-                  path="/admin" 
+                  path="/admin/content" 
                   element={user?.role === 'admin' ? 
                     <PageWrapper>
                       <AdminPage 

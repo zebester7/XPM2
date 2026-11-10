@@ -3,7 +3,12 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Teacher } from '../types';
 import { db } from '../db';
-import { generateTeacherSchema } from '../seoHelper';
+import { fetchTeachers, PublicTeacher } from '../apiClient.ts';
+
+type DirectoryTeacher = Pick<Teacher, 'id' | 'name' | 'whatsapp' | 'subjects' | 'bio' | 'mode' | 'isVerified' | 'photo'>;
+
+// Teachers added in the admin dashboard are vetted by the admin, so they show as verified
+const fromApi = (t: PublicTeacher): DirectoryTeacher => ({ ...t, isVerified: true });
 
 const SUBJECT_PAGES = [
   { to: '/o-level-tutors', label: 'O Level Tutors', desc: 'Cambridge O Level Physics, Maths, Chemistry, Biology and more' },
@@ -15,7 +20,17 @@ const SUBJECT_PAGES = [
 ];
 
 const TeacherDirectoryPage: React.FC = () => {
-  const [teachers] = useState<Teacher[]>(db.getTeachers());
+  // Loaded after hydration: the list lives in the database, not in the prerendered HTML
+  const [teachers, setTeachers] = useState<DirectoryTeacher[]>([]);
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    fetchTeachers()
+      .then(list => setTeachers(list.map(fromApi)))
+      // Backend unreachable (e.g. database not configured yet): fall back to the built-in list
+      .catch(() => setTeachers(db.getTeachers()))
+      .finally(() => setLoaded(true));
+  }, []);
 
   useEffect(() => {
     // Update page meta with directory information
@@ -57,7 +72,12 @@ const TeacherDirectoryPage: React.FC = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 -mt-12 pb-24">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 min-h-[28rem]" aria-busy={!loaded}>
+          {loaded && teachers.length === 0 && (
+            <p className="md:col-span-2 lg:col-span-3 self-center text-center text-slate-500 font-medium bg-white p-10 rounded-[3rem] shadow-xl">
+              Our tutor list is being updated. <a href="/hire-teacher" className="text-xpm-blue font-bold hover:underline">Tell us what you need</a> and we will match you with a tutor.
+            </p>
+          )}
           {teachers.map(teacher => (
             <div key={teacher.id} className="bg-white p-10 rounded-[3rem] shadow-xl border border-slate-100 flex flex-col items-center text-center group relative overflow-hidden" itemScope itemType="https://schema.org/Person">
               {/* Microdata attributes */}

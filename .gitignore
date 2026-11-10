@@ -21,7 +21,7 @@ __pycache__
 venv
 env
 requirements.txt
-api/
+# api/ — Vercel serverless functions live here and must be deployed
 templates/
 
 # Editor directories and files
@@ -34,3 +34,6 @@ templates/
 *.njsproj
 *.sln
 *.sw?
+
+# Local PGlite database used by `npm run dev:api`
+.data/

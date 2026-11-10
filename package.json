@@ -6,16 +6,20 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build && vite build --ssr entry-server.tsx --outDir dist-ssr && node scripts/prerender.mjs",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "dev:api": "node scripts/dev-api.mjs",
+    "hash-password": "node scripts/hash-password.mjs"
   },
   "dependencies": {
     "@fontsource/inter": "^5.1.1",
+    "@neondatabase/serverless": "^1.0.1",
     "framer-motion": "^12.38.0",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
     "react-router-dom": "^7.12.0"
   },
   "devDependencies": {
+    "@electric-sql/pglite": "^0.3.3",
     "@types/node": "^22.14.0",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",

@@ -11,6 +11,8 @@ export default defineConfig(({ mode, isSsrBuild }) => {
         host: '0.0.0.0',
         middlewareMode: false,
         historyApiFallback: true,
+        // `npm run dev:api` serves the API locally
+        proxy: { '/api': 'http://localhost:3001' },
       },
       plugins: [react()],
       define: {
