@@ -102,7 +102,7 @@ const staticRoutes: RouteSeo[] = [
   // Services
   {
     path: '/ir-services',
-    label: 'IR Writing Support',
+    label: 'Global Perspectives IR Support',
     title: 'O Level Global Perspectives IR Support | XPM Tutors',
     description: 'One-to-one guidance for the O Level Global Perspectives Individual Report: topic choice, research, structure and referencing. Book a free demo.',
     priority: 0.85,

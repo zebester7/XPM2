@@ -58,7 +58,7 @@ const Footer: React.FC = () => {
             <ul className="space-y-3 text-slate-300 font-medium text-sm">
               <li><Link to="/mishal-razzaq" className="hover:text-xpm-green transition">The Healing Mind</Link></li>
               <li><Link to="/quran-tutoring" className="hover:text-xpm-green transition">Quran Tutoring</Link></li>
-              <li><Link to="/ir-services" className="hover:text-xpm-green transition">IR Writing Support</Link></li>
+              <li><Link to="/ir-services" className="hover:text-xpm-green transition">Global Perspectives IR</Link></li>
               <li><Link to="/o-level-tutors-islamabad" className="hover:text-xpm-green transition">O Level Tutors Islamabad</Link></li>
               <li><Link to="/a-level-tutors-islamabad" className="hover:text-xpm-green transition">A Level Tutors Islamabad</Link></li>
             </ul>

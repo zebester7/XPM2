@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { User, Teacher } from '../types';
 import { db } from '../db';
 import { recordDemoRequest } from '../apiClient.ts';
@@ -26,10 +27,20 @@ const HireTeacherPage: React.FC<HireTeacherPageProps> = ({ user }) => {
     setAvailableTeachers(db.getTeachers());
   }, []);
 
+  // Pages like /ir-services link here with ?subject=… to pre-select it. Applied after
+  // hydration so the prerendered HTML (no query string) still matches the first render.
+  const [searchParams] = useSearchParams();
+  const requestedSubject = searchParams.get('subject');
+  useEffect(() => {
+    if (requestedSubject && availableSubjects.includes(requestedSubject)) {
+      setFormData(prev => ({ ...prev, subjects: [requestedSubject] }));
+    }
+  }, [requestedSubject]);
+
   const availableSubjects = [
     'Physics', 'Mathematics', 'Chemistry', 'Biology', 
     'Computer Science', 'English', 'Islamiyat', 'Pakistan Studies',
-    'Business', 'Economics'
+    'Business', 'Economics', 'Global Perspectives'
   ];
 
   const toggleSubject = (sub: string) => {
