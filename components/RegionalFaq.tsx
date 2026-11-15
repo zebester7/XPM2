@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import JsonLd from './JsonLd.tsx';
 import { generateFAQSchema } from '../seoHelper.ts';
 
-type Region = 'uk' | 'us' | 'ae';
+type Region = 'uk' | 'ae';
 
 interface Faq {
   question: string;
@@ -24,24 +24,6 @@ const FAQS: Record<Region, Faq[]> = {
     {
       question: 'Do you help with university applications?',
       answer: 'Yes. Alongside subject tutoring we help with personal statements, interview preparation and UCAS guidance.',
-    },
-    {
-      question: 'Is there a free trial session?',
-      answer: 'Yes. You can book a free trial session before committing to regular lessons.',
-    },
-  ],
-  us: [
-    {
-      question: 'Which exams and subjects do you tutor for US students?',
-      answer: 'We tutor SAT Math, SAT Reading, the PSAT and ACT, and AP Calculus, AP Biology, AP Chemistry and AP Physics.',
-    },
-    {
-      question: 'Can lessons be scheduled in my US time zone?',
-      answer: 'Yes. Lessons are online and can be scheduled for students in any US time zone.',
-    },
-    {
-      question: 'Do you help with college applications?',
-      answer: 'Yes. We offer college admission guidance including essay review, college selection and interview preparation.',
     },
     {
       question: 'Is there a free trial session?',
@@ -70,7 +52,6 @@ const FAQS: Record<Region, Faq[]> = {
 
 const ACCENTS: Record<Region, string> = {
   uk: 'text-blue-600',
-  us: 'text-red-600',
   ae: 'text-emerald-600',
 };
 

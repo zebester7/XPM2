@@ -198,9 +198,9 @@ const staticRoutes: RouteSeo[] = [
   },
   {
     path: '/us',
-    label: 'United States',
-    title: 'SAT & AP Tutors in the USA | Online Exam Prep | XPM Tutors',
-    description: 'Online SAT and AP exam prep tutors for US high school students. One-to-one Math and Science coaching scheduled in US time zones. Free trial.',
+    label: 'Digital SAT Group Prep (US)',
+    title: 'Small-Group Online Digital SAT Prep on Weekends | XPM Tutors',
+    description: 'Live weekend Digital SAT prep for US students in groups of max 5: Math with Desmos, Reading & Writing, 24/7 WhatsApp help. $200/month. Free demo.',
     priority: 0.8,
     changefreq: 'monthly',
   },
