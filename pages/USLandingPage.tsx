@@ -82,7 +82,7 @@ const PRICING_INCLUDES = [
 const FAQS = [
   {
     question: 'How does the free demo class work?',
-    answer: 'Book with the form on this page and we will message you on WhatsApp to confirm a time. The demo is a live online class with a tutor, so you can see how the small-group format and topic-by-topic teaching work before you join. There is no charge and no obligation.',
+    answer: 'Fill in the short form on this page. WhatsApp opens with your details filled in; send the message and we will reply to confirm a time. The demo is a live online class with a tutor, so you can see how the small-group format and topic-by-topic teaching work before you join. There is no charge and no obligation.',
   },
   {
     question: 'Which US time zones do you accommodate?',
@@ -284,38 +284,36 @@ const Pricing: React.FC = () => (
 const TIME_ZONES = ['Eastern (EST)', 'Central (CST)', 'Mountain (MST)', 'Pacific (PST)', 'Other'];
 const GRADES = ['Grade 9', 'Grade 10', 'Grade 11', 'Grade 12', 'Other'];
 
-/** Saves the request to the admin dashboard, then offers WhatsApp to continue */
+/**
+ * Sends each booking two ways: opens WhatsApp with the details pre-filled (to the academy's
+ * number) and saves it to the admin dashboard. If the save fails, the WhatsApp message still
+ * carries the booking, so no lead is lost.
+ */
 const DemoForm: React.FC = () => {
   const [form, setForm] = useState({ name: '', phone: '', grade: 'Grade 11', timeZone: 'Eastern (EST)' });
-  const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
-  const [error, setError] = useState('');
+  const [status, setStatus] = useState<'idle' | 'sent'>('idle');
 
   const set = (key: keyof typeof form) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) =>
     setForm(f => ({ ...f, [key]: e.target.value }));
 
-  const submit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setStatus('sending');
-    setError('');
-    try {
-      await recordDemoRequest({
-        name: form.name,
-        phone: form.phone,
-        subjects: [PROGRAM_NAME],
-        level: form.grade,
-        board: 'Digital SAT',
-        preferredTutors: '',
-        message: `Time zone: ${form.timeZone}`,
-      });
-      setStatus('sent');
-    } catch (err) {
-      setStatus('error');
-      setError(err instanceof Error ? err.message : 'Something went wrong. Please try again or message us on WhatsApp.');
-    }
-  };
-
-  const whatsappText = `Hi XPM Tutors! I'd like a free demo class for the ${PROGRAM_NAME}.\n\nName: ${form.name}\nGrade: ${form.grade}\nTime zone: ${form.timeZone}`;
+  const whatsappText = `Hi XPM Tutors! I'd like a free demo class for the ${PROGRAM_NAME}.\n\nName: ${form.name}\nWhatsApp: ${form.phone}\nGrade: ${form.grade}\nTime zone: ${form.timeZone}`;
   const whatsappLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(whatsappText)}`;
+
+  const submit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Opened synchronously inside the submit event; browsers block pop-ups opened after an await
+    window.open(whatsappLink, '_blank', 'noopener,noreferrer');
+    recordDemoRequest({
+      name: form.name,
+      phone: form.phone,
+      subjects: [PROGRAM_NAME],
+      level: form.grade,
+      board: 'Digital SAT',
+      preferredTutors: '',
+      message: `Time zone: ${form.timeZone}`,
+    }).catch(err => console.error('Could not record demo request:', err));
+    setStatus('sent');
+  };
   const input = 'w-full px-4 py-3 rounded-xl bg-white border-2 border-slate-200 focus:border-indigo-500 outline-none font-medium text-slate-900';
 
   return (
@@ -325,10 +323,13 @@ const DemoForm: React.FC = () => {
           {status === 'sent' ? (
             <div className="text-center" role="status">
               <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">You're booked in!</h2>
-              <p className="mt-3 text-slate-600">We'll message you on WhatsApp shortly to confirm your demo time in {form.timeZone.split(' ')[0]} time.</p>
+              <p className="mt-3 text-slate-600">
+                WhatsApp has opened with your booking details. Press <strong>Send</strong> there and we'll confirm your demo time
+                in {form.timeZone.split(' ')[0]} time.
+              </p>
               <a href={whatsappLink} target="_blank" rel="noopener noreferrer"
                 className="mt-6 inline-block px-6 py-3 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black rounded-xl transition">
-                Message us on WhatsApp now
+                WhatsApp didn't open? Tap here
               </a>
             </div>
           ) : (
@@ -336,6 +337,7 @@ const DemoForm: React.FC = () => {
               <div className="text-center">
                 <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">Book Your Free Live Demo Class</h2>
                 <p className="mt-2 text-slate-600">Takes 30 seconds. We confirm your slot on WhatsApp.</p>
+                <p className="mt-1 text-xs text-slate-400">Free. No payment details needed.</p>
               </div>
               <label className="block">
                 <span className="block text-sm font-bold text-slate-700 mb-1.5">Student or parent name</span>
@@ -359,14 +361,11 @@ const DemoForm: React.FC = () => {
                   </select>
                 </label>
               </div>
-              {status === 'error' && <p role="alert" className="text-sm font-bold text-red-600">{error}</p>}
-              <button type="submit" disabled={status === 'sending'}
-                className="w-full py-4 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-lg rounded-2xl transition disabled:opacity-60">
-                {status === 'sending' ? 'Booking…' : 'Book My Free Demo'}
+              <button type="submit"
+                className="w-full py-4 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-lg rounded-2xl transition">
+                Book My Free Demo on WhatsApp
               </button>
-              <p className="text-center text-xs text-slate-500">
-                Prefer to chat? <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="font-bold text-indigo-600 hover:underline">Message us on WhatsApp</a>.
-              </p>
+              <p className="text-center text-xs text-slate-500">Opens WhatsApp with your details filled in. Just press Send.</p>
             </form>
           )}
         </div>
