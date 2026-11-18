@@ -19,12 +19,13 @@ const LEVELS = [
   { name: 'IGCSE', desc: 'Core and Extended IGCSE papers with topical past paper practice.', to: '/igcse-tutors' },
   { name: 'Entry Tests', desc: 'NUST NET preparation with timed MCQ practice and mock tests.', to: '/net-entry-test-tutors' },
   { name: 'Digital SAT', desc: 'One-to-one Digital SAT Math and Reading & Writing preparation.', to: '/sat-tutors' },
+  { name: 'French', desc: 'One-to-one French tutoring and group classes, from beginner to IGCSE, GCSE and DELF.', to: '/french-tutoring' },
   { name: 'Quran', desc: 'Quran classes with Tajweed and Hifz programs for children and adults.', to: '/quran-tutoring' },
 ];
 
 const SUBJECTS = [
   'Physics', 'Mathematics', 'Chemistry', 'Biology', 'Computer Science', 'English',
-  'Islamiyat', 'Pakistan Studies', 'Business', 'Economics', 'Global Perspectives',
+  'Islamiyat', 'Pakistan Studies', 'Business', 'Economics', 'Global Perspectives', 'French',
 ];
 
 const STEPS = [
@@ -41,7 +42,7 @@ const FAQS = [
   },
   {
     question: 'Which classes and subjects do you teach?',
-    answer: 'We teach Grade 1 to 12, Matric, FSc and ICS, O Level, A Level, IGCSE, NUST NET and Digital SAT preparation, and Quran. Subjects include Physics, Mathematics, Chemistry, Biology, Computer Science, English, Islamiyat, Pakistan Studies, Business, Economics and Global Perspectives.',
+    answer: 'We teach Grade 1 to 12, Matric, FSc and ICS, O Level, A Level, IGCSE, NUST NET and Digital SAT preparation, and Quran. Subjects include Physics, Mathematics, Chemistry, Biology, Computer Science, English, Islamiyat, Pakistan Studies, Business, Economics, Global Perspectives and French.',
   },
   {
     question: 'Should I choose home tuition or online lessons?',

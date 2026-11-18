@@ -22,6 +22,7 @@ const Navbar: React.FC<NavbarProps> = ({ user, onLogout }) => {
     { name: 'Teachers', path: '/teacher-directory', private: false },
     { name: 'IR Services', path: '/ir-services', private: false },
     { name: 'Quran', path: '/quran-tutoring', private: false },
+    { name: 'French', path: '/french-tutoring', private: false },
     { name: 'Blog', path: '/blog', private: false },
   ];
 

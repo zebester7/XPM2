@@ -40,7 +40,7 @@ const HireTeacherPage: React.FC<HireTeacherPageProps> = ({ user }) => {
   const availableSubjects = [
     'Physics', 'Mathematics', 'Chemistry', 'Biology', 
     'Computer Science', 'English', 'Islamiyat', 'Pakistan Studies',
-    'Business', 'Economics', 'Global Perspectives'
+    'Business', 'Economics', 'Global Perspectives', 'French'
   ];
 
   const toggleSubject = (sub: string) => {

@@ -36,6 +36,7 @@ const SitemapPage = lazy(() => import('./pages/SitemapPage.tsx'));
 const OLevelIslamabadPage = lazy(() => import('./pages/OLevelIslamabadPage.tsx'));
 const IslamabadTutorsPage = lazy(() => import('./pages/IslamabadTutorsPage.tsx'));
 const AboutPage = lazy(() => import('./pages/AboutPage.tsx'));
+const FrenchTutoringPage = lazy(() => import('./pages/FrenchTutoringPage.tsx'));
 const ALevelIslamabadPage = lazy(() => import('./pages/ALevelIslamabadPage.tsx'));
 const IRServicesPage = lazy(() => import('./pages/IRServicesPage.tsx'));
 const QuranTutoringPage = lazy(() => import('./pages/QuranTutoringPage.tsx'));
@@ -195,6 +196,7 @@ const App: React.FC = () => {
                 <Route path="/teacher-registration" element={<PageWrapper>{user ? <TeacherRegistrationPage user={user} onUpdateUser={updateUser} /> : <Navigate to="/login" replace />}</PageWrapper>} />
                 
                 <Route path="/o-level-tutors" element={<PageWrapper><ExamLandingPage exam="O Level" /></PageWrapper>} />
+                <Route path="/french-tutoring" element={<PageWrapper><FrenchTutoringPage /></PageWrapper>} />
                 <Route path="/about" element={<PageWrapper><AboutPage /></PageWrapper>} />
                 <Route path="/tutors-islamabad" element={<PageWrapper><IslamabadTutorsPage /></PageWrapper>} />
                 <Route path="/o-level-tutors-islamabad" element={<PageWrapper><OLevelIslamabadPage /></PageWrapper>} />

@@ -124,7 +124,7 @@ const staticRoutes: RouteSeo[] = [
     title: 'About XPM Tutors | Founded in Islamabad by Zubair Ahmad',
     description: 'XPM Tutors is a tutoring academy founded in Islamabad in 2024 by Physics and Maths tutor Zubair Ahmad, teaching students online and at home.',
     priority: 0.7,
-    changefreq: 'yearly',
+    changefreq: 'monthly',
   },
   {
     path: '/hire-teacher',
@@ -156,6 +156,16 @@ const staticRoutes: RouteSeo[] = [
     title: 'The Healing Mind with Mishal Razzaq | XPM Tutors',
     description: 'The Healing Mind by Mishal Razzaq: sessions on emotions, habits and wellbeing that bring together Islamic teachings and modern neuroscience.',
     priority: 0.7,
+    changefreq: 'monthly',
+  },
+
+  // Languages
+  {
+    path: '/french-tutoring',
+    label: 'French Tutoring',
+    title: 'Online French Tutor & French Group Classes | XPM Tutors',
+    description: 'Learn French online with a one-to-one French tutor or in small group classes. Beginner to advanced, IGCSE, GCSE, DELF and TEF Canada. Free trial class.',
+    priority: 0.9,
     changefreq: 'monthly',
   },
 

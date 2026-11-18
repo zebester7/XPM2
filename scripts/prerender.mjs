@@ -98,10 +98,11 @@ const mainPages = SEO_ROUTES.filter(r => !r.path.startsWith('/blog/') && r.path 
 const articles = SEO_ROUTES.filter(r => r.path.startsWith('/blog/'));
 write(path.join(dist, 'llms.txt'), `# XPM Tutors
 
-> XPM Tutors (Xpert Physics & Maths Tutors) is a tutoring academy based in Islamabad, Pakistan, founded in 2024 by Zubair Ahmad ("Sir Zubair"), who teaches Physics and Mathematics. It offers one-to-one online tutoring for students worldwide and home tuition in Islamabad, for O Level, A Level, IGCSE, GCSE, IB, Matric, FSc, Digital SAT and NUST NET entry tests, plus online Quran classes. A free trial session is available.
+> XPM Tutors (Xpert Physics & Maths Tutors) is a tutoring academy based in Islamabad, Pakistan, founded in 2024 by Zubair Ahmad ("Sir Zubair"), who teaches Physics and Mathematics. It offers one-to-one online tutoring for students worldwide and home tuition in Islamabad, for O Level, A Level, IGCSE, GCSE, IB, Matric, FSc, Digital SAT and NUST NET entry tests, plus online Quran classes and French lessons (one-to-one or group, beginner to DELF and TEF Canada). A free trial session is available.
 
 - Contact: WhatsApp +92 300 9508592, email support@xpmtutors.com
 - About the academy and founder: ${SITE}/about
+- French lessons online, one-to-one tutoring or group classes: ${SITE}/french-tutoring
 - Book a free trial: ${SITE}/hire-teacher
 - Regions served online: Pakistan, United Kingdom, United States, United Arab Emirates and other countries
 - Digital SAT Small-Group Weekend Prep (US): live classes of at most 5 students, 2 hours every Saturday and Sunday, $200 per month (${SITE}/us)
