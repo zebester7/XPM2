@@ -31,6 +31,16 @@ const staticRoutes: RouteSeo[] = [
     changefreq: 'weekly',
   },
 
+  // Islamabad hub (home + online tuition)
+  {
+    path: '/tutors-islamabad',
+    label: 'Tutors in Islamabad',
+    title: 'Home & Online Tutors in Islamabad | XPM Tutors',
+    description: 'Home and online tutors in Islamabad for Grade 1–12, Matric, FSc, O Level, A Level and IGCSE. Physics, Maths, Chemistry and more. Free trial session.',
+    priority: 0.95,
+    changefreq: 'weekly',
+  },
+
   // Exam tutoring
   {
     path: '/o-level-tutors',
@@ -191,8 +201,8 @@ const staticRoutes: RouteSeo[] = [
   {
     path: '/uk',
     label: 'United Kingdom',
-    title: 'UK GCSE & A Level Tutors Online | XPM Tutors',
-    description: 'Online GCSE, IGCSE and A Level tutors for students in the UK. One-to-one Maths, Physics and Chemistry lessons at UK-friendly times. Free trial.',
+    title: 'Online A Level & GCSE Tutors for UK Students | XPM Tutors',
+    description: 'One-to-one online A Level and GCSE tutors for UK students: Maths, Further Maths, sciences, English and Economics, in UK time with evening slots. Free trial.',
     priority: 0.8,
     changefreq: 'monthly',
   },
@@ -207,8 +217,8 @@ const staticRoutes: RouteSeo[] = [
   {
     path: '/ae',
     label: 'UAE',
-    title: 'IB & IGCSE Tutors in Dubai & UAE | XPM Tutors',
-    description: 'Online IB and IGCSE tutors for students in Dubai and across the UAE. One-to-one lessons scheduled for UAE time zones. Free trial session.',
+    title: 'Online GCSE, IGCSE & IB Tutors in Dubai & UAE | XPM Tutors',
+    description: 'Online GCSE, IGCSE and IB tutors for students in Dubai, Abu Dhabi and across the UAE. One-to-one lessons around UAE school hours. Book a free trial.',
     priority: 0.8,
     changefreq: 'monthly',
   },

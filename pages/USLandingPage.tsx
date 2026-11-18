@@ -10,11 +10,10 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import JsonLd from '../components/JsonLd.tsx';
 import { generateFAQSchema } from '../seoHelper.ts';
-import { recordDemoRequest } from '../apiClient.ts';
+import DemoBookingForm from '../components/DemoBookingForm.tsx';
 
 const PAGE_URL = 'https://www.xpmtutors.com/us';
 const PRICE_USD = 200;
-const WHATSAPP_NUMBER = '923009508592';
 const PROGRAM_NAME = 'Digital SAT Small-Group Weekend Prep';
 
 // ---------------------------------------------------------------------------
@@ -284,95 +283,23 @@ const Pricing: React.FC = () => (
 const TIME_ZONES = ['Eastern (EST)', 'Central (CST)', 'Mountain (MST)', 'Pacific (PST)', 'Other'];
 const GRADES = ['Grade 9', 'Grade 10', 'Grade 11', 'Grade 12', 'Other'];
 
-/**
- * Sends each booking two ways: opens WhatsApp with the details pre-filled (to the academy's
- * number) and saves it to the admin dashboard. If the save fails, the WhatsApp message still
- * carries the booking, so no lead is lost.
- */
-const DemoForm: React.FC = () => {
-  const [form, setForm] = useState({ name: '', phone: '', grade: 'Grade 11', timeZone: 'Eastern (EST)' });
-  const [status, setStatus] = useState<'idle' | 'sent'>('idle');
-
-  const set = (key: keyof typeof form) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) =>
-    setForm(f => ({ ...f, [key]: e.target.value }));
-
-  const whatsappText = `Hi XPM Tutors! I'd like a free demo class for the ${PROGRAM_NAME}.\n\nName: ${form.name}\nWhatsApp: ${form.phone}\nGrade: ${form.grade}\nTime zone: ${form.timeZone}`;
-  const whatsappLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(whatsappText)}`;
-
-  const submit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Opened synchronously inside the submit event; browsers block pop-ups opened after an await
-    window.open(whatsappLink, '_blank', 'noopener,noreferrer');
-    recordDemoRequest({
-      name: form.name,
-      phone: form.phone,
-      subjects: [PROGRAM_NAME],
-      level: form.grade,
-      board: 'Digital SAT',
-      preferredTutors: '',
-      message: `Time zone: ${form.timeZone}`,
-    }).catch(err => console.error('Could not record demo request:', err));
-    setStatus('sent');
-  };
-  const input = 'w-full px-4 py-3 rounded-xl bg-white border-2 border-slate-200 focus:border-indigo-500 outline-none font-medium text-slate-900';
-
-  return (
-    <section id="book-demo" className="py-16 lg:py-24 bg-gradient-to-br from-indigo-600 to-indigo-800 scroll-mt-20">
-      <div className="max-w-xl mx-auto px-4 sm:px-6">
-        <div className="bg-white rounded-3xl p-8 sm:p-10 shadow-2xl">
-          {status === 'sent' ? (
-            <div className="text-center" role="status">
-              <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">You're booked in!</h2>
-              <p className="mt-3 text-slate-600">
-                WhatsApp has opened with your booking details. Press <strong>Send</strong> there and we'll confirm your demo time
-                in {form.timeZone.split(' ')[0]} time.
-              </p>
-              <a href={whatsappLink} target="_blank" rel="noopener noreferrer"
-                className="mt-6 inline-block px-6 py-3 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black rounded-xl transition">
-                WhatsApp didn't open? Tap here
-              </a>
-            </div>
-          ) : (
-            <form onSubmit={submit} className="space-y-5">
-              <div className="text-center">
-                <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">Book Your Free Live Demo Class</h2>
-                <p className="mt-2 text-slate-600">Takes 30 seconds. We confirm your slot on WhatsApp.</p>
-                <p className="mt-1 text-xs text-slate-400">Free. No payment details needed.</p>
-              </div>
-              <label className="block">
-                <span className="block text-sm font-bold text-slate-700 mb-1.5">Student or parent name</span>
-                <input required autoComplete="name" value={form.name} onChange={set('name')} className={input} />
-              </label>
-              <label className="block">
-                <span className="block text-sm font-bold text-slate-700 mb-1.5">WhatsApp number (with country code)</span>
-                <input required type="tel" autoComplete="tel" placeholder="+1 555 123 4567" value={form.phone} onChange={set('phone')} className={input} />
-              </label>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <label className="block">
-                  <span className="block text-sm font-bold text-slate-700 mb-1.5">Grade</span>
-                  <select value={form.grade} onChange={set('grade')} className={input}>
-                    {GRADES.map(g => <option key={g}>{g}</option>)}
-                  </select>
-                </label>
-                <label className="block">
-                  <span className="block text-sm font-bold text-slate-700 mb-1.5">Time zone</span>
-                  <select value={form.timeZone} onChange={set('timeZone')} className={input}>
-                    {TIME_ZONES.map(t => <option key={t}>{t}</option>)}
-                  </select>
-                </label>
-              </div>
-              <button type="submit"
-                className="w-full py-4 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-lg rounded-2xl transition">
-                Book My Free Demo on WhatsApp
-              </button>
-              <p className="text-center text-xs text-slate-500">Opens WhatsApp with your details filled in. Just press Send.</p>
-            </form>
-          )}
-        </div>
-      </div>
-    </section>
-  );
-};
+const DemoForm: React.FC = () => (
+  <DemoBookingForm
+    program={PROGRAM_NAME}
+    board="Digital SAT"
+    heading="Book Your Free Live Demo Class"
+    offer="free demo class"
+    cta="Book My Free Demo on WhatsApp"
+    phonePlaceholder="+1 555 123 4567"
+    level={{ label: 'Grade', options: GRADES, defaultValue: 'Grade 11' }}
+    detail={{ label: 'Time zone', options: TIME_ZONES, defaultValue: 'Eastern (EST)' }}
+    theme={{
+      section: 'bg-gradient-to-br from-indigo-600 to-indigo-800',
+      focus: 'focus:border-indigo-500',
+      button: 'bg-emerald-500 hover:bg-emerald-400 text-slate-950',
+    }}
+  />
+);
 
 const Faq: React.FC = () => (
   <section className="py-16 lg:py-24 bg-white">

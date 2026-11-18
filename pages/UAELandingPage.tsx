@@ -3,6 +3,11 @@ import { Link } from 'react-router-dom';
 import { generateRegionalServiceSchema } from '../internationalSEOHelper';
 import JsonLd from '../components/JsonLd.tsx';
 import RegionalFaq from '../components/RegionalFaq.tsx';
+import DemoBookingForm from '../components/DemoBookingForm.tsx';
+import { blogPosts } from '../blogData';
+
+const UAE_ARTICLES = blogPosts.filter(post => post.region === 'ae').slice(0, 3);
+const WHATSAPP_LINK = `https://wa.me/923009508592?text=${encodeURIComponent("Hi XPM Tutors! I'm in the UAE and would like to know more about online tutoring.")}`;
 
 const UAELandingPage: React.FC = () => {
   return (
@@ -18,26 +23,28 @@ const UAELandingPage: React.FC = () => {
               </div>
               
               <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black tracking-tighter text-slate-900 mb-6 lg:mb-8 leading-none">
-                Best <span className="text-emerald-600">IB & IGCSE</span> Tutors in Dubai
+                Online <span className="text-emerald-600">GCSE, IGCSE & IB</span> Tutors in Dubai & the UAE
               </h1>
               
               <h2 className="text-lg sm:text-xl text-slate-600 mb-10 lg:mb-12 max-w-xl mx-auto lg:mx-0 leading-relaxed font-medium">
-                Expert online tutoring for IB, IGCSE, Cambridge, and international curricula across UAE. Serving the expatriate and local community.
+                One-to-one online tutoring for students at British, IB and international schools in Dubai, Abu Dhabi, Sharjah and across the UAE. GCSE, IGCSE, IB Diploma and A Level, scheduled around UAE school hours.
               </h2>
 
               <div className="flex flex-col sm:flex-row justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4 mb-12 lg:mb-0">
-                <Link 
-                  to="/hire-teacher" 
+                <a 
+                  href="#book-demo" 
                   className="px-8 py-4 lg:py-5 bg-emerald-600 text-white font-black rounded-2xl shadow-xl shadow-emerald-600/20 hover:bg-emerald-700 transition transform hover:-translate-y-1 text-center text-lg"
                 >
-                  Book Expert Tutor
-                </Link>
-                <Link 
-                  to="/signup" 
+                  Book a Free Trial
+                </a>
+                <a 
+                  href={WHATSAPP_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="px-8 py-4 lg:py-5 bg-white text-emerald-600 border-2 border-emerald-600 font-black rounded-2xl hover:bg-emerald-50 transition text-center shadow-sm text-lg"
                 >
-                  Start Free Trial
-                </Link>
+                  Chat on WhatsApp
+                </a>
               </div>
             </div>
 
@@ -71,14 +78,14 @@ const UAELandingPage: React.FC = () => {
             All International Curricula Covered
           </h2>
           <p className="text-center text-slate-600 text-lg mb-12 max-w-2xl mx-auto">
-            Expert tutoring for IB, IGCSE, Cambridge, CBSE, and other international curricula
+            Online tutoring for the British, IB, Cambridge, Indian and American curricula taught in UAE schools
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {['IB Programme', 'IGCSE', 'Cambridge A/O Levels', 'CBSE', 'ICSE', 'Indian Curriculum', 'ICS Curriculum', 'British Curriculum', 'American Curriculum'].map((curriculum) => (
+            {['GCSE (British Curriculum)', 'IGCSE', 'IB Diploma Programme', 'Cambridge O & A Levels', 'CBSE', 'ICSE', 'American Curriculum'].map((curriculum) => (
               <div key={curriculum} className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition border-l-4 border-emerald-600">
                 <h3 className="text-xl font-black text-slate-900 mb-2">{curriculum}</h3>
-                <p className="text-slate-600 text-sm">Expert tutors specializing in {curriculum}</p>
+                <p className="text-slate-600 text-sm">Online one-to-one tutoring for {curriculum} students in the UAE</p>
               </div>
             ))}
           </div>
@@ -144,6 +151,21 @@ const UAELandingPage: React.FC = () => {
         </div>
       </section>
 
+      <DemoBookingForm
+        program="Online tutoring (UAE)"
+        board="UAE"
+        heading="Book a Free Trial Session"
+        phonePlaceholder="+971 50 123 4567"
+        level={{ label: 'Curriculum', options: ['GCSE', 'IGCSE', 'IB Diploma', 'A Level', 'CBSE / ICSE', 'American', 'Other'], defaultValue: 'GCSE' }}
+        detail={{ label: 'Year / Grade', options: ['Year 9 / Grade 8', 'Year 10 / Grade 9', 'Year 11 / Grade 10', 'Year 12 / Grade 11', 'Year 13 / Grade 12', 'Other'], defaultValue: 'Year 10 / Grade 9' }}
+        askSubject
+        theme={{
+          section: 'bg-gradient-to-br from-emerald-600 to-emerald-800',
+          focus: 'focus:border-emerald-500',
+          button: 'bg-emerald-600 hover:bg-emerald-700 text-white',
+        }}
+      />
+
       <RegionalFaq region="ae" />
 
       {/* Blog Section */}
@@ -155,6 +177,16 @@ const UAELandingPage: React.FC = () => {
           <p className="text-center text-slate-600 text-lg mb-12 max-w-2xl mx-auto">
             Read expert articles on IB strategies, IGCSE guides, and exam preparation tips for Dubai students
           </p>
+          <ul className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            {UAE_ARTICLES.map(post => (
+              <li key={post.id}>
+                <Link to={`/blog/${post.slug}`} className="block h-full p-6 rounded-2xl border border-slate-200 hover:border-emerald-400 hover:bg-emerald-50/30 transition">
+                  <span className="block font-black text-slate-900">{post.title.split('|')[0].trim()}</span>
+                  <span className="block text-sm text-slate-600 mt-2 line-clamp-3">{post.excerpt}</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
           <div className="text-center">
             <Link 
               to="/ae/blog"
@@ -173,12 +205,12 @@ const UAELandingPage: React.FC = () => {
           <p className="text-lg text-emerald-100 mb-8 max-w-2xl mx-auto">
             Book your free trial session today and experience the XPM Tutors difference.
           </p>
-          <Link 
-            to="/hire-teacher"
+          <a 
+            href="#book-demo"
             className="inline-block px-10 py-4 bg-white text-emerald-600 font-black rounded-2xl hover:bg-emerald-50 transition shadow-2xl"
           >
             Book Free Trial Now
-          </Link>
+          </a>
         </div>
       </section>
     </div>

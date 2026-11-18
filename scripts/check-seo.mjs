@@ -29,8 +29,10 @@ for (const url of urls) {
   const head = html.slice(0, html.indexOf('</head>'));
   const body = html.slice(html.indexOf('<body'));
 
-  const title = head.match(/<title>([^<]*)<\/title>/)?.[1];
-  const desc = head.match(/<meta name="description" content="([^"]*)"/)?.[1];
+  // Decode entities so lengths match what Google displays (&amp; is one character)
+  const decode = (v) => v?.replace(/&quot;/g, '"').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&');
+  const title = decode(head.match(/<title>([^<]*)<\/title>/)?.[1]);
+  const desc = decode(head.match(/<meta name="description" content="([^"]*)"/)?.[1]);
   const canonicals = [...head.matchAll(/<link rel="canonical" href="([^"]+)"/g)].map(m => m[1]);
   const robots = [...html.matchAll(/<meta name="robots" content="([^"]+)"/g)].map(m => m[1]);
   const h1s = (body.match(/<h1[\s>]/g) || []).length;

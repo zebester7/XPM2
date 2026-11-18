@@ -164,7 +164,7 @@ export function generateRegionalServiceSchema(countryCode: string) {
   const regions: Record<string, { country: string; path: string; name: string }> = {
     'en-gb': { country: 'United Kingdom', path: '/uk', name: 'Online GCSE & A Level Tutoring for UK Students' },
     'en-us': { country: 'United States', path: '/us', name: 'Online SAT & AP Tutoring for US Students' },
-    'en-ae': { country: 'United Arab Emirates', path: '/ae', name: 'Online IB & IGCSE Tutoring for UAE Students' },
+    'en-ae': { country: 'United Arab Emirates', path: '/ae', name: 'Online GCSE, IGCSE & IB Tutoring for UAE Students' },
     'en-pk': { country: 'Pakistan', path: '/pk', name: 'Online O & A Level Tutoring for Students in Pakistan' },
   };
   const region = regions[countryCode] || regions['en-us'];

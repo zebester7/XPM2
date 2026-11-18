@@ -6,7 +6,7 @@ const GROUPS: { name: string; match: (path: string) => boolean }[] = [
   { name: 'Exam Tutoring', match: p => /-tutors(-islamabad)?$/.test(p) },
   { name: 'Quran Courses', match: p => p.startsWith('/quran') },
   { name: 'Services & Community', match: p => ['/ir-services', '/hire-teacher', '/teacher-directory', '/reviews', '/mishal-razzaq'].includes(p) },
-  { name: 'Regional Pages', match: p => /^\/(uk|us|ae|pk)(\/blog)?$/.test(p) },
+  { name: 'Regional Pages', match: p => p === '/tutors-islamabad' || /^\/(uk|us|ae|pk)(\/blog)?$/.test(p) },
   { name: 'Blog Articles', match: p => p === '/blog' || p.startsWith('/blog/') },
 ];
 

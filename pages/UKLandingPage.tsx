@@ -3,6 +3,11 @@ import { Link } from 'react-router-dom';
 import { generateRegionalServiceSchema } from '../internationalSEOHelper';
 import JsonLd from '../components/JsonLd.tsx';
 import RegionalFaq from '../components/RegionalFaq.tsx';
+import DemoBookingForm from '../components/DemoBookingForm.tsx';
+import { blogPosts } from '../blogData';
+
+const UK_ARTICLES = blogPosts.filter(post => post.region === 'uk').slice(0, 3);
+const WHATSAPP_LINK = `https://wa.me/923009508592?text=${encodeURIComponent("Hi XPM Tutors! I'm in the UK and would like to know more about online GCSE / A Level tutoring.")}`;
 
 const UKLandingPage: React.FC = () => {
   return (
@@ -18,26 +23,28 @@ const UKLandingPage: React.FC = () => {
               </div>
               
               <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black tracking-tighter text-slate-900 mb-6 lg:mb-8 leading-none">
-                Best <span className="text-blue-600">GCSE & A Level</span> Tutors in the UK
+                Online <span className="text-blue-600">A Level & GCSE</span> Tutors for UK Students
               </h1>
               
               <h2 className="text-lg sm:text-xl text-slate-600 mb-10 lg:mb-12 max-w-xl mx-auto lg:mx-0 leading-relaxed font-medium">
-                Expert online tutoring for Cambridge, IGCSE, and A Levels. Proven track record helping UK students achieve top grades. Free trial session available.
+                One-to-one online A Level, GCSE and IGCSE tutoring in UK time, with evening and weekend lessons. Maths, Further Maths, the sciences, English, Economics and more. Free trial session available.
               </h2>
 
               <div className="flex flex-col sm:flex-row justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4 mb-12 lg:mb-0">
-                <Link 
-                  to="/hire-teacher" 
+                <a 
+                  href="#book-demo" 
                   className="px-8 py-4 lg:py-5 bg-blue-600 text-white font-black rounded-2xl shadow-xl shadow-blue-600/20 hover:bg-blue-700 transition transform hover:-translate-y-1 text-center text-lg"
                 >
-                  Book Expert Tutor
-                </Link>
-                <Link 
-                  to="/signup" 
+                  Book a Free Trial
+                </a>
+                <a 
+                  href={WHATSAPP_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="px-8 py-4 lg:py-5 bg-white text-blue-600 border-2 border-blue-600 font-black rounded-2xl hover:bg-blue-50 transition text-center shadow-sm text-lg"
                 >
-                  Start Free Trial
-                </Link>
+                  Chat on WhatsApp
+                </a>
               </div>
             </div>
 
@@ -78,7 +85,7 @@ const UKLandingPage: React.FC = () => {
             {['Mathematics', 'Physics', 'Chemistry', 'English', 'Biology', 'Economics', 'Further Maths', 'Computer Science', 'Geography'].map((subject) => (
               <div key={subject} className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition border-l-4 border-blue-600">
                 <h3 className="text-xl font-black text-slate-900 mb-2">{subject}</h3>
-                <p className="text-slate-600 text-sm">Expert tutors specializing in {subject} for GCSE and A Level</p>
+                <p className="text-slate-600 text-sm">Online one-to-one {subject} tutoring for GCSE and A Level</p>
               </div>
             ))}
           </div>
@@ -115,6 +122,21 @@ const UKLandingPage: React.FC = () => {
         </div>
       </section>
 
+      <DemoBookingForm
+        program="Online tutoring (UK)"
+        board="UK"
+        heading="Book a Free Trial Session"
+        phonePlaceholder="+44 7700 900123"
+        level={{ label: 'Level', options: ['GCSE', 'IGCSE', 'AS Level', 'A Level', 'Other'], defaultValue: 'A Level' }}
+        detail={{ label: 'Year', options: ['Year 9', 'Year 10', 'Year 11', 'Year 12', 'Year 13', 'Other'], defaultValue: 'Year 12' }}
+        askSubject
+        theme={{
+          section: 'bg-gradient-to-br from-blue-600 to-blue-800',
+          focus: 'focus:border-blue-500',
+          button: 'bg-blue-600 hover:bg-blue-700 text-white',
+        }}
+      />
+
       <RegionalFaq region="uk" />
 
       {/* Blog Section */}
@@ -126,6 +148,16 @@ const UKLandingPage: React.FC = () => {
           <p className="text-center text-slate-600 text-lg mb-12 max-w-2xl mx-auto">
             Read expert articles on GCSE strategies, A Level subject guides, and exam preparation tips
           </p>
+          <ul className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            {UK_ARTICLES.map(post => (
+              <li key={post.id}>
+                <Link to={`/blog/${post.slug}`} className="block h-full p-6 rounded-2xl border border-slate-200 hover:border-blue-400 hover:bg-blue-50/30 transition">
+                  <span className="block font-black text-slate-900">{post.title.split('|')[0].trim()}</span>
+                  <span className="block text-sm text-slate-600 mt-2 line-clamp-3">{post.excerpt}</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
           <div className="text-center">
             <Link 
               to="/uk/blog"
@@ -144,12 +176,12 @@ const UKLandingPage: React.FC = () => {
           <p className="text-lg text-blue-100 mb-8 max-w-2xl mx-auto">
             Book your free trial session today and see the difference expert tutoring can make.
           </p>
-          <Link 
-            to="/hire-teacher"
+          <a 
+            href="#book-demo"
             className="inline-block px-10 py-4 bg-white text-blue-600 font-black rounded-2xl hover:bg-blue-50 transition shadow-2xl"
           >
             Book Free Trial Now
-          </Link>
+          </a>
         </div>
       </section>
     </div>

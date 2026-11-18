@@ -18,6 +18,10 @@ const FAQS: Record<Region, Faq[]> = {
       answer: 'We tutor GCSE, IGCSE and A Level Mathematics, Further Maths, Physics, Chemistry, Biology, English, Economics, Computer Science and Geography.',
     },
     {
+      question: 'Do you offer online A Level tutoring?',
+      answer: 'Yes. All A Level lessons are online and one-to-one, in UK time, covering Mathematics, Further Maths, Physics, Chemistry, Biology, Economics and more.',
+    },
+    {
       question: 'Can lessons be scheduled around UK school hours?',
       answer: 'Yes. Lessons are online and scheduled in UK time, with evening and weekend sessions available.',
     },
@@ -33,7 +37,11 @@ const FAQS: Record<Region, Faq[]> = {
   ae: [
     {
       question: 'Which curricula do you cover for students in the UAE?',
-      answer: 'We cover the IB Programme, IGCSE, Cambridge O and A Levels, the British and American curricula, and CBSE, ICSE and other Indian curricula.',
+      answer: 'We cover GCSE and IGCSE, the IB Diploma Programme, Cambridge O and A Levels, the American curriculum, and CBSE, ICSE and other Indian curricula.',
+    },
+    {
+      question: 'Do you tutor GCSE and IGCSE students at British schools in Dubai?',
+      answer: 'Yes. We tutor GCSE and IGCSE students online and one-to-one, following Cambridge and Pearson Edexcel specifications, at times that fit around the UAE school day.',
     },
     {
       question: 'Can lessons be scheduled around UAE school hours?',
