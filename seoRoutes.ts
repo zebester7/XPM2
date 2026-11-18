@@ -119,6 +119,14 @@ const staticRoutes: RouteSeo[] = [
     changefreq: 'monthly',
   },
   {
+    path: '/about',
+    label: 'About Us',
+    title: 'About XPM Tutors | Founded in Islamabad by Zubair Ahmad',
+    description: 'XPM Tutors is a tutoring academy founded in Islamabad in 2024 by Physics and Maths tutor Zubair Ahmad, teaching students online and at home.',
+    priority: 0.7,
+    changefreq: 'yearly',
+  },
+  {
     path: '/hire-teacher',
     label: 'Hire a Tutor',
     title: 'Hire an Online Tutor | One-to-One Coaching | XPM Tutors',
