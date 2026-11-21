@@ -38,6 +38,7 @@ const IslamabadTutorsPage = lazy(() => import('./pages/IslamabadTutorsPage.tsx')
 const AboutPage = lazy(() => import('./pages/AboutPage.tsx'));
 const FrenchTutoringPage = lazy(() => import('./pages/FrenchTutoringPage.tsx'));
 const CalculusTutorsPage = lazy(() => import('./pages/CalculusTutorsPage.tsx'));
+const OnlineLevelPage = lazy(() => import('./pages/OnlineLevelPage.tsx'));
 const ALevelIslamabadPage = lazy(() => import('./pages/ALevelIslamabadPage.tsx'));
 const IRServicesPage = lazy(() => import('./pages/IRServicesPage.tsx'));
 const QuranTutoringPage = lazy(() => import('./pages/QuranTutoringPage.tsx'));
@@ -196,14 +197,14 @@ const App: React.FC = () => {
                 <Route path="/payment" element={<PageWrapper>{user ? <PaymentPage user={user} onUpdateUser={updateUser} /> : <Navigate to="/login" replace />}</PageWrapper>} />
                 <Route path="/teacher-registration" element={<PageWrapper>{user ? <TeacherRegistrationPage user={user} onUpdateUser={updateUser} /> : <Navigate to="/login" replace />}</PageWrapper>} />
                 
-                <Route path="/o-level-tutors" element={<PageWrapper><ExamLandingPage exam="O Level" /></PageWrapper>} />
+                <Route path="/o-level-tutors" element={<PageWrapper><OnlineLevelPage level="O Level" /></PageWrapper>} />
                 <Route path="/online-calculus-tutors" element={<PageWrapper><CalculusTutorsPage /></PageWrapper>} />
                 <Route path="/french-tutoring" element={<PageWrapper><FrenchTutoringPage /></PageWrapper>} />
                 <Route path="/about" element={<PageWrapper><AboutPage /></PageWrapper>} />
                 <Route path="/tutors-islamabad" element={<PageWrapper><IslamabadTutorsPage /></PageWrapper>} />
                 <Route path="/o-level-tutors-islamabad" element={<PageWrapper><OLevelIslamabadPage /></PageWrapper>} />
                 <Route path="/a-level-tutors-islamabad" element={<PageWrapper><ALevelIslamabadPage /></PageWrapper>} />
-                <Route path="/a-level-tutors" element={<PageWrapper><ExamLandingPage exam="A Level" /></PageWrapper>} />
+                <Route path="/a-level-tutors" element={<PageWrapper><OnlineLevelPage level="A Level" /></PageWrapper>} />
                 <Route path="/igcse-tutors" element={<PageWrapper><ExamLandingPage exam="IGCSE" /></PageWrapper>} />
                 <Route path="/sat-tutors" element={<PageWrapper><ExamLandingPage exam="SAT" /></PageWrapper>} />
                 <Route path="/net-entry-test-tutors" element={<PageWrapper><ExamLandingPage exam="NET Entry Test" /></PageWrapper>} />

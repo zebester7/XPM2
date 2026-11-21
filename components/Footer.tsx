@@ -20,8 +20,8 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="font-bold text-xpm-orange mb-6 uppercase tracking-widest text-xs">Exam Preparation</h4>
             <ul className="space-y-3 text-slate-300 font-medium text-sm">
-              <li><Link to="/o-level-tutors" className="hover:text-xpm-green transition">O Level Tutors</Link></li>
-              <li><Link to="/a-level-tutors" className="hover:text-xpm-green transition">A Level Tutors</Link></li>
+              <li><Link to="/o-level-tutors" className="hover:text-xpm-green transition">Online O Level Tutors</Link></li>
+              <li><Link to="/a-level-tutors" className="hover:text-xpm-green transition">Online A Level Tutors</Link></li>
               <li><Link to="/igcse-tutors" className="hover:text-xpm-green transition">IGCSE Tutors</Link></li>
               <li><Link to="/sat-tutors" className="hover:text-xpm-green transition">SAT Preparation</Link></li>
               <li><Link to="/net-entry-test-tutors" className="hover:text-xpm-green transition">NET Entry Test</Link></li>
