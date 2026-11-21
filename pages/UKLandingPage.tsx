@@ -4,9 +4,21 @@ import { generateRegionalServiceSchema } from '../internationalSEOHelper';
 import JsonLd from '../components/JsonLd.tsx';
 import RegionalFaq from '../components/RegionalFaq.tsx';
 import DemoBookingForm from '../components/DemoBookingForm.tsx';
+import ExamBoards, { ExamBoard } from '../components/ExamBoards.tsx';
 import { blogPosts } from '../blogData';
 
 const UK_ARTICLES = blogPosts.filter(post => post.region === 'uk').slice(0, 3);
+export const UK_BOARDS: ExamBoard[] = [
+  { name: 'AQA', quals: 'GCSE · AS & A Level', codes: ['GCSE Maths 8300', 'Combined Science Trilogy 8464', 'GCSE Physics 8463', 'GCSE Chemistry 8462', 'GCSE Biology 8461', 'A Level Maths 7357', 'A Level Physics 7408', 'A Level Chemistry 7405', 'A Level Biology 7402'] },
+  { name: 'Pearson Edexcel', quals: 'GCSE · AS & A Level', codes: ['GCSE Maths 1MA1', 'A Level Maths 9MA0', 'A Level Further Maths 9FM0', 'A Level Economics A 9EC0'] },
+  { name: 'OCR', quals: 'GCSE · AS & A Level', codes: ['GCSE Maths J560', 'GCSE Computer Science J277', 'A Level Maths A H240', 'Physics A H556', 'Chemistry A H432', 'Biology A H420', 'Computer Science H446'] },
+  { name: 'WJEC / Eduqas', quals: 'GCSE · AS & A Level', note: 'WJEC specifications for students in Wales and Eduqas specifications for schools in England.' },
+  { name: 'CCEA', quals: 'GCSE · AS & A Level', note: 'Northern Ireland GCSE and A Level specifications, including Maths, Further Maths and the sciences.' },
+  { name: 'SQA', quals: 'National 5 · Higher · Advanced Higher', note: 'Scottish qualifications in Maths, Physics, Chemistry, Biology and more.' },
+  { name: 'Cambridge International', quals: 'IGCSE · AS & A Level', codes: ['IGCSE Maths 0580', 'Additional Maths 0606', 'IGCSE Physics 0625', 'IGCSE Chemistry 0620', 'IGCSE Biology 0610', 'A Level Maths 9709', 'Further Maths 9231', 'A Level Physics 9702'] },
+  { name: 'Pearson Edexcel International', quals: 'International GCSE · International A Level', codes: ['Maths A 4MA1', 'Physics 4PH1', 'Chemistry 4CH1', 'Biology 4BI1', 'IAL Maths, Physics & Chemistry'] },
+];
+
 const WHATSAPP_LINK = `https://wa.me/923009508592?text=${encodeURIComponent("Hi XPM Tutors! I'm in the UK and would like to know more about online GCSE / A Level tutoring.")}`;
 
 const UKLandingPage: React.FC = () => {
@@ -26,9 +38,9 @@ const UKLandingPage: React.FC = () => {
                 Online <span className="text-blue-600">A Level & GCSE</span> Tutors for UK Students
               </h1>
               
-              <h2 className="text-lg sm:text-xl text-slate-600 mb-10 lg:mb-12 max-w-xl mx-auto lg:mx-0 leading-relaxed font-medium">
-                One-to-one online A Level, GCSE and IGCSE tutoring in UK time, with evening and weekend lessons. Maths, Further Maths, the sciences, English, Economics and more. Free trial session available.
-              </h2>
+              <p className="text-lg sm:text-xl text-slate-600 mb-10 lg:mb-12 max-w-xl mx-auto lg:mx-0 leading-relaxed font-medium">
+                One-to-one online GCSE, IGCSE and A Level tutoring for every UK exam board: AQA, Pearson Edexcel, OCR, WJEC/Eduqas, CCEA, SQA and Cambridge. Lessons in UK time, with evening and weekend slots. Free trial session available.
+              </p>
 
               <div className="flex flex-col sm:flex-row justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4 mb-12 lg:mb-0">
                 <a 
@@ -78,19 +90,26 @@ const UKLandingPage: React.FC = () => {
             GCSE & A Level Subjects
           </h2>
           <p className="text-center text-slate-600 text-lg mb-12 max-w-2xl mx-auto">
-            Expert tutoring across all major subjects for Cambridge GCSE, IGCSE, and A Level examinations
+            One-to-one tutoring for GCSE, IGCSE, AS and A Level, matched to your exam board's specification
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {['Mathematics', 'Physics', 'Chemistry', 'English', 'Biology', 'Economics', 'Further Maths', 'Computer Science', 'Geography'].map((subject) => (
               <div key={subject} className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition border-l-4 border-blue-600">
                 <h3 className="text-xl font-black text-slate-900 mb-2">{subject}</h3>
-                <p className="text-slate-600 text-sm">Online one-to-one {subject} tutoring for GCSE and A Level</p>
+                <p className="text-slate-600 text-sm">Online {subject} tutoring for GCSE and A Level, on AQA, Edexcel, OCR and other boards</p>
               </div>
             ))}
           </div>
         </div>
       </section>
+
+      <ExamBoards
+        heading="Every UK Exam Board Covered"
+        intro="Your tutor follows your exact specification and uses that board's past papers and mark schemes. We tutor all of these boards:"
+        boards={UK_BOARDS}
+        accent={{ border: 'border-blue-100 hover:border-blue-400 transition', badge: 'bg-blue-50 text-blue-700' }}
+      />
 
       {/* Why Choose Us */}
       <section className="py-16 lg:py-24 bg-white">
@@ -101,7 +120,7 @@ const UKLandingPage: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {[
-              { title: 'Cambridge Exam Expertise', desc: 'Specialists in GCSE, IGCSE, and A Level Cambridge curriculum' },
+              { title: 'Board-Specific Teaching', desc: "Lessons follow your AQA, Edexcel, OCR, WJEC, CCEA, SQA or Cambridge specification, with that board's past papers" },
               { title: 'Proven Results', desc: 'Average grade improvement of 2-3 grades within 3 months' },
               { title: 'Flexible Scheduling', desc: 'UK timezone friendly, weekend and evening sessions available' },
               { title: 'University Admission Support', desc: 'Help with PS, interview prep, and UCAS guidance' },
@@ -127,8 +146,9 @@ const UKLandingPage: React.FC = () => {
         board="UK"
         heading="Book a Free Trial Session"
         phonePlaceholder="+44 7700 900123"
-        level={{ label: 'Level', options: ['GCSE', 'IGCSE', 'AS Level', 'A Level', 'Other'], defaultValue: 'A Level' }}
+        level={{ label: 'Level', options: ['GCSE', 'IGCSE', 'AS Level', 'A Level', 'National 5 / Higher', 'University', 'Other'], defaultValue: 'A Level' }}
         detail={{ label: 'Year', options: ['Year 9', 'Year 10', 'Year 11', 'Year 12', 'Year 13', 'Other'], defaultValue: 'Year 12' }}
+        extra={{ label: 'Exam board', options: ['AQA', 'Pearson Edexcel', 'OCR', 'WJEC / Eduqas', 'CCEA', 'SQA', 'Cambridge International', 'Edexcel International', 'Not sure'], defaultValue: 'AQA' }}
         askSubject
         theme={{
           section: 'bg-gradient-to-br from-blue-600 to-blue-800',
@@ -158,6 +178,9 @@ const UKLandingPage: React.FC = () => {
               </li>
             ))}
           </ul>
+          <p className="text-center text-slate-600 mb-8">
+            At university? See our <Link to="/online-calculus-tutors" className="text-blue-600 font-bold hover:underline">online calculus tutors for engineering students</Link>.
+          </p>
           <div className="text-center">
             <Link 
               to="/uk/blog"

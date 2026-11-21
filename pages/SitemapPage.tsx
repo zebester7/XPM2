@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import { SEO_ROUTES, RouteSeo } from '../seoRoutes.ts';
 
 const GROUPS: { name: string; match: (path: string) => boolean }[] = [
-  { name: 'Exam Tutoring', match: p => /-tutors(-islamabad)?$/.test(p) },
+  { name: 'Exam Tutoring', match: p => /-tutors(-islamabad)?$/.test(p) && p !== '/online-calculus-tutors' },
   { name: 'Quran Courses', match: p => p.startsWith('/quran') },
-  { name: 'Language Courses', match: p => p === '/french-tutoring' },
+  { name: 'University & Language Courses', match: p => p === '/french-tutoring' || p === '/online-calculus-tutors' },
   { name: 'Services & Community', match: p => ['/about', '/ir-services', '/hire-teacher', '/teacher-directory', '/reviews', '/mishal-razzaq'].includes(p) },
   { name: 'Regional Pages', match: p => p === '/tutors-islamabad' || /^\/(uk|us|ae|pk)(\/blog)?$/.test(p) },
   { name: 'Blog Articles', match: p => p === '/blog' || p.startsWith('/blog/') },

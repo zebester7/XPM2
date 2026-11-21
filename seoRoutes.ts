@@ -159,6 +159,16 @@ const staticRoutes: RouteSeo[] = [
     changefreq: 'monthly',
   },
 
+  // University
+  {
+    path: '/online-calculus-tutors',
+    label: 'Online Calculus Tutors',
+    title: 'Online Calculus Tutor for University & Engineering | XPM Tutors',
+    description: 'Online calculus tutors for university and engineering students in the US, Canada, UK and Australia. Calculus I, II, III and differential equations. Free trial.',
+    priority: 0.9,
+    changefreq: 'monthly',
+  },
+
   // Languages
   {
     path: '/french-tutoring',
@@ -219,8 +229,8 @@ const staticRoutes: RouteSeo[] = [
   {
     path: '/uk',
     label: 'United Kingdom',
-    title: 'Online A Level & GCSE Tutors for UK Students | XPM Tutors',
-    description: 'One-to-one online A Level and GCSE tutors for UK students: Maths, Further Maths, sciences, English and Economics, in UK time with evening slots. Free trial.',
+    title: 'Online GCSE & A Level Tutors UK | AQA, Edexcel, OCR | XPM Tutors',
+    description: 'Online GCSE and A Level tutors for every UK board: AQA, Edexcel, OCR, WJEC, CCEA, SQA and Cambridge IGCSE. Evening lessons in UK time. Free trial.',
     priority: 0.8,
     changefreq: 'monthly',
   },
@@ -235,8 +245,8 @@ const staticRoutes: RouteSeo[] = [
   {
     path: '/ae',
     label: 'UAE',
-    title: 'Online GCSE, IGCSE & IB Tutors in Dubai & UAE | XPM Tutors',
-    description: 'Online GCSE, IGCSE and IB tutors for students in Dubai, Abu Dhabi and across the UAE. One-to-one lessons around UAE school hours. Book a free trial.',
+    title: 'Online IGCSE, IB, A Level & CBSE Tutors in Dubai | XPM Tutors',
+    description: 'Online IGCSE, GCSE, A Level, IB, AP, CBSE and ICSE tutors in Dubai, Abu Dhabi and across the UAE. Cambridge, Edexcel, AQA and OCR boards. Free trial.',
     priority: 0.8,
     changefreq: 'monthly',
   },

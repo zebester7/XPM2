@@ -28,8 +28,13 @@ interface DemoBookingFormProps {
   level: BookingSelect;
   /** Extra choice saved into the request message, e.g. time zone or curriculum */
   detail: BookingSelect;
+  /** Optional third choice saved into the request message, e.g. exam board */
+  extra?: BookingSelect;
   /** Show an optional free-text "subject(s)" field */
   askSubject?: boolean;
+  /** Label and placeholder for the free-text field (defaults: "Subject(s)", "e.g. Maths, Physics") */
+  subjectLabel?: string;
+  subjectPlaceholder?: string;
   /** What is being booked, e.g. 'free trial' or 'free demo class' */
   offer?: string;
   /** Submit button label */
@@ -43,10 +48,11 @@ interface DemoBookingFormProps {
  * If the save fails, the WhatsApp message still carries the booking, so no lead is lost.
  */
 const DemoBookingForm: React.FC<DemoBookingFormProps> = ({
-  program, board, heading, phonePlaceholder, level, detail, askSubject,
+  program, board, heading, phonePlaceholder, level, detail, extra, askSubject,
+  subjectLabel = 'Subject(s)', subjectPlaceholder = 'e.g. Maths, Physics',
   offer = 'free trial', cta = 'Book My Free Trial on WhatsApp', theme,
 }) => {
-  const [form, setForm] = useState({ name: '', phone: '', level: level.defaultValue, detail: detail.defaultValue, subject: '' });
+  const [form, setForm] = useState({ name: '', phone: '', level: level.defaultValue, detail: detail.defaultValue, extra: extra?.defaultValue ?? '', subject: '' });
   const [sent, setSent] = useState(false);
 
   const set = (key: keyof typeof form) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) =>
@@ -59,7 +65,8 @@ const DemoBookingForm: React.FC<DemoBookingFormProps> = ({
     `WhatsApp: ${form.phone}`,
     `${level.label}: ${form.level}`,
     `${detail.label}: ${form.detail}`,
-    ...(form.subject.trim() ? [`Subject(s): ${form.subject.trim()}`] : []),
+    ...(extra ? [`${extra.label}: ${form.extra}`] : []),
+    ...(form.subject.trim() ? [`${subjectLabel}: ${form.subject.trim()}`] : []),
   ];
   const whatsappLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(lines.join('\n'))}`;
 
@@ -74,7 +81,7 @@ const DemoBookingForm: React.FC<DemoBookingFormProps> = ({
       level: form.level,
       board,
       preferredTutors: '',
-      message: `${detail.label}: ${form.detail}`,
+      message: [`${detail.label}: ${form.detail}`, ...(extra ? [`${extra.label}: ${form.extra}`] : [])].join('\n'),
     }).catch(err => console.error('Could not record demo request:', err));
     setSent(true);
   };
@@ -126,10 +133,18 @@ const DemoBookingForm: React.FC<DemoBookingFormProps> = ({
                   </select>
                 </label>
               </div>
+              {extra && (
+                <label className="block">
+                  <span className="block text-sm font-bold text-slate-700 mb-1.5">{extra.label}</span>
+                  <select value={form.extra} onChange={set('extra')} className={input}>
+                    {extra.options.map(o => <option key={o}>{o}</option>)}
+                  </select>
+                </label>
+              )}
               {askSubject && (
                 <label className="block">
-                  <span className="block text-sm font-bold text-slate-700 mb-1.5">Subject(s) <span className="font-medium text-slate-400">(optional)</span></span>
-                  <input value={form.subject} onChange={set('subject')} placeholder="e.g. Maths, Physics" className={input} />
+                  <span className="block text-sm font-bold text-slate-700 mb-1.5">{subjectLabel} <span className="font-medium text-slate-400">(optional)</span></span>
+                  <input value={form.subject} onChange={set('subject')} placeholder={subjectPlaceholder} className={input} />
                 </label>
               )}
               <button type="submit" className={`w-full py-4 font-black text-lg rounded-2xl transition ${theme.button}`}>

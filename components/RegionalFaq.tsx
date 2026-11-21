@@ -14,8 +14,12 @@ interface Faq {
 const FAQS: Record<Region, Faq[]> = {
   uk: [
     {
+      question: 'Which exam boards do you tutor in the UK?',
+      answer: "We tutor every UK exam board: AQA, Pearson Edexcel, OCR, WJEC and Eduqas, CCEA and SQA, plus Cambridge International and Pearson Edexcel International for IGCSE and International A Level. Your tutor follows your exact specification and uses that board's past papers.",
+    },
+    {
       question: 'Which subjects do you tutor for UK students?',
-      answer: 'We tutor GCSE, IGCSE and A Level Mathematics, Further Maths, Physics, Chemistry, Biology, English, Economics, Computer Science and Geography.',
+      answer: 'We tutor GCSE, IGCSE, AS and A Level, and Scottish National 5 and Higher, in Mathematics, Further Maths, Physics, Chemistry, Biology, English, Economics, Computer Science and Geography.',
     },
     {
       question: 'Do you offer online A Level tutoring?',
@@ -36,8 +40,12 @@ const FAQS: Record<Region, Faq[]> = {
   ],
   ae: [
     {
-      question: 'Which curricula do you cover for students in the UAE?',
-      answer: 'We cover GCSE and IGCSE, the IB Diploma Programme, Cambridge O and A Levels, the American curriculum, and CBSE, ICSE and other Indian curricula.',
+      question: 'Which curricula and exam boards do you cover for students in the UAE?',
+      answer: 'We cover Cambridge International and Pearson Edexcel IGCSE and A Level, AQA and OCR GCSE and A Level, the IB MYP and Diploma Programme, the American curriculum including AP and the SAT, CBSE, and CISCE (ICSE and ISC).',
+    },
+    {
+      question: 'Do you tutor CBSE and ICSE students in Dubai?',
+      answer: 'Yes. We tutor CBSE students from Class 9 to 12 and ICSE and ISC students online, in Maths, Physics, Chemistry and Biology, with board exam preparation for Class 10 and Class 12.',
     },
     {
       question: 'Do you tutor GCSE and IGCSE students at British schools in Dubai?',

@@ -103,6 +103,7 @@ write(path.join(dist, 'llms.txt'), `# XPM Tutors
 - Contact: WhatsApp +92 300 9508592, email support@xpmtutors.com
 - About the academy and founder: ${SITE}/about
 - French lessons online, one-to-one tutoring or group classes: ${SITE}/french-tutoring
+- Online calculus tutoring for university and engineering students worldwide (Calculus I, II, III, multivariable, differential equations): US$500 per month for 20 one-hour classes, 5 days a week (${SITE}/online-calculus-tutors)
 - Book a free trial: ${SITE}/hire-teacher
 - Regions served online: Pakistan, United Kingdom, United States, United Arab Emirates and other countries
 - Digital SAT Small-Group Weekend Prep (US): live classes of at most 5 students, 2 hours every Saturday and Sunday, $200 per month (${SITE}/us)

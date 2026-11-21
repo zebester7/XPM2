@@ -5,6 +5,7 @@
  *   POST   /api/students                 record a student registration
  *   POST   /api/demo-requests            record a free-trial / demo request
  *   GET    /api/teachers                 teachers shown on the public site
+ *   GET    /api/geo                      visitor's country, local currency and USD rate (no database)
  * Admin (signed-in session cookie required)
  *   POST   /api/admin/login              { email, password }
  *   POST   /api/admin/logout
@@ -18,6 +19,7 @@
  */
 import { query, ensureSchema, overLimit, clearEvents, ConfigError } from './_lib/db.js';
 import { HttpError, send, readJson, clientIp, text, required, email, phone } from './_lib/http.js';
+import { geoCurrency } from './_lib/currency.js';
 import { checkCredentials, sessionCookie, clearedCookie, currentAdmin, requireAdmin } from './_lib/auth.js';
 
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
@@ -177,6 +179,10 @@ function match(method, route) {
 export default async function handler(req, res) {
   try {
     const route = routeOf(req);
+    // Pricing display must work even if the database is unavailable, so this skips ensureSchema
+    if (req.method === 'GET' && route === 'geo') {
+      return send(res, 200, await geoCurrency(req), { 'Cache-Control': 'private, max-age=3600' });
+    }
     const found = match(req.method, route);
     if (!found) throw new HttpError(404, 'Not found');
     await ensureSchema();

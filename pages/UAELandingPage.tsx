@@ -4,9 +4,20 @@ import { generateRegionalServiceSchema } from '../internationalSEOHelper';
 import JsonLd from '../components/JsonLd.tsx';
 import RegionalFaq from '../components/RegionalFaq.tsx';
 import DemoBookingForm from '../components/DemoBookingForm.tsx';
+import ExamBoards, { ExamBoard } from '../components/ExamBoards.tsx';
 import { blogPosts } from '../blogData';
 
 const UAE_ARTICLES = blogPosts.filter(post => post.region === 'ae').slice(0, 3);
+const UAE_BOARDS: ExamBoard[] = [
+  { name: 'Cambridge International', quals: 'IGCSE · AS & A Level', codes: ['IGCSE Maths 0580', 'Additional Maths 0606', 'IGCSE Physics 0625', 'IGCSE Chemistry 0620', 'IGCSE Biology 0610', 'A Level Maths 9709', 'A Level Physics 9702', 'A Level Chemistry 9701', 'A Level Biology 9700'] },
+  { name: 'Pearson Edexcel International', quals: 'International GCSE · International A Level', codes: ['Maths A 4MA1', 'Physics 4PH1', 'Chemistry 4CH1', 'Biology 4BI1', 'IAL Maths, Physics & Chemistry'] },
+  { name: 'AQA & OCR (UK GCSE / A Level)', quals: 'GCSE · AS & A Level', codes: ['AQA GCSE Maths 8300', 'AQA A Level Maths 7357', 'OCR GCSE Maths J560', 'OCR A Level Maths A H240'] },
+  { name: 'International Baccalaureate (IB)', quals: 'MYP · Diploma Programme (SL & HL)', codes: ['Maths: Analysis & Approaches', 'Maths: Applications & Interpretation', 'Physics', 'Chemistry', 'Biology', 'Economics'] },
+  { name: 'American Curriculum', quals: 'High school · AP · SAT', codes: ['AP Calculus AB', 'AP Calculus BC', 'AP Physics 1', 'AP Physics C', 'AP Chemistry', 'Digital SAT'] },
+  { name: 'CBSE', quals: 'Class 9 – 12', note: 'Indian curriculum Maths, Physics, Chemistry and Biology for CBSE schools in Dubai, Sharjah and Abu Dhabi, including Class 10 and Class 12 board exam preparation.' },
+  { name: 'CISCE (ICSE & ISC)', quals: 'ICSE Class 10 · ISC Class 12', note: 'Maths and science tutoring for ICSE and ISC students, with board exam practice.' },
+];
+
 const WHATSAPP_LINK = `https://wa.me/923009508592?text=${encodeURIComponent("Hi XPM Tutors! I'm in the UAE and would like to know more about online tutoring.")}`;
 
 const UAELandingPage: React.FC = () => {
@@ -26,9 +37,9 @@ const UAELandingPage: React.FC = () => {
                 Online <span className="text-emerald-600">GCSE, IGCSE & IB</span> Tutors in Dubai & the UAE
               </h1>
               
-              <h2 className="text-lg sm:text-xl text-slate-600 mb-10 lg:mb-12 max-w-xl mx-auto lg:mx-0 leading-relaxed font-medium">
-                One-to-one online tutoring for students at British, IB and international schools in Dubai, Abu Dhabi, Sharjah and across the UAE. GCSE, IGCSE, IB Diploma and A Level, scheduled around UAE school hours.
-              </h2>
+              <p className="text-lg sm:text-xl text-slate-600 mb-10 lg:mb-12 max-w-xl mx-auto lg:mx-0 leading-relaxed font-medium">
+                One-to-one online tutoring for British, IB, American and Indian curriculum schools in Dubai, Abu Dhabi, Sharjah and across the UAE: Cambridge and Edexcel IGCSE, GCSE, A Level, IB, AP, CBSE and ICSE, scheduled around UAE school hours.
+              </p>
 
               <div className="flex flex-col sm:flex-row justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4 mb-12 lg:mb-0">
                 <a 
@@ -71,6 +82,13 @@ const UAELandingPage: React.FC = () => {
         </div>
       </section>
 
+      <ExamBoards
+        heading="Every Board Taught in UAE Schools"
+        intro="Whichever curriculum your school follows, your tutor works from your exact syllabus, past papers and mark schemes."
+        boards={UAE_BOARDS}
+        accent={{ border: 'border-emerald-100 hover:border-emerald-400 transition', badge: 'bg-emerald-50 text-emerald-700' }}
+      />
+
       {/* Curriculum Section */}
       <section className="py-16 lg:py-24 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -82,7 +100,7 @@ const UAELandingPage: React.FC = () => {
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {['GCSE (British Curriculum)', 'IGCSE', 'IB Diploma Programme', 'Cambridge O & A Levels', 'CBSE', 'ICSE', 'American Curriculum'].map((curriculum) => (
+            {['GCSE (British Curriculum)', 'IGCSE', 'IB MYP & Diploma Programme', 'Cambridge O & A Levels', 'Edexcel International A Level', 'CBSE', 'ICSE & ISC', 'American Curriculum & AP'].map((curriculum) => (
               <div key={curriculum} className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition border-l-4 border-emerald-600">
                 <h3 className="text-xl font-black text-slate-900 mb-2">{curriculum}</h3>
                 <p className="text-slate-600 text-sm">Online one-to-one tutoring for {curriculum} students in the UAE</p>
@@ -132,7 +150,7 @@ const UAELandingPage: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               { level: 'Sciences', subjects: ['Physics', 'Chemistry', 'Biology', 'Science'] },
-              { level: 'Mathematics', subjects: ['Maths', 'Further Maths', 'Statistics', 'Calculus'] },
+              { level: 'Mathematics', subjects: ['Maths', 'Additional Maths', 'Further Maths', 'Statistics', 'AP & University Calculus'] },
               { level: 'Humanities', subjects: ['English', 'History', 'Geography', 'Economics'] }
             ].map((category, idx) => (
               <div key={idx} className="bg-white rounded-3xl p-8 shadow-xl">
@@ -156,8 +174,9 @@ const UAELandingPage: React.FC = () => {
         board="UAE"
         heading="Book a Free Trial Session"
         phonePlaceholder="+971 50 123 4567"
-        level={{ label: 'Curriculum', options: ['GCSE', 'IGCSE', 'IB Diploma', 'A Level', 'CBSE / ICSE', 'American', 'Other'], defaultValue: 'GCSE' }}
+        level={{ label: 'Curriculum', options: ['IGCSE', 'GCSE', 'A Level / IAL', 'IB MYP', 'IB Diploma', 'American / AP', 'CBSE', 'ICSE / ISC', 'University', 'Other'], defaultValue: 'IGCSE' }}
         detail={{ label: 'Year / Grade', options: ['Year 9 / Grade 8', 'Year 10 / Grade 9', 'Year 11 / Grade 10', 'Year 12 / Grade 11', 'Year 13 / Grade 12', 'Other'], defaultValue: 'Year 10 / Grade 9' }}
+        extra={{ label: 'Exam board', options: ['Cambridge International', 'Pearson Edexcel', 'AQA', 'OCR', 'IB', 'College Board (AP)', 'CBSE', 'CISCE', 'Not sure'], defaultValue: 'Cambridge International' }}
         askSubject
         theme={{
           section: 'bg-gradient-to-br from-emerald-600 to-emerald-800',
@@ -187,6 +206,9 @@ const UAELandingPage: React.FC = () => {
               </li>
             ))}
           </ul>
+          <p className="text-center text-slate-600 mb-8">
+            At university in the UAE or abroad? See our <Link to="/online-calculus-tutors" className="text-emerald-700 font-bold hover:underline">online calculus tutors for engineering students</Link>.
+          </p>
           <div className="text-center">
             <Link 
               to="/ae/blog"
